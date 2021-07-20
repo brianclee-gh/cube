@@ -1,0 +1,44 @@
+{
+  "name": "fec",
+  "version": "1.0.0",
+  "description": "## Goals Project Catwalk comprises a complete redesign of the retail portal, intended to address this concern and modernize the site. A Front End Capstone Project for Galvanize SEI RFP-54",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "dev:react": "webpack --config ./webpack.config.js --mode development -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianclee-gh/RFP54-FEC.git"
+  },
+  "keywords": [],
+  "author": "Hack Reactor Team Aphrodite",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianclee-gh/RFP54-FEC/issues"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "morgan": "^1.10.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "jquery": "^3.5.1",
+    "underscore": "^1.12.0",
+    "moment": "^2.29.1",
+    "bootstrap": "^3.3.7"
+  },
+  "homepage": "https://github.com/brianclee-gh/RFP54-FEC#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "nodemon": "^2.0.6",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.3.0"
+  }
+}
