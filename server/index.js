@@ -13,8 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use('/', router);
 
-app.use(express.static(__dirname + '/../client/dist'));
+app.use(express.static(`${__dirname}/../client/dist`));
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`listening on port ${PORT}`);
 });

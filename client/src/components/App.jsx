@@ -3,6 +3,7 @@ import React from 'react';
 import './App.css';
 
 import Related from './related/Related.jsx';
+// import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
 
 function App() {
 //   const [products, setProducts] = useState([]);
@@ -13,8 +14,9 @@ function App() {
   return (
     <div>
       <h1>Project Catwalk</h1>
-      {/* <Overview products={products} /> */}
+      {/* <Overview /> */}
       <Related />
+      {/* <ReviewsAndRatings /> */}
     </div>
   );
 }
