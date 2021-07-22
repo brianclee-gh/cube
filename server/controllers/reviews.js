@@ -2,7 +2,7 @@ const axios = require('axios');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
-  getReview(req, res) {
+  getReview: (req, res) => {
     // get productId from req.body
     axios.get(`${ATELIER_URL}/reviews`, {
       headers: {
@@ -18,6 +18,21 @@ module.exports = {
       .catch((err) => {
         console.log(err);
         res.send('error');
+        res.end();
+      });
+  },
+  getReviewMeta: (req, res) => {
+    const { product_id } = req.query;
+    const url = `${ATELIER_URL}/reviews/meta/?product_id=${product_id}`;
+    axios.get(url, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
         res.end();
       });
   },
