@@ -9,4 +9,5 @@ router.get('/products/:product_id/styles', controller.products.getStyles);
 
 // router.get('/reviews', controller.reviews.post);
 
+router.get('/reviews/meta', controller.reviews.getReviewMeta);
 module.exports = router;
