@@ -1,36 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { GITHUB_KEY, ATELIER_URL } from '../../../config';
-// connect to related products and ratings/review
+import { GITHUB_KEY } from '../../../config';
 
-// create Context
-export const AtilierContext = React.createContext();
+const ProductsContext = React.createContext(null);
 
-const ProductsProvider = ({ children }) => {
-  const {
-    setRelatedProductsIds, setRelatedProducts, setProductStyles
-  } = useContext(RelatedProductsContext);
+const ProductsContextProvider = ({ children }) => {
+  const [products, setProducts] = useState(['test']);
+  const [currentProduct, setCurrentProduct] = useState(['test']);
+  const [productStyle, setProductStyle] = useState(['test']);
+  const [relatedProducts, setRelatedProducts] = useState(['test']);
 
-  const options = {
-    headers: { Authorization: GITHUB_KEY },
-  };
+  // const options = {
+  //   headers: { Authorization: GITHUB_KEY },
+  // };
 
   const getProducts = async () => {
     const products = await axios.get('/products');
     return products;
   };
 
-  const getProduct = async (productId) => {
-    const product = await axios.get(`${ATELIER_URL}products/${productId}`, options);
-    const styles = await axios.get(`${ATELIER_URL}products/${productId}/styles`, options);
-    return [product, styles];
+  const getProductInfo = async (productId) => {
+    const product = await axios.get(`/products/${productId}`);
+    setCurrentProduct(product);
+  };
+
+  const getProductStyles = async (productId) => {
+    const styles = await axios.get(`/products/${productId}/styles`);
+    return styles;
   };
 
   const getRelatedProducts = async (productId) => {
-    const relatedProductsIds = await axios.get(`${ATELIER_URL}products/${productId}/related`, options);
+    const relatedProductsIds = await axios.get(`products/${productId}/related`);
     const relatedProducts = await Promise.all(
       relatedProductsIds.map(async (id) => {
-        const product = await getProduct(id);
+        const product = await getProductInfo(id);
         return product;
       }),
     );
@@ -38,16 +41,21 @@ const ProductsProvider = ({ children }) => {
   };
 
   return (
-    <AtilierContext.ProductsProvider
+    <ProductsContext.Provider
       value={{
+        products,
+        currentProduct,
+        productStyle,
+        relatedProducts,
         getProducts,
-        getProduct,
+        getProductInfo,
         getRelatedProducts,
+        getProductStyles,
       }}
     >
       { children }
-    </AtilierContext.ProductsProvider>
+    </ProductsContext.Provider>
   );
 };
 
-export default ProductsProvider;
+export default ProductsContextProvider;
