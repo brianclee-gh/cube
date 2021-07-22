@@ -1,26 +1,27 @@
+/* eslint-disable no-console */
 const axios = require('axios');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
-module.exports = {
-  getReview(req, res) {
-    // get productId from req.body
-    axios.get(`${ATELIER_URL}/reviews`, {
-      headers: {
-        Authorization: GITHUB_KEY,
-      },
-      sort: 'newest',
-      product_id: '',
+const getReview = (req, res) => {
+  // get productId from req.body
+  axios.get(`${ATELIER_URL}/reviews/`, {
+    headers: { Authorization: GITHUB_KEY },
+    product_id: req.param,
+  })
+    .then((data) => {
+      res.send(data);
+      res.end();
     })
-      .then((data) => {
-        res.send(data);
-        res.end();
-      })
-      .catch((err) => {
-        console.log(err);
-        res.send('error');
-        res.end();
-      });
-  },
+    .catch((err) => {
+      console.log(err);
+      res.send('error');
+      res.end();
+    });
+};
+
+module.exports = {
+  // eslint-disable-next-line object-shorthand
+  getReviews: getReview,
 };
 
 // axios.get('/reviews');

@@ -7,5 +7,6 @@ router.get('/products', controller.products.getProducts);
 // router.get('/qa', controller.qa.get);
 
 // router.get('/reviews', controller.reviews.post);
+router.get('/reviews', controller.reviews.getReviews);
 
 module.exports = router;
