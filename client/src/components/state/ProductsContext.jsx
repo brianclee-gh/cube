@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
 import { GITHUB_KEY, ATELIER_URL } from '../../../config';
-// import GH key from config
 // connect to related products and ratings/review
 
 // create Context
@@ -17,7 +16,7 @@ const ProductsProvider = ({ children }) => {
   };
 
   const getProducts = async () => {
-    const products = await axios.get(`${ATELIER_URL}products`, options);
+    const products = await axios.get('/products');
     return products;
   };
 

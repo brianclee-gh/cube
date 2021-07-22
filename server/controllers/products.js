@@ -1,9 +1,34 @@
 const axios = require('axios');
+const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
-  get() {
-    axios.get('/products');
-    // do something here.
+  getProducts: (req, res) => {
+    axios.get(`${ATELIER_URL}/products`, {
+      headers: { Authorization: GITHUB_KEY },
+      page: 2,
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+  getProduct: (req, res) => {
+    axios.get(`${ATELIER_URL}/products/:product_id`, {
+      headers: { Authorization: GITHUB_KEY },
+      product_id: 17067,
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
   },
 };
 
@@ -22,11 +47,11 @@ module.exports = {
 //   "default_price": "140"
 // },
 
-axios.get('/products:product_id');
-// returns all product level info for specific product id
+// axios.get('/products:product_id');
+// // returns all product level info for specific product id
 
-axios.get('/products/:product_id/styles');
-// photos, skus
+// axios.get('/products/:product_id/styles');
+// // photos, skus
 
-axios.get('/products/:product_id/related');
+// axios.get('/products/:product_id/related');
 // returns [product_ids] of products related to specified product

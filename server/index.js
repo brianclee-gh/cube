@@ -1,17 +1,20 @@
 const express = require('express');
 const morgan = require('morgan');
-// const router = require('routes.js');
+const router = require('./routes');
 
 // import db connection here
 
 const app = express();
+module.exports.app = app;
+
 const PORT = 3000;
+app.set('port', PORT);
 
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use('/', router);
+app.use('/', router);
 
 app.use(express.static(`${__dirname}/../client/dist`));
 

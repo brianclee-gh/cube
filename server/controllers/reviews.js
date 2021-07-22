@@ -1,18 +1,34 @@
 const axios = require('axios');
+const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
-  get() {
-    axios.get('/reviews');
-    // do something here.
+  getReview(req, res) {
+    // get productId from req.body
+    axios.get(`${ATELIER_URL}/reviews`, {
+      headers: {
+        Authorization: GITHUB_KEY,
+      },
+      sort: 'newest',
+      product_id: '',
+    })
+      .then((data) => {
+        res.send(data);
+        res.end();
+      })
+      .catch((err) => {
+        console.log(err);
+        res.send('error');
+        res.end();
+      });
   },
 };
 
-axios.get('/reviews');
+// axios.get('/reviews');
 // parameters
 //  page(INT) selects page to return, default is 1
 //  count(INT) specifies results per page to return, default is 5
 //  sort(TEXT) changes sort order based on: 'newest', 'helpful', relevant
 //  product_id(INT) specifies product to retrieve
 
-axios.get('/reviews/meta');
+// axios.get('/reviews/meta');
 // returns review metadata for product_id parameter

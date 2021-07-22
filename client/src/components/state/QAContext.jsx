@@ -5,23 +5,16 @@ import { GITHUB_KEY, ATELIER_URL } from '../../../config';
 // connect to related products and ratings/review
 
 // create Context
-export const QAProvider = React.createContext();
+export const QAContext = React.createContext();
 
-const QAProvider = ({ children }) => {
+const QAProvider = ({ children }) => (
+  <QAContext.QAProvider
+    value={{
 
-  const options = {
-    headers: { Authorization: GITHUB_KEY },
-  };
-
-  return (
-    <QAProvider.ProductsProvider
-      value={{
-
-      }}
-    >
-      { children }
-    </QAProvider.ProductsProvider>
-  );
-};
+    }}
+  >
+    { children }
+  </QAContext.QAProvider>
+);
 
 export default QAProvider;
