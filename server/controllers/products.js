@@ -1,4 +1,6 @@
-axios.get('/products')
+const axios = require('axios');
+
+axios.get('/products');
 // retrieves list of products
 // parameters:
 //  page (INT) selects page of results to return, default is 1
@@ -14,11 +16,11 @@ axios.get('/products')
 //   "default_price": "140"
 // },
 
-axios.get('/products:product_id')
+axios.get('/products:product_id');
 // returns all product level info for specific product id
 
-axios.get('/products/:product_id/styles')
+axios.get('/products/:product_id/styles');
 // photos, skus
 
-axios.get('/products/:product_id/related')
+axios.get('/products/:product_id/related');
 // returns [product_ids] of products related to specified product

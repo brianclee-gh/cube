@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React from 'react';
 // import './App.css';
 
 function Related() {
+  // const [outfit, setOutfit] = useState([]);
 
-  const [outfit, setOutfit] = useState([]);
-
-    return (
-      <div className="related-products-section">
-        {/* Related Products Component */}
-        {/* Your Outfit Component */}
-      </div>
-    )
+  return (
+    <div className="related-products-section">
+      {/* Related Products Component */}
+      {/* Your Outfit Component */}
+    </div>
+  );
 }
 
-export default Related
+export default Related;
