@@ -20,17 +20,21 @@ const ProductsProvider = ({ children }) => {
     return products;
   };
 
-  const getProduct = async (productId) => {
-    const product = await axios.get(`${ATELIER_URL}products/${productId}`, options);
-    const styles = await axios.get(`${ATELIER_URL}products/${productId}/styles`, options);
-    return [product, styles];
+  const getProductInfo = async (productId) => {
+    const product = await axios.get(`/products/${productId}`);
+    return product;
+  };
+
+  const getProductStyles = async (productId) => {
+    const styles = await axios.get(`/products/${productId}/styles`);
+    return styles;
   };
 
   const getRelatedProducts = async (productId) => {
-    const relatedProductsIds = await axios.get(`${ATELIER_URL}products/${productId}/related`, options);
+    const relatedProductsIds = await axios.get(`products/${productId}/related`);
     const relatedProducts = await Promise.all(
       relatedProductsIds.map(async (id) => {
-        const product = await getProduct(id);
+        const product = await getProductInfo(id);
         return product;
       }),
     );
@@ -41,8 +45,9 @@ const ProductsProvider = ({ children }) => {
     <AtilierContext.ProductsProvider
       value={{
         getProducts,
-        getProduct,
+        getProductInfo,
         getRelatedProducts,
+        getProductStyles,
       }}
     >
       { children }

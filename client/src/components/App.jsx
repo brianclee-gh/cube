@@ -8,7 +8,7 @@ import Related from './related/Related.jsx';
 
 function App() {
   const [products, setProducts] = useState([]);
-  //  const [currentProduct, setCurrentProduct] = useState(0);
+  const [currentProduct, setCurrentProduct] = useState(0);
 
   const getProducts = () => {
     axios.get('/products')
@@ -20,13 +20,33 @@ function App() {
       });
   };
 
-  // GET request to put all products into products state on Mount
+  const getProduct = (id) => {
+    axios.get(`/products/${id}`)
+      .then((data) => {
+        setCurrentProduct(data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getStyles = (id) => {
+    axios.get(`/products/${id}/styles`)
+      .then((data) => {
+        setCurrentProduct(data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   return (
     <div>
       <h1>Project Catwalk</h1>
       {/* <Overview /> */}
       <button type="button" onClick={getProducts}>Click Me</button>
+      <button type="button" onClick={() => getProduct(17070)}>Click to fetch product</button>
+      <button type="button" onClick={() => getStyles(17070)}>Click to fetch styles</button>
       <Related />
       {/* <ReviewsAndRatings /> */}
     </div>
