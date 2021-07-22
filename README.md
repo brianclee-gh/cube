@@ -8,7 +8,9 @@ A Front End Capstone Project for Galvanize SEI RFP-54
 Fork and clone this repo then run:
 
 `npm install` in both root and /client folders
+
 `npm run dev:react` in root to run webpack in the client
+
 `npm start` in root to start the server, default listening on port 3000
 
 ## Technology Used
