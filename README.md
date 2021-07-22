@@ -16,7 +16,7 @@ Fork and clone this repo then run:
 
 - Front-end: ReactJS, Babel, Webpack
 
-- CSS Framework: Bootstrap
+- CSS Framework: CSS
 
 - Server: ExpressJS
 
