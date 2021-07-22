@@ -4,9 +4,10 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 const getReview = (req, res) => {
   // get productId from req.body
-  axios.get(`${ATELIER_URL}/reviews/`, {
+  const { product_id } = req.params;
+  const url = `${ATELIER_URL}/review/${product_id}`;
+  axios.get(url, {
     headers: { Authorization: GITHUB_KEY },
-    product_id: req.param,
   })
     .then((data) => {
       res.send(data);
