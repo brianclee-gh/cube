@@ -1,19 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { GITHUB_KEY, ATELIER_URL } from '../../../config';
-// connect to related products and ratings/review
+import { GITHUB_KEY } from '../../../config';
 
-// create Context
-export const AtilierContext = React.createContext();
+const ProductsContext = React.createContext(null);
 
-const ProductsProvider = ({ children }) => {
-  const {
-    setRelatedProductsIds, setRelatedProducts, setProductStyles
-  } = useContext(RelatedProductsContext);
+const ProductsContextProvider = ({ children }) => {
+  const [products, setProducts] = useState(['test']);
+  const [currentProduct, setCurrentProduct] = useState(['test']);
+  const [productStyle, setProductStyle] = useState(['test']);
+  const [relatedProducts, setRelatedProducts] = useState(['test']);
 
-  const options = {
-    headers: { Authorization: GITHUB_KEY },
-  };
+  // const options = {
+  //   headers: { Authorization: GITHUB_KEY },
+  // };
 
   const getProducts = async () => {
     const products = await axios.get('/products');
@@ -22,7 +21,7 @@ const ProductsProvider = ({ children }) => {
 
   const getProductInfo = async (productId) => {
     const product = await axios.get(`/products/${productId}`);
-    return product;
+    setCurrentProduct(product);
   };
 
   const getProductStyles = async (productId) => {
@@ -42,8 +41,12 @@ const ProductsProvider = ({ children }) => {
   };
 
   return (
-    <AtilierContext.ProductsProvider
+    <ProductsContext.Provider
       value={{
+        products,
+        currentProduct,
+        productStyle,
+        relatedProducts,
         getProducts,
         getProductInfo,
         getRelatedProducts,
@@ -51,8 +54,8 @@ const ProductsProvider = ({ children }) => {
       }}
     >
       { children }
-    </AtilierContext.ProductsProvider>
+    </ProductsContext.Provider>
   );
 };
 
-export default ProductsProvider;
+export default ProductsContextProvider;
