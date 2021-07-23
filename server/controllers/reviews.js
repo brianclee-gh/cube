@@ -1,19 +1,21 @@
-/* eslint-disable camelcase */
+/* eslint-disable no-console */
 const axios = require('axios');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
-  getReview: (req, res) => {
+  // eslint-disable-next-line object-shorthand
+  getReviews: (req, res) => {
     // get productId from req.body
-    axios.get(`${ATELIER_URL}/reviews`, {
-      headers: {
-        Authorization: GITHUB_KEY,
-      },
-      sort: 'newest',
-      product_id: '',
+    // eslint-disable-next-line camelcase
+    const { product_id, page } = req.query;
+    // const count = '2';
+    // eslint-disable-next-line camelcase
+    const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=2&page=${page}`;
+    axios.get(url, {
+      headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
-        res.send(data);
+        res.send(data.data);
         res.end();
       })
       .catch((err) => {
@@ -22,6 +24,7 @@ module.exports = {
         res.end();
       });
   },
+
   getReviewMeta: (req, res) => {
     const { product_id } = req.query;
     const url = `${ATELIER_URL}/reviews/meta/?product_id=${product_id}`;
