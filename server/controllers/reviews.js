@@ -5,12 +5,13 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 const getReview = (req, res) => {
   // get productId from req.body
   // eslint-disable-next-line camelcase
-  const product_id = '17070';
-  const count = '2';
+  const { product_id, page, count } = req.query;
+  // const count = '2';
   // eslint-disable-next-line camelcase
-  const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=${count}`;
+  const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=${count}&page=${page}`;
   axios.get(url, {
     headers: { Authorization: GITHUB_KEY },
+    // page: '3',
   })
     .then((data) => {
       res.send(data.data);
