@@ -14,17 +14,15 @@ Fork and clone this repo then run:
 `npm start` in root to start the server, default listening on port 3000
 
 ## Technology Used
-- Dependencies: yarn / npm
+- Dependencies: npm
 
-- Linter: ESLint
+- Linter: ESLint using AirBNB style guide
 
 - Front-end: ReactJS, Babel, Webpack
 
 - CSS Framework: CSS
 
 - Server: ExpressJS
-
-- Primary DB: PostGres / Knex
 
 - Unit Testing: Jest
 
