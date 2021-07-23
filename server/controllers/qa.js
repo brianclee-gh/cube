@@ -4,8 +4,10 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
   getQuestions: (req, res) => {
-    const { product_id } = req.params;
-    const url = `${ATELIER_URL}/qa/questions?product_id=${product_id}`;
+    let { product_id, page, count } = req.query;
+    page = page || 1;
+    count = count || 5;
+    const url = `${ATELIER_URL}/qa/questions?product_id=${product_id}&page=${page}&count=${count}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })
