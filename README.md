@@ -7,7 +7,11 @@ A Front End Capstone Project for Galvanize SEI RFP-54
 ## Installation
 Fork and clone this repo then run:
 
-`npm install` | `npm start`
+`npm install` in both root and /client folders
+
+`npm run dev:react` in root to run webpack in the client
+
+`npm start` in root to start the server, default listening on port 3000
 
 ## Technology Used
 - Dependencies: yarn / npm
@@ -22,7 +26,9 @@ Fork and clone this repo then run:
 
 - Primary DB: PostGres / Knex
 
-- Unit Testing: Enzyme
+- Unit Testing: Jest
+
+- Integration Testing: Enzyme
 
 - End to End Testing: Puppeteer
 
