@@ -8,7 +8,8 @@ router.get('/products/:product_id/styles', controller.products.getStyles);
 
 // Q&A:
 router.get('/qa/questions', controller.qa.getQuestions);
-// router.get('/qa/questions/:product_id')
+router.get('/qa/questions/:question_id/answers', controller.qa.getAnswers);
+// 153103 - question_id for 17072
 
 // Reviews & Ratings:
 // router.get('/reviews', controller.reviews.post);
