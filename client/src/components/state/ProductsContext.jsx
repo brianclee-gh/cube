@@ -1,61 +1,52 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import axios from 'axios';
-import { GITHUB_KEY } from '../../../config';
 
-const ProductsContext = React.createContext(null);
+export const ProductsContext = createContext(null);
 
-const ProductsContextProvider = ({ children }) => {
-  const [products, setProducts] = useState(['test']);
-  const [currentProduct, setCurrentProduct] = useState(['test']);
-  const [productStyle, setProductStyle] = useState(['test']);
-  const [relatedProducts, setRelatedProducts] = useState(['test']);
-
-  // const options = {
-  //   headers: { Authorization: GITHUB_KEY },
-  // };
+// eslint-disable-next-line react/prop-types
+export const ProductsProvider = ({ children }) => {
+  const [products, setProducts] = useState(null); // Maybe Overview
+  const [currentProduct, setCurrentProduct] = useState(null); // All 4
+  const [currentStyle, setCurrentStyle] = useState(null); // Only Overview and Related
 
   const getProducts = async () => {
-    const products = await axios.get('/products');
-    return products;
+    try {
+      const fetchedProducts = await axios.get('/products');
+      setProducts(fetchedProducts.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
-  const getProductInfo = async (productId) => {
-    const product = await axios.get(`/products/${productId}`);
-    setCurrentProduct(product);
+  const getCurrentProduct = async (id) => {
+    try {
+      const fetchedProduct = await axios.get(`/products/${id}`);
+      setCurrentProduct(fetchedProduct.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
-  const getProductStyles = async (productId) => {
-    const styles = await axios.get(`/products/${productId}/styles`);
-    return styles;
-  };
-
-  const getRelatedProducts = async (productId) => {
-    const relatedProductsIds = await axios.get(`products/${productId}/related`);
-    const relatedProducts = await Promise.all(
-      relatedProductsIds.map(async (id) => {
-        const product = await getProductInfo(id);
-        return product;
-      }),
-    );
-    return relatedProducts;
+  const getCurrentStyle = async (id) => {
+    try {
+      const fetchedStyle = await axios.get(`/products/${id}/styles`);
+      setCurrentStyle(fetchedStyle.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
-    <ProductsContext.Provider
-      value={{
-        products,
-        currentProduct,
-        productStyle,
-        relatedProducts,
-        getProducts,
-        getProductInfo,
-        getRelatedProducts,
-        getProductStyles,
-      }}
+    <ProductsContext.Provider value={{
+      products,
+      getProducts,
+      currentProduct,
+      getCurrentProduct,
+      currentStyle,
+      getCurrentStyle,
+    }}
     >
-      { children }
+      {children}
     </ProductsContext.Provider>
   );
 };
-
-export default ProductsContextProvider;

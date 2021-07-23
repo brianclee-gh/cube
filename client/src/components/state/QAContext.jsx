@@ -1,20 +1,36 @@
-import React, { useContext } from 'react';
-import axios from 'axios';
-import { GITHUB_KEY, ATELIER_URL } from '../../../config';
-// import GH key from config
-// connect to related products and ratings/review
+// export default QAProvider;
+// import React, { createContext, useState } from 'react';
+// import axios from 'axios';
 
-// create Context
-export const QAContext = React.createContext();
+// export const QAContext = createContext(null);
 
-const QAProvider = ({ children }) => (
-  <QAContext.QAProvider
-    value={{
+// // eslint-disable-next-line react/prop-types
+// export const QAProvider = ({ children }) => {
+//   const [products, setProducts] = useState(['lol']);
+//   const [currentProduct, setCurrentProduct] = useState(null);
+//   const [currentStyle, setCurrentStyle] = useState([]);
 
-    }}
-  >
-    { children }
-  </QAContext.QAProvider>
-);
+//   const getProducts = async () => {
+//     const fetchedProducts = await axios.get('/products');
+//     setProducts(fetchedProducts.data);
+//   };
 
-export default QAProvider;
+//   const getCurrentProduct = async (id) => {
+//     const fetchedProduct = await axios.get(`/products/${id}`);
+//     setCurrentProduct(fetchedProduct.data);
+//   };
+
+//   const getCurrentStyle = async (id) => {
+//     const fetchedStyle = await axios.get(`/products/${id}/styles`);
+//     setCurrentStyle(fetchedStyle.data);
+//   };
+
+//   return (
+//     <QAContext.Provider value={{
+
+//     }}
+//     >
+//       {children}
+//     </QAContext.Provider>
+//   );
+// };
