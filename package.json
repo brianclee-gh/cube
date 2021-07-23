@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js",
-    "dev:react": "webpack --config ./webpack.config.js --mode development -w",
+    "dev:react": "cd client && npm run build",
     "test": "jest"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-test-renderer": "^17.0.2",
     "underscore": "^1.12.0"
   },
   "homepage": "https://github.com/brianclee-gh/RFP54-FEC#readme",
@@ -36,6 +37,7 @@
     "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "@babel/preset-react": "^7.12.10",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "eslint": "^7.31.0",
     "eslint-config-airbnb": "^18.2.1",
