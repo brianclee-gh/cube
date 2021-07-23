@@ -13,8 +13,8 @@ function Related() {
   const getRelatedProducts = async (productId) => {
     const relatedProductsIds = await axios.get(`products/${productId}/related`);
     const fetchedProducts = await Promise.all(
-      relatedProductsIds.map(async (id) => {
-        const product = await getCurrentProduct(id);
+      relatedProductsIds.data.map(async (id) => {
+        const product = await axios.get(`/products/${id}`);
         return product;
       }),
     );
