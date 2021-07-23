@@ -63,6 +63,21 @@ module.exports = {
         res.end();
       });
   },
+  getRelatedProducts: (req, res) => {
+    const { product_id } = req.params;
+    const url = `${ATELIER_URL}/products/${product_id}/related`;
+    axios.get(url, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
 };
 
 // axios.get('/products/:product_id/related');
