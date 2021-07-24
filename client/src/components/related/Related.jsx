@@ -18,6 +18,7 @@ function Related() {
   const getRelatedProducts = async () => {
     if (!currentProduct) { return; }
     const productId = currentProduct.id;
+
     const relatedProductsIds = await axios.get(`products/${productId}/related`);
     const fetchedProducts = await Promise.all(
       relatedProductsIds.data.map(async (id) => {
