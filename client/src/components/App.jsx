@@ -3,7 +3,9 @@ import React from 'react';
 import './App.css';
 
 // import ProductsContextProvider from './state/ProductsContext.jsx';
-import { GlobalProvider } from './state/GlobalContext.jsx';
+// import { GlobalProvider } from './state/GlobalContext.jsx';
+import { ProductsProvider } from './state/ProductsContext.jsx';
+import { ReviewsProvider } from './state/ReviewsContext.jsx';
 
 import Related from './related/Related.jsx';
 // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
@@ -16,9 +18,11 @@ function App() {
       {/* Related */}
       {/* QA */}
       {/* <ReviewsAndRatings /> */}
-      <GlobalProvider>
-        <Related />
-      </GlobalProvider>
+      <ProductsProvider>
+        <ReviewsProvider>
+          <Related />
+        </ReviewsProvider>
+      </ProductsProvider>
     </div>
   );
 }

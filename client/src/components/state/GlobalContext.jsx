@@ -5,23 +5,35 @@ export const GlobalContext = createContext(null);
 
 // eslint-disable-next-line react/prop-types
 export const GlobalProvider = ({ children }) => {
-  const [products, setProducts] = useState(['lol']);
-  const [currentProduct, setCurrentProduct] = useState(null);
-  const [currentStyle, setCurrentStyle] = useState([]);
+  const [products, setProducts] = useState(null); // Maybe Overview
+  const [currentProduct, setCurrentProduct] = useState(null); // All 4
+  const [currentStyle, setCurrentStyle] = useState(null); // Only Overview and Related
 
   const getProducts = async () => {
-    const fetchedProducts = await axios.get('/products');
-    setProducts(fetchedProducts.data);
+    try {
+      const fetchedProducts = await axios.get('/products');
+      setProducts(fetchedProducts.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const getCurrentProduct = async (id) => {
-    const fetchedProduct = await axios.get(`/products/${id}`);
-    setCurrentProduct(fetchedProduct.data);
+    try {
+      const fetchedProduct = await axios.get(`/products/${id}`);
+      setCurrentProduct(fetchedProduct.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   const getCurrentStyle = async (id) => {
-    const fetchedStyle = await axios.get(`/products/${id}/styles`);
-    setCurrentStyle(fetchedStyle.data);
+    try {
+      const fetchedStyle = await axios.get(`/products/${id}/styles`);
+      setCurrentStyle(fetchedStyle.data);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
