@@ -4,8 +4,30 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
   getQuestions: (req, res) => {
-    const { product_id } = req.query;
-    const url = `${ATELIER_URL}/qa/questions/?product_id=${product_id}`;
+    // eslint-disable-next-line prefer-const
+    let { product_id, page, count } = req.query;
+    page = page || 1;
+    count = count || 5;
+    const url = `${ATELIER_URL}/qa/questions?product_id=${product_id}&page=${page}&count=${count}`;
+    axios.get(url, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+
+  getAnswers: (req, res) => {
+    const { question_id } = req.params;
+    let { page, count } = req.query;
+    page = page || 1;
+    count = count || 5;
+    const url = `${ATELIER_URL}/qa/questions/${question_id}/answers/?page=${page}&count=${count}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })
