@@ -6,6 +6,7 @@ import './App.css';
 import { GlobalProvider } from './state/GlobalContext.jsx';
 
 import Related from './related/Related.jsx';
+import Review from './reviews/ReviewsAndRatings.jsx';
 // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
 
 function App() {
@@ -15,9 +16,9 @@ function App() {
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
-      {/* <ReviewsAndRatings /> */}
       <GlobalProvider>
         <Related />
+        <Review />
       </GlobalProvider>
     </div>
   );
