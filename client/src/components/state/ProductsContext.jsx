@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const ProductsContext = createContext(null);
@@ -35,6 +35,10 @@ export const ProductsProvider = ({ children }) => {
       console.error(e);
     }
   };
+
+  useEffect(() => {
+    getCurrentProduct(17078);
+  }, []);
 
   return (
     <ProductsContext.Provider value={{
