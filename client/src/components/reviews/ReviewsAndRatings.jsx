@@ -7,7 +7,7 @@ function ReviewsAndRatings() {
   return (
     <div>
       <Rate />
-      <MetaRate rates={4.5} />
+      <MetaRate />
     </div>
   );
 }
