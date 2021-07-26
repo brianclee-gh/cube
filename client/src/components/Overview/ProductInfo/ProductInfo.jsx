@@ -1,9 +1,11 @@
+/* eslint-disable import/extensions */
 import React, { useState } from 'react';
 import './ProductInfo.css';
 // eslint-disable-next-line import/extensions
 import Styles from './Styles.jsx';
 // eslint-disable-next-line react/prop-types
 // eslint-disable-next-line no-unused-vars
+import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
 
 function ProductInfo({currentProduct, currentStyle}) {
   const productStyles = currentStyle.results;
@@ -16,7 +18,8 @@ function ProductInfo({currentProduct, currentStyle}) {
   // current Style Title
   const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
   // current Image Array
-
+  // Star Component Rating
+  const averageRating = 3.5;
   // UPDATE PRICE CLICK HANDLER
   const updateCurrent = (style) => {
     if (style.sale_price !== null) {
@@ -31,6 +34,7 @@ function ProductInfo({currentProduct, currentStyle}) {
   return (
     <div className="Product-InfoAll">
       <div className="Product-Info-Top">
+        <StarRating score={averageRating} />
         <h3>{currentProduct.category}</h3>
         <h2>{currentProduct.name}</h2>
         <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
