@@ -1,0 +1,27 @@
+.Product-Info-Top {
+  border: 1px solid black;
+}
+
+.Product-Info-Mid {
+  display: grid;
+  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-rows: 50px 100px 100px;
+  column-gap: 5px;
+  row-gap: 5px;
+  grid-template-areas:
+  "title title title title"
+  "img img img img"
+  "img img img img";
+}
+.Style-Selection {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position:50% 50%;
+  border-radius: 50%;
+  grid-area: "img";
+}
+
+.Style-Title {
+  grid-area: title;
+}
