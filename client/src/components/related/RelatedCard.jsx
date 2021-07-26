@@ -2,6 +2,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
+import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function RelatedCard({
   product,
@@ -19,15 +20,15 @@ function RelatedCard({
       totalRatings += parseInt(ratings[key], 10) * parseInt(key, 10);
     });
     const calculatedRating = (totalRatings / totalReviews).toFixed(2);
-    const starRating = (Math.round(calculatedRating * 4) / 4).toFixed(2);
-    return starRating;
+    return (Math.round(calculatedRating * 4) / 4).toFixed(2);
+    // return starRating;
   };
 
   return (
     <li className="related-card-container">
-      <div tabIndex="0" role="button" onClick={() => handleCardClick(product.id)} onKeyDown={() => {}}>
+      <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, product.id)} onKeyDown={() => {}}>
         {/* Card Upper: Image w/ Star icon */}
-        { styles
+        { styles && meta
           ? (
             <>
               <div className="related-image-container">
@@ -55,7 +56,7 @@ function RelatedCard({
                       </span>
                     )
                     : <span className="related-product-price">{styles.results[0].original_price}</span>}
-                  <span className="related-product-stars">{getStars(meta)}</span>
+                  <span className="related-product-stars">{starRating(getStars(meta))}</span>
                   {/* { styles.results[0].name } */}
                   {/* placeholder for STARS */}
                 </div>

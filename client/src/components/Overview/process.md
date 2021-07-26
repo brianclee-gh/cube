@@ -23,6 +23,17 @@
         - Button for 'like'
 
     - Product Info (Component)
-      - store price, skus, quantity, size,
-        - to pass to cart section
-      -Click handler in ProductInfo component pass to styles to update price/sku.quantity/size
+      - Store Style Index #
+        - When clicking the style
+          - needs to store skus object in product info state
+          - needs to send image array to Main
+    [x]   -Onclick to update Current Selected Syle
+             - Updates Price
+                -Sets original and sale price if sale price isn't null
+                  - conditional strikethrough on price if sale exists
+                  - sale price becomes red if exists
+             - sets current style product skus in product info state for Cart to use
+             - sets style title based on selected style
+     [] - Read (#) of Reviews Component
+            - speak with edrick about the star component
+            - implement it based on average reviews for current product selected

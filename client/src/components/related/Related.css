@@ -40,6 +40,17 @@
   border: none;
   margin-top: 0.5rem;
   margin-right: 0.5rem;
+  font-size: 20px;
+  color: yellow;
+  cursor: pointer;
+}
+
+.related-action-btn svg {
+  pointer-events: none;
+}
+
+.related-action-btn:hover {
+  opacity: 0.8;
 }
 
 .related-image-container {
@@ -78,4 +89,9 @@
 .related-original-price {
   text-decoration: line-through;
   color: red;
+}
+
+.related-product-stars div {
+  position: relative;
+  font-size: 12px;
 }

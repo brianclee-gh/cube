@@ -55,8 +55,12 @@ function Related() {
     return Promise.all([fetchedProducts, fetchedStyles, fetchedMeta]);
   };
 
-  const handleCardClick = (id) => {
-    getCurrentProduct(id);
+  const handleCardClick = (target, id) => {
+    if (target.classList.contains('related-action-btn')) {
+      console.log('open modal', id, currentProduct.name);
+    } else {
+      getCurrentProduct(id);
+    }
   };
 
   useEffect(() => {
