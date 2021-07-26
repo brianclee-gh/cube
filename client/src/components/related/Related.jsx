@@ -26,10 +26,9 @@ function Related() {
     return fetchedIds.data;
   };
 
-  const getMetaData = async () => {
-    if (!currentProduct) { return; }
-    const productId = currentProduct.id;
-    getReviewMetaData(productId);
+  const getMetaData = async (productId) => {
+    const fetchedMetaData = await axios.get(`/reviews/meta/?product_id=${productId}`);
+    return fetchedMetaData.data;
   };
 
   const getRelatedData = async (ids) => {
