@@ -8,6 +8,7 @@ const star = () => (
     <input type="radio" name="star" id="rate3" /><label for="rate3" />
     <input type="radio" name="star" id="rate4" /><label for="rate4" />
     <input type="radio" name="star" id="rate5" /><label for="rate5" />
+    
   </div>
 );
 
