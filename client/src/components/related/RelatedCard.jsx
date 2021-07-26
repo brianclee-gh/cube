@@ -4,6 +4,7 @@ import React from 'react';
 function RelatedCard({
   product, styles, meta, handleCardClick,
 }) {
+  // testetesttest
   const getStars = (metaData) => { // gives us both number rating and star rating, rounded to nearest 0.25
     if (!metaData) { return null; }
     const { ratings } = metaData;
