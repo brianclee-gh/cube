@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       <h1>Project Catwalk</h1>
-      {/* <Main /> */}
+      <Main />
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}

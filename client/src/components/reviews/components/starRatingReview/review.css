@@ -1,14 +1,7 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .rating {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotateY(180deg);
+  transform: translate(-70%, -70%) rotateY(180deg);
   display: flex;
+  font-size: 30px;
 }
 
 .rating input {
@@ -18,15 +11,13 @@ body {
 .rating label {
   display: block;
   cursor: pointer;
-  width: 50px;
+  width: 30px;
 }
 
 .rating label:before {
   content: '\f005';
   font-family: fontAwesome;
-  position: relative;
   display: block;
-  font-size: 50px;
   color: #101010;
 }
 
@@ -35,7 +26,6 @@ body {
   font-family: "fontAwesome";
   position: absolute;
   display: block;
-  font-size: 50px;
   color: #f9f921;
   top: 0;
   opacity: 0;

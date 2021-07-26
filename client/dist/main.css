@@ -48,17 +48,10 @@ h1{
 /*!*****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/reviews/components/starRatingReview/review.css ***!
   \*****************************************************************************************************************/
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .rating {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotateY(180deg);
+  transform: translate(-70%, -70%) rotateY(180deg);
   display: flex;
+  font-size: 30px;
 }
 
 .rating input {
@@ -68,15 +61,13 @@ body {
 .rating label {
   display: block;
   cursor: pointer;
-  width: 50px;
+  width: 30px;
 }
 
 .rating label:before {
   content: '\f005';
   font-family: fontAwesome;
-  position: relative;
   display: block;
-  font-size: 50px;
   color: #101010;
 }
 
@@ -85,7 +76,6 @@ body {
   font-family: "fontAwesome";
   position: absolute;
   display: block;
-  font-size: 50px;
   color: #f9f921;
   top: 0;
   opacity: 0;
@@ -100,18 +90,10 @@ body {
 /*!**************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/components/reviews/components/averageReview/review.css ***!
   \**************************************************************************************************************/
-body {
-  margin: 0;
-  padding: 0;
-}
-
 .starRating {
   display: flex;
   position: absolute;
-  font-size: 50px;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 20px;
 }
 
 .star1 {
