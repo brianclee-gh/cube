@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 const axios = require('axios');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');

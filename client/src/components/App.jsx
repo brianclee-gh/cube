@@ -10,10 +10,14 @@ import { ReviewsProvider } from './state/ReviewsContext.jsx';
 import Related from './related/Related.jsx';
 // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
 
+import Main from './Overview/Main/Main.jsx';
+// import OverView Component
+
 function App() {
   return (
     <div>
       <h1>Project Catwalk</h1>
+      <Main />
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
