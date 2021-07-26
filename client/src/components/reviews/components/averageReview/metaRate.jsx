@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './review.css';
 
-const starRating = () => {
-  const rate = 4.5;
+const starRating = ({score}) => {
+  const rate = score;
   // const [ratings, setRatings] = useState();
 
   const first = (test) => {
