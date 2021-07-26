@@ -18,17 +18,17 @@ function App() {
   return (
     <div>
       <h1>Project Catwalk</h1>
-      <Main />
+      {/* <Main /> */}
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
       {/* <ReviewsAndRatings /> */}
       <Review />
-      {/* <ProductsProvider>
+      <ProductsProvider>
         <ReviewsProvider>
           <Related />
         </ReviewsProvider>
-      </ProductsProvider> */}
+      </ProductsProvider>
     </div>
   );
 }
