@@ -1,10 +1,10 @@
 /* eslint-disable import/extensions */
-import React, { useEffect, useContext } from 'react';
+import React from 'react';
 import './App.css';
 
 // import ProductsContextProvider from './state/ProductsContext.jsx';
 // import { GlobalProvider } from './state/GlobalContext.jsx';
-import { ProductsProvider, ProductsContext } from './state/ProductsContext.jsx';
+import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
 
 import Related from './related/Related.jsx';
