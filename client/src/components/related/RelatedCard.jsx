@@ -4,8 +4,7 @@ import React from 'react';
 function RelatedCard({
   product, styles, meta, handleCardClick,
 }) {
-  // testetesttest
-  const getStars = (metaData) => { // gives us both number rating and star rating, rounded to nearest 0.25
+  const getStars = (metaData) => {
     if (!metaData) { return null; }
     const { ratings } = metaData;
     let totalReviews = 0;
@@ -27,7 +26,7 @@ function RelatedCard({
           ? (
             <>
               <div className="related-image-container">
-                <img className="related-product-img" src={styles.results[0].photos[0].url} alt="product" />
+                <img className="related-product-img" src={styles.results[0].photos[0].thumbnail_url} alt="product" />
               </div>
               <div className="related-card-info-container">
                 <div className="related-card-info">
@@ -37,7 +36,16 @@ function RelatedCard({
                     {' '}
                   </span>
                   <span className="related-product-name">{ product.name }</span>
-                  <span className="related-product-price">{ styles.results[0].original_price }</span>
+                  { styles.results[0].sale_price
+                    ? (
+                      <span className="related-product-price">
+                        {styles.results[0].sale_price}
+                        <span className="related-original-price">
+                          {styles.results[0].original_price }
+                        </span>
+                      </span>
+                    )
+                    : <span className="related-product-price">{styles.results[0].original_price}</span>}
                   <span className="related-product-stars">{getStars(meta)}</span>
                   {/* { styles.results[0].name } */}
                   {/* placeholder for STARS */}

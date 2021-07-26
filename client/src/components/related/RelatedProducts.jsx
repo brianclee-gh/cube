@@ -3,13 +3,16 @@ import React from 'react';
 // eslint-disable-next-line import/extensions
 import RelatedCard from './RelatedCard.jsx';
 
-function RelatedProducts({ relatedProducts, relatedStyles, relatedMeta, handleCardClick }) {
+function RelatedProducts({
+  relatedProducts, relatedStyles, relatedMeta, handleCardClick,
+}) {
   return (
     <div className="related-products-container">
-      <h2>YOU MIGHT LIKE...</h2>
+      <h2>YOU MAY LIKE...</h2>
       <ul>
         { relatedProducts.length > 0 ? relatedProducts.map((product) => (
           <RelatedCard
+            key={product.id}
             meta={
               relatedMeta.find((meta) => parseInt(meta.product_id, 10) === product.id)
             }

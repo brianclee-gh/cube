@@ -9,8 +9,8 @@
 - [ ] Product information
   - [x] Product category
   - [x] Product name
-  - [ ] Price, derived from default style
-    - [ ] Needs to reflect sale prices (red, strike through)
+  - [x] Price, derived from default style
+    - [x] Needs to reflect sale prices (red, strike through)
   - [ ] Star rating
     - [x] Calculate star rating
     - [ ] 5 stars, filled in rounded to nearest 1/4
