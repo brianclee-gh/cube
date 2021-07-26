@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Style({style}) {
+function Style({style, price}) {
   return (
     <>
-      <img className="Style-Selection" src={style.photos[0].thumbnail_url} alt="" />
+      <img className="Style-Selection" src={style.photos[0].thumbnail_url} alt="" onClick={price}/>
     </>
   );
 }

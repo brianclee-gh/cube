@@ -25,3 +25,11 @@
 .Style-Title {
   grid-area: title;
 }
+
+.isSale {
+  text-decoration: line-through;
+}
+
+.salePrice {
+  color: red;
+}

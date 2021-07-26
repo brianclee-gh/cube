@@ -23,6 +23,9 @@
         - Button for 'like'
 
     - Product Info (Component)
-      - store price, skus, quantity, size,
-        - to pass to cart section
-      -Click handler in ProductInfo component pass to styles to update price/sku.quantity/size
+      - Store Style Index #
+        - When clicking the style
+          - needs to store skus object in product info state
+          - needs to send image array to Main
+    [x]    - needs to update price on productInfo State  (original + sale)
+             - Added onClick to set current price to sale if exists else original, added conditional className if there is a sale strikethrough original, list sale as red color
