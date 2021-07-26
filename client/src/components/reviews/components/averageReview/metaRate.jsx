@@ -96,11 +96,11 @@ const changeWidth5 = {
 
 const starRating = () => (
   <div className="starRating">
-    <span class="star1 fa fa-star" style={changeWidth1}></span>
-    <span class="star2 fa fa-star" style={changeWidth2}></span>
-    <span class="star3 fa fa-star" style={changeWidth3}></span>
-    <span class="star4 fa fa-star" style={changeWidth4}></span>
-    <span class="star5 fa fa-star" style={changeWidth5}></span>
+    <span className="star1 fa fa-star" style={changeWidth1}></span>
+    <span className="star2 fa fa-star" style={changeWidth2}></span>
+    <span className="star3 fa fa-star" style={changeWidth3}></span>
+    <span className="star4 fa fa-star" style={changeWidth4}></span>
+    <span className="star5 fa fa-star" style={changeWidth5}></span>
   </div>
 );
 
