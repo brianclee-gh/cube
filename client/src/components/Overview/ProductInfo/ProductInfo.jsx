@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './ProductInfo.css';
 // eslint-disable-next-line import/extensions
 import Styles from './Styles.jsx';
@@ -7,22 +7,27 @@ import Styles from './Styles.jsx';
 
 function ProductInfo({currentProduct, currentStyle}) {
   const productStyles = currentStyle.results;
-  //current style price
+  // current style price
   const [currentPrice, setCurrentPrice] = useState(productStyles[0].original_price);
   const [salePrice, setSalePrice] = useState();
-  // current SKU
+  // current SKU Stores Quantity and Sizes
+  const [currentSku, setCurrentSku] = useState(productStyles[0].skus);
+
+  // current Style Title
+  const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
   // current Image Array
 
   // UPDATE PRICE CLICK HANDLER
-  const updatePrice = (style) => {
+  const updateCurrent = (style) => {
     if (style.sale_price !== null) {
       setSalePrice(style.sale_price);
     } else {
       setSalePrice();
       setCurrentPrice(style.original_price);
     }
+    setCurrentSku(style.skus);
+    setCurrentStyleTitle(style.name);
   };
-
   return (
     <div className="Product-InfoAll">
       <div className="Product-Info-Top">
@@ -33,13 +38,13 @@ function ProductInfo({currentProduct, currentStyle}) {
       </div>
       <div className="Product-Info-Mid">
         <div className="Style-Title">
-          Style &gt;
-          {productStyles[0].name}
+          STYLE &gt;
+          {currentStyleTitle}
         </div>
         {productStyles.map((style, index) => (
           <Styles style={style}
             key={productStyles[index].style_id}
-            price={() => { updatePrice(style); }}
+            current={() => { updateCurrent(style); }}
           />
         ))}
       </div>

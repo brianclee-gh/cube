@@ -27,5 +27,13 @@
         - When clicking the style
           - needs to store skus object in product info state
           - needs to send image array to Main
-    [x]    - needs to update price on productInfo State  (original + sale)
-             - Added onClick to set current price to sale if exists else original, added conditional className if there is a sale strikethrough original, list sale as red color
+    [x]   -Onclick to update Current Selected Syle
+             - Updates Price
+                -Sets original and sale price if sale price isn't null
+                  - conditional strikethrough on price if sale exists
+                  - sale price becomes red if exists
+             - sets current style product skus in product info state for Cart to use
+             - sets style title based on selected style
+     [] - Read (#) of Reviews Component
+            - speak with edrick about the star component
+            - implement it based on average reviews for current product selected
