@@ -24,7 +24,7 @@ function App() {
       {/* <ReviewsAndRatings /> */}
       <ProductsProvider>
         <ReviewsProvider>
-          {/* <Related /> */}
+          <Related />
         </ReviewsProvider>
       </ProductsProvider>
     </div>

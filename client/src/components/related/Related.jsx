@@ -17,6 +17,7 @@ function Related() {
   const { getReviewMetaData, ratings, getRatings } = useContext(ReviewsContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedStyles, setRelatedStyles] = useState([]);
+  const [relatedMeta, setRelatedMeta] = useState([]);
   // const [relatedIds, setRelatedIds] = useState([]);
 
   const getRelatedProductsIds = async () => {
@@ -45,7 +46,17 @@ function Related() {
         return style.data;
       }),
     );
-    return Promise.all([fetchedProducts, fetchedStyles]);
+    const fetchedMeta = await Promise.all(
+      ids.map(async (id) => {
+        const meta = await axios.get(`/reviews/meta/?product_id=${id}`);
+        return meta.data;
+      }),
+    );
+    return Promise.all([fetchedProducts, fetchedStyles, fetchedMeta]);
+  };
+
+  const handleCardClick = (id) => {
+    console.log(id);
   };
 
   useEffect(() => {
@@ -56,6 +67,7 @@ function Related() {
             if (fetchedData) {
               setRelatedProducts(fetchedData[0]);
               setRelatedStyles(fetchedData[1]);
+              setRelatedMeta(fetchedData[2]);
             }
           })
           .catch((err) => console.log(err));
@@ -68,6 +80,8 @@ function Related() {
       <RelatedProducts
         relatedStyles={relatedStyles}
         relatedProducts={relatedProducts}
+        handleCardClick={handleCardClick}
+        relatedMeta={relatedMeta}
       />
       <YourOutfit />
       <button type="button" onClick={getProducts}>Get Products</button>

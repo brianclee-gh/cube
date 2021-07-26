@@ -5,16 +5,18 @@
   - Custom list created by user of products which user has grouped into an outfit
 
 ## Related Product Cards
-- [ ] Clickable, navigates to detail page of that product
+- [x] Clickable, navigates to detail page of that product
 - [ ] Product information
-  - [ ] Product category
-  - [ ] Product name
+  - [x] Product category
+  - [x] Product name
   - [ ] Price, derived from default style
     - [ ] Needs to reflect sale prices (red, strike through)
   - [ ] Star rating
+    - [x] Calculate star rating
     - [ ] 5 stars, filled in rounded to nearest 1/4
   - [ ] Product preview image
-    - [ ] Default to primary image
+    - [x] Default to primary image
+    - [ ] Use Image CDN to resize images for loading
   - [ ] Action button
 - [ ] List behavior
   - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
@@ -28,7 +30,7 @@
   - [ ] Does the star component correctly reflect its rating?
 
 ## Related Products List
-- [ ] User interactions will NOT modify this list
+- [x] User interactions will NOT modify this list
 - [ ] Action button
   - [ ] Star icon
   - [ ] Opens a comparison modal
