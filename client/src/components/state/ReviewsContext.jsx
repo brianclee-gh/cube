@@ -41,6 +41,9 @@ export const ReviewsProvider = ({ children }) => {
     setRatings({ calculatedRating, starRating });
   };
 
+  // when currentProduct changes...
+  // update reviews, styles, metadata, etc... maybe useEffect?
+
   // const addReview = async (review) => {
   //   const {
   //     // eslint-disable-next-line camelcase
