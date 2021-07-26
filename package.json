@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-stars": "^2.2.5",
     "react-test-renderer": "^17.0.2",
     "underscore": "^1.12.0"
   },

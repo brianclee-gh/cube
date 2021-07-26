@@ -8,6 +8,7 @@ import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
 
 import Related from './related/Related.jsx';
+import Review from './reviews/ReviewsAndRatings.jsx';
 // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
 
 import Main from './Overview/Main/Main.jsx';
@@ -22,6 +23,7 @@ function App() {
       {/* Related */}
       {/* QA */}
       {/* <ReviewsAndRatings /> */}
+      <Review />
       <ProductsProvider>
         <ReviewsProvider>
           {/* <Related /> */}

@@ -1,0 +1,85 @@
+.starRating {
+  display: flex;
+  position: absolute;
+  font-size: 20px;
+}
+
+.star1 {
+  display: inline-block;
+  position: relative;
+}
+
+.star2 {
+  display: inline-block;
+  position: relative;
+}
+
+.star3 {
+  display: inline-block;
+  position: relative;
+}
+
+.star4 {
+  display: inline-block;
+  position: relative;
+}
+
+.star5 {
+  display: inline-block;
+  position: relative;
+}
+
+.star1:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--width);
+  overflow: hidden;
+  color: #9f9f9f;
+}
+
+.star2:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--width);
+  overflow: hidden;
+  color: #9f9f9f;
+}
+
+.star3:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--width);
+  overflow: hidden;
+  color: #9f9f9f;
+}
+
+.star4:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--width);
+  overflow: hidden;
+  color: #9f9f9f;
+}
+
+.star5:after {
+  font-family: FontAwesome;
+  content: "\f005";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--width);
+  overflow: hidden;
+  color: #9f9f9f;
+}
