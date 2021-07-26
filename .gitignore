@@ -1,2 +1,5 @@
 node_modules
 config.js
+client/dist/index.bundle.js
+index.html
+main.css
