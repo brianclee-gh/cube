@@ -399,7 +399,62 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ \"./src/components/App.css\");\n/* harmony import */ var _state_ProductsContext_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./state/ProductsContext.jsx */ \"./src/components/state/ProductsContext.jsx\");\n/* harmony import */ var _state_ReviewsContext_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./state/ReviewsContext.jsx */ \"./src/components/state/ReviewsContext.jsx\");\n/* harmony import */ var _related_Related_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./related/Related.jsx */ \"./src/components/related/Related.jsx\");\n/* eslint-disable import/extensions */\n\n // import ProductsContextProvider from './state/ProductsContext.jsx';\n// import { GlobalProvider } from './state/GlobalContext.jsx';\n\n\n\n // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';\n\nfunction App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"Project Catwalk\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_state_ProductsContext_jsx__WEBPACK_IMPORTED_MODULE_2__.ProductsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_state_ReviewsContext_jsx__WEBPACK_IMPORTED_MODULE_3__.ReviewsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_related_Related_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null))));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://react-webpack/./src/components/App.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.css */ \"./src/components/App.css\");\n/* harmony import */ var _state_ProductsContext_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./state/ProductsContext.jsx */ \"./src/components/state/ProductsContext.jsx\");\n/* harmony import */ var _state_ReviewsContext_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./state/ReviewsContext.jsx */ \"./src/components/state/ReviewsContext.jsx\");\n/* harmony import */ var _related_Related_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./related/Related.jsx */ \"./src/components/related/Related.jsx\");\n/* harmony import */ var _Overview_Main_Main_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Overview/Main/Main.jsx */ \"./src/components/Overview/Main/Main.jsx\");\n/* eslint-disable import/extensions */\n\n // import ProductsContextProvider from './state/ProductsContext.jsx';\n// import { GlobalProvider } from './state/GlobalContext.jsx';\n\n\n\n // import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';\n\n // import OverView Component\n\nfunction App() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h1\", null, \"Project Catwalk\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Overview_Main_Main_jsx__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_state_ProductsContext_jsx__WEBPACK_IMPORTED_MODULE_2__.ProductsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_state_ReviewsContext_jsx__WEBPACK_IMPORTED_MODULE_3__.ReviewsProvider, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_related_Related_jsx__WEBPACK_IMPORTED_MODULE_4__.default, null))));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);\n\n//# sourceURL=webpack://react-webpack/./src/components/App.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Overview/Description/Description.jsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Overview/Description/Description.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction Description() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, \"Description\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Description);\n\n//# sourceURL=webpack://react-webpack/./src/components/Overview/Description/Description.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Overview/Image/Image.jsx":
+/*!*************************************************!*\
+  !*** ./src/components/Overview/Image/Image.jsx ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nfunction Image() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Image\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Image);\n\n//# sourceURL=webpack://react-webpack/./src/components/Overview/Image/Image.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Overview/Main/Main.jsx":
+/*!***********************************************!*\
+  !*** ./src/components/Overview/Main/Main.jsx ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Image_Image_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Image/Image.jsx */ \"./src/components/Overview/Image/Image.jsx\");\n/* harmony import */ var _ProductInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ProductInfo/ProductInfo.jsx */ \"./src/components/Overview/ProductInfo/ProductInfo.jsx\");\n/* harmony import */ var _Description_Description_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Description/Description.jsx */ \"./src/components/Overview/Description/Description.jsx\");\n/* harmony import */ var _getProductSampleData_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../getProductSampleData.js */ \"./src/components/Overview/getProductSampleData.js\");\n/* eslint-disable import/extensions */\n\n\n\n\n\n\nfunction Main() {\n  // console.log(getProductSampleData);\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", null, \"Main\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Image_Image_jsx__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ProductInfo_ProductInfo_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {\n    product: _getProductSampleData_js__WEBPACK_IMPORTED_MODULE_4__.default\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Description_Description_jsx__WEBPACK_IMPORTED_MODULE_3__.default, null));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Main);\n\n//# sourceURL=webpack://react-webpack/./src/components/Overview/Main/Main.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Overview/ProductInfo/ProductInfo.jsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Overview/ProductInfo/ProductInfo.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n // eslint-disable-next-line react/prop-types\n// eslint-disable-next-line no-unused-vars\n\nfunction ProductInfo() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h3\", null, \"Product Info\"));\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductInfo);\n\n//# sourceURL=webpack://react-webpack/./src/components/Overview/ProductInfo/ProductInfo.jsx?");
+
+/***/ }),
+
+/***/ "./src/components/Overview/getProductSampleData.js":
+/*!*********************************************************!*\
+  !*** ./src/components/Overview/getProductSampleData.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar getProductSampleData = {\n  id: 17067,\n  campus: 'hr-rfp',\n  name: 'Camo Onesie',\n  slogan: 'Blend in to your crowd',\n  description: 'The So Fatigues will wake you up and fit you in. This high energy camo will have you blending in to even the wildest surroundings.',\n  category: 'Jackets',\n  default_price: '140.00',\n  created_at: '2021-02-23T04:22:44.728Z',\n  updated_at: '2021-02-23T04:22:44.728Z',\n  features: [{\n    feature: 'Fabric',\n    value: 'Canvas'\n  }, {\n    feature: 'Buttons',\n    value: 'Brass'\n  }]\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getProductSampleData);\n\n//# sourceURL=webpack://react-webpack/./src/components/Overview/getProductSampleData.js?");
 
 /***/ }),
 
