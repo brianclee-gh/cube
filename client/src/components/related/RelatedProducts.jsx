@@ -4,11 +4,16 @@ import React from 'react';
 import RelatedCard from './RelatedCard.jsx';
 
 function RelatedProducts({
-  relatedProducts, relatedStyles, relatedMeta, handleCardClick,
+  relatedProducts,
+  relatedStyles,
+  relatedMeta,
+  handleCardClick,
 }) {
   return (
     <div className="related-products-container">
-      <h2>YOU MAY LIKE...</h2>
+      <div className="related-products-header">
+        <h3>YOU MAY LIKE...</h3>
+      </div>
       <ul>
         { relatedProducts.length > 0 ? relatedProducts.map((product) => (
           <RelatedCard

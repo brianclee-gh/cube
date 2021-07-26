@@ -18,7 +18,7 @@
     - [x] Default to primary image
     - [ ] Use Image CDN to resize images for loading
   - [ ] Action button
-- [ ] List behavior
+- [ ] Carousel
   - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
   - [ ] Center list so that first product is on left hand side
   - [ ] Navigation arrows

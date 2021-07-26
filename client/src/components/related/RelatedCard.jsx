@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-regular-svg-icons';
 
 function RelatedCard({
-  product, styles, meta, handleCardClick,
+  product,
+  styles,
+  meta,
+  handleCardClick,
 }) {
   const getStars = (metaData) => {
     if (!metaData) { return null; }
@@ -26,21 +31,25 @@ function RelatedCard({
           ? (
             <>
               <div className="related-image-container">
-                <img className="related-product-img" src={styles.results[0].photos[0].thumbnail_url} alt="product" />
+                <img className="related-product-img" src={`${styles.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                <button type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faStar} /></button>
               </div>
               <div className="related-card-info-container">
                 <div className="related-card-info">
                   <span className="related-product-category">
                     {' '}
-                    { product.category }
+                    { product.category.toUpperCase() }
                     {' '}
                   </span>
                   <span className="related-product-name">{ product.name }</span>
                   { styles.results[0].sale_price
                     ? (
                       <span className="related-product-price">
+                        $
                         {styles.results[0].sale_price}
+                        {' '}
                         <span className="related-original-price">
+                          $
                           {styles.results[0].original_price }
                         </span>
                       </span>
