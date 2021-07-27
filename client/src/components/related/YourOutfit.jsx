@@ -1,11 +1,12 @@
 /* eslint-disable import/extensions */
 import React, { useState, useContext } from 'react';
-import OutfitCard from './OutfitCard.jsx';
+// import OutfitCard from './OutfitCard.jsx';
+import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
 function YourOutfit() {
   const [outfit, setOutfit] = useState({});
-  const { currentProduct } = useContext(ProductsContext);
+  const { currentProduct, currentStyle } = useContext(ProductsContext);
 
   const addToOutfit = () => {
     if (outfit[currentProduct.id]) { return null; }
@@ -26,9 +27,14 @@ function YourOutfit() {
       <div className="related-products-header">
         <h3>YOUR OUTFIT</h3>
       </div>
-      { Object.keys(outfit).length > 0
-        ? Object.keys(outfit).map((i) => <div key={outfit[i].id}>{outfit[i].name}</div>)
-        : <div role="button" data-btn="add-to-outfit" className="your-outfit-add" onClick={addToOutfit} tabIndex="-1" onKeyDown={() => {}}>+</div>}
+      { currentProduct ? (
+        <YourOutfitProducts
+          outfit={outfit}
+          addToOutfit={addToOutfit}
+          currentProduct={currentProduct}
+          currentStyle={currentStyle.results[0]}
+        />
+      ) : 'Loading'}
     </div>
   );
 }
