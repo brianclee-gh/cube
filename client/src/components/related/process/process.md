@@ -42,6 +42,7 @@
     - [ ] Display specific quality or checkmark if "true"
     - [ ] Make scrollable if too long, with product names fixed at top
   - [ ] Tests
+    - [ ] Renders correctly?
     - [ ] Is the list the same across multiple users?
     - [ ] Does it successfully display the comparison modal?
     - [ ] Does the table show successfully on the modal?
@@ -62,6 +63,7 @@
 - [ ] Persist even when navigating (ls?)
 - [ ] Action button is 'x', removes from list
 - [ ] Tests
+  - [ ] Renders correctly?
   - [ ] Does the outfit list start out empty?
   - [ ] Does adding an item successfully show in state?
   - [ ] Does removing an item from the outfit show in state?

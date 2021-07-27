@@ -36,10 +36,6 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
-  // useEffect(() => {
-  //   getCurrentProduct();
-  // }, []);
-
   return (
     <ProductsContext.Provider value={{
       products,
