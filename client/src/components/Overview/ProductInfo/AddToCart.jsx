@@ -30,6 +30,7 @@ function AddToCart({ sku }) {
   // sets size back to unselected if new style selected
   useEffect(() => {
     setSize('');
+    setCheckoutQuantity('');
   }, [sku]);
 
   // Get Available Sizes
@@ -38,13 +39,23 @@ function AddToCart({ sku }) {
       return (<option key={item} value={item}>{sku[item].size}</option>);
     }
   });
+  // Add to Cart Special Case- no Size Selected
+  const [sizeSelected, setSizeSelected] = useState(false);
+  const [cartClicked, setCartClicked] = useState(false);
 
+  const cartSubmit = () => {
+    // e.preventDefault();
+    setCartClicked(true);
+  };
   // Size On Change - stores Size in currentSize state for Submit
   const sizeValue = (event) => {
     if (event.target.value !== 'Select Size') {
       setSize(sku[event.target.value].size);
       setSelectedSku(event.target.value);
       setSizeQuantity(sku[event.target.value].quantity);
+      setSizeSelected(true);
+    } else {
+      setSizeSelected(false);
     }
   };
   // Get quantity for checkout
@@ -60,6 +71,9 @@ function AddToCart({ sku }) {
   return (
     <>
       <div className="Cart-Container">
+        {!sizeSelected && cartClicked && (
+          <span>Please select size</span>
+        )}
         {checkQuant && (
         <form>
           <select className="Size-Options" name="size" label="select-size" onChange={sizeValue}>
@@ -83,13 +97,13 @@ function AddToCart({ sku }) {
           </form>
         )}
         {!checkQuant && (
-          <form className="Size-Options">
-            <select name="size" label="select-size" defaultValue="Select Size" disabled>
+          <form>
+            <select name="size" label="select-size" defaultValue="Select Size" disabled className="Size-Options">
               <option>OUT OF STOCK</option>
             </select>
           </form>
         )}
-        {checkQuant && (<button className="add-to-cart" type="submit">Add To Cart</button>)}
+        {checkQuant && (<button onClick={() => { cartSubmit(); }} className="add-to-cart" type="submit">Add To Cart</button>)}
       </div>
     </>
   );
