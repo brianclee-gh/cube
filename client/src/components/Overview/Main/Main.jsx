@@ -9,18 +9,16 @@ import productStyleSampleData from '../productStyleSampleData.js';
 
 function Main() {
   // console.log(getProductSampleData);
-  const { currentProduct, currentStyle, getCurrentStyle, getCurrentProduct } = useContext(ProductsContext);
+  const { currentProduct, currentStyle, getData } = useContext(ProductsContext);
   // const [current, setCurrent] = useState(getProductSampleData);
   // const [currentStyle, setStyle] = useState(productStyleSampleData);
-  const [current, setCurrent] = useState();
-  const [style, setStyle] = useState();
+  // const [current, setCurrent] = useState();
+  // const [style, setStyle] = useState();
   // const [currentImages, setCurrentImages] = useState(currentStyle.results);
   // need to store style image array here, pass to image component,
   // pass a function down to update it based on style click
   useEffect(() => {
-    getCurrentStyle('17067');
-    getCurrentProduct('17067');
-    // .then(() => {setCurrent(currentProduct)});
+    getData('17067');
   }, []);
 
   return (
