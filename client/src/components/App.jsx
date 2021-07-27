@@ -17,9 +17,7 @@ function App() {
   return (
     <div>
       <Header />
-      <ProductsProvider>
-        <Main />
-      </ProductsProvider>
+      {/* <Main /> */}
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
@@ -27,7 +25,7 @@ function App() {
       {/* <Review /> */}
       <ProductsProvider>
         {/* <ReviewsProvider> */}
-        {/* <Related /> */}
+        <Related />
         {/* </ReviewsProvider> */}
       </ProductsProvider>
     </div>
