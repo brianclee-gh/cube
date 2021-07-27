@@ -37,3 +37,18 @@
      [] - Read (#) of Reviews Component
             - speak with edrick about the star component
             - implement it based on average reviews for current product selected
+
+      [x] - Add to Cart
+          - Skus are based on style selected
+          - pass sku's object to Add To Cart Component
+            - Size Drop Down First
+              - should list all available sizes that have quantity >0
+              - if no sizes have quantities - button should disappear and read 'Out of Stock'
+              - Options Buton?
+              - Default says Select Size
+             - Quantity Drop Down Second
+              - 1 to max capped at 15
+              - if Size not selected '-' will be displayed in quantity and drop down disabeled
+              - Once Size Selected drop down defaults to 1
+
+
