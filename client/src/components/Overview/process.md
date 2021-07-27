@@ -34,6 +34,34 @@
                   - sale price becomes red if exists
              - sets current style product skus in product info state for Cart to use
              - sets style title based on selected style
+
+     []        - Create Checkmark on selected style
+     []        - Toggle State of selected to show checkmark
+     []       - store currently selected in state, toggle will change active selection
+
+
      [] - Read (#) of Reviews Component
             - speak with edrick about the star component
             - implement it based on average reviews for current product selected
+
+      [] - Add to Cart
+          - Skus are based on style selected
+          - pass sku's object to Add To Cart Component
+      [x]     - Size Drop Down First
+              - should list all available sizes that have quantity >0
+      [x]       - if no sizes have quantities - button should disappear and read 'Out of Stock'
+      [x]      - Options Buton?
+      [x]      - Default says Select Size
+      [x]    - Quantity Drop Down Second
+      [x]     - 1 to max capped at 15
+      [x]    - if Size not selected '-' will be displayed in quantity and drop down disabeled
+              - Once Size Selected drop down defaults to 1
+      []   - Add to Cart Button
+              - if "select size" is selected, this button will open the size dropdown, message appear above dropdown stating "please select size"
+              -onClick handler to track this in state "boolean"
+                -if state value is true
+                - open text above button- open drop down
+
+      [x]      - if no stock this button is hidden
+              - if both valid size and quantity it will add to cart
+
