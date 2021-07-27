@@ -20,6 +20,13 @@ function ProductInfo({currentProduct, currentStyle}) {
   // current Style Title
   const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
   // current Image Array
+
+  // Set checkmark to Initial Style
+  const [isActive, setActive] = useState(productStyles[0]);
+  // sets active checkmark based on index of style selected
+  const changeActive = (index) => {
+    setActive(productStyles[index]);
+  };
   // Star Component Rating
   const averageRating = 3.5;
   // UPDATE PRICE CLICK HANDLER
@@ -51,6 +58,8 @@ function ProductInfo({currentProduct, currentStyle}) {
           <Styles style={style}
             key={productStyles[index].style_id}
             current={() => { updateCurrent(style); }}
+            isActive={isActive}
+            changeActive={() => { changeActive(index); }}
           />
         ))}
       </div>
