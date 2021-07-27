@@ -5,18 +5,20 @@
   - Custom list created by user of products which user has grouped into an outfit
 
 ## Related Product Cards
-- [ ] Clickable, navigates to detail page of that product
+- [x] Clickable, navigates to detail page of that product
 - [ ] Product information
-  - [ ] Product category
-  - [ ] Product name
-  - [ ] Price, derived from default style
-    - [ ] Needs to reflect sale prices (red, strike through)
+  - [x] Product category
+  - [x] Product name
+  - [x] Price, derived from default style
+    - [x] Needs to reflect sale prices (red, strike through)
   - [ ] Star rating
+    - [x] Calculate star rating
     - [ ] 5 stars, filled in rounded to nearest 1/4
   - [ ] Product preview image
-    - [ ] Default to primary image
+    - [x] Default to primary image
+    - [ ] Use Image CDN to resize images for loading
   - [ ] Action button
-- [ ] List behavior
+- [ ] Carousel
   - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
   - [ ] Center list so that first product is on left hand side
   - [ ] Navigation arrows
@@ -28,7 +30,7 @@
   - [ ] Does the star component correctly reflect its rating?
 
 ## Related Products List
-- [ ] User interactions will NOT modify this list
+- [x] User interactions will NOT modify this list
 - [ ] Action button
   - [ ] Star icon
   - [ ] Opens a comparison modal
@@ -40,6 +42,7 @@
     - [ ] Display specific quality or checkmark if "true"
     - [ ] Make scrollable if too long, with product names fixed at top
   - [ ] Tests
+    - [ ] Renders correctly?
     - [ ] Is the list the same across multiple users?
     - [ ] Does it successfully display the comparison modal?
     - [ ] Does the table show successfully on the modal?
@@ -60,6 +63,7 @@
 - [ ] Persist even when navigating (ls?)
 - [ ] Action button is 'x', removes from list
 - [ ] Tests
+  - [ ] Renders correctly?
   - [ ] Does the outfit list start out empty?
   - [ ] Does adding an item successfully show in state?
   - [ ] Does removing an item from the outfit show in state?

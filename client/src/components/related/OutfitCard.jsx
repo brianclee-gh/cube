@@ -1,10 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
-function RelatedCard({
+function OutfitCard({
   product,
   styles,
   meta,
@@ -21,42 +22,41 @@ function RelatedCard({
     });
     const calculatedRating = (totalRatings / totalReviews).toFixed(2);
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
-    // return starRating;
   };
 
   return (
-    <li className="related-card-container">
+    <li className="outfit-card-container">
       <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, product.id)} onKeyDown={() => {}}>
         {/* Card Upper: Image w/ Star icon */}
         { styles && meta
           ? (
             <>
-              <div className="related-image-container">
-                <img className="related-product-img" src={`${styles.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
-                <button type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faStar} /></button>
+              <div className="outfit-image-container">
+                <img className="outfit-product-img" src={`${styles.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                <button type="button" aria-label="Save" className="outfit-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
               </div>
-              <div className="related-card-info-container">
-                <div className="related-card-info">
-                  <span className="related-product-category">
+              <div className="outfit-card-info-container">
+                <div className="outfit-card-info">
+                  <span className="outfit-product-category">
                     {' '}
                     { product.category.toUpperCase() }
                     {' '}
                   </span>
-                  <span className="related-product-name">{ product.name }</span>
+                  <span className="outfit-product-name">{ product.name }</span>
                   { styles.results[0].sale_price
                     ? (
-                      <span className="related-product-price">
+                      <span className="outfit-product-price">
                         $
                         {styles.results[0].sale_price}
                         {' '}
-                        <span className="related-original-price">
+                        <span className="outfit-original-price">
                           $
                           {styles.results[0].original_price }
                         </span>
                       </span>
                     )
-                    : <span className="related-product-price">{styles.results[0].original_price}</span>}
-                  <span className="related-product-stars">{starRating(getStars(meta))}</span>
+                    : <span className="outfit-product-price">{styles.results[0].original_price}</span>}
+                  <span className="outfit-product-stars">{starRating(getStars(meta))}</span>
                   {/* { styles.results[0].name } */}
                   {/* placeholder for STARS */}
                 </div>
@@ -70,4 +70,4 @@ function RelatedCard({
   );
 }
 
-export default RelatedCard;
+export default OutfitCard;
