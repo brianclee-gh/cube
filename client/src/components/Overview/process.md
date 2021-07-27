@@ -35,9 +35,9 @@
              - sets current style product skus in product info state for Cart to use
              - sets style title based on selected style
 
-     []        - Create Checkmark on selected style
-     []        - Toggle State of selected to show checkmark
-     []       - store currently selected in state, toggle will change active selection
+     [x]        - Create Checkmark on selected style
+     [x]        - Toggle State of selected to show checkmark
+     [x]        - store currently selected in state, toggle will change active selection
 
 
      [] - Read (#) of Reviews Component
