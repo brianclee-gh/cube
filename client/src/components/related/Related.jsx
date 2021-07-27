@@ -3,7 +3,7 @@ import axios from 'axios';
 // eslint-disable-next-line import/extensions
 import { ProductsContext } from '../state/ProductsContext.jsx';
 // eslint-disable-next-line import/extensions
-import { ReviewsContext } from '../state/ReviewsContext.jsx';
+// import { ReviewsContext } from '../state/ReviewsContext.jsx';
 // eslint-disable-next-line import/extensions
 import RelatedProducts from './RelatedProducts.jsx';
 // eslint-disable-next-line import/extensions
@@ -13,10 +13,11 @@ import './Related.css';
 function Related() {
   // const [outfit, setOutfit] = useState([]);
   // const { relatedProducts, setRelatedProducts } = useContext(ProductsContext);
-  const { getProducts, currentProduct, getCurrentProduct } = useContext(ProductsContext);
-  const { getReviewMetaData, ratings, getRatings } = useContext(ReviewsContext);
+  const { currentProduct, getCurrentProduct } = useContext(ProductsContext);
+  // const { getReviewMetaData, ratings, getRatings } = useContext(ReviewsContext);
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [relatedStyles, setRelatedStyles] = useState([]);
+  const [relatedMeta, setRelatedMeta] = useState([]);
   // const [relatedIds, setRelatedIds] = useState([]);
 
   const getRelatedProductsIds = async () => {
@@ -45,8 +46,26 @@ function Related() {
         return style.data;
       }),
     );
-    return Promise.all([fetchedProducts, fetchedStyles]);
+    const fetchedMeta = await Promise.all(
+      ids.map(async (id) => {
+        const meta = await axios.get(`/reviews/meta/?product_id=${id}`);
+        return meta.data;
+      }),
+    );
+    return Promise.all([fetchedProducts, fetchedStyles, fetchedMeta]);
   };
+
+  const handleCardClick = (target, id) => {
+    if (target.classList.contains('related-action-btn')) {
+      console.log('open modal', id, currentProduct.name);
+    } else {
+      getCurrentProduct(id);
+    }
+  };
+
+  useEffect(() => {
+    getCurrentProduct('17574');
+  }, []);
 
   useEffect(() => {
     getRelatedProductsIds()
@@ -56,6 +75,7 @@ function Related() {
             if (fetchedData) {
               setRelatedProducts(fetchedData[0]);
               setRelatedStyles(fetchedData[1]);
+              setRelatedMeta(fetchedData[2]);
             }
           })
           .catch((err) => console.log(err));
@@ -68,39 +88,12 @@ function Related() {
       <RelatedProducts
         relatedStyles={relatedStyles}
         relatedProducts={relatedProducts}
+        handleCardClick={handleCardClick}
+        relatedMeta={relatedMeta}
       />
       <YourOutfit />
-      <button type="button" onClick={getProducts}>Get Products</button>
-      <button type="button" onClick={() => getCurrentProduct(17069)}>Get Current Product</button>
-      { currentProduct
-        ? (
-          <div className="related-item-card">
-            {currentProduct.name}
-          </div>
-        )
-        : 'Loading...' }
-      <button type="button" onClick={() => getRelatedProducts()}>Get Related Products</button>
-      <button type="button" onClick={() => getMetaData()}>Get Meta</button>
-      <button type="button" onClick={() => getRatings()}>Get Ratings</button>
     </div>
   );
 }
 
 export default Related;
-
-// const relatedProductsIds = await axios.get(`products/${productId}/related`);
-// const fetchedProducts = await Promise.all(
-//   relatedProductsIds.data.map(async (id) => {
-//     const product = await axios.get(`/products/${id}`);
-//     return product.data;
-//   }),
-// );
-// const fetchedStyles = await Promise.all(
-//   relatedProductsIds.data.map(async (id) => {
-//     const style = await axios.get(`/products/${id}/styles`);
-//     return style.data;
-//   }),
-// );
-// setRelatedProducts(fetchedProducts);
-// setRelatedStyles(fetchedStyles);
-// set Ratings for each...
