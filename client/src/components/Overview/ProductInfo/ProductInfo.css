@@ -34,6 +34,20 @@
   color: red;
 }
 
+.fa-check-circle {
+  font-family: fontAwesome;
+}
+.Style-Wrapper {
+  position: relative;
+}
+
+.checkmark-active {
+  /* top: 5px; */
+  left: 80px;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+}
 /*Product Info Bottom*/
 .Product-Info-Bottom {
   border: 1px solid black;
