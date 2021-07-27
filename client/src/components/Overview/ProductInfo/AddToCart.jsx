@@ -13,7 +13,7 @@ function AddToCart({ sku }) {
   // Check for no Quantity in any size
   const checkNoQuant = (skus) => {
     let total = 0;
-    for (const key in skus) {
+    for (let key in skus) {
       total += skus[key].quantity;
     }
     if (total === 0) {
@@ -43,10 +43,10 @@ function AddToCart({ sku }) {
   const [sizeSelected, setSizeSelected] = useState(false);
   const [cartClicked, setCartClicked] = useState(false);
 
-  const cartSubmit = () => {
-    // e.preventDefault();
-    setCartClicked(true);
-  };
+  // const cartSubmit = () => {
+  //   // e.preventDefault();
+  //   setCartClicked(true);
+  // };
   // Size On Change - stores Size in currentSize state for Submit
   const sizeValue = (event) => {
     if (event.target.value !== 'Select Size') {
@@ -71,9 +71,9 @@ function AddToCart({ sku }) {
   return (
     <>
       <div className="Cart-Container">
-        {!sizeSelected && cartClicked && (
+        {/* {!sizeSelected && cartClicked && (
           <span>Please select size</span>
-        )}
+        )} */}
         {checkQuant && (
         <form>
           <select className="Size-Options" name="size" label="select-size" onChange={sizeValue}>
@@ -103,7 +103,7 @@ function AddToCart({ sku }) {
             </select>
           </form>
         )}
-        {checkQuant && (<button onClick={() => { cartSubmit(); }} className="add-to-cart" type="submit">Add To Cart</button>)}
+        {checkQuant && (<button className="add-to-cart" type="submit">Add To Cart</button>)}
       </div>
     </>
   );
