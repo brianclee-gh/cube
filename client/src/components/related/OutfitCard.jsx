@@ -28,11 +28,11 @@ function OutfitCard({
     <li className="outfit-card-container">
       <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, product.id)} onKeyDown={() => {}}>
         {/* Card Upper: Image w/ Star icon */}
-        { styles && meta
+        { product
           ? (
             <>
               <div className="outfit-image-container">
-                <img className="outfit-product-img" src={`${styles.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                {/* <img className="outfit-product-img" src={`${styles.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" /> */}
                 <button type="button" aria-label="Save" className="outfit-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
               </div>
               <div className="outfit-card-info-container">
@@ -43,7 +43,8 @@ function OutfitCard({
                     {' '}
                   </span>
                   <span className="outfit-product-name">{ product.name }</span>
-                  { styles.results[0].sale_price
+                  { styles
+                    // styles.results[0].sale_price
                     ? (
                       <span className="outfit-product-price">
                         $
@@ -55,8 +56,9 @@ function OutfitCard({
                         </span>
                       </span>
                     )
-                    : <span className="outfit-product-price">{styles.results[0].original_price}</span>}
-                  <span className="outfit-product-stars">{starRating(getStars(meta))}</span>
+                    // : <span className="outfit-product-price">{styles.results[0].original_price}</span>}
+                    : '' }
+                  {/* <span className="outfit-product-stars">{starRating(getStars(meta))}</span> */}
                   {/* { styles.results[0].name } */}
                   {/* placeholder for STARS */}
                 </div>
