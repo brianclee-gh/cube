@@ -7,6 +7,8 @@ import Styles from './Styles.jsx';
 // eslint-disable-next-line no-unused-vars
 import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
 
+import AddToCart from './AddToCart.jsx';
+
 function ProductInfo({currentProduct, currentStyle}) {
   const productStyles = currentStyle.results;
   // current style price
@@ -52,7 +54,9 @@ function ProductInfo({currentProduct, currentStyle}) {
           />
         ))}
       </div>
-      <div>Add Cart Section</div>
+      <div className="Product-Info-Bottom">
+        <AddToCart sku={currentSku} />
+      </div>
     </div>
   );
 }
