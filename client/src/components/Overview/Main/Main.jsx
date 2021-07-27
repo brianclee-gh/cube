@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Image from '../Image/Image.jsx';
 import ProductInfo from '../ProductInfo/ProductInfo.jsx';
 import Description from '../Description/Description.jsx';
@@ -13,7 +13,6 @@ function Main() {
   const [currentImages, setCurrentImages] = useState(currentStyle.results);
   // need to store style image array here, pass to image component,
   // pass a function down to update it based on style click
-
   return (
     <div>
       <h2>Main</h2>
