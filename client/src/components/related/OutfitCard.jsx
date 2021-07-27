@@ -7,8 +7,6 @@ import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function OutfitCard({
   product,
-  styles,
-  meta,
   handleCardClick,
 }) {
   const getStars = (metaData) => {
@@ -27,7 +25,6 @@ function OutfitCard({
   return (
     <li className="outfit-card-container">
       <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, product.id)} onKeyDown={() => {}}>
-        {/* Card Upper: Image w/ Star icon */}
         { product
           ? (
             <>
@@ -59,10 +56,7 @@ function OutfitCard({
                     // : <span className="outfit-product-price">{styles.results[0].original_price}</span>}
                     : '' }
                   {/* <span className="outfit-product-stars">{starRating(getStars(meta))}</span> */}
-                  {/* { styles.results[0].name } */}
-                  {/* placeholder for STARS */}
                 </div>
-                {/* Card Lower: Info (Cat, Name, Price, Rating) */}
               </div>
             </>
           )

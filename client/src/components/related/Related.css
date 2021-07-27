@@ -28,16 +28,7 @@
   max-height: 680px;
 }
 
-.related-image-container
-.outfit-image-container {
-  flex: 4;
-  max-width:100%;
-  max-height:100%;
-  position: relative;
-}
-
-.related-action-btn,
-.outfit-action-btn {
+.related-action-btn {
   position: absolute;
   right: 0;
   background-color: transparent;
@@ -48,6 +39,18 @@
   color: yellow;
   cursor: pointer;
 }
+
+.related-image-container {
+  position: relative;
+  flex: 4;
+  max-width:100%;
+  max-height:100%;
+}
+
+.outfit-image-container {
+
+}
+
 
 .related-action-btn svg {
   pointer-events: none;

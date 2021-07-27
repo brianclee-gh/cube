@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
+import React from 'react';
 // eslint-disable-next-line import/extensions
 import OutfitCard from './OutfitCard.jsx';
-import { ProductsContext } from '../state/ProductsContext.jsx';
 
 function YourOutfitProducts({
   outfit,
   addToOutfit,
-  styles,
   currentProduct,
   currentStyle,
 }) {
-  // const currentProduct = useContext(ProductsContext);
   return (
     <div className="outfit-products-container">
       <ul>
