@@ -28,7 +28,7 @@ function Main() {
       {console.log(currentProduct)}
       <h2>Main</h2>
       {/* <Image images={currentImages} /> */}
-      <ProductInfo currentProduct={current} currentStyle={currentStyle} />
+      {currentProduct && currentStyle ? (<ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />) : 'Loading...'}
       <Description />
     </div>
   );
