@@ -39,7 +39,7 @@ const productStyleSampleData = {
           size: 'XS',
         },
         522041: {
-          quantity: 16,
+          quantity: 0,
           size: 'S',
         },
         522042: {
@@ -94,27 +94,27 @@ const productStyleSampleData = {
       ],
       skus: {
         522046: {
-          quantity: 8,
+          quantity: 0,
           size: 'XS',
         },
         522047: {
-          quantity: 16,
+          quantity: 0,
           size: 'S',
         },
         522048: {
-          quantity: 17,
+          quantity: 0,
           size: 'M',
         },
         522049: {
-          quantity: 10,
+          quantity: 0,
           size: 'L',
         },
         522050: {
-          quantity: 15,
+          quantity: 0,
           size: 'XL',
         },
         522051: {
-          quantity: 6,
+          quantity: 0,
           size: 'XXL',
         },
       },
