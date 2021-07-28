@@ -30,12 +30,12 @@ function App() {
         {/* <Related /> */}
 
         {/* </ReviewsProvider> */}
-      {/* </ProductsProvider> */}
-      {/* <ReviewsProvider> */}
-        {/* <ProductsProvider> */}
-          {/* <Review /> */}
-        {/* </ProductsProvider> */}
-      {/* </ReviewsProvider> */}
+      {/* </ProductsProvider>
+      <ReviewsProvider>
+        <ProductsProvider>
+          <Review />
+        </ProductsProvider>
+      </ReviewsProvider> */}
 
     </div>
   );
