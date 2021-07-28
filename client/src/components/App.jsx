@@ -21,8 +21,7 @@ function App() {
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
-      {/* <ReviewsAndRatings /> */}
-      {/* <Review /> */}
+      <Review />
       <ProductsProvider>
         {/* <ReviewsProvider> */}
         {/* <Related /> */}

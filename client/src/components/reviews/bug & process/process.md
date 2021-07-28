@@ -11,4 +11,11 @@
     [ ] receive state and update the star rating
 
 
-[ ] 
+[ ] View List
+  [ ] Display 2 tiles at a time.
+  [ ] If there are more than 2 reviews, create a button for “more reviews”
+  [ ] If there are less than 2, no button
+  [ ] Clicking button loads 2 more reviews below current 2
+  [ ] Once review becomes long, it shouldn’t extend the page but become scrollable module
+  [ ] Able to change order of reviews
+  [ ] If no reviews, show ‘submit a new review’ button on the top of the review module
