@@ -18,21 +18,31 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
-  const getCurrentProduct = async (id) => {
+  const getCurrentStyle = async (id) => {
     try {
-      const fetchedProduct = await axios.get(`/products/${id}`);
-      setCurrentProduct(fetchedProduct.data);
+      const fetchedStyle = await axios.get(`/products/${id}/styles`);
+      setCurrentStyle(fetchedStyle.data);
+      return fetchedStyle;
     } catch (e) {
       console.error(e);
     }
   };
 
-  const getCurrentStyle = async (id) => {
+  const getCurrentProduct = async (id) => {
     try {
-      const fetchedStyle = await axios.get(`/products/${id}/styles`);
-      setCurrentStyle(fetchedStyle.data);
+      const fetchedProduct = await axios.get(`/products/${id}`);
+      setCurrentProduct(fetchedProduct.data);
+      return fetchedProduct;
     } catch (e) {
       console.error(e);
+    }
+  };
+
+  const getData = async (id) => {
+    try {
+      Promise.all([getCurrentProduct(id), getCurrentStyle(id)]);
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -44,6 +54,7 @@ export const ProductsProvider = ({ children }) => {
       getCurrentProduct,
       currentStyle,
       getCurrentStyle,
+      getData,
     }}
     >
       {children}

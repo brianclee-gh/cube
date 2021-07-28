@@ -17,14 +17,16 @@ function App() {
   return (
     <div>
       <Header />
-      <Main />
+      <ProductsProvider>
+        <Main />
+      </ProductsProvider>
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
       <Review />
       <ProductsProvider>
         {/* <ReviewsProvider> */}
-        {/* <Related /> */}
+        <Related />
         {/* </ReviewsProvider> */}
       </ProductsProvider>
     </div>

@@ -4,10 +4,12 @@ import React from 'react';
 import RelatedCard from './RelatedCard.jsx';
 
 function RelatedProducts({
-  relatedProducts,
-  relatedStyles,
-  relatedMeta,
+  // relatedProducts,
+  getRelatedProductsIds,
+  // relatedStyles,
+  // relatedMeta,
   handleCardClick,
+  currentProduct,
 }) {
   return (
     <div className="related-products-container">
@@ -15,7 +17,15 @@ function RelatedProducts({
         <h3>YOU MAY LIKE...</h3>
       </div>
       <ul>
-        { relatedProducts.length > 0 ? relatedProducts.map((product) => (
+        { getRelatedProductsIds.length > 0 ? getRelatedProductsIds.map((id) => (
+          <RelatedCard
+            key={id}
+            handleCardClick={handleCardClick}
+            id={id}
+            currentProduct={currentProduct}
+          />
+        )) : 'Loading...' }
+        {/* { relatedProducts.length > 0 ? relatedProducts.map((product) => (
           <RelatedCard
             key={product.id}
             meta={
@@ -26,8 +36,10 @@ function RelatedProducts({
           }
             product={product}
             handleCardClick={handleCardClick}
+            id={product.id}
+            currentProduct={currentProduct}
           />
-        )) : 'Loading...' }
+        )) : 'Loading...' } */}
       </ul>
     </div>
   );

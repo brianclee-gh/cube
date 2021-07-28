@@ -7,6 +7,8 @@ import Styles from './Styles.jsx';
 // eslint-disable-next-line no-unused-vars
 import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
 
+import AddToCart from './AddToCart.jsx';
+
 function ProductInfo({currentProduct, currentStyle}) {
   const productStyles = currentStyle.results;
   // current style price
@@ -18,6 +20,13 @@ function ProductInfo({currentProduct, currentStyle}) {
   // current Style Title
   const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
   // current Image Array
+
+  // Set checkmark to Initial Style
+  const [isActive, setActive] = useState(productStyles[0]);
+  // sets active checkmark based on index of style selected
+  const changeActive = (index) => {
+    setActive(productStyles[index]);
+  };
   // Star Component Rating
   const averageRating = 3.5;
   // UPDATE PRICE CLICK HANDLER
@@ -49,10 +58,14 @@ function ProductInfo({currentProduct, currentStyle}) {
           <Styles style={style}
             key={productStyles[index].style_id}
             current={() => { updateCurrent(style); }}
+            isActive={isActive}
+            changeActive={() => { changeActive(index); }}
           />
         ))}
       </div>
-      <div>Add Cart Section</div>
+      <div className="Product-Info-Bottom">
+        <AddToCart sku={currentSku} />
+      </div>
     </div>
   );
 }
