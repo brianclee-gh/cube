@@ -16,17 +16,26 @@ function Main() {
   // const [currentImages, setCurrentImages] = useState(currentStyle.results);
   // need to store style image array here, pass to image component,
   // pass a function down to update it based on style click
+  const [photoArray, setPhotoArray] = useState(null);
+
   useEffect(() => {
     getData('17067');
   }, []);
 
+  // useEffect(() => {
+  //   setPhotoArray(currentStyle.results[0]);
+  // }, []);
+
   return (
     <div className="Overview-Section">
-      {console.log(currentProduct)}
       {currentProduct && currentStyle ? (
         <>
-          <Image images={currentStyle.results[0].photos} />
-          <ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />
+          <Image images={photoArray || currentStyle.results[0].photos} />
+          <ProductInfo
+            currentProduct={currentProduct}
+            currentStyle={currentStyle}
+            getPhotos={(style) => setPhotoArray(style.photos)}
+          />
         </>
       ) : 'Loading...'}
       <Description />
