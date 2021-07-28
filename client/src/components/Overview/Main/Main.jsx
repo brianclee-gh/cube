@@ -25,8 +25,12 @@ function Main() {
     <div>
       {console.log(currentProduct)}
       <h2>Main</h2>
-      {/* <Image images={currentImages} /> */}
-      {currentProduct && currentStyle ? (<ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />) : 'Loading...'}
+      {currentProduct && currentStyle ? (
+        <>
+          <Image images={currentStyle.results[0]} />
+          <ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />
+        </>
+      ) : 'Loading...'}
       <Description />
     </div>
   );
