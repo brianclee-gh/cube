@@ -43,7 +43,8 @@
      [x] - Read (#) of Reviews Component
      [x]      - speak with edrick about the star component
             - implement it based on average reviews for current product selected
-           - Create sub star component to seperate concerns
+           - use Function for calculcated star number
+            - Create sub star component to seperate concerns
             - useEffect to populate meta data based on current Id
             - render if metaData available - use function created in context to calculcate star value
             - take the total reviews to an outside varibale to be access in the anchor to reviews (once widget added to project)
@@ -71,3 +72,12 @@
       [x]      - if no stock this button is hidden
               - if both valid size and quantity it will add to cart
 
+
+       Image Component
+       [x]   - Load on default Style
+       [x]    - needs to accept the selected style image array
+       [x]   - First Photo default display
+       [x]     - Other photos as thumbnails on the left hand side
+       [x]     - on Click on thumbnails to update default display
+
+        [x]    -create active/inactive class css for thumbnail wrappers to display selection
