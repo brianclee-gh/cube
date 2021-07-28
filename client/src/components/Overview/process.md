@@ -41,8 +41,15 @@
 
 
      [] - Read (#) of Reviews Component
-            - speak with edrick about the star component
+     [x]      - speak with edrick about the star component
             - implement it based on average reviews for current product selected
+           - use Function for calculcated star number
+             - need meta data
+             - implement function with meta data
+             - set star rating in local state
+               - pass to star component
+
+
 
       [] - Add to Cart
           - Skus are based on style selected

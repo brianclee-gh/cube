@@ -31,8 +31,8 @@
 
 ## Related Products List
 - [x] User interactions will NOT modify this list
-- [ ] Action button
-  - [ ] Star icon
+- [x] Action button
+  - [x] Star icon
   - [ ] Opens a comparison modal
     - [ ] Titled "Comparing"
     - [ ] 3 column table
@@ -54,8 +54,8 @@
 - [ ] Contains products that user has selected
 - [ ] Unique to each user
 - [ ] First product
-  - [ ] Diplays a "+" icon
-  - [ ] A button that adds currently viewed product to the outfit list
+  - [x] Diplays a "+" icon
+  - [x] A button that adds currently viewed product to the outfit list (used objects)
 - [ ] By default, empty
 - [ ] Only add a specific product once
 - [ ] No max to # items
@@ -63,7 +63,7 @@
 - [ ] Persist even when navigating (ls?)
 - [ ] Action button is 'x', removes from list
 - [ ] Tests
-  - [ ] Renders correctly?
+  - [x] Renders correctly?
   - [ ] Does the outfit list start out empty?
   - [ ] Does adding an item successfully show in state?
   - [ ] Does removing an item from the outfit show in state?
