@@ -13,7 +13,7 @@ function RelatedProducts({
       <div className="related-products-header">
         <h3>YOU MAY LIKE...</h3>
       </div>
-      <Carousel>
+      <Carousel show={relatedIds.length}>
         { relatedIds.length > 0 ? relatedIds.map((id) => (
           <RelatedCard
             relatedIds={relatedIds}

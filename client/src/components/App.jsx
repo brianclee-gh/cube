@@ -16,9 +16,9 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
-          <Related />
-          {/* <Review /> */}
+          <Main />
+          {/* <Related /> */}
+          <Review />
         </ProductsProvider>
       </ReviewsProvider>
     </div>

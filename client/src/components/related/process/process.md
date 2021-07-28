@@ -33,14 +33,14 @@
 - [x] User interactions will NOT modify this list
 - [x] Action button
   - [x] Star icon
-  - [ ] Opens a comparison modal
-    - [ ] Titled "Comparing"
-    - [ ] 3 column table
-    - [ ] 1st column: product for current page
-    - [ ] 2nd column: characteristic
-    - [ ] 3rd column: compared product
-    - [ ] Display specific quality or checkmark if "true"
-    - [ ] Make scrollable if too long, with product names fixed at top
+  - [x] Opens a comparison modal
+    - [x] Titled "Comparing"
+    - [x] 3 column table
+    - [x] 1st column: product for current page
+    - [x] 2nd column: characteristic
+    - [x] 3rd column: compared product
+    - [x] Display specific quality or checkmark if "true"
+    - [x] Make scrollable if too long, with product names fixed at top
   - [ ] Tests
     - [ ] Renders correctly?
     - [ ] Is the list the same across multiple users?
