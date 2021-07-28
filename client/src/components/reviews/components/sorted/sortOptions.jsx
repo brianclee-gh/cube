@@ -3,8 +3,8 @@ import axios from 'axios';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
-import MetaRate from './viewList/metaRate.jsx';
-import ViewList from './viewList/viewList.jsx';
+import MetaRate from './viewList/metaData/metaRate.jsx';
+import ViewList from './viewList/reviewList/viewList.jsx';
 
 function sortReviews() {
   const { currentProduct, getData } = useContext(ProductsContext);
@@ -15,7 +15,7 @@ function sortReviews() {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
     const reviewProductIds = await axios.get(`/reviews/?product_id=${productId}&page=`);
-    return reviewProductIds.data;
+    return reviewProductIds.data.results;
   };
 
   const getMetaData = async () => {
@@ -36,7 +36,6 @@ function sortReviews() {
       })
       .catch((err) => console.log(err));
   }, [currentProduct]);
-  console.log(reviewData);
 
   useEffect(() => {
     getMetaData()
@@ -45,14 +44,18 @@ function sortReviews() {
       })
       .catch((err) => console.log(err));
   }, [currentProduct]);
-  console.log(reviewMeta);
+  console.log(reviewData);
 
-  return(
-    <div>
-      {/* <MetaRate />
-      <ViewList /> */}
-    </div>
-  )
+  if (currentProduct !== null) {
+    return (
+      <div>
+        {/* <MetaRate /> */}
+        <ViewList data={reviewData} />
+      </div>
+    );
+  } else {
+    return null;
+  }
 }
 
 export default sortReviews;
