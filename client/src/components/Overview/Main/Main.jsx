@@ -22,9 +22,7 @@ function Main() {
   }, []);
 
   return (
-    <div>
-      {console.log(currentProduct)}
-      <h2>Main</h2>
+    <div className="Overview-Main">
       {/* <Image images={currentImages} /> */}
       {currentProduct && currentStyle ? (<ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />) : 'Loading...'}
       <Description />

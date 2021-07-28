@@ -40,14 +40,13 @@
      [x]        - store currently selected in state, toggle will change active selection
 
 
-     [] - Read (#) of Reviews Component
+     [x] - Read (#) of Reviews Component
      [x]      - speak with edrick about the star component
             - implement it based on average reviews for current product selected
-           - use Function for calculcated star number
-             - need meta data
-             - implement function with meta data
-             - set star rating in local state
-               - pass to star component
+           - Create sub star component to seperate concerns
+            - useEffect to populate meta data based on current Id
+            - render if metaData available - use function created in context to calculcate star value
+            - take the total reviews to an outside varibale to be access in the anchor to reviews (once widget added to project)
 
 
 
