@@ -4,8 +4,7 @@ import { ProductsContext } from '../../state/ProductsContext.jsx';
 import Image from '../Image/Image.jsx';
 import ProductInfo from '../ProductInfo/ProductInfo.jsx';
 import Description from '../Description/Description.jsx';
-import getProductSampleData from '../getProductSampleData.js';
-import productStyleSampleData from '../productStyleSampleData.js';
+import './Main.css';
 
 function Main() {
   // console.log(getProductSampleData);
@@ -22,21 +21,14 @@ function Main() {
   }, []);
 
   return (
-<<<<<<< HEAD
-    <div>
+    <div className="Overview-Section">
       {console.log(currentProduct)}
-      <h2>Main</h2>
       {currentProduct && currentStyle ? (
         <>
-          <Image images={currentStyle.results[0]} />
+          <Image images={currentStyle.results[0].photos} />
           <ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />
         </>
       ) : 'Loading...'}
-=======
-    <div className="Overview-Main">
-      {/* <Image images={currentImages} /> */}
-      {currentProduct && currentStyle ? (<ProductInfo currentProduct={currentProduct} currentStyle={currentStyle} />) : 'Loading...'}
->>>>>>> main
       <Description />
     </div>
   );
