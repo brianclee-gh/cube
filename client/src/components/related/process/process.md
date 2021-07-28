@@ -6,18 +6,18 @@
 
 ## Related Product Cards
 - [x] Clickable, navigates to detail page of that product
-- [ ] Product information
+- [x] Product information
   - [x] Product category
   - [x] Product name
   - [x] Price, derived from default style
     - [x] Needs to reflect sale prices (red, strike through)
-  - [ ] Star rating
+  - [x] Star rating
     - [x] Calculate star rating
-    - [ ] 5 stars, filled in rounded to nearest 1/4
-  - [ ] Product preview image
+    - [x] 5 stars, filled in rounded to nearest 1/4
+  - [x] Product preview image
     - [x] Default to primary image
-    - [ ] Use Image CDN to resize images for loading
-  - [ ] Action button
+    - [x] Use Unsplash URL to resize images for loading
+  - [x] Action button => Modal
 - [ ] Carousel
   - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
   - [ ] Center list so that first product is on left hand side
@@ -53,9 +53,10 @@
 ## Your Outfit List
 - [ ] Contains products that user has selected
 - [ ] Unique to each user
-- [ ] First product
+- [x] First product
   - [x] Diplays a "+" icon
   - [x] A button that adds currently viewed product to the outfit list (used objects)
+  - [ ] Renders new card on new product load
 - [ ] By default, empty
 - [ ] Only add a specific product once
 - [ ] No max to # items

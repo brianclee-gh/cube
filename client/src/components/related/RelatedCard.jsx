@@ -10,7 +10,6 @@ function RelatedCard({
   relatedIds,
   handleCardClick,
   id,
-  currentProduct,
 }) {
   const [productData, setProductData] = useState({});
   const [styleData, setStyleData] = useState({});
