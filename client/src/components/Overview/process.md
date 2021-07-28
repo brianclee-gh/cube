@@ -88,4 +88,5 @@
                 if end of thumbnail list start from beginning for next button
                 if at beginning of thumbnail list start from end of thumbnail list with back button
 
-            - Link styles that come into image component to style selection in product info.
+        [x]    - Link styles that come into image component to style selection in product info.
+               - Since Image and Product Info were siblings, I had to create a function in the Parent "main" and pass this function to the child component to get the active style. When calling the function I was able to get that data similar to a callback on the parent level to pass it into local state. From there I was able to pass it down to the image component.
