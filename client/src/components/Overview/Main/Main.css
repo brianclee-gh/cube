@@ -1,0 +1,18 @@
+.Overview-Section {
+  display: grid;
+  grid-template-columns: 680px 1fr;
+  grid-template-rows: 1000px 200px;
+  column-gap: 5px;
+  row-gap: 5px;
+  grid-template-areas:
+  "Image ProductInfo"
+  "Description";
+}
+
+.Product-InfoAll {
+  grid: productInfo;
+}
+
+.Description {
+  grid: description;
+}
