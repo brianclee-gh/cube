@@ -1,5 +1,16 @@
 .Product-Info-Top {
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.star-Component-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.view-total-reviews {
+  margin-left: 50px;
+  margin-top: 5px;
 }
 
 .Product-Info-Mid {
