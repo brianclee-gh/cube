@@ -81,3 +81,11 @@
        [x]     - on Click on thumbnails to update default display
 
         [x]    -create active/inactive class css for thumbnail wrappers to display selection
+
+         [TBD]     - determine how to handle photos of different sizes (currently set a max size)
+              - Create left and right button
+          [x    - track index of currently seelected thumbnail,
+                if end of thumbnail list start from beginning for next button
+                if at beginning of thumbnail list start from end of thumbnail list with back button
+
+            - Link styles that come into image component to style selection in product info.
