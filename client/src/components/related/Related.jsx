@@ -61,6 +61,10 @@ function Related() {
     }
   };
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   useEffect(() => {
     getData('17080');
   }, []);
@@ -83,10 +87,9 @@ function Related() {
         />
       ) : ''}
       <Modal
-        currentProduct={currentProduct}
-        comparingProduct={comparing}
         modalOpen={modalOpen}
         combined={combined}
+        closeModal={closeModal}
       />
       {/* <YourOutfit /> */}
     </div>
