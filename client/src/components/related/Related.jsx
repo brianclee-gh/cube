@@ -4,11 +4,14 @@ import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import RelatedProducts from './RelatedProducts.jsx';
 import YourOutfit from './YourOutfit.jsx';
+import Modal from './Modal.jsx';
 import './Related.css';
 
 function Related() {
   const { currentProduct, getData } = useContext(ProductsContext);
   const [relatedIds, setRelatedIds] = useState(null);
+  const [comparing, setComparing] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
 
   const getRelatedProductsIds = async () => {
     if (!currentProduct) { return null; }
@@ -17,13 +20,19 @@ function Related() {
     return fetchedIds.data;
   };
 
-  const handleCardClick = (target, id) => {
+  const handleCardClick = (target, id, comparingProduct) => {
     if (target.classList.contains('related-action-btn')) {
-      console.log('open modal', id, currentProduct.name);
+      setModalOpen((current) => !current);
+      setComparing(comparingProduct);
+      // console.log('open modal', id, currentProduct.name);
     } else {
       getData(id);
     }
   };
+
+  useEffect(() => {
+    getData('17080')
+  }, [])
 
   useEffect(() => {
     getRelatedProductsIds()
@@ -42,6 +51,11 @@ function Related() {
           currentProduct={currentProduct}
         />
       ) : ''}
+      <Modal
+        currentProduct={currentProduct}
+        comparingProduct={comparing}
+        modalOpen={modalOpen}
+      />
       {/* <YourOutfit /> */}
     </div>
   );
