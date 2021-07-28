@@ -23,13 +23,18 @@ function App() {
       {/* <Overview /> */}
       {/* Related */}
       {/* QA */}
-      {/* <ReviewsAndRatings /> */}
-      {/* <Review /> */}
       <ProductsProvider>
         {/* <ReviewsProvider> */}
         <Related />
+
         {/* </ReviewsProvider> */}
       </ProductsProvider>
+      <ReviewsProvider>
+        <ProductsProvider>
+          <Review />
+        </ProductsProvider>
+      </ReviewsProvider>
+
     </div>
   );
 }
