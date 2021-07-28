@@ -5,7 +5,7 @@ import { ReviewsContext } from '../../state/ReviewsContext.jsx';
 
 function StarComponent({ productID }) {
   const { metaData, getReviewMetaData } = useContext(ReviewsContext);
-  const [productReviewTotal, setTotalReviews] = useState(0);
+
   // gives us both number rating and star rating, rounded to nearest 0.25
   let productReviews;
   const getRatings = (meta) => {
@@ -18,7 +18,6 @@ function StarComponent({ productID }) {
       totalRatings += parseInt(ratings[key], 10) * parseInt(key, 10);
     });
     const calculatedRating = (totalRatings / totalReviews).toFixed(2);
-    // setTotalReviews(totalReviews);
     productReviews = totalReviews;
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
   };
@@ -31,7 +30,7 @@ function StarComponent({ productID }) {
     <>
       {metaData ? (
         <div className="star-Component-top">
-          <StarRating score={getRatings(metaData)} />
+          <span>{StarRating((getRatings(metaData)))}</span>
           <a href='#' className="view-total-reviews">
             Read All
             {' '}
