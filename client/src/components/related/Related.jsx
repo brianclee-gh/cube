@@ -12,6 +12,7 @@ function Related() {
   const [relatedIds, setRelatedIds] = useState(null);
   const [comparing, setComparing] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const [combined, setCombined] = useState(null);
 
   const getRelatedProductsIds = async () => {
     if (!currentProduct) { return null; }
@@ -20,10 +21,40 @@ function Related() {
     return fetchedIds.data;
   };
 
+  const combineFeatures = (comparingProduct) => {
+    const combinedFeatures = {};
+    if (!comparingProduct) { return null; }
+
+    currentProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['✔️'];
+        } else {
+          combinedFeatures[product.feature] = [product.value.slice(1, product.value.length - 1)];
+        }
+      }
+    });
+
+    comparingProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['', '✔️'];
+        } else {
+          combinedFeatures[product.feature] = ['', product.value.slice(1, product.value.length - 1)];
+        }
+      } else if (product.value === null) {
+        combinedFeatures[product.feature].push('✔️');
+      } else {
+        combinedFeatures[product.feature].push(product.value.slice(1, product.value.length - 1));
+      }
+    });
+    return combinedFeatures;
+  };
+
   const handleCardClick = (target, id, comparingProduct) => {
     if (target.classList.contains('related-action-btn')) {
       setModalOpen((current) => !current);
-      setComparing(comparingProduct);
+      setCombined(combineFeatures(comparingProduct));
       // console.log('open modal', id, currentProduct.name);
     } else {
       getData(id);
@@ -31,8 +62,8 @@ function Related() {
   };
 
   useEffect(() => {
-    getData('17080')
-  }, [])
+    getData('17080');
+  }, []);
 
   useEffect(() => {
     getRelatedProductsIds()
@@ -55,6 +86,7 @@ function Related() {
         currentProduct={currentProduct}
         comparingProduct={comparing}
         modalOpen={modalOpen}
+        combined={combined}
       />
       {/* <YourOutfit /> */}
     </div>

@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
-function Modal({ currentProduct, comparingProduct, modalOpen }) {
+function Modal({ combined, modalOpen }) {
   return (
     <div className={`related-modal ${modalOpen ? '' : 'hidden'}`}>
       <h3>Comparing...</h3>
@@ -8,14 +10,20 @@ function Modal({ currentProduct, comparingProduct, modalOpen }) {
         <tbody>
           <tr>
             <th>Current</th>
-            <th>asdf</th>
+            <th>{' '}</th>
             <th>Comparing</th>
           </tr>
-          <tr>
-            <th>CurrentVal</th>
-            <th>Quality</th>
-            <th>ComparingVal</th>
-          </tr>
+          { combined ? Object.keys(combined).map((feature) => (
+            <tr key={uuidv4()}>
+              <th>{combined[feature][0]}</th>
+              <th>{feature}</th>
+              <th>{combined[feature][1]}</th>
+            </tr>
+          )) : (
+            <tr>
+              <th>Loading...</th>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

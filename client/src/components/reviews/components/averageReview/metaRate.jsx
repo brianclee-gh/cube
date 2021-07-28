@@ -2,10 +2,6 @@ import React from 'react';
 import './review.css';
 
 const starRating = (score) => {
-<<<<<<< HEAD
-  const rate = score;
-=======
->>>>>>> main
   // const [ratings, setRatings] = useState();
 
   const first = (test) => {
