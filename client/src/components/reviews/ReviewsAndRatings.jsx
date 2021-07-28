@@ -7,8 +7,8 @@ import SortList from './components/sorted/sortOptions.jsx';
 function ReviewsAndRatings() {
   return (
     <div>
-      <Rate />
-      <MetaRate />
+      {/* <Rate />
+      <MetaRate /> */}
       <SortList />
     </div>
   );

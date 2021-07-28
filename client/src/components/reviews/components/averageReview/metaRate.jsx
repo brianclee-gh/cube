@@ -2,7 +2,6 @@ import React from 'react';
 import './review.css';
 
 const starRating = (score) => {
-  const rate = 4.75;
   // const [ratings, setRatings] = useState();
 
   const first = (test) => {
@@ -66,27 +65,27 @@ const starRating = (score) => {
     return 0;
   };
 
-  const widthVar1 = `${first(rate)}%`;
+  const widthVar1 = `${first(score)}%`;
   const changeWidth1 = {
     '--width': widthVar1,
   };
 
-  const widthVar2 = `${second(rate)}%`;
+  const widthVar2 = `${second(score)}%`;
   const changeWidth2 = {
     '--width': widthVar2,
   };
 
-  const widthVar3 = `${third(rate)}%`;
+  const widthVar3 = `${third(score)}%`;
   const changeWidth3 = {
     '--width': widthVar3,
   };
 
-  const widthVar4 = `${fourth(rate)}%`;
+  const widthVar4 = `${fourth(score)}%`;
   const changeWidth4 = {
     '--width': widthVar4,
   };
 
-  const widthVar5 = `${fifth(rate)}%`;
+  const widthVar5 = `${fifth(score)}%`;
   const changeWidth5 = {
     '--width': widthVar5,
   };

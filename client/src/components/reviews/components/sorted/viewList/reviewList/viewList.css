@@ -1,0 +1,13 @@
+.reviewBodyBox{
+  margin: 5px;
+}
+
+.reviews{
+  border: 1px solid black;
+  margin-bottom: 5px;
+}
+
+.starRating {
+  position: relative;
+  font-size: 12px;
+}
