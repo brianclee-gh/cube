@@ -7,14 +7,15 @@ import axios from 'axios';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function RelatedCard({
+  relatedIds,
   handleCardClick,
   id,
-  currentProduct,
 }) {
   const [productData, setProductData] = useState({});
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
+  let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
     const { ratings } = meta;
@@ -32,26 +33,30 @@ function RelatedCard({
     const fetchedProduct = await axios.get(`/products/${id}`);
     const fetchedStyle = await axios.get(`/products/${id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${id}`);
-    return Promise.all([fetchedProduct.data, fetchedStyle.data, fetchedMeta.data]);
+    return Promise.all([
+      setProductData(fetchedProduct.data),
+      setStyleData(fetchedStyle.data),
+      setMetaData(fetchedMeta.data)]);
   };
 
   useEffect(() => {
     setLoading(true);
-    getRelatedData()
-      .then((data) => {
-        setProductData(data[0]);
-        setStyleData(data[1]);
-        setMetaData(data[2]);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setLoading(false);
-      });
-  }, [currentProduct]);
+    isMounted = true;
+    if (isMounted) {
+      getRelatedData()
+        .then((data) => {
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+        });
+    }
+    return () => { isMounted = false; };
+  }, [relatedIds]);
 
   return (
     <li className="related-card-container">
-      <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, id)} onKeyDown={() => {}}>
+      <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, id, productData)} onKeyDown={() => {}}>
         { !loading
           ? (
             <>
