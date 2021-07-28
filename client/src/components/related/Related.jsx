@@ -26,10 +26,6 @@ function Related() {
   };
 
   useEffect(() => {
-    getData('17574');
-  }, []);
-
-  useEffect(() => {
     getRelatedProductsIds()
       .then((ids) => {
         setRelatedIds(ids);
@@ -41,7 +37,7 @@ function Related() {
     <div className="related-products-section">
       { relatedIds ? (
         <RelatedProducts
-          getRelatedProductsIds={relatedIds}
+          relatedIds={relatedIds}
           handleCardClick={handleCardClick}
           currentProduct={currentProduct}
         />

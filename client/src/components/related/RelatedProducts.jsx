@@ -4,10 +4,7 @@ import React from 'react';
 import RelatedCard from './RelatedCard.jsx';
 
 function RelatedProducts({
-  // relatedProducts,
-  getRelatedProductsIds,
-  // relatedStyles,
-  // relatedMeta,
+  relatedIds,
   handleCardClick,
   currentProduct,
 }) {
@@ -17,29 +14,15 @@ function RelatedProducts({
         <h3>YOU MAY LIKE...</h3>
       </div>
       <ul>
-        { getRelatedProductsIds.length > 0 ? getRelatedProductsIds.map((id) => (
+        { relatedIds.length > 0 ? relatedIds.map((id) => (
           <RelatedCard
+            relatedIds={relatedIds}
             key={id}
             handleCardClick={handleCardClick}
             id={id}
             currentProduct={currentProduct}
           />
         )) : 'Loading...' }
-        {/* { relatedProducts.length > 0 ? relatedProducts.map((product) => (
-          <RelatedCard
-            key={product.id}
-            meta={
-              relatedMeta.find((meta) => parseInt(meta.product_id, 10) === product.id)
-            }
-            styles={
-            relatedStyles.find((style) => parseInt(style.product_id, 10) === product.id)
-          }
-            product={product}
-            handleCardClick={handleCardClick}
-            id={product.id}
-            currentProduct={currentProduct}
-          />
-        )) : 'Loading...' } */}
       </ul>
     </div>
   );
