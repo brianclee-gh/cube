@@ -1,7 +1,7 @@
 import React from 'react';
 import './review.css';
 
-const starRating = (score) => {
+const starRating = ({score}) => {
   const rate = score;
   // const [ratings, setRatings] = useState();
 
