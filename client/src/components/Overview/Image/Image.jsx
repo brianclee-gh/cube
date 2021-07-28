@@ -1,14 +1,19 @@
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import './Image.css';
 
 function Image({ images }) {
+
   const [currentImage, setCurrentImage] = useState({
     active: images[0].url,
     allImages: images,
     index: 0,
   });
+  //Watches for images prop to change
+  useEffect(() => {
+    setCurrentImage({ ...currentImage, allImages: images, index: 0, active: images[0].url});
+  }, [images]);
 
   const changeMainPhoto = (image, photoIndex) => {
     setCurrentImage({ ...currentImage, active: image, index: photoIndex });
