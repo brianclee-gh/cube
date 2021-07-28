@@ -1,0 +1,29 @@
+.Main-Image {
+  position: absolute;
+}
+
+.Thumbnail-Wrapper {
+  z-index: 10;
+  margin: 8px;
+  width: 105px;
+  height: 105px;
+}
+
+.Image-Component {
+  grid: Image;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.Thumbnail-Photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position:50% 50%;
+  border: 1px solid black;
+}
+
+.selectActive {
+  background-color: yellow;
+}
