@@ -35,14 +35,21 @@
              - sets current style product skus in product info state for Cart to use
              - sets style title based on selected style
 
-     []        - Create Checkmark on selected style
-     []        - Toggle State of selected to show checkmark
-     []       - store currently selected in state, toggle will change active selection
+     [x]        - Create Checkmark on selected style
+     [x]        - Toggle State of selected to show checkmark
+     [x]        - store currently selected in state, toggle will change active selection
 
 
      [] - Read (#) of Reviews Component
-            - speak with edrick about the star component
+     [x]      - speak with edrick about the star component
             - implement it based on average reviews for current product selected
+           - use Function for calculcated star number
+             - need meta data
+             - implement function with meta data
+             - set star rating in local state
+               - pass to star component
+
+
 
       [] - Add to Cart
           - Skus are based on style selected
