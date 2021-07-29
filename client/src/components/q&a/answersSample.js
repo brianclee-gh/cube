@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-var
 const answersData = {
-  question: '153103',
+  question: '20',
   page: '1',
   count: '5',
   results: [
     {
-      answer_id: 1444045,
+      answer_id: 30,
       body: 'Check, ch-check check check ch-check it out!',
       date: '2021-03-11T00:00:00.000Z',
       answerer_name: 'Beastie Boys',
@@ -13,7 +13,7 @@ const answersData = {
       photos: [],
     },
     {
-      answer_id: 1991496,
+      answer_id: 31,
       body: 'This is my answer',
       date: '2021-06-12T00:00:00.000Z',
       answerer_name: 'Tommy',
@@ -21,7 +21,7 @@ const answersData = {
       photos: [],
     },
     {
-      answer_id: 1444095,
+      answer_id: 32,
       body: 'I think that is a splendid question',
       date: '2021-03-12T00:00:00.000Z',
       answerer_name: 'askjeeves',
@@ -29,7 +29,7 @@ const answersData = {
       photos: [],
     },
     {
-      answer_id: 1444212,
+      answer_id: 34,
       body: 'Everything is ok!',
       date: '2021-03-12T00:00:00.000Z',
       answerer_name: 'theKidsAreAlright',
