@@ -13,6 +13,9 @@ import Related from './related/Related.jsx';
 import Main from './Overview/Main/Main.jsx';
 // import OverView Component
 
+import QA from './q&a/QAOverview.jsx';
+// import Q&A component
+
 function App() {
   return (
     <div>
@@ -27,6 +30,7 @@ function App() {
           <Related />
         </ReviewsProvider>
       </ProductsProvider>
+      <QA />
     </div>
   );
 }

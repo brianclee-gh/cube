@@ -7,7 +7,7 @@ Functionality:
 4. Answering a question
 
 Questions List
-- [] List of questions that have been asked about the given product
+- [x] List of questions that have been asked about the given product
 - [] Displayed in an expanding and collapsing accordion
     - [] By default, on page load up to 4 questions should be displayed
     - [] Up to 2 answers should display for each question
@@ -18,17 +18,17 @@ Questions List
 
 Individual Question
 - QUESTION:
-    - [] The question will display at the top, preceded by “Q:”
+    - [x] The question will display at the top, preceded by “Q:”
 - ANSWERS LIST
-    - [] A list of answers will appear below the question. The entire list will be title “A:”
-    - [] Each answer will start on a new line, where the text body of the answer will display
-    - [] Below the answer, the username of answerer and the date the answer was written will be shown
-        - [] Format: “by [username], Month DD, YYYY”
+    - [x] A list of answers will appear below the question. The entire list will be title “A:”
+    - [x] Each answer will start on a new line, where the text body of the answer will display
+    - [x] Below the answer, the username of answerer and the date the answer was written will be shown
+        - [x] Format: “by [username], Month DD, YYYY”
         - [] If the answer is from the seller, then the username should display “Seller” in BOLD
-    - [] A link should appear next to the text “Helpful?” Reading “Yes (#)” with the count of selections for that answer
+    - [x] A link should appear next to the text “Helpful?” Reading “Yes (#)” with the count of selections for that answer
         - [] Clicking on this link should increase the count for that response
         - [] A customer should not be able to vote more than once for this selection***
-    - [] Next to “Helpful?” link, a second link named “Report” should be there. 
+    - [x] Next to “Helpful?” link, a second link named “Report” should be there. 
         - [] Clicking on this link will mark the answer for internal review***
         - [] User should not be able to report an answer more than once***
         - [] After clicking, the “Report” link should change to static text that reads “Reported”
