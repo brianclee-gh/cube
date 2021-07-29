@@ -10,7 +10,8 @@
   flex-direction: column;
 }
 
-.related-products-container ul {
+.related-products-container ul,
+.outfit-products-container ul {
   display: flex;
   flex-direction: row;
   margin: 0;
