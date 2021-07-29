@@ -1,36 +1,48 @@
+.Product-InfoAll {
+  margin-top: 50px;
+}
+
 .Product-Info-Top {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 30%;
 }
 .star-Component-top {
   display: flex;
   flex-direction: row;
 }
 
+.star-rating-top {
+  align-self:center;
+}
+
 .view-total-reviews {
-  margin-left: 50px;
-  margin-top: 5px;
+  margin-left: 1%;
+  align-self: center;
+  color: black;
 }
 
 .Product-Info-Mid {
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
   grid-template-rows: 50px 100px 100px;
-  column-gap: 5px;
-  row-gap: 5px;
+  /* column-gap: 1px;
+  row-gap: 1px; */
   grid-template-areas:
   "title title title title"
   "img img img img"
   "img img img img";
 }
 .Style-Selection {
-  width: 100px;
-  height: 100px;
+  width: 90%;
+  height: 90%;
   object-fit: cover;
   object-position:50% 50%;
   border-radius: 50%;
-  grid-area: "img";
+  grid-area: img;
+  border: 1px solid black;
 }
 
 .Style-Title {
