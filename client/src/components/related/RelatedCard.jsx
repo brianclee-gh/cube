@@ -15,7 +15,7 @@ function RelatedCard({
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [hold, setHold] = useState(true);
+  // const [hold, setHold] = useState(true);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }

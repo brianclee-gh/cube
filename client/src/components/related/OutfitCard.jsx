@@ -14,9 +14,9 @@ function OutfitCard({
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
   let isMounted = false;
-  const getStars = (metaData) => {
-    if (!metaData) { return null; }
-    const { ratings } = metaData;
+  const getStars = (meta) => {
+    if (!meta) { return null; }
+    const { ratings } = meta;
     let totalReviews = 0;
     let totalRatings = 0;
     Object.keys(ratings).forEach((key) => {
@@ -62,7 +62,7 @@ function OutfitCard({
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">
-                <span className="related-product-category">
+                <span data-category="item-category" className="related-product-category">
                   {' '}
                   { product.category.toUpperCase() }
                   {' '}

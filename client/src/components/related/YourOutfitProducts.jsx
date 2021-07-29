@@ -20,11 +20,10 @@ function YourOutfitProducts({
     <div className="outfit-products-container">
       <ul>
         { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
-        {/* if current product is not added yet */}
-        {/* if there are outfits */}
         { Object.keys(outfit).length > 0
           ? Object.keys(outfit).map((fit) => (
             <OutfitCard
+              key={fit.id}
               handleCardClick={handleCardClick}
               product={outfit[fit]}
             />

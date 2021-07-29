@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React, { useState, useContext } from 'react';
-// import OutfitCard from './OutfitCard.jsx';
 import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
@@ -16,11 +15,6 @@ function YourOutfit({ currentProduct }) {
       ...prevState,
       [id]: currentProduct,
     }));
-    // add currentProduct obj or just id?
-    // const newOutfit = outfit.slice();
-    // newOutfit.push(currentProduct);
-    // // make sure this doesn't add more than once
-    // setOutfit(newOutfit);
   };
 
   return (
