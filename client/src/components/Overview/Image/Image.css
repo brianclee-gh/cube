@@ -1,25 +1,42 @@
-.Main-Image {
-  position: absolute;
-  max-height: 700px;
-  max-width: 620px;
-
+.Image-Component {
+  grid: Image;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  margin-left: 50px;
+  margin-top: 25px;
+  background-color: rgb(163, 159, 159);
 }
-
+.Main-Image-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+  width: auto;
+  height: auto;
+}
+.Main-Image {
+  /* position: absolute; */
+  /* align-self: center; */
+  /* justify-self: center; */
+  /* max-height: 700px;*/
+  /* margin: auto;
+  width: auto;
+  height: auto; */
+  width: 500px;
+  height: auto;
+}
+.Thumbnail-Container{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
 .Thumbnail-Wrapper {
   z-index: 10;
   width: 75px;
   height: 75px;
   margin: 5px;
-}
-
-.Image-Component {
-  border: 1px solid black;
-  grid: Image;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  margin-top: 50px;
 }
 
 .Thumbnail-Photo {
@@ -28,6 +45,7 @@
   object-fit: cover;
   object-position:50% 50%;
   border: 1px solid black;
+  /* scale: 120% */
 }
 
 .selectActive {
@@ -37,9 +55,22 @@
 i {
   font-family: fontAwesome;
   z-index: 12;
+  display: inline-block;
+}
+.fa-angle-up, .fa-angle-down {
+  font-size: 29px;
+  display: block;
+}
+.fa-angle-down {
+  align-self: center;
 }
 
+.fa-angle-up {
+  align-self: center;
+  min-height: 5px;
+}
 
-.fa-arrow-up.hidden, .fa-arrow-down.hidden {
+.top-arrow-hidden, .bottom-arrow-hidden {
   visibility: hidden;
 }
+
