@@ -10,6 +10,9 @@ import Main from './Overview/Main/Main.jsx';
 import Related from './related/Related.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 
+import QA from './q&a/QAOverview.jsx';
+// import Q&A component
+
 function App() {
   return (
     <div>
@@ -21,6 +24,7 @@ function App() {
           <Review />
         </ProductsProvider>
       </ReviewsProvider>
+      <QA />  
     </div>
   );
 }

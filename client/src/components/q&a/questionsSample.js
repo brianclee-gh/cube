@@ -23,7 +23,7 @@ const questionsData = {
           body: 'I think that is a splendid question',
           date: '2021-03-12T00:00:00.000Z',
           answerer_name: 'askjeeves',
-          helpfulness: 0,
+          helpfulness: 4,
           photos: [],
         },
         32: {
@@ -31,7 +31,7 @@ const questionsData = {
           body: 'Everything is ok!',
           date: '2021-03-12T00:00:00.000Z',
           answerer_name: 'theKidsAreAlright',
-          helpfulness: 0,
+          helpfulness: 8,
           photos: [],
         },
         34: {
@@ -46,7 +46,7 @@ const questionsData = {
     },
     {
       question_id: 21,
-      question_body: 'Great Q, here is an answer',
+      question_body: 'What would look good with this?',
       question_date: '2021-03-12T00:00:00.000Z',
       asker_name: '',
       question_helpfulness: 3,
