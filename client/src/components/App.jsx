@@ -14,35 +14,13 @@ function App() {
   return (
     <div>
       <Header />
-<<<<<<< HEAD
-      <ProductsProvider>
-        <ReviewsProvider>
-          <Main />
-        </ReviewsProvider>
-      </ProductsProvider>
-      {/* <Overview /> */}
-      {/* Related */}
-      {/* QA */}
-      {/* <ProductsProvider> */}
-        {/* <ReviewsProvider> */}
-        {/* <Related /> */}
-
-        {/* </ReviewsProvider> */}
-      {/* </ProductsProvider>
-=======
->>>>>>> main
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
-          <Related />
+          <Main />
+          {/* <Related /> */}
           {/* <Review /> */}
         </ProductsProvider>
-<<<<<<< HEAD
-      </ReviewsProvider> */}
-
-=======
       </ReviewsProvider>
->>>>>>> main
     </div>
   );
 }
