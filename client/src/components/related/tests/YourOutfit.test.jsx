@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import renderer from 'react-test-renderer';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import YourOutfit from '../YourOutfit.jsx';
+import AddToOutfit from '../AddToOutfit.jsx';
 import { ProductsProvider } from '../../state/ProductsContext.jsx';
 
 let container = null;
@@ -22,8 +22,9 @@ afterEach(() => {
 
 test('it should render an Add to Outfit card', async () => {
   await setTimeout(5000);
+  const addToOutfit = () => { console.log('hi'); };
   act(() => {
-    render(<ProductsProvider><YourOutfit /></ProductsProvider>, container);
+    render(<AddToOutfit addToOutfit={addToOutfit} />, container);
   });
 
   const card = document.querySelector('[data-btn=add-to-outfit]');
