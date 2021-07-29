@@ -17,14 +17,7 @@
   height: auto;
 }
 .Main-Image {
-  /* position: absolute; */
-  /* align-self: center; */
-  /* justify-self: center; */
-  /* max-height: 700px;*/
-  /* margin: auto;
-  width: auto;
-  height: auto; */
-  width: 500px;
+  width: 450px;
   height: auto;
 }
 .Thumbnail-Container{
