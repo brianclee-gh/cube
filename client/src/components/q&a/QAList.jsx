@@ -33,13 +33,13 @@ function QAList(props) {
                   {'   '}
                   Helpful?
                   {' '}
-                  <a href="www.google.com">Yes</a>
+                  <a href="https://www.google.com">Yes</a>
                   {' '}
                   (
                   {q.answers[a].helpfulness}
                   )
                   {'   '}
-                  <a href="www.google.com">Report</a>
+                  <a href="https://www.google.com">Report</a>
                 </span>
               </li>
             ))}
