@@ -1,9 +1,10 @@
 .Overview-Section {
   display: grid;
-  grid-template-columns: 680px 1fr;
-  grid-template-rows: 800px 200px;
-  column-gap: 5px;
-  row-gap: 5px;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 750px 1fr;
+  column-gap: 1%;
+  row-gap: 1%;
+  flex-flow: wrap;
   grid-template-areas:
   "Image ProductInfo"
   "Description";
