@@ -1,0 +1,45 @@
+.Main-Image {
+  position: absolute;
+  max-height: 700px;
+  max-width: 620px;
+
+}
+
+.Thumbnail-Wrapper {
+  z-index: 10;
+  width: 75px;
+  height: 75px;
+  margin: 5px;
+}
+
+.Image-Component {
+  border: 1px solid black;
+  grid: Image;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-top: 50px;
+}
+
+.Thumbnail-Photo {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  object-position:50% 50%;
+  border: 1px solid black;
+}
+
+.selectActive {
+  background-color: yellow;
+}
+
+i {
+  font-family: fontAwesome;
+  z-index: 12;
+}
+
+
+.fa-arrow-up.hidden, .fa-arrow-down.hidden {
+  visibility: hidden;
+}

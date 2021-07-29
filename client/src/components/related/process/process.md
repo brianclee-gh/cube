@@ -5,18 +5,20 @@
   - Custom list created by user of products which user has grouped into an outfit
 
 ## Related Product Cards
-- [ ] Clickable, navigates to detail page of that product
-- [ ] Product information
-  - [ ] Product category
-  - [ ] Product name
-  - [ ] Price, derived from default style
-    - [ ] Needs to reflect sale prices (red, strike through)
-  - [ ] Star rating
-    - [ ] 5 stars, filled in rounded to nearest 1/4
-  - [ ] Product preview image
-    - [ ] Default to primary image
-  - [ ] Action button
-- [ ] List behavior
+- [x] Clickable, navigates to detail page of that product
+- [x] Product information
+  - [x] Product category
+  - [x] Product name
+  - [x] Price, derived from default style
+    - [x] Needs to reflect sale prices (red, strike through)
+  - [x] Star rating
+    - [x] Calculate star rating
+    - [x] 5 stars, filled in rounded to nearest 1/4
+  - [x] Product preview image
+    - [x] Default to primary image
+    - [x] Use Unsplash URL to resize images for loading
+  - [x] Action button => Modal
+- [ ] Carousel
   - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
   - [ ] Center list so that first product is on left hand side
   - [ ] Navigation arrows
@@ -28,18 +30,19 @@
   - [ ] Does the star component correctly reflect its rating?
 
 ## Related Products List
-- [ ] User interactions will NOT modify this list
-- [ ] Action button
-  - [ ] Star icon
-  - [ ] Opens a comparison modal
-    - [ ] Titled "Comparing"
-    - [ ] 3 column table
-    - [ ] 1st column: product for current page
-    - [ ] 2nd column: characteristic
-    - [ ] 3rd column: compared product
-    - [ ] Display specific quality or checkmark if "true"
-    - [ ] Make scrollable if too long, with product names fixed at top
+- [x] User interactions will NOT modify this list
+- [x] Action button
+  - [x] Star icon
+  - [x] Opens a comparison modal
+    - [x] Titled "Comparing"
+    - [x] 3 column table
+    - [x] 1st column: product for current page
+    - [x] 2nd column: characteristic
+    - [x] 3rd column: compared product
+    - [x] Display specific quality or checkmark if "true"
+    - [x] Make scrollable if too long, with product names fixed at top
   - [ ] Tests
+    - [ ] Renders correctly?
     - [ ] Is the list the same across multiple users?
     - [ ] Does it successfully display the comparison modal?
     - [ ] Does the table show successfully on the modal?
@@ -50,9 +53,10 @@
 ## Your Outfit List
 - [ ] Contains products that user has selected
 - [ ] Unique to each user
-- [ ] First product
-  - [ ] Diplays a "+" icon
-  - [ ] A button that adds currently viewed product to the outfit list
+- [x] First product
+  - [x] Diplays a "+" icon
+  - [x] A button that adds currently viewed product to the outfit list (used objects)
+  - [ ] Renders new card on new product load
 - [ ] By default, empty
 - [ ] Only add a specific product once
 - [ ] No max to # items
@@ -60,6 +64,7 @@
 - [ ] Persist even when navigating (ls?)
 - [ ] Action button is 'x', removes from list
 - [ ] Tests
+  - [x] Renders correctly?
   - [ ] Does the outfit list start out empty?
   - [ ] Does adding an item successfully show in state?
   - [ ] Does removing an item from the outfit show in state?

@@ -1,73 +1,97 @@
+/* eslint-disable import/extensions */
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-// eslint-disable-next-line import/extensions
 import { ProductsContext } from '../state/ProductsContext.jsx';
-import { ReviewsContext } from '../state/ReviewsContext.jsx';
 import RelatedProducts from './RelatedProducts.jsx';
 import YourOutfit from './YourOutfit.jsx';
+import Modal from './Modal.jsx';
 import './Related.css';
 
 function Related() {
-  // const [outfit, setOutfit] = useState([]);
-  // const { relatedProducts, setRelatedProducts } = useContext(ProductsContext);
-  const { getProducts, currentProduct, getCurrentProduct } = useContext(ProductsContext);
-  const { getReviewMetaData, ratings, getRatings } = useContext(ReviewsContext);
-  const [relatedProducts, setRelatedProducts] = useState([]);
-  const [relatedStyles, setRelatedStyles] = useState([]);
+  const { currentProduct, getData } = useContext(ProductsContext);
+  const [relatedIds, setRelatedIds] = useState(null);
+  const [comparing, setComparing] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [combined, setCombined] = useState(null);
 
-  const getRelatedProducts = async () => {
-    if (!currentProduct) { return; }
+  const getRelatedProductsIds = async () => {
+    if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-
-    const relatedProductsIds = await axios.get(`products/${productId}/related`);
-    const fetchedProducts = await Promise.all(
-      relatedProductsIds.data.map(async (id) => {
-        const product = await axios.get(`/products/${id}`);
-        return product.data;
-      }),
-    );
-    const fetchedStyles = await Promise.all(
-      relatedProductsIds.data.map(async (id) => {
-        const style = await axios.get(`/products/${id}/styles`);
-        return style.data;
-      }),
-    );
-    setRelatedProducts(fetchedProducts);
-    setRelatedStyles(fetchedStyles);
-    // set Ratings for each...
+    const fetchedIds = await axios.get(`products/${productId}/related`);
+    return fetchedIds.data;
   };
 
-  const getMetaData = async () => {
-    if (!currentProduct) { return; }
-    const productId = currentProduct.id;
-    getReviewMetaData(productId);
+  const combineFeatures = (comparingProduct) => {
+    const combinedFeatures = {};
+    if (!comparingProduct) { return null; }
+
+    currentProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['✔️'];
+        } else {
+          combinedFeatures[product.feature] = [product.value.slice(1, product.value.length - 1)];
+        }
+      }
+    });
+
+    comparingProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['', '✔️'];
+        } else {
+          combinedFeatures[product.feature] = ['', product.value.slice(1, product.value.length - 1)];
+        }
+      } else if (product.value === null) {
+        combinedFeatures[product.feature].push('✔️');
+      } else {
+        combinedFeatures[product.feature].push(product.value.slice(1, product.value.length - 1));
+      }
+    });
+    return combinedFeatures;
   };
+
+  const handleCardClick = (target, id, comparingProduct) => {
+    if (target.classList.contains('related-action-btn')) {
+      setModalOpen((current) => !current);
+      setCombined(combineFeatures(comparingProduct));
+      // console.log('open modal', id, currentProduct.name);
+    } else {
+      getData(id);
+    }
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  // useEffect(() => {
+  //   getData('17080');
+  // }, []);
 
   useEffect(() => {
-    getRelatedProducts();
+    getRelatedProductsIds()
+      .then((ids) => {
+        setRelatedIds(ids);
+      })
+      .catch((err) => console.log(err));
   }, [currentProduct]);
 
   return (
     <div className="related-products-section">
-      <RelatedProducts
-        relatedStyles={relatedStyles}
-        relatedProducts={relatedProducts}
+      { relatedIds ? (
+        <RelatedProducts
+          relatedIds={relatedIds}
+          handleCardClick={handleCardClick}
+          currentProduct={currentProduct}
+        />
+      ) : ''}
+      <Modal
+        modalOpen={modalOpen}
+        combined={combined}
+        closeModal={closeModal}
       />
-      <YourOutfit />
-      {/* Related Products Component */}
-      {/* Your Outfit Component */}
-      <button type="button" onClick={getProducts}>Get Products</button>
-      <button type="button" onClick={() => getCurrentProduct(17069)}>Get Current Product</button>
-      { currentProduct
-        ? (
-          <div className="related-item-card">
-            {currentProduct.name}
-          </div>
-        )
-        : 'Loading...' }
-      <button type="button" onClick={() => getRelatedProducts()}>Get Related Products</button>
-      <button type="button" onClick={() => getMetaData()}>Get Meta</button>
-      <button type="button" onClick={() => getRatings()}>Get Ratings</button>
+      <YourOutfit currentProduct={currentProduct} />
     </div>
   );
 }

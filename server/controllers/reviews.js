@@ -16,7 +16,7 @@ module.exports = {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
-        res.send(data.data);
+        res.send(data.data); 
         res.end();
       })
       .catch((err) => {
@@ -27,7 +27,9 @@ module.exports = {
   },
 
   getReviewMeta: (req, res) => {
+    // eslint-disable-next-line camelcase
     const { product_id } = req.query;
+    // eslint-disable-next-line camelcase
     const url = `${ATELIER_URL}/reviews/meta/?product_id=${product_id}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
