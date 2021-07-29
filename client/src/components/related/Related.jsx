@@ -79,13 +79,13 @@ function Related() {
 
   return (
     <div className="related-products-section">
-      {/* { relatedIds ? (
+      { relatedIds ? (
         <RelatedProducts
           relatedIds={relatedIds}
           handleCardClick={handleCardClick}
           currentProduct={currentProduct}
         />
-      ) : ''} */}
+      ) : ''}
       <Modal
         modalOpen={modalOpen}
         combined={combined}
