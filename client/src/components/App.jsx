@@ -17,8 +17,13 @@ function App() {
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
+<<<<<<< HEAD
           <Related />
           <Review />
+=======
+          {/* <Related /> */}
+          {/* <Review /> */}
+>>>>>>> 4fa7b67eaf4b35dc736c883b209ca3c21cea98ea
         </ProductsProvider>
       </ReviewsProvider>
     </div>

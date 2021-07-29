@@ -9,7 +9,7 @@ import StarComponent from './StarComponent.jsx';
 
 import AddToCart from './AddToCart.jsx';
 
-function ProductInfo({currentProduct, currentStyle}) {
+function ProductInfo({currentProduct, currentStyle, getPhotos}) {
   const productStyles = currentStyle.results;
   // current style price
   const [currentPrice, setCurrentPrice] = useState(productStyles[0].original_price);
@@ -39,6 +39,7 @@ function ProductInfo({currentProduct, currentStyle}) {
     }
     setCurrentSku(style.skus);
     setCurrentStyleTitle(style.name);
+    getPhotos(style);
   };
   return (
     <div className="Product-InfoAll">
