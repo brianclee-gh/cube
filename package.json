@@ -23,11 +23,13 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^3.3.7",
     "express": "^4.17.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-stars": "^2.2.5",
     "react-test-renderer": "^17.0.2",
     "underscore": "^1.12.0"
   },

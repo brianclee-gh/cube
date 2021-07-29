@@ -2,31 +2,30 @@
 import React from 'react';
 import './App.css';
 
-// import ProductsContextProvider from './state/ProductsContext.jsx';
-// import { GlobalProvider } from './state/GlobalContext.jsx';
 import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
 
-import Related from './related/Related.jsx';
-// import ReviewsAndRatings from './reviews/ReviewsAndRatings.jsx';
-
+import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
-// import OverView Component
+import Related from './related/Related.jsx';
+import Review from './reviews/ReviewsAndRatings.jsx';
 
 function App() {
   return (
     <div>
-      <h1>Project Catwalk</h1>
-      <Main />
-      {/* <Overview /> */}
-      {/* Related */}
-      {/* QA */}
-      {/* <ReviewsAndRatings /> */}
-      <ProductsProvider>
-        <ReviewsProvider>
+      <Header />
+      <ReviewsProvider>
+        <ProductsProvider>
+          <Main />
+<<<<<<< HEAD
           <Related />
-        </ReviewsProvider>
-      </ProductsProvider>
+          <Review />
+=======
+          {/* <Related /> */}
+          {/* <Review /> */}
+>>>>>>> 4fa7b67eaf4b35dc736c883b209ca3c21cea98ea
+        </ProductsProvider>
+      </ReviewsProvider>
     </div>
   );
 }

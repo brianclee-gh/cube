@@ -1,22 +1,28 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
-// eslint-disable-next-line import/extensions
+import Carousel from './Carousel.jsx';
 import RelatedCard from './RelatedCard.jsx';
 
-function RelatedProducts({ relatedProducts, relatedStyles }) {
+function RelatedProducts({
+  relatedIds,
+  handleCardClick,
+}) {
   return (
     <div className="related-products-container">
-      <h2>YOU MIGHT LIKE...</h2>
-      <ul>
-        { relatedProducts.length > 0 ? relatedProducts.map((product) => (
+      <div className="related-products-header">
+        <h3>YOU MAY LIKE...</h3>
+      </div>
+      <Carousel show={relatedIds.length}>
+        { relatedIds.length > 0 ? relatedIds.map((id) => (
           <RelatedCard
-            styles={
-            relatedStyles.find((style) => parseInt(style.product_id) === product.id)
-          }
-            product={product}
+            relatedIds={relatedIds}
+            key={id}
+            handleCardClick={handleCardClick}
+            id={id}
           />
         )) : 'Loading...' }
-      </ul>
+      </Carousel>
     </div>
   );
 }

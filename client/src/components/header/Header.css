@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 1.5rem 2rem;
+  align-items: center;
+  /* padding: 0 1rem; */
+  background-color: #616161;
+  color: white;
+  /* width: 100%; */
+}
+
+.search-input {
+  border: none;
+  border-bottom: 2px solid white;
+  font-size: 20px;
+  background-color: #616161;
+  color: white;
+}
+
+.search-input-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 680px) {
+  .search-input,
+  .search-input-btn { display: none }
+}

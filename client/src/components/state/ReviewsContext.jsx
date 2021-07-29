@@ -10,7 +10,7 @@ export const ReviewsProvider = ({ children }) => {
 
   const getReviews = async (productId, page, count, sortBy) => {
     page = page || 1;
-    count = count || 5;
+    count = count || 2;
     sortBy = sortBy || 'newest';
     const customOptions = {
       page,
