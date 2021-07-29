@@ -30,7 +30,7 @@ function StarComponent({ productID }) {
     <>
       {metaData ? (
         <div className="star-Component-top">
-          <span>{StarRating((getRatings(metaData)))}</span>
+          <span className="star-rating-top">{StarRating((getRatings(metaData)))}</span>
           <a href='#' className="view-total-reviews">
             Read All
             {' '}
