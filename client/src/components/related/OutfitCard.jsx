@@ -62,7 +62,7 @@ function OutfitCard({
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">
-                <span data-category="item-category" className="related-product-category">
+                <span data-testid="category" className="related-product-category">
                   {' '}
                   { product.category.toUpperCase() }
                   {' '}

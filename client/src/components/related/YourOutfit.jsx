@@ -17,6 +17,18 @@ function YourOutfit({ currentProduct }) {
     }));
   };
 
+  useEffect(() => {
+    // check local storage for outfit, if outfit does not exist, intialize with empty outfit object
+    // if outfit does exist, intialize
+    // need to save outfit after each addition and subtraction
+    const savedOutfit = localStorage.getItem('yourSavedOutfit');
+    if (!savedOutfit) {
+      console.log('nothing here');
+    } else {
+      console.log('found it!');
+    }
+  }, []);
+
   return (
     <div className="your-outfit-container">
       <div className="related-products-header">
