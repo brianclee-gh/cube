@@ -5,15 +5,26 @@ import OutfitCard from './OutfitCard.jsx';
 
 function YourOutfitProducts({
   outfit,
+  setOutfit,
   addToOutfit,
   currentProduct,
   currentStyle,
 }) {
+  const handleCardClick = (id) => {
+    const outfitCopy = { ...outfit };
+    delete outfitCopy[id];
+    setOutfit(outfitCopy);
+  };
   return (
     <div className="outfit-products-container">
       <ul>
         { Object.keys(outfit).length > 0
-          ? Object.keys(outfit).map((fit) => <OutfitCard product={outfit[fit]} />)
+          ? Object.keys(outfit).map((fit) => (
+            <OutfitCard
+              handleCardClick={handleCardClick}
+              product={outfit[fit]}
+            />
+          ))
           : (
             <>
               <li className="outfit-card-container">

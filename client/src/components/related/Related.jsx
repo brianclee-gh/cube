@@ -4,11 +4,15 @@ import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import RelatedProducts from './RelatedProducts.jsx';
 import YourOutfit from './YourOutfit.jsx';
+import Modal from './Modal.jsx';
 import './Related.css';
 
 function Related() {
   const { currentProduct, getData } = useContext(ProductsContext);
   const [relatedIds, setRelatedIds] = useState(null);
+  const [comparing, setComparing] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
+  const [combined, setCombined] = useState(null);
 
   const getRelatedProductsIds = async () => {
     if (!currentProduct) { return null; }
@@ -17,17 +21,53 @@ function Related() {
     return fetchedIds.data;
   };
 
-  const handleCardClick = (target, id) => {
+  const combineFeatures = (comparingProduct) => {
+    const combinedFeatures = {};
+    if (!comparingProduct) { return null; }
+
+    currentProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['✔️'];
+        } else {
+          combinedFeatures[product.feature] = [product.value.slice(1, product.value.length - 1)];
+        }
+      }
+    });
+
+    comparingProduct.features.forEach((product) => {
+      if (!combinedFeatures[product.feature]) {
+        if (product.value === null) {
+          combinedFeatures[product.feature] = ['', '✔️'];
+        } else {
+          combinedFeatures[product.feature] = ['', product.value.slice(1, product.value.length - 1)];
+        }
+      } else if (product.value === null) {
+        combinedFeatures[product.feature].push('✔️');
+      } else {
+        combinedFeatures[product.feature].push(product.value.slice(1, product.value.length - 1));
+      }
+    });
+    return combinedFeatures;
+  };
+
+  const handleCardClick = (target, id, comparingProduct) => {
     if (target.classList.contains('related-action-btn')) {
-      console.log('open modal', id, currentProduct.name);
+      setModalOpen((current) => !current);
+      setCombined(combineFeatures(comparingProduct));
+      // console.log('open modal', id, currentProduct.name);
     } else {
       getData(id);
     }
   };
 
-  useEffect(() => {
-    getData('17574');
-  }, []);
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  // useEffect(() => {
+  //   getData('17080');
+  // }, []);
 
   useEffect(() => {
     getRelatedProductsIds()
@@ -41,12 +81,17 @@ function Related() {
     <div className="related-products-section">
       { relatedIds ? (
         <RelatedProducts
-          getRelatedProductsIds={relatedIds}
+          relatedIds={relatedIds}
           handleCardClick={handleCardClick}
           currentProduct={currentProduct}
         />
       ) : ''}
-      {/* <YourOutfit /> */}
+      <Modal
+        modalOpen={modalOpen}
+        combined={combined}
+        closeModal={closeModal}
+      />
+      <YourOutfit currentProduct={currentProduct} />
     </div>
   );
 }
