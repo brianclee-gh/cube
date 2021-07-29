@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
+import { v4 as uuidv4 } from 'uuid';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function OutfitCard({
@@ -28,16 +29,16 @@ function OutfitCard({
   };
 
   const getRelatedData = async () => {
-    // const fetchedProduct = await axios.get(`/products/${product.id}`);
+    if (!isMounted) { return null; }
     const fetchedStyle = await axios.get(`/products/${product.id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${product.id}`);
     return Promise.all([
-      // setProductData(fetchedProduct.data),
       setStyleData(fetchedStyle.data),
       setMetaData(fetchedMeta.data)]);
   };
 
   useEffect(() => {
+    setLoading(true);
     isMounted = true;
     if (isMounted) {
       getRelatedData()
@@ -49,10 +50,11 @@ function OutfitCard({
           setLoading(false);
         });
     }
-  }, [product]);
+    return () => { isMounted = false; };
+  }, []);
 
   return (
-    <li className="outfit-card-container">
+    <li className="outfit-card-container" key={uuidv4()}>
       <div tabIndex="0" role="button" onClick={() => {}} onKeyDown={() => {}}>
         { !loading ? (
           <>

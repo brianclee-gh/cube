@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
 function YourOutfit({ currentProduct }) {
-  const [outfit, setOutfit] = useState({});
+  const [outfit, setOutfit] = useState(() => {
+    const storedOutfit = localStorage.getItem('yourSavedOutfit');
+    return storedOutfit !== null
+      ? JSON.parse(storedOutfit)
+      : {};
+  });
   const { currentStyle } = useContext(ProductsContext);
 
   const addToOutfit = () => {
@@ -25,9 +30,16 @@ function YourOutfit({ currentProduct }) {
     if (!savedOutfit) {
       console.log('nothing here');
     } else {
-      console.log('found it!');
+      console.log('found', JSON.parse(savedOutfit));
     }
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(outfit).length > 0) {
+      localStorage.setItem('yourSavedOutfit', JSON.stringify(outfit));
+    }
+    // don't want to overwrite on load
+  }, [outfit]);
 
   return (
     <div className="your-outfit-container">

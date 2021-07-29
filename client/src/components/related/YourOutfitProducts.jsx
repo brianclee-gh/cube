@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import OutfitCard from './OutfitCard.jsx';
 import AddToOutfit from './AddToOutfit.jsx';
 
@@ -23,7 +24,7 @@ function YourOutfitProducts({
         { Object.keys(outfit).length > 0
           ? Object.keys(outfit).map((fit) => (
             <OutfitCard
-              key={fit.id}
+              key={uuidv4()}
               handleCardClick={handleCardClick}
               product={outfit[fit]}
             />
