@@ -43,7 +43,8 @@
      [x] - Read (#) of Reviews Component
      [x]      - speak with edrick about the star component
             - implement it based on average reviews for current product selected
-           - Create sub star component to seperate concerns
+           - use Function for calculcated star number
+            - Create sub star component to seperate concerns
             - useEffect to populate meta data based on current Id
             - render if metaData available - use function created in context to calculcate star value
             - take the total reviews to an outside varibale to be access in the anchor to reviews (once widget added to project)
@@ -71,3 +72,29 @@
       [x]      - if no stock this button is hidden
               - if both valid size and quantity it will add to cart
 
+
+       Image Component
+       [x]   - Load on default Style
+       [x]    - needs to accept the selected style image array
+       [x]   - First Photo default display
+       [x]     - Other photos as thumbnails on the left hand side
+       [x]     - on Click on thumbnails to update default display
+
+        [x]    -create active/inactive class css for thumbnail wrappers to display selection
+
+         [TBD]     - determine how to handle photos of different sizes (currently set a max size)
+              - Create left and right button
+          [x    - track index of currently seelected thumbnail,
+                if end of thumbnail list start from beginning for next button
+                if at beginning of thumbnail list start from end of thumbnail list with back button
+
+        [x]    - Link styles that come into image component to style selection in product info.
+               - Since Image and Product Info were siblings, I had to create a function in the Parent "main" and pass this function to the child component to get the active style. When calling the function I was able to get that data similar to a callback on the parent level to pass it into local state. From there I was able to pass it down to the image component.
+
+               - Image Default Functionality
+         [x]      - First thumbnail needs default highlight
+         [x]      -arrows for scrolling thumbnails
+         [x]     -arrows for scrolling image
+         [x]     -hide left arrow on index = 0
+         [x]     -hide right arrow on index = length
+         [x]      - switching styles should remember index

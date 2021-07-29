@@ -16,8 +16,8 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
-          <Related />
+          <Main />
+          {/* <Related /> */}
           {/* <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
