@@ -38,3 +38,8 @@ i {
   font-family: fontAwesome;
   z-index: 12;
 }
+
+
+.fa-arrow-up.hidden, .fa-arrow-down.hidden {
+  visibility: hidden;
+}
