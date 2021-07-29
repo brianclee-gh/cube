@@ -15,6 +15,7 @@ function RelatedCard({
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [hold, setHold] = useState(true);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
@@ -30,6 +31,14 @@ function RelatedCard({
   };
 
   const getRelatedData = async () => {
+    // await axios.get(`/products/${id}/relatedData`)
+    //   .then((relatedData) => {
+    //     console.log(relatedData);
+    //     setProductData(relatedData.data[0]);
+    //     setStyleData(relatedData.data[1]);
+    //     setMetaData(relatedData.data[2]);
+    //   });
+
     const fetchedProduct = await axios.get(`/products/${id}`);
     const fetchedStyle = await axios.get(`/products/${id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${id}`);
