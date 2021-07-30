@@ -5,10 +5,18 @@ import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
 import MetaRate from './viewList/metaData/metaRate.jsx';
 import ViewList from './viewList/reviewList/viewList.jsx';
+import Select from 'react-select'
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
   const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
+  const [ currentSort, updateSort ] = useState('Newest');
+
+  const sort = [
+    { value: 'Newest', label: 'Newest' },
+    { value: 'Helpful', label: 'Helpful' },
+    { value: 'Relevant', label: 'Relevant' }
+  ];
 
   const getReviewList = async () => {
     if (!currentProduct) { return null; }
@@ -44,6 +52,7 @@ function sortReviews() {
     return (
       <div>
         <MetaRate />
+        <Select options={sort} />
         <ViewList />
       </div>
     );

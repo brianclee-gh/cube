@@ -12,12 +12,13 @@
   font-size: 12px;
 }
 
-.reviewImgMap {
-  max-width: 100px;
+.reviewBodyBox_img {
+  width: 100px;
+  height: 100px;
   border: 1px solid black;
   padding: 1px;
 }
 
-.reviewImgThumbnails {
+.reviewBodyBox_thumbnail {
   margin: 5px;
 }
