@@ -13,7 +13,7 @@ function sortReviews() {
   const getReviewList = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    await getReviews(productId, 1, 2);
+    await getReviews(productId, 1);
     return reviews;
   };
 
