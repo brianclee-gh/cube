@@ -1,36 +1,87 @@
-// export default QAProvider;
-// import React, { createContext, useState } from 'react';
-// import axios from 'axios';
+/* eslint-disable react/prop-types */
+import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
-// export const QAContext = createContext(null);
+export const QAContext = createContext(null);
 
-// // eslint-disable-next-line react/prop-types
-// export const QAProvider = ({ children }) => {
-//   const [products, setProducts] = useState(['lol']);
-//   const [currentProduct, setCurrentProduct] = useState(null);
-//   const [currentStyle, setCurrentStyle] = useState([]);
+export const QAProvider = ({ children }) => {
+  const [questions, setQuestions] = useState(null);
+  const [answers, setAnswers] = useState(null);
 
-//   const getProducts = async () => {
-//     const fetchedProducts = await axios.get('/products');
-//     setProducts(fetchedProducts.data);
-//   };
+  const getQuestions = async (productId, page, count) => {
+    page = page || 1;
+    count = count || 5;
+    try {
+      const fetchQuestions = await axios.get(`/qa/questions?product_id=${productId}&page=${page}&count=${count}`);
+      // console.log(fetchQuestions.data);
+      setQuestions(fetchQuestions.data.results);
+      return fetchQuestions.data.results;
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-//   const getCurrentProduct = async (id) => {
-//     const fetchedProduct = await axios.get(`/products/${id}`);
-//     setCurrentProduct(fetchedProduct.data);
-//   };
+  const getAnswers = async (questionId, page, count) => {
+    page = page || 1;
+    count = count || 2;
+    const customOptions = {
+      page,
+      count,
+      question_id: questionId,
+    };
+    try {
+      const fetchAnswers = await axios.get(`/qa/questions/${questionId}/answers/?page=${page}&count=${count}`, customOptions);
+      setAnswers(fetchAnswers.data);
+    //   return fetchAnswers;
+    } catch (e) {
+      console.log(e);
+    }
+};
 
-//   const getCurrentStyle = async (id) => {
-//     const fetchedStyle = await axios.get(`/products/${id}/styles`);
-//     setCurrentStyle(fetchedStyle.data);
-//   };
+  // when currentProduct changes...
+  // update reviews, styles, metadata, etc... maybe useEffect?
 
-//   return (
-//     <QAContext.Provider value={{
+  // const addReview = async (review) => {
+  //   const {
+  //     // eslint-disable-next-line camelcase
+  //     product_id, rating, summary, body, recommend,
+  //     name, email, photos, characteristics,
+  //   } = review;
+  //   const reviewBody = {
+  //     product_id,
+  //     rating,
+  //     summary,
+  //     body,
+  //     recommend,
+  //     name,
+  //     email,
+  //     photos,
+  //     characteristics,
+  //   };
+  //   const response = await axios.post(`${ATELIER_URL}reviews`, reviewBody);
+  //   return response;
+  // };
 
-//     }}
-//     >
-//       {children}
-//     </QAContext.Provider>
-//   );
-// };
+  // const markHelpfulReview = async (reviewId) => {
+  //   const response = await axios.put(`${ATELIER_URL}reviews/${reviewId}/helpful`, { review_id: reviewId });
+  //   return response;
+  // };
+
+  // const reportReview = async (reviewId) => {
+  // const response = await axios.put((`${ATELIER_URL}reviews/${reviewId}/report`, { review_id: reviewId }));
+  //   return response;
+  // };
+
+  return (
+    <QAContext.Provider
+      value={{
+        questions,
+        answers,
+        getQuestions,
+        getAnswers,
+      }}
+    >
+      { children }
+    </QAContext.Provider>
+  );
+};
