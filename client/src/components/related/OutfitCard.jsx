@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
@@ -12,12 +12,13 @@ function OutfitCard({
   handleOutfitClick,
   cachedData,
   setCachedData,
+  outfit,
 }) {
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [loaded, setLoaded] = useState(false);
   let isMounted = false;
+  const mounted = useRef(true);
   const getStars = (meta) => {
     if (!meta) { return null; }
     const { ratings } = meta;
@@ -33,7 +34,6 @@ function OutfitCard({
 
   const loadCachedData = (id) => {
     const data = cachedData[id];
-    console.log(data);
     setStyleData(data[1]);
     setMetaData(data[2]);
   };
@@ -41,11 +41,9 @@ function OutfitCard({
   const getRelatedData = async () => {
     if (!isMounted) { return null; }
     if (cachedData[product.id]) {
-      console.log('found?');
       loadCachedData(product.id);
       return null;
     }
-    console.log('should not get down here');
     const fetchedStyle = await axios.get(`/products/${product.id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${product.id}`);
     return Promise.all([
@@ -53,6 +51,27 @@ function OutfitCard({
       (fetchedStyle.data),
       (fetchedMeta.data)]);
   };
+
+  // useEffect(() => {
+  //   mounted.current = true;
+  //   setLoading(true);
+  //   getRelatedData()
+  //     .then(data => {
+  //       if (data) {
+  //         setCachedData((prevState) => ({
+  //           ...prevState,
+  //           [product.id]: data,
+  //         }));
+  //         setStyleData(data[1]);
+  //         setMetaData(data[2]);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
+  //     .finally(() => setLoading(false));
+  //   return () => mounted.current = false;
+  // }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -78,33 +97,11 @@ function OutfitCard({
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [cachedData]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   isMounted = true;
-  //   if (isMounted) {
-  //     getRelatedData()
-  //       .then((data) => {
-  //         if (data) {
-  //           setCachedData((prevState) => ({
-  //             ...prevState,
-  //             [product.id]: data,
-  //           }));
-  //           setStyleData(data[0]);
-  //           setMetaData(data[1]);
-  //         }
-  //         setLoading(false);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         setLoading(false);
-  //       });
-  //   }
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // }, []);
+  useEffect(() => {
+    console.log('loaded')
+  }, [cachedData])
 
   return (
     <li className="outfit-card-container" key={uuidv4()}>
@@ -112,7 +109,9 @@ function OutfitCard({
         { !loading ? (
           <>
             <div className="related-image-container">
-              <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+              { styleData.results[0].photos[0].thumbnail_url
+                ? <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                : <img className="related-product-img" src="https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1" alt="product" />}
               <button onClick={() => handleOutfitClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
             </div>
             <div className="related-card-info-container">
