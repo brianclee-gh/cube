@@ -9,17 +9,15 @@ export const ReviewsProvider = ({ children }) => {
   const [ratings, setRatings] = useState(null);
 
   const getReviews = async (productId, page, count, sortBy) => {
-    page = page || 1;
-    count = count || 2;
-    sortBy = sortBy || 'newest';
-    const customOptions = {
-      page,
-      count,
-      sort: sortBy,
-      product_id: productId,
-    };
-    const fetchedReviews = await axios.get(`/reviews/meta/?product_id=${productId}&count=${count}&page=${page}&sort=${sortBy}`, customOptions);
-    setReviews(fetchedReviews);
+    try {
+      page = page || 1;
+      count = count || 2;
+      sortBy = sortBy || 'newest';
+      const fetchedReviews = await axios.get(`/reviews/?product_id=${productId}&count=${count}&page=${page}&sort=${sortBy}`);
+      setReviews(fetchedReviews.data.results);
+    } catch (e) {
+      console.log('error fetching review data')
+    }
   };
 
   const getReviewMetaData = async (productId) => {

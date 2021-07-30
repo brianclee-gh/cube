@@ -11,8 +11,10 @@ function YourOutfitProducts({
   addToOutfit,
   currentProduct,
   currentStyle,
+  cachedData,
+  setCachedData,
 }) {
-  const handleCardClick = (id) => {
+  const handleOutfitClick = (id) => {
     const outfitCopy = { ...outfit };
     delete outfitCopy[id];
     setOutfit(outfitCopy);
@@ -21,15 +23,24 @@ function YourOutfitProducts({
     <div className="outfit-products-container">
       <ul>
         { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
-        { Object.keys(outfit).length > 0
+        { Object.keys(outfit).map((fit) => (
+          <OutfitCard
+            key={uuidv4()}
+            handleOutfitClick={handleOutfitClick}
+            product={outfit[fit]}
+            cachedData={cachedData}
+            setCachedData={setCachedData}
+          />
+        )) }
+        {/* { Object.keys(outfit).length > 0
           ? Object.keys(outfit).map((fit) => (
             <OutfitCard
               key={uuidv4()}
-              handleCardClick={handleCardClick}
+              handleOutfitClick={handleOutfitClick}
               product={outfit[fit]}
             />
           ))
-          : '' }
+          : '' } */}
       </ul>
     </div>
   );

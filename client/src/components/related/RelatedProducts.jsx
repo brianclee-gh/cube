@@ -7,6 +7,8 @@ import RelatedCard from './RelatedCard.jsx';
 function RelatedProducts({
   relatedIds,
   handleCardClick,
+  setCachedData,
+  cachedData,
 }) {
   return (
     <div className="related-products-container">
@@ -14,14 +16,16 @@ function RelatedProducts({
         <h3>YOU MAY LIKE...</h3>
       </div>
       <Carousel show={relatedIds.length}>
-        { relatedIds.length > 0 ? relatedIds.map((id) => (
+        { relatedIds.map((id) => (
           <RelatedCard
             relatedIds={relatedIds}
             key={id}
             handleCardClick={handleCardClick}
             id={id}
+            cachedData={cachedData}
+            setCachedData={setCachedData}
           />
-        )) : 'Loading...' }
+        )) }
       </Carousel>
     </div>
   );

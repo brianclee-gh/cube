@@ -9,11 +9,14 @@ import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function OutfitCard({
   product,
-  handleCardClick,
+  handleOutfitClick,
+  cachedData,
+  setCachedData,
 }) {
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
+  // const [loaded, setLoaded] = useState(false);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
@@ -28,13 +31,27 @@ function OutfitCard({
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
   };
 
+  const loadCachedData = (id) => {
+    const data = cachedData[id];
+    console.log(data);
+    setStyleData(data[1]);
+    setMetaData(data[2]);
+  };
+
   const getRelatedData = async () => {
     if (!isMounted) { return null; }
+    if (cachedData[product.id]) {
+      console.log('found?');
+      loadCachedData(product.id);
+      return null;
+    }
+    console.log('should not get down here');
     const fetchedStyle = await axios.get(`/products/${product.id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${product.id}`);
     return Promise.all([
-      setStyleData(fetchedStyle.data),
-      setMetaData(fetchedMeta.data)]);
+      (product),
+      (fetchedStyle.data),
+      (fetchedMeta.data)]);
   };
 
   useEffect(() => {
@@ -43,6 +60,14 @@ function OutfitCard({
     if (isMounted) {
       getRelatedData()
         .then((data) => {
+          if (data) {
+            setCachedData((prevState) => ({
+              ...prevState,
+              [product.id]: data,
+            }));
+            setStyleData(data[1]);
+            setMetaData(data[2]);
+          }
           setLoading(false);
         })
         .catch((err) => {
@@ -50,8 +75,36 @@ function OutfitCard({
           setLoading(false);
         });
     }
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, []);
+
+  // useEffect(() => {
+  //   setLoading(true);
+  //   isMounted = true;
+  //   if (isMounted) {
+  //     getRelatedData()
+  //       .then((data) => {
+  //         if (data) {
+  //           setCachedData((prevState) => ({
+  //             ...prevState,
+  //             [product.id]: data,
+  //           }));
+  //           setStyleData(data[0]);
+  //           setMetaData(data[1]);
+  //         }
+  //         setLoading(false);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //         setLoading(false);
+  //       });
+  //   }
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, []);
 
   return (
     <li className="outfit-card-container" key={uuidv4()}>
@@ -60,7 +113,7 @@ function OutfitCard({
           <>
             <div className="related-image-container">
               <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
-              <button onClick={() => handleCardClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
+              <button onClick={() => handleOutfitClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">
