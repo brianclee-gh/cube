@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import './App.css';
 
 import { ProductsProvider } from './state/ProductsContext.jsx';
@@ -10,20 +10,16 @@ import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 import QA from './q&a/QAList.jsx';
 import Related from './related/Related.jsx';
-// const Related = lazy(() => import('./related/Related.jsx'));
 // import Q&A component
 
 function App() {
-  // const renderLoader = () => <p>Loading</p>;
   return (
     <div>
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
-          {/* <Suspense fallback={renderLoader()}> */}
-            <Related />
-          {/* </Suspense> */}
+          <Related />
           <Review />
         </ProductsProvider>
       </ReviewsProvider>
