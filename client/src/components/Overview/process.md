@@ -101,7 +101,8 @@
 
 
          Product Info Wrap Up
-           - FaceBook, Twitter, Pinterest Buttons
-           - Add to Cart opens up Size Drop Down and text to say select a size
-           - Reset quantity on style change
-           -
+        [x] - FaceBook, Twitter, Pinterest Buttons
+        [x]  - Add to Cart opens up Size Drop Down and text to say select a size
+        [x]   - Reset quantity on style change
+             - Check for more than 8 product styles
+        [x]    - style buttons for cart
