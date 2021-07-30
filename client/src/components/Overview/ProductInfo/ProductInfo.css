@@ -49,19 +49,20 @@
 
 .Product-Info-Mid {
   display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 50px 100px 100px;
+  grid-template-columns: 90px 90px 90px 90px;
+  grid-template-rows: 50px 90px 90px 90px;
   /* column-gap: 1px;
   row-gap: 1px; */
   /* flex-flow: wrap; */
   grid-template-areas:
   "title title title title"
   "img img img img"
+  "img img img img"
   "img img img img";
 }
 .Style-Selection {
-  width: 90%;
-  height: 90%;
+  width: 85%;
+  height: 85%;
   object-fit: cover;
   object-position:50% 50%;
   border-radius: 50%;
