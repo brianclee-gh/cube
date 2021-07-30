@@ -69,9 +69,9 @@ function Related() {
     setModalOpen(false);
   };
 
-  useEffect(() => {
-    getData('17067');
-  }, []);
+  // useEffect(() => {
+  //   getData('17067');
+  // }, []);
 
   useEffect(() => {
     if (Object.keys(cachedData).length > 0) {
