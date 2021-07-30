@@ -9,7 +9,7 @@ import StarComponent from './StarComponent.jsx';
 
 import AddToCart from './AddToCart.jsx';
 
-function ProductInfo({currentProduct, currentStyle, getPhotos}) {
+function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   const productStyles = currentStyle.results;
   // current style price
   const [currentPrice, setCurrentPrice] = useState(productStyles[0].original_price);
@@ -51,6 +51,11 @@ function ProductInfo({currentProduct, currentStyle, getPhotos}) {
           <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
           <span className="salePrice">{salePrice}</span>
         </div>
+        <div className="Share-Buttons">
+          <i className="fab fa-facebook-square" />
+          <i className="fab fa-twitter-square" />
+          <i className="fab fa-pinterest-square" />
+        </div>
       </div>
       <div className="Product-Info-Mid">
         <div className="Style-Title">
@@ -58,7 +63,8 @@ function ProductInfo({currentProduct, currentStyle, getPhotos}) {
           {currentStyleTitle}
         </div>
         {productStyles.map((style, index) => (
-          <Styles style={style}
+          <Styles
+            style={style}
             key={productStyles[index].style_id}
             current={() => { updateCurrent(style); }}
             isActive={isActive}

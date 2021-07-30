@@ -23,21 +23,46 @@
   align-self: center;
   color: black;
 }
+.Share-Buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 7rem;
+  font-size: 35px;
+}
+
+.fa-facebook-square {
+  color: rgb(66, 103, 178);
+  cursor:pointer;
+}
+
+.fa-twitter-square {
+  color: rgb(29, 161, 242);
+  cursor:pointer;
+}
+
+.fa-pinterest-square {
+  color: rgb(230, 0, 35);
+  cursor:pointer;
+}
+
 
 .Product-Info-Mid {
   display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: 50px 100px 100px;
+  grid-template-columns: 90px 90px 90px 90px;
+  grid-template-rows: 50px 90px 90px 90px;
   /* column-gap: 1px;
   row-gap: 1px; */
+  /* flex-flow: wrap; */
   grid-template-areas:
   "title title title title"
+  "img img img img"
   "img img img img"
   "img img img img";
 }
 .Style-Selection {
-  width: 90%;
-  height: 90%;
+  width: 85%;
+  height: 85%;
   object-fit: cover;
   object-position:50% 50%;
   border-radius: 50%;
@@ -65,43 +90,63 @@
 }
 
 .checkmark-active {
-  left: 80px;
+  left: 65px;
   position: absolute;
   height: 100px;
   width: 100px;
 }
 /*Product Info Bottom*/
 .Product-Info-Bottom {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  width: 30rem;
   /* width: 400px; */
 }
 
 .Cart-Container {
   display: grid;
-  flex-direction: row;
-  /* grid-template-columns: 150px 150px;
-  grid-template-rows: 50px 50px;
-  column-gap: 5px;
-  row-gap: 5px;
+  grid-template-columns: 200px 200px;
+  grid-template-rows: 1px 60px 60px;
+  column-gap: 2rem;
+  row-gap: 1rem;
   grid-template-areas:
+  "error error"
   "size quantity"
-  "cart . ."; */
+  "cart favorite";
 }
 
 .Quantity-Options {
-  width: 150px;
-  height: 50px;
-  /* grid: quantity; */
+  width: 120px;
+  height: 60px;
+  grid-area: quantity;
 }
 
 .Size-Options {
-  /* grid: size; */
-  width: 150px;
-  height: 50px;
+  grid-area: size;
+  width: 200px;
+  height: 60px;
 }
 
+.size-error {
+  grid-area: error;
+  color: red;
+}
 .add-to-cart {
-  /* grid: cart; remove bottom dimensions*/
-  width: 150px;
-  height: 50px;
+  grid-area: cart;
+  width: 260px;
+  background-color: white;
+}
+
+.favorite-star, .fa-star {
+  grid-area: favorite;
+}
+
+.favorite-star {
+  width: 60px;
+  margin-left: 60px;
+  background-color: white;
+}
+
+.fa-star {
+  color: black;
+  font-size: 40px;
 }
