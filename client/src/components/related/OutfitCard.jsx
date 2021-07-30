@@ -9,11 +9,12 @@ import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function OutfitCard({
   product,
-  handleCardClick,
+  handleOutfitClick,
 }) {
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
@@ -50,7 +51,9 @@ function OutfitCard({
           setLoading(false);
         });
     }
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
@@ -60,7 +63,7 @@ function OutfitCard({
           <>
             <div className="related-image-container">
               <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
-              <button onClick={() => handleCardClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
+              <button onClick={() => handleOutfitClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">

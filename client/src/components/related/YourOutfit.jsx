@@ -4,14 +4,14 @@ import React, { useState, useContext, useEffect } from 'react';
 import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
-function YourOutfit({ currentProduct }) {
+function YourOutfit({ }) {
   const [outfit, setOutfit] = useState(() => {
     const storedOutfit = localStorage.getItem('yourSavedOutfit');
     return storedOutfit !== null
       ? JSON.parse(storedOutfit)
       : {};
   });
-  const { currentStyle } = useContext(ProductsContext);
+  const { currentProduct, currentStyle } = useContext(ProductsContext);
 
   const addToOutfit = () => {
     if (outfit[currentProduct.id]) { return null; }

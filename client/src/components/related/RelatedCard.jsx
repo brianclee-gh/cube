@@ -64,7 +64,7 @@ function RelatedCard({
 
   return (
     <li className="related-card-container">
-      <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e.target, id, productData)} onKeyDown={() => {}}>
+      <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e, e.target, id, productData)} onKeyDown={() => {}}>
         { !loading
           ? (
             <>

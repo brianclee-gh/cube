@@ -10,7 +10,6 @@ import './Related.css';
 function Related() {
   const { currentProduct, getData } = useContext(ProductsContext);
   const [relatedIds, setRelatedIds] = useState(null);
-  // const [comparing, setComparing] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [combined, setCombined] = useState(null);
 
@@ -23,7 +22,6 @@ function Related() {
 
   const combineFeatures = (comparingProduct) => {
     const combinedFeatures = {};
-    if (!comparingProduct) { return null; }
 
     currentProduct.features.forEach((product) => {
       if (!combinedFeatures[product.feature]) {
@@ -51,11 +49,11 @@ function Related() {
     return combinedFeatures;
   };
 
-  const handleCardClick = (target, id, comparingProduct) => {
+  const handleCardClick = (e, target, id, comparingProduct) => {
+    e.preventDefault();
     if (target.classList.contains('related-action-btn')) {
       setModalOpen((current) => !current);
       setCombined(combineFeatures(comparingProduct));
-      // console.log('open modal', id, currentProduct.name);
     } else {
       getData(id);
     }
@@ -91,7 +89,7 @@ function Related() {
         combined={combined}
         closeModal={closeModal}
       />
-      <YourOutfit currentProduct={currentProduct} />
+      <YourOutfit />
     </div>
   );
 }
