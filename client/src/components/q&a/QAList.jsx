@@ -19,6 +19,8 @@ const QAList = () => {
   } = useContext(QAContext);
   //   const [productId, setProductId] = useState(17067);
   const [data, setData] = useState([]);
+  const [defaultQuestions, setDefaultQuestions] = useState(4);
+  const [expanded, setExpanded] = useState(false);
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
@@ -33,10 +35,6 @@ const QAList = () => {
   }, []);
 
   useEffect(() => {
-    // const results = await getQAList();
-    // console.log(results);
-    // setData(results.sort((a, b) => ((a.question_helpfulness > b.question_helpfulness) ? -1 : 1)));
-
     getQAList()
       .then((fetched) => {
         if (fetched) {
@@ -45,9 +43,12 @@ const QAList = () => {
         }
       })
       .catch((err) => console.log(err));
-
-    // setData(getQAList().sort((a, b) => ((a.question_helpfulness > b.question_helpfulness) ? -1 : 1)));
   }, [currentProduct]);
+
+  const loadMore = () => {
+    expanded ? setDefaultQuestions(4) : setDefaultQuestions(data.length);
+    setExpanded(!expanded);
+  }
 
   return (
     <div>
@@ -55,8 +56,15 @@ const QAList = () => {
       <div>
         <QASearch />
         { data
-          ? data.map((q) => <Question question={q} key={q.question_id} />)
-          : 'Loading'}
+          ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
+          : 'Loading..'}
+        <a className="btn load-more" onClick={loadMore}>
+          {expanded ? (
+            <span>SHOW LESS QUESTIONS</span>
+          ) : (
+            <span>LOAD MORE QUESTIONS</span>
+          )}
+        </a>
       </div>
     </div>
   );
