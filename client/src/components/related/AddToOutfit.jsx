@@ -27,13 +27,12 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
             </span>
             <span className="outfit-product-name">{ currentProduct.name }</span>
             { currentStyle.sale_price
-            // styles.results[0].sale_price
               ? (
                 <span className="outfit-product-price">
                   $
                   {currentStyle.sale_price}
                   {' '}
-                  <span className="outfit-original-price">
+                  <span data-price="outfit-price" className="outfit-original-price">
                     $
                     {currentStyle.original_price }
                   </span>

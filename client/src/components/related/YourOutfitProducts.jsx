@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import OutfitCard from './OutfitCard.jsx';
 import AddToOutfit from './AddToOutfit.jsx';
 
@@ -20,11 +21,10 @@ function YourOutfitProducts({
     <div className="outfit-products-container">
       <ul>
         { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
-        {/* if current product is not added yet */}
-        {/* if there are outfits */}
         { Object.keys(outfit).length > 0
           ? Object.keys(outfit).map((fit) => (
             <OutfitCard
+              key={uuidv4()}
               handleCardClick={handleCardClick}
               product={outfit[fit]}
             />

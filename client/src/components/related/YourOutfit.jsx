@@ -1,12 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useState, useContext } from 'react';
-// import OutfitCard from './OutfitCard.jsx';
+import React, { useState, useContext, useEffect } from 'react';
 import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
 function YourOutfit({ currentProduct }) {
-  const [outfit, setOutfit] = useState({});
+  const [outfit, setOutfit] = useState(() => {
+    const storedOutfit = localStorage.getItem('yourSavedOutfit');
+    return storedOutfit !== null
+      ? JSON.parse(storedOutfit)
+      : {};
+  });
   const { currentStyle } = useContext(ProductsContext);
 
   const addToOutfit = () => {
@@ -16,12 +20,26 @@ function YourOutfit({ currentProduct }) {
       ...prevState,
       [id]: currentProduct,
     }));
-    // add currentProduct obj or just id?
-    // const newOutfit = outfit.slice();
-    // newOutfit.push(currentProduct);
-    // // make sure this doesn't add more than once
-    // setOutfit(newOutfit);
   };
+
+  useEffect(() => {
+    // check local storage for outfit, if outfit does not exist, intialize with empty outfit object
+    // if outfit does exist, intialize
+    // need to save outfit after each addition and subtraction
+    const savedOutfit = localStorage.getItem('yourSavedOutfit');
+    if (!savedOutfit) {
+      console.log('nothing here');
+    } else {
+      console.log('found', JSON.parse(savedOutfit));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(outfit).length > 0) {
+      localStorage.setItem('yourSavedOutfit', JSON.stringify(outfit));
+    }
+    // don't want to overwrite on load
+  }, [outfit]);
 
   return (
     <div className="your-outfit-container">

@@ -78,7 +78,26 @@ module.exports = {
         res.end();
       });
   },
-};
+  getRelatedData: async (req, res) => {
+    const { product_id } = req.params;
+    const productUrl = await axios.get(`${ATELIER_URL}/products/${product_id}/`, {
+      headers: { Authorization: GITHUB_KEY },
+    });
+    const styleUrl = await axios.get(`${ATELIER_URL}/products/${product_id}/styles`, {
+      headers: { Authorization: GITHUB_KEY },
+    });
+    const metaUrl = await axios.get(`${ATELIER_URL}/reviews/meta/?product_id=${product_id}`, {
+      headers: { Authorization: GITHUB_KEY },
+    });
 
-// axios.get('/products/:product_id/related');
-// returns [product_ids] of products related to specified product
+    Promise.all([productUrl.data, styleUrl.data, metaUrl.data])
+      .then((data) => {
+        res.send(data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+};

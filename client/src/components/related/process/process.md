@@ -51,12 +51,12 @@
     - [ ] Is the user able to scroll the card carousel?
 
 ## Your Outfit List
-- [ ] Contains products that user has selected
-- [ ] Unique to each user
+- [x] Contains products that user has selected
+- [x] Unique to each user
 - [x] First product
   - [x] Diplays a "+" icon
   - [x] A button that adds currently viewed product to the outfit list (used objects)
-  - [ ] Renders new card on new product load
+  - [x] Renders new card on new product load
 - [x] By default, empty
 - [x] Only add a specific product once
 - [x] No max to # items
