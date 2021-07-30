@@ -1,7 +1,7 @@
 import React from 'react';
 import './Description.css';
 
-function Description({currentDescription, features, slogan}) {
+function Description({ currentDescription, features, slogan }) {
   return (
     <div className="Description">
       {console.log(features)}
@@ -11,12 +11,12 @@ function Description({currentDescription, features, slogan}) {
       </div>
       <ul className="feature-list">
         {features.map((item) => (
-            <li className="feature" key={item.feature}>
-              {item.feature}
-              :
-              {' '}
-              {item.value}
-            </li>
+          <li className="feature" key={item.feature}>
+            {item.feature}
+            :
+            {' '}
+            {item.value}
+          </li>
         ))}
       </ul>
     </div>
