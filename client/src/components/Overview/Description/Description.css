@@ -1,0 +1,32 @@
+.Description {
+  display: flex;
+  flex-direction: row;
+}
+
+.product-description {
+  margin-left: 5%;
+  width: 50%;
+  height: auto;
+}
+
+.description-slogan {
+ font-weight: 600;
+ padding-bottom: 1%;
+}
+
+.feature-list {
+  list-style: none;
+  margin-left: 5.5%;
+  border-left: 3px solid rgb(116, 113, 113);
+  padding-left: 2%;
+}
+
+.feature {
+  padding: .5rem;
+}
+
+.feature:before {
+  content: '✓ ';
+}
+
+

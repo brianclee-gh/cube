@@ -47,8 +47,10 @@ function ProductInfo({currentProduct, currentStyle, getPhotos}) {
         <StarComponent productID={currentProduct.id} />
         <h3 className="product-category">{currentProduct.category}</h3>
         <h2 className="product-name">{currentProduct.name}</h2>
-        <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
-        <span className="salePrice">{salePrice}</span>
+        <div className="Prices">
+          <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
+          <span className="salePrice">{salePrice}</span>
+        </div>
       </div>
       <div className="Product-Info-Mid">
         <div className="Style-Title">

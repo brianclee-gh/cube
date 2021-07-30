@@ -11,7 +11,7 @@ function Image({ images }) {
     allImages: images,
     index: 0,
   });
-  //Watches for images prop to change
+  // Watches for images prop to change
   useEffect(() => {
     setCurrentImage({
       ...currentImage,
@@ -47,26 +47,31 @@ function Image({ images }) {
 
   return (
     <div className="Image-Component">
-      <i className="fas fa-arrow-left" />
-      <i className="fas fa-arrow-right" />
-      <i
-        className={currentImage.index === 0 ? 'fa-arrow-up.hidden' : 'fa-arrow-up'}
-        onClick={() => { prevPhoto(); }}
-      />
-      <i
-        className={currentImage.index === currentImage.allImages.length - 1
-          ? 'fa-arrow-down.hidden' : 'fa-arrow-down'}
-        onClick={() => { nextPhoto(); }}
-      />
-      <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
-      {currentImage.allImages.map((image, index) => (
-        <ImageThumbnails
-          thumbnail={image.thumbnail_url}
-          key={image.url.slice(28)}
-          changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
-          currentActive={currentImage.active}
+      <div className="Thumbnail-Container">
+        <i
+          className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
+          onClick={() => { prevPhoto(); }}
         />
-      ))}
+
+        {currentImage.allImages.map((image, index) => (
+          <ImageThumbnails
+            thumbnail={image.thumbnail_url}
+            key={image.url.slice(28)}
+            changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
+            currentActive={currentImage.active}
+          />
+        ))}
+        <i
+          className={currentImage.index === currentImage.allImages.length - 1
+            ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
+          onClick={() => { nextPhoto(); }}
+        />
+      </div>
+      <div className="Main-Image-Container">
+        <i className="fas fa-arrow-left" />
+        <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
+        <i className="fas fa-arrow-right" />
+      </div>
     </div>
   );
 }
