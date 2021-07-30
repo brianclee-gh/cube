@@ -11,3 +11,13 @@
   position: relative;
   font-size: 12px;
 }
+
+.reviewImgMap {
+  max-width: 100px;
+  border: 1px solid black;
+  padding: 1px;
+}
+
+.reviewImgThumbnails {
+  margin: 5px;
+}
