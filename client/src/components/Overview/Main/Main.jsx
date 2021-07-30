@@ -36,9 +36,12 @@ function Main() {
             currentStyle={currentStyle}
             getPhotos={(style) => setPhotoArray(style.photos)}
           />
+          <Description
+            currentDescription={currentProduct.description}
+            features={currentProduct.features}
+          />
         </>
       ) : 'Loading...'}
-      <Description />
     </div>
   );
 }
