@@ -21,6 +21,7 @@ function RelatedProducts({
 
   const combineFeatures = (comparingProduct) => {
     const combinedFeatures = {};
+    combinedFeatures.names = { comparing: comparingProduct.name, current: currentProduct.name };
 
     currentProduct.features.forEach((product) => {
       if (!combinedFeatures[product.feature]) {
@@ -75,6 +76,7 @@ function RelatedProducts({
         )) }
       </Carousel>
       <Modal
+        currentProduct={currentProduct}
         modalOpen={modalOpen}
         combined={combined}
         closeModal={closeModal}

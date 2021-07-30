@@ -45,13 +45,16 @@
   position: absolute;
   right: 0;
   top: 0;
-  background-color: transparent;
+  background-color: white;
   border: none;
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   font-size: 20px;
-  color: yellow;
+  color: black;
   cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  text-align: center;
 }
 
 .related-image-container {
@@ -142,7 +145,7 @@
 
 .related-modal {
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   left: 0;
   top: 0;
   width: 100%;
@@ -183,8 +186,29 @@
   transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
+.modal-table {
+  border-spacing: 0.5rem;
+}
+
 .close-related-modal-btn:hover {
   opacity: 0.85;
+}
+
+.skinny-text {
+  font-weight: 100;
+}
+
+.med-text {
+  font-weight: 300;
+}
+
+.modal-comparing-heading {
+  font-size: 14px;
+}
+
+.modal-heading {
+  font-size: 18px;
+  margin-bottom: 2rem;
 }
 
 /* CAROUSEL */

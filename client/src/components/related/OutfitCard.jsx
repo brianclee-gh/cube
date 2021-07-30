@@ -40,10 +40,10 @@ function OutfitCard({
 
   const getRelatedData = async () => {
     if (!isMounted) { return null; }
-    // if (cachedData[product.id]) {
-    //   loadCachedData(product.id);
-    //   return null;
-    // }
+    if (cachedData[product.id]) {
+      loadCachedData(product.id);
+      return null;
+    }
     const fetchedStyle = await axios.get(`/products/${product.id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${product.id}`);
     return Promise.all([
@@ -80,10 +80,10 @@ function OutfitCard({
       getRelatedData()
         .then((data) => {
           if (data) {
-            // setCachedData((prevState) => ({
-            //   ...prevState,
-            //   [product.id]: data,
-            // }));
+            setCachedData((prevState) => ({
+              ...prevState,
+              [product.id]: data,
+            }));
             setStyleData(data[1]);
             setMetaData(data[2]);
           }
@@ -97,11 +97,7 @@ function OutfitCard({
     return () => {
       isMounted = false;
     };
-  }, []);
-
-  useEffect(() => {
-    console.log('loaded')
-  }, [])
+  }, [product]);
 
   return (
     <li className="outfit-card-container" key={uuidv4()}>
