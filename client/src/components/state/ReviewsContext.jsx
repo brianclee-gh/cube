@@ -8,11 +8,9 @@ export const ReviewsProvider = ({ children }) => {
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
 
-  const getReviews = async (productId, page, sortBy) => {
+  const getReviews = async (productId, page, count, sortBy) => {
     try {
-      page = page || 1;
-      sortBy = sortBy || 'newest';
-      const fetchedReviews = await axios.get(`/reviews/?product_id=${productId}&page=${page}&sort=${sortBy}`);
+      const fetchedReviews = await axios.get(`/reviews/?page=${page}&count=${count}&sort=${sortBy}&product_id=${productId}`);
       setReviews(fetchedReviews.data.results);
     } catch (e) {
       console.log('error fetching review data')
@@ -35,8 +33,7 @@ export const ReviewsProvider = ({ children }) => {
     });
     const calculatedRating = (totalRatings / totalReviews).toFixed(2);
     const starRating = (Math.round(calculatedRating * 4) / 4).toFixed(2);
-    const starRatingOne = (Math.round(calculatedRating * 4) / 4).toFixed(1);
-    setRatings({ calculatedRating, starRating, starRatingOne });
+    setRatings({ calculatedRating, starRating });
   };
 
   // when currentProduct changes...

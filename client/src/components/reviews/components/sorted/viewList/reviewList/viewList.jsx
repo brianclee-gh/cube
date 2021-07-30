@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import './viewList.css';
 import StarRating from '../../../averageReview/metaRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
+import moment from 'moment';
 
-function reviewList() {
+function reviewList({sort}) {
   const { reviews } = useContext(ReviewsContext);
 
   if (reviews !== null) {
@@ -17,7 +18,7 @@ function reviewList() {
             </h3>
             <div className="reviewBodyBox_userCheck" />
             <div className="reviewBodyBox_username">{review.reviewer_name}</div>
-            <div className="reviewBodyBox_date">{review.date}</div>
+            <div className="reviewBodyBox_date">{moment(review.date).format('ll')}</div>
             <p className="reviewBodyBox_body">
               {review.body}
             </p>
