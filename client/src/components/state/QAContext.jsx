@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { createContext, useState } from 'react';
 import axios from 'axios';
 
@@ -10,14 +11,10 @@ export const QAProvider = ({ children }) => {
   const getQuestions = async (productId, page, count) => {
     page = page || 1;
     count = count || 5;
-    const customOptions = {
-      page,
-      count,
-      product_id: productId,
-    };
     try {
-      const fetchQuestions = await axios.get(`/qa/questions?product_id=${productId}&page=${page}&count=${count}`, customOptions);
-      setQuestions(fetchQuestions);
+      const fetchQuestions = await axios.get(`/qa/questions?product_id=${productId}&page=${page}&count=${count}`);
+    //   console.log(fetchQuestions.data);
+      setQuestions(fetchQuestions.data.results);
     } catch (e) {
       console.error(e);
     }
@@ -33,7 +30,7 @@ export const QAProvider = ({ children }) => {
     };
     try {
       const fetchAnswers = await axios.get(`/qa/questions/${questionId}/answers/?page=${page}&count=${count}`, customOptions);
-      setAnswers(fetchAnswers);
+      setAnswers(fetchAnswers.data);
     //   return fetchAnswers;
     } catch (e) {
       console.log(e);

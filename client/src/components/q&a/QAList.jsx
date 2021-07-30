@@ -12,43 +12,37 @@ import { QAContext } from '../state/QAContext.jsx';
 // import './qa-style.scss';
 
 const QAList = () => {
-  const { currentProduct, getData } = useContext(ProductsContext);
+  const { currentProduct } = useContext(ProductsContext);
   const { getQuestions, questions, getAnswers, answers } = useContext(QAContext);
 //   const [productId, setProductId] = useState(17067);
   const [data, setData] = useState([]);
-  console.log(currentProduct);
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    const fetchQ = await getQuestions(productId, 1, 5);
-    return fetchQ;
+    await getQuestions(productId, 1, 5);
+    // console.log(questions);
+    return questions;
   };
 
   useEffect(() => {
-    console.log('hi');
     getQAList()
       .then()
       .catch((err) => console.log(err));
   }, [currentProduct]);
 
-//   console.log(data);
 
   return (
+    <div>
+      <h2>Questions & Answers</h2>
       <div>
-          hello
+        <QASearch />
+        { questions
+          ? questions.map((q) => <Question question={q} key={q.question_id} />)
+          : 'Loading'
+        }
       </div>
-    // <div>
-    //   <h2>Questions & Answers</h2>
-    //   <div>
-    //     <QASearch />
-    //     { questions?
-    //       questions.map((q) => <Question question={q} key={q.question_id} />)
-    //       :
-    //       'Loading'
-    //     }
-    //   </div>
-    // </div>
+    </div>
   );
 };
 
