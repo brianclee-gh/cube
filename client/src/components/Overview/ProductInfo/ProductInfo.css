@@ -23,6 +23,29 @@
   align-self: center;
   color: black;
 }
+.Share-Buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 7rem;
+  font-size: 35px;
+}
+
+.fa-facebook-square {
+  color: rgb(66, 103, 178);
+  cursor:pointer;
+}
+
+.fa-twitter-square {
+  color: rgb(29, 161, 242);
+  cursor:pointer;
+}
+
+.fa-pinterest-square {
+  color: rgb(230, 0, 35);
+  cursor:pointer;
+}
+
 
 .Product-Info-Mid {
   display: grid;
