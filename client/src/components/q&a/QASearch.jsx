@@ -2,7 +2,10 @@ import React from 'react';
 
 const QASearch = () => (
   <div>
-    <h2>Question Search Bar</h2>
+    {/* <h3>Question Search </h3> */}
+    <form className="qa-search">
+      <input type="text" name="searchTerm" placeholder="Search for something..." />
+    </form>
   </div>
 );
 

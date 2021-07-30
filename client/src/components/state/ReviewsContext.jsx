@@ -10,10 +10,7 @@ export const ReviewsProvider = ({ children }) => {
 
   const getReviews = async (productId, page, count, sortBy) => {
     try {
-      page = page || 1;
-      count = count || 2;
-      sortBy = sortBy || 'newest';
-      const fetchedReviews = await axios.get(`/reviews/?product_id=${productId}&count=${count}&page=${page}&sort=${sortBy}`);
+      const fetchedReviews = await axios.get(`/reviews/?page=${page}&count=${count}&sort=${sortBy}&product_id=${productId}`);
       setReviews(fetchedReviews.data.results);
     } catch (e) {
       console.log('error fetching review data')

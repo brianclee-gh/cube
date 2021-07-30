@@ -1,19 +1,26 @@
 import React, { useContext, useState, useEffect } from 'react';
-import axios from 'axios';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
 import MetaRate from './viewList/metaData/metaRate.jsx';
 import ViewList from './viewList/reviewList/viewList.jsx';
+import Select from 'react-select'
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
   const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
+  const [ currentSort, updateSort ] = useState('newest');
+
+  const sort = [
+    { value: 'newest', label: 'Newest' },
+    { value: 'helpful', label: 'Helpful' },
+    { value: 'relevant', label: 'Relevant' }
+  ];
 
   const getReviewList = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    await getReviews(productId, 1, 2);
+    await getReviews(productId, 1, 100000, currentSort);
     return reviews;
   };
 
@@ -22,6 +29,10 @@ function sortReviews() {
     const productId = currentProduct.id;
     await getReviewMetaData(productId);
     return metaData;
+  };
+
+  const handleSort = (e) => {
+    updateSort(e.value);
   };
 
   useEffect(() => {
@@ -40,10 +51,17 @@ function sortReviews() {
     getRatings(metaData);
   }, [metaData]);
 
+  useEffect(() => {
+    getReviewList()
+      .then()
+      .catch((err) => console.log(err));
+  }, [currentSort]);
+
   if (currentProduct !== null && ratings !== null) {
     return (
       <div>
         <MetaRate />
+        <Select options={sort} onChange={handleSort} />
         <ViewList />
       </div>
     );

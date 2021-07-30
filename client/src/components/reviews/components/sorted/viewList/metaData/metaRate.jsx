@@ -12,13 +12,13 @@ function metaRating() {
     return (
       <div className="reviewMetaRating">
         <div className="reviewMetaRating_title">RATING & REVIEWS</div>
-        <div className="reviewMetaRating_score">{ratings.calculatedRating}</div>
+        <div className="reviewMetaRating_score">{ratings.starRatingOne}</div>
         <span className="reviewMetaRating_star">{StarRating(ratings.calculatedRating)}</span>
         <Recommendation />
         <EachRate />
         <SizeComfort />
       </div>
-    )
+    );
   } else {
     return null;
   }
