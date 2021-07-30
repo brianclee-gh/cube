@@ -60,7 +60,7 @@
 - [x] By default, empty
 - [x] Only add a specific product once
 - [x] No max to # items
-- [ ] Persist even when navigating (ls?)
+- [x] Persist even when navigating (ls?)
 - [x] Action button is 'x', removes from list
 - [ ] Tests
   - [x] Renders correctly?
