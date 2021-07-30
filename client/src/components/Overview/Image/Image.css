@@ -1,5 +1,5 @@
 .Image-Component {
-  grid: Image;
+  grid-area: Image;
   position: relative;
   display: flex;
   flex-direction: row;

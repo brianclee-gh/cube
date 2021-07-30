@@ -4,16 +4,16 @@
   grid-template-rows: 750px 1fr;
   column-gap: 1%;
   row-gap: 1%;
-  flex-flow: wrap;
+  /* flex-flow: wrap; */
   grid-template-areas:
   "Image ProductInfo"
-  "Description";
+  "Description Description";
 }
 
 .Product-InfoAll {
-  grid: productInfo;
+  grid-area: ProductInfo;
 }
 
 .Description {
-  grid: description;
+  grid-area: Description;
 }
