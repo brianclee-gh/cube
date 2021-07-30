@@ -39,6 +39,7 @@ function Main() {
           <Description
             currentDescription={currentProduct.description}
             features={currentProduct.features}
+            slogan={currentProduct.slogan}
           />
         </>
       ) : 'Loading...'}

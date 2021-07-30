@@ -9,6 +9,11 @@
   height: auto;
 }
 
+.description-slogan {
+ font-weight: 600;
+ padding-bottom: 1%;
+}
+
 .feature-list {
   list-style: none;
   margin-left: 5.5%;

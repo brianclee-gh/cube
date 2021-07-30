@@ -1,12 +1,12 @@
 import React from 'react';
 import './Description.css';
 
-function Description({currentDescription, features}) {
+function Description({currentDescription, features, slogan}) {
   return (
     <div className="Description">
       {console.log(features)}
       <div className="product-description">
-        <div className="description-title"><b>Description</b></div>
+        <div className="description-slogan">{slogan}</div>
         <div className="description">{currentDescription}</div>
       </div>
       <ul className="feature-list">
