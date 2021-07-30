@@ -4,6 +4,7 @@ import './App.css';
 
 import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
+import { QAProvider } from './state/QAContext.jsx';
 
 import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
@@ -20,11 +21,13 @@ function App() {
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
-          <Related />
-          <Review />
+          {/* <Related /> */}
+          <QAProvider>
+            <QA />
+          </QAProvider>
+          {/* <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
-      <QA />
     </div>
   );
 }
