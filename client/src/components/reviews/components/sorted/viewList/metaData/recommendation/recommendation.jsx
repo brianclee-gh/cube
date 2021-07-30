@@ -6,7 +6,6 @@ function recommendation() {
   const { metaData } = useContext(ReviewsContext);
 
   function calculateRecommendation() {
-    console.log(metaData);
     const trueValue = () => {
       if (metaData.recommended.true === undefined) {
         return 0;
@@ -24,7 +23,6 @@ function recommendation() {
     const trueValues = trueValue();
     const falseValues = falseValue();
     const addition = trueValues + falseValues;
-    console.log(addition);
     const percentage = (Number(metaData.recommended.true) / addition) * 100;
     return percentage.toFixed(2);
   }

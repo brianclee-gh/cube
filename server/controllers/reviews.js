@@ -6,13 +6,8 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 module.exports = {
   // eslint-disable-next-line object-shorthand
   getReviews: (req, res) => {
-    // get productId from req.body
-    // eslint-disable-next-line camelcase
-    const { product_id, page, count, sortBy } = req.query;
-    // const count = '2';
-    // eslint-disable-next-line camelcase
-    const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=${count}&page=${page}&sort=${sortBy}`;
-    axios.get(url, {
+    const { product_id, page, count, sort} = req.query;
+    axios.get(`${ATELIER_URL}/reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
