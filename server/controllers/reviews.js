@@ -8,15 +8,15 @@ module.exports = {
   getReviews: (req, res) => {
     // get productId from req.body
     // eslint-disable-next-line camelcase
-    const { product_id, page } = req.query;
+    const { product_id, page, count, sortBy } = req.query;
     // const count = '2';
     // eslint-disable-next-line camelcase
-    const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=2&page=${page}`;
+    const url = `${ATELIER_URL}/reviews/?product_id=${product_id}&count=${count}&page=${page}&sort=${sortBy}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
-        res.send(data.data); 
+        res.send(data.data);
         res.end();
       })
       .catch((err) => {
