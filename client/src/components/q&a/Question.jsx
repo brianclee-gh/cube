@@ -15,9 +15,7 @@ const Question = ({ question }) => {
       <div>Q: {question.question_body}         Helpful? Yes ({question.question_helpfulness})   |   Add Answer </div>
       <div className="answers">
         {
-          answers.map((answer) => {
-            return <Answer answer={answer[1]} key={answer[0]} />
-          })
+          answers.map((answer) => <Answer answer={answer[1]} key={answer[0]} />)
         }
       </div>
     </div>
