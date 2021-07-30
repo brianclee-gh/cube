@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
@@ -31,7 +32,7 @@ const QAList = () => {
   };
 
   useEffect(() => {
-    getData('17068');
+    getData('17080');
   }, []);
 
   useEffect(() => {
