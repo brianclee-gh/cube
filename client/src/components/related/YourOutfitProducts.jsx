@@ -11,6 +11,8 @@ function YourOutfitProducts({
   addToOutfit,
   currentProduct,
   currentStyle,
+  cachedData,
+  setCachedData,
 }) {
   const handleOutfitClick = (id) => {
     const outfitCopy = { ...outfit };
@@ -26,6 +28,8 @@ function YourOutfitProducts({
             key={uuidv4()}
             handleOutfitClick={handleOutfitClick}
             product={outfit[fit]}
+            cachedData={cachedData}
+            setCachedData={setCachedData}
           />
         )) }
         {/* { Object.keys(outfit).length > 0

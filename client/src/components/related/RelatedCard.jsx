@@ -10,6 +10,8 @@ function RelatedCard({
   relatedIds,
   handleCardClick,
   id,
+  cachedData,
+  setCachedData,
 }) {
   const [productData, setProductData] = useState({});
   const [styleData, setStyleData] = useState({});
@@ -29,14 +31,28 @@ function RelatedCard({
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
   };
 
+  const loadCachedData = () => {
+    const data = cachedData[id];
+    setProductData(data[0]);
+    setStyleData(data[1]);
+    setMetaData(data[2]);
+  };
+
   const getRelatedData = async () => {
+    if (cachedData[id]) {
+      loadCachedData();
+      return null;
+    }
     const fetchedProduct = await axios.get(`/products/${id}`);
     const fetchedStyle = await axios.get(`/products/${id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${id}`);
     return Promise.all([
-      setProductData(fetchedProduct.data),
-      setStyleData(fetchedStyle.data),
-      setMetaData(fetchedMeta.data)]);
+      (fetchedProduct.data),
+      (fetchedStyle.data),
+      (fetchedMeta.data)]);
+    // setProductData(fetchedProduct.data),
+    // setStyleData(fetchedStyle.data),
+    // setMetaData(fetchedMeta.data)]);
 
     // await axios.get(`/products/${id}/relatedData`)
     //   .then((relatedData) => {
@@ -53,6 +69,15 @@ function RelatedCard({
     if (isMounted) {
       getRelatedData()
         .then((data) => {
+          if (data) {
+            setCachedData((prevState) => ({
+              ...prevState,
+              [id]: data,
+            }));
+            setProductData(data[0]);
+            setStyleData(data[1]);
+            setMetaData(data[2]);
+          }
           setLoading(false);
         })
         .catch((err) => {
@@ -69,7 +94,10 @@ function RelatedCard({
           ? (
             <>
               <div className="related-image-container">
-                <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                { styleData.results[0].photos[0].thumbnail_url
+                  ? <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                  : <img className="related-product-img" src={`https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1`} alt="product" />
+                }
                 <button type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faStar} /></button>
               </div>
               <div className="related-card-info-container">

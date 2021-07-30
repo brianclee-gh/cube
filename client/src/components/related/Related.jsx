@@ -9,6 +9,12 @@ import './Related.css';
 
 function Related() {
   const { currentProduct, getData } = useContext(ProductsContext);
+  const [cachedData, setCachedData] = useState(() => {
+    const storedData = localStorage.getItem('relatedProducts');
+    return storedData !== null
+      ? JSON.parse(storedData)
+      : {};
+  });
   const [relatedIds, setRelatedIds] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [combined, setCombined] = useState(null);
@@ -64,8 +70,17 @@ function Related() {
   };
 
   useEffect(() => {
-    getData('17080');
+    getData('17067');
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(cachedData).length > 0) {
+      localStorage.setItem('relatedProducts', JSON.stringify(cachedData));
+      console.log('saved')
+    } else if (Object.keys(cachedData).length === 0) {
+      localStorage.setItem('relatedProducts', JSON.stringify({}));
+    }
+  }, [cachedData]);
 
   useEffect(() => {
     getRelatedProductsIds()
@@ -82,6 +97,8 @@ function Related() {
           relatedIds={relatedIds}
           handleCardClick={handleCardClick}
           currentProduct={currentProduct}
+          cachedData={cachedData}
+          setCachedData={setCachedData}
         />
       ) : ''}
       <Modal
@@ -89,7 +106,7 @@ function Related() {
         combined={combined}
         closeModal={closeModal}
       />
-      <YourOutfit />
+      <YourOutfit cachedData={cachedData} setCachedData={setCachedData} />
     </div>
   );
 }

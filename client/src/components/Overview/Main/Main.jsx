@@ -18,9 +18,9 @@ function Main() {
   // pass a function down to update it based on style click
   const [photoArray, setPhotoArray] = useState(null);
 
-  useEffect(() => {
-    getData('17067');
-  }, []);
+  // useEffect(() => {
+  //   getData('17067');
+  // }, []);
 
   // useEffect(() => {
   //   setPhotoArray(currentStyle.results[0]);

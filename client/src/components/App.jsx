@@ -24,7 +24,7 @@ function App() {
           {/* <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
-      {/* <QA />   */}
+      {/* <QA /> */}
     </div>
   );
 }
