@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import QAList from './QAList.jsx';
 import qData from './questionsSample.js';
 // import aData from './answersSample.js';

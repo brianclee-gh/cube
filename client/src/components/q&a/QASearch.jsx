@@ -1,8 +1,9 @@
 import React from 'react';
-import moment from 'moment';
 
-const QASearch = (props) => {
-
-};
+const QASearch = () => (
+  <div>
+    <h2>Question Search Bar</h2>
+  </div>
+);
 
 export default QASearch;
