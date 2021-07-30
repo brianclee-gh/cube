@@ -7,50 +7,44 @@ import MetaRate from './viewList/metaData/metaRate.jsx';
 import ViewList from './viewList/reviewList/viewList.jsx';
 
 function sortReviews() {
-  const { currentProduct, getData } = useContext(ProductsContext);
-  const [reviewData, setReviewData] = useState([]);
-  const [reviewMeta, setReviewMeta] = useState([]);
+  const { currentProduct } = useContext(ProductsContext);
+  const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
 
-  const getReviewProductsIds = async () => {
+  const getReviewList = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    const reviewProductIds = await axios.get(`/reviews/?product_id=${productId}&page=`);
-    return reviewProductIds.data.results;
+    await getReviews(productId, 1, 2);
+    return reviews;
   };
 
   const getMetaData = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    const reviewMetaData = await axios.get(`/reviews/meta/?product_id=${productId}`);
-    return reviewMetaData.data;
+    await getReviewMetaData(productId);
+    return metaData;
   };
 
   useEffect(() => {
-    getData('17067');
-  }, []);
-
-  useEffect(() => {
-    getReviewProductsIds()
-      .then((ids) => {
-        setReviewData(ids);
-      })
+    getReviewList()
+      .then()
       .catch((err) => console.log(err));
   }, [currentProduct]);
 
   useEffect(() => {
     getMetaData()
-      .then((meta) => {
-        setReviewMeta(meta);
-      })
+      .then()
       .catch((err) => console.log(err));
   }, [currentProduct]);
-  console.log(reviewData);
 
-  if (currentProduct !== null) {
+  useEffect(() => {
+    getRatings(metaData);
+  }, [metaData]);
+
+  if (currentProduct !== null && ratings !== null) {
     return (
       <div>
-        {/* <MetaRate /> */}
-        <ViewList data={reviewData} />
+        <MetaRate />
+        <ViewList />
       </div>
     );
   } else {

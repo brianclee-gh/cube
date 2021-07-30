@@ -15,6 +15,7 @@
   [x] Successfully Retrieve review list data
   [x] Successfully Retrieve meta rate data
   [x] Display 2 tiles at a time.
+  [x] Display imgs as thumbnail
   [ ] If there are more than 2 reviews, create a button for “more reviews”
   [ ] If there are less than 2, no button
   [ ] Clicking button loads 2 more reviews below current 2
