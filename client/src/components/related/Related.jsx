@@ -10,7 +10,7 @@ import './Related.css';
 function Related() {
   const { currentProduct, getData } = useContext(ProductsContext);
   const [relatedIds, setRelatedIds] = useState(null);
-  const [comparing, setComparing] = useState('');
+  // const [comparing, setComparing] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [combined, setCombined] = useState(null);
 
@@ -65,9 +65,9 @@ function Related() {
     setModalOpen(false);
   };
 
-  // useEffect(() => {
-  //   getData('17080');
-  // }, []);
+  useEffect(() => {
+    getData('17080');
+  }, []);
 
   useEffect(() => {
     getRelatedProductsIds()
