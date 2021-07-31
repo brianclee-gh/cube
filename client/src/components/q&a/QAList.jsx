@@ -31,9 +31,9 @@ const QAList = () => {
     return fetchedData;
   };
 
-  useEffect(() => {
-    getData('17080');
-  }, []);
+  // useEffect(() => {
+  //   getData('17080');
+  // }, []);
 
   useEffect(() => {
     getQAList()
