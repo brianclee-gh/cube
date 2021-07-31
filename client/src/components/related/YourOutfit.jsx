@@ -41,7 +41,6 @@ function YourOutfit({ cachedData, setCachedData }) {
     } else if (Object.keys(outfit).length === 0) {
       localStorage.setItem('yourSavedOutfit', JSON.stringify({}));
     }
-    console.log(outfit, 'set');
     // don't want to overwrite on load
   }, [outfit]);
 

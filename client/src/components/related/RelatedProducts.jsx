@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React, { useState, useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Carousel from './Carousel.jsx';
 import RelatedCard from './RelatedCard.jsx';
 import Modal from './Modal.jsx';
@@ -50,10 +51,10 @@ function RelatedProducts({
   };
   const handleCardClick = (e, target, id, comparingProduct) => {
     e.preventDefault();
-    if (target.classList.contains('related-action-btn')) {
+    if (target.classList.contains('hover__no-hover')) {
       setModalOpen((current) => !current);
       setCombined(combineFeatures(comparingProduct));
-    } else {
+    } else if (!target.classList.contains('hover__hover')) {
       getData(id);
     }
   };
@@ -67,7 +68,7 @@ function RelatedProducts({
         { relatedIds.map((id) => (
           <RelatedCard
             relatedIds={relatedIds}
-            key={id}
+            key={uuidv4()}
             handleCardClick={handleCardClick}
             id={id}
             cachedData={cachedData}

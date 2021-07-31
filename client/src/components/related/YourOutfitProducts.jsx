@@ -14,10 +14,12 @@ function YourOutfitProducts({
   cachedData,
   setCachedData,
 }) {
-  const handleOutfitClick = (id) => {
-    const outfitCopy = { ...outfit };
-    delete outfitCopy[id];
-    setOutfit(outfitCopy);
+  const handleOutfitClick = (e, id) => {
+    if (e.target.className.includes('hover__no-hover')) {
+      const outfitCopy = { ...outfit };
+      delete outfitCopy[id];
+      setOutfit(outfitCopy);
+    }
   };
 
   return (

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
+import Hover from './helperFunctions/Hover.jsx';
 
 function OutfitCard({
   product,
@@ -108,7 +109,16 @@ function OutfitCard({
               { styleData.results[0].photos[0].thumbnail_url
                 ? <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
                 : <img className="related-product-img" src="https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1" alt="product" />}
-              <button onClick={() => handleOutfitClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
+              <button
+                onClick={(e) => handleOutfitClick(e, product.id)}
+                type="button"
+                aria-label="Save"
+                className="related-action-btn"
+              >
+                <Hover onHover={<div className="tooltip"> Remove from outfit </div>}>
+                  <FontAwesomeIcon icon={faTimesCircle} />
+                </Hover>
+              </button>
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">
@@ -130,7 +140,7 @@ function OutfitCard({
                       </span>
                     </span>
                   )
-                  : <span className="related-product-price">{styleData.results[0].original_price}</span>}
+                  : <span className="related-product-price">${styleData.results[0].original_price}</span>}
                 { metaData.ratings ? <span className="related-product-stars">{starRating(getStars(metaData))}</span> : ''}
               </div>
             </div>

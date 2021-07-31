@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Hover from './helperFunctions/Hover.jsx';
 
 function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
   return (
@@ -11,11 +14,15 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
             role="button"
             data-btn="add-to-outfit"
             className="outfit-action-btn"
-            onClick={addToOutfit}
-            tabIndex="-1"
-            onKeyDown={() => {}}
           >
-            +
+            <Hover onHover={<div className="tooltip"> Add to outfit </div>}>
+              <FontAwesomeIcon
+                onClick={addToOutfit}
+                tabIndex="-1"
+                onKeyDown={() => {}}
+                icon={faPlus}
+              />
+            </Hover>
           </div>
         </div>
         <div className="outfit-card-info-container">
