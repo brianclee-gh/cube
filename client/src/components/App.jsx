@@ -20,11 +20,11 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
+          <Main />
           {/* <Related /> */}
-          <QAProvider>
+          {/* <QAProvider>
             <QA />
-          </QAProvider>
+          </QAProvider> */}
           {/* <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
