@@ -8,11 +8,11 @@ Functionality:
 
 Questions List
 - [x] List of questions that have been asked about the given product
-- [] Displayed in an expanding and collapsing accordion
-    - [] By default, on page load up to 4 questions should be displayed
-    - [] Up to 2 answers should display for each question
-    - [] Remaining q&a’s should be hidden until user clicks “More Answered Questions” button
-- [] Should appear in order of ‘helpfulness’, corresponding to how many users have indicated that the question was helpful
+- [x] Displayed in an expanding and collapsing accordion
+    - [x] By default, on page load up to 4 questions should be displayed
+    - [x] Up to 2 answers should display for each question
+    - [x] Remaining q&a’s should be hidden until user clicks “More Answered Questions” button
+- [X] Should appear in order of ‘helpfulness’, corresponding to how many users have indicated that the question was helpful
 - [] Have the potential to be filtered to a subset based on user searches
 - [] If no questions have been submitted for the product, then the list will collapse and the button to submit a new question will appear near the top of the module**
 
@@ -26,39 +26,39 @@ Individual Question
         - [x] Format: “by [username], Month DD, YYYY”
         - [] If the answer is from the seller, then the username should display “Seller” in BOLD
     - [x] A link should appear next to the text “Helpful?” Reading “Yes (#)” with the count of selections for that answer
-        - [] Clicking on this link should increase the count for that response
-        - [] A customer should not be able to vote more than once for this selection***
+        - [x] Clicking on this link should increase the count for that response
+        - [x] A customer should not be able to vote more than once for this selection***
     - [x] Next to “Helpful?” link, a second link named “Report” should be there. 
         - [] Clicking on this link will mark the answer for internal review***
-        - [] User should not be able to report an answer more than once***
-        - [] After clicking, the “Report” link should change to static text that reads “Reported”
+        - [x] User should not be able to report an answer more than once***
+        - [x] After clicking, the “Report” link should change to static text that reads “Reported”
         - [] Answers that have been reported should be marked as such in the system for further action to be taken
-    - [] Answers should appear in the order of ‘helpfulness’
+    - [x] Answers should appear in the order of ‘helpfulness’
         - [] HOWEVER, any answers from the seller should appear at the top of the list
-        - [] There should be no other sort order for answers
-    - [] By default, only 2 answers will show
-        - [] The rest should be hidden
-        - [] If more than 2 answers exist for the question, a link to “See more answers” should display below the list
-            - [] Clicking on this link should expand the area below the question and display the remainder of the list
+        - [x] There should be no other sort order for answers
+    - [x] By default, only 2 answers will show
+        - [x] The rest should be hidden
+        - [x] If more than 2 answers exist for the question, a link to “See more answers” should display below the list
+            - [x] Clicking on this link should expand the area below the question and display the remainder of the list
             - [] View for the full list of answers should be confined to half the screen
             - [] List should be scrollable 
-            - [] When expanded, button for “See more answers” should change to read “Collapse answers”
+            - [x] When expanded, button for “See more answers” should change to read “Collapse answers”
     - [] Another link should appear next in line with each question titled “Add Answer”
         - [] Clicking on this link should open up a modal window containing a dorm through which answers can be submitted
 
 Search Questions
-- [] Search bar will appear above the questions list
+- [x] Search bar will appear above the questions list
 - [] Search terms entered in this text input will filter the list for matching results
     - [] After the user types 3 or more characters into the search bar the results will begin to filter to only those containing matching text
     - [] Filter should continue to update as the user adds or removes characters
-- [] Placeholder: “Have a question? Search for answers…”
+- [x] Placeholder: “Have a question? Search for answers…”
 - [] If the user clears the search term or has less then 3 characters remaining, the list should return to the state where t is not filtered to matching text
 - [] Search filter should work with any other filters or sorts that have been applied, and narrow the results further
     - [] Changes to the short and rating filters should not remove the search term filter
 
 More Answered Questions
-- [] Default: Display up to 2 questions asked
-- [] If there are more than 2 questions that have been asked about a product, a button for “More Answered Questions” will appear below the list
+- [x] Default: Display up to 2 questions asked
+- [x] If there are more than 2 questions that have been asked about a product, a button for “More Answered Questions” will appear below the list
     - [] If there are 2 or less questions, then the button will not appear
     - [] Clicking this button will cause up to 2 additional questions to appear
         - [] List should expand and the questions should show in order below the previously loaded questions

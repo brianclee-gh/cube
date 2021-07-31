@@ -7,7 +7,7 @@ import './Image.css';
 
 function Image({ images }) {
   const [currentImage, setCurrentImage] = useState({
-    active: images[0].thumbnail_url,
+    active: images[0].thumbnail_url || 'https://source.unsplash.com/random/600x800',
     allImages: images,
     index: 0,
   });
@@ -17,7 +17,7 @@ function Image({ images }) {
       ...currentImage,
       allImages: images,
       // index: (prevIndex) => {prevIndex; },
-      active: images[currentImage.index].thumbnail_url,
+      active: images[currentImage.index].thumbnail_url || 'https://source.unsplash.com/random/600x800',
     });
   }, [images]);
 
@@ -52,11 +52,10 @@ function Image({ images }) {
           className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
           onClick={() => { prevPhoto(); }}
         />
-
         {currentImage.allImages.map((image, index) => (
           <ImageThumbnails
-            thumbnail={image.thumbnail_url}
-            key={image.url.slice(28)}
+            thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+            key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
             changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
             currentActive={currentImage.active}
           />
@@ -68,9 +67,9 @@ function Image({ images }) {
         />
       </div>
       <div className="Main-Image-Container">
-        <i className="fas fa-arrow-left" />
+        <i className="fas fa-arrow-left" onClick={() => { prevPhoto(); }} />
         <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
-        <i className="fas fa-arrow-right" />
+        <i className="fas fa-arrow-right" onClick={() => { nextPhoto(); }} />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ function AddToCart({ sku }) {
   // Check for no Quantity in any size
   const checkNoQuant = (skus) => {
     let total = 0;
-    for (let key in skus) {
+    for (const key in skus) {
       total += skus[key].quantity;
     }
     if (total === 0) {
@@ -29,9 +29,9 @@ function AddToCart({ sku }) {
   });
   // sets size back to unselected if new style selected
 
-   // Add to Cart Special Case- no Size Selected
-   const [sizeSelected, setSizeSelected] = useState(false);
-   const [cartClicked, setCartClicked] = useState(false);
+  // Add to Cart Special Case- no Size Selected
+  const [sizeSelected, setSizeSelected] = useState(false);
+  const [cartClicked, setCartClicked] = useState(false);
 
   useEffect(() => {
     setSize('');
@@ -39,6 +39,7 @@ function AddToCart({ sku }) {
     setCheckoutQuantity('1');
     setCartClicked(false);
     setSizeSelected(false);
+    setSelectedSku('');
   }, [sku]);
 
   // Get Available Sizes
@@ -129,7 +130,7 @@ function AddToCart({ sku }) {
         {checkQuant && (
           <>
             <button className="add-to-cart" type="submit" onClick={cartSubmit}>Add To Bag</button>
-            <button className="favorite-star" type="button"><i className="far fa-star"></i></button>
+            <button className="favorite-star" type="button"><i className="far fa-star" /></button>
           </>
         )}
       </div>

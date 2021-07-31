@@ -11,10 +11,10 @@ function Description({ currentDescription, features, slogan }) {
       <ul className="feature-list">
         {features.map((item) => (
           <li className="feature" key={item.feature}>
-            {item.feature}
+            {item.feature || '✓'}
             :
             {' '}
-            {item.value}
+            {item.value || '✓'}
           </li>
         ))}
       </ul>
