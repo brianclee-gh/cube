@@ -13,6 +13,7 @@ function RelatedCard({
   id,
   cachedData,
   setCachedData,
+  index,
 }) {
   const [productData, setProductData] = useState({});
   const [styleData, setStyleData] = useState({});
@@ -89,7 +90,7 @@ function RelatedCard({
   }, [relatedIds]);
 
   return (
-    <li className="related-card-container">
+    <li className="related-card-container" id={`card_${index}`}>
       <div tabIndex="0" role="button" onClick={(e) => handleCardClick(e, e.target, id, productData)} onKeyDown={() => {}}>
         { !loading
           ? (

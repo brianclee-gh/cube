@@ -65,12 +65,13 @@ function RelatedProducts({
         <h3>YOU MAY LIKE...</h3>
       </div>
       <Carousel show={relatedIds.length}>
-        { relatedIds.map((id) => (
+        { relatedIds.map((id, index) => (
           <RelatedCard
             relatedIds={relatedIds}
             key={uuidv4()}
             handleCardClick={handleCardClick}
             id={id}
+            index={index}
             cachedData={cachedData}
             setCachedData={setCachedData}
           />
