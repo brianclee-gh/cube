@@ -67,9 +67,9 @@ function Image({ images }) {
         />
       </div>
       <div className="Main-Image-Container">
-        <i className="fas fa-arrow-left" />
+        <i className="fas fa-arrow-left" onClick={() => { prevPhoto(); }} />
         <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
-        <i className="fas fa-arrow-right" />
+        <i className="fas fa-arrow-right" onClick={() => { nextPhoto(); }} />
       </div>
     </div>
   );
