@@ -49,11 +49,6 @@ const Answer = ({ answer }) => {
     <div>
       <div>A: {answer.body}</div>
       <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? {renderHelpfulButton()} ({helpfulCounter})  | {renderReportButton()}</div>
-      {/* {!helped && !reported ? (
-        <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? <a className="qa-helpful-link" onClick={markHelpful}>Yes</a> ({helpfulCounter})  | <a className="qa-report-link" onClick={reportAnswer}>Report</a></div>
-      ) : (
-        <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? Thanks ({helpfulCounter})  | Reported</div>
-      )} */}
     </div>
   );
 };
