@@ -40,8 +40,8 @@
   [x] If there are 2 or less reviews for the given product, then the button will not appear.
   [x] Clicking this button will cause up to 2 additional reviews to appear. The list should expand, and the review tiles should show in order below the previously loaded questions.
   [x] As long as there are still unloaded reviews, the button will remain below the list.  Once all of the reviews for the product have been loaded, the button should no longer appear.
-  [ ] After several loads, the length of the list will become very long.  In order to keep the page manageable, the maximum height of the questions list should be capped such that the entire Reviews module should fit on a single screen.   The reviews list should become scrollable. The sort dropdown and buttons should remain fixed outside of the scrollable list.
-  [ ] The order in which the reviews appear, as well as whether all or a filtered subset of the reviews appear will be changeable.
+  [x] After several loads, the length of the list will become very long.  In order to keep the page manageable, the maximum height of the questions list should be capped such that the entire Reviews module should fit on a single screen.   The reviews list should become scrollable. The sort dropdown and buttons should remain fixed outside of the scrollable list.
+  [x] The order in which the reviews appear, as well as whether all or a filtered subset of the reviews appear will be changeable.
   [ ] If no reviews have been submitted for this product, then the list will collapse, and the button to submit a new review (section 1.2.7) will appear near the top of the module.
   [ ] Future Enhancement - Instead of incrementally loading 2 reviews at a time, clicking the “More Reviews” button should immediately expand the list to its maximum height.  The reviews appearing within should no longer need to be explicitly loaded.  Instead, the list should load in an ‘infinite scroll’, where as the user nears the end of the list, additional questions tack on to the bottom.
 
@@ -58,9 +58,9 @@
   [ ] Any images that were submitted as part of the review should appear as thumbnails below the review text. Upon clicking a thumbnail, the image should open in a modal window, displaying at full resolution.  The only functionality available within this modal should be the ability to close the window.
   [ ] Recommend - If the reviewer recommends buying the product, the text “I recommend this product” and a checkmark icon will display below the review.  If the reviewer does not recommend the product, nothing will display here.
   [ ] Reviewer name - The username for the reviewer will appear.  Only the username will appear. No email addresses or other personal information will display.  However, if the user’s email is associated with a sale in the system then next to the username the text “Verified Purchaser” will appear.
-  [ ] Response to Review - Our internal sales team has the ability to respond to any reviews written.  If the review has a corresponding response, this should appear below the reviewer name.  The response should be preceded by the text “Response from seller”, and should be visually distinguished from the rest of the review.
+  [x] Response to Review - Our internal sales team has the ability to respond to any reviews written.  If the review has a corresponding response, this should appear below the reviewer name.  The response should be preceded by the text “Response from seller”, and should be visually distinguished from the rest of the review.
   [ ] Rating Helpfulness - Any user on the site will have the ability to provide feedback on whether reviews are helpful.  At the bottom of the review tile the text “Was this review helpful?” will precede two links “Yes (#)” and “No (#)”.   Following “Yes” and “No” will be the count of users that have selected that button.  Clicking either link should cast a vote for that selection.
-  [ ] A user on the site does not need to be logged in to provide feedback on helpfulness.
+  [x] A user on the site does not need to be logged in to provide feedback on helpfulness.
   [ ] A user can provide feedback on any review.  However, they can only make one submission for each review. If the user selects either “Yes” or “No” for a review, they should not be able to select another option again for that review.
 
 [x] Sort Options
@@ -94,7 +94,7 @@
   [x] The percentage of reviews that ‘recommend’ the product will be displayed below the breakdown.
 
 [ ] Product Breakdown (Factors)
-  [ ] Reviews will provide ability to give feedback on specific characteristics of the product.   The characteristics include Size, Width, Comfort, Quality, Length, and Fit.   One or more of these may be relevant for a product.  In the Reviews module, the average feedback received will be displayed for all characteristics which apply to the product.
+  [ ] Reviews will provide ability to give feedback on specific characteristics of the product.   The characteristics include Size, Width, Comfort, Quality, Length, and Fit. One or more of these may be relevant for a product.  In the Reviews module, the average feedback received will be displayed for all characteristics which apply to the product.
   [ ] Feedback for characteristics will be on a 5 point scale.  The range of this scale will depend on the characteristic in question.  For example, Size can range from (1) “too small” to (5) “too big”, with the middle option (3) being “perfect”.  Using the same 5 point scale for Quality, however, the scale would range from (1) “poor” to (5) “great”.
   [ ] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
 

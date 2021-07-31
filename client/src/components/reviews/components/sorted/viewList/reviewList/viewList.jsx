@@ -11,7 +11,6 @@ function reviewList({sort}) {
   const { currentProduct } = useContext(ProductsContext);
   const [viewableReviews, setViewableReviews] = useState(2);
   const [expandReview, setExpandReview] = useState(null);
-  // const [loadMoreReview, setLoadMoreReview] = useState(true);
 
   const loadMore = () => {
     setViewableReviews(viewableReviews + 2);
@@ -24,31 +23,6 @@ function reviewList({sort}) {
     setViewableReviews(reviews.length);
     setExpandReview(false);
   };
-
-  // const loadMoreButton = () => {
-  //   setLoadMoreReview(false);
-  // };
-
-  // const allReviewBody = (loads) => {
-  //   return loads
-  // }
-
-  // const moreLoad = (load) => {
-  //   return (
-  //     <div>
-  //       {load}
-  //       <button className="reviewBodyLoadMoreButton" onClick={loadMoreButton}>load more...</button>
-  //     </div>
-  //   )
-  // };
-
-  // const setLongBody = (load) => {
-  //   if (load && loadMoreReview) {
-  //     return true;
-  //   } else if (load && !loadMoreReview) {
-  //     return false;
-  //   }
-  // };
 
   useEffect(() => {
     if (reviews !== null) {
@@ -67,6 +41,7 @@ function reviewList({sort}) {
 
   if (reviews !== null) {
     return (
+      <div className="reviewBodyTile">
       <div className="reviewBodyBox">
         {reviews.slice(0, viewableReviews).map((review) => (
           <div className="reviewBodyBox_review" key={review.review_id}>
@@ -85,7 +60,7 @@ function reviewList({sort}) {
               {String(review.recommend)}
             </div>
             <div className="reviewBodyBox_response">
-              response
+              response from seller:
               {String(review.response)}
             </div>
             {review.photos.map((photo) => (
@@ -99,8 +74,9 @@ function reviewList({sort}) {
             </div>
           </div>
         ))}
-        {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
-        {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
+      </div>
+      {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
+      {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
       </div>
     );
   }
