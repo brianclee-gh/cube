@@ -39,6 +39,7 @@ function AddToCart({ sku }) {
     setCheckoutQuantity('1');
     setCartClicked(false);
     setSizeSelected(false);
+    setSelectedSku('');
   }, [sku]);
 
   // Get Available Sizes

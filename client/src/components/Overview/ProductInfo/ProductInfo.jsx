@@ -42,9 +42,10 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
     getPhotos(style);
   };
 
-  // useEffect(() => {
-  //  setCurrentSku(productStyles[0].skus);
-  // }, [currentProduct]);
+  useEffect(() => {
+    setCurrentSku(productStyles[0].skus);
+    setActive(productStyles[0]);
+  }, [currentStyle]);
 
   return (
     <div className="Product-InfoAll">
