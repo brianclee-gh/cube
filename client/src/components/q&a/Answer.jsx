@@ -27,14 +27,33 @@ const Answer = ({ answer }) => {
       });
   };
 
+  const renderHelpfulButton = () => {
+    if (!helped) {
+      return (
+        <a className="qa-helpful-link" onClick={markHelpful}>Yes</a>
+      );
+    }
+    return 'Thanks!';
+  };
+
+  const renderReportButton = () => {
+    if (!reported) {
+      return (
+        <a className="qa-report-link" onClick={reportAnswer}>Report</a>
+      );
+    }
+    return 'Reported';
+  };
+
   return (
     <div>
       <div>A: {answer.body}</div>
-      {!helped && !reported ? (
+      <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? {renderHelpfulButton()} ({helpfulCounter})  | {renderReportButton()}</div>
+      {/* {!helped && !reported ? (
         <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? <a className="qa-helpful-link" onClick={markHelpful}>Yes</a> ({helpfulCounter})  | <a className="qa-report-link" onClick={reportAnswer}>Report</a></div>
       ) : (
         <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? Thanks ({helpfulCounter})  | Reported</div>
-      )}
+      )} */}
     </div>
   );
 };

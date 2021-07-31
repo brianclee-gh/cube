@@ -36,9 +36,21 @@ const Question = ({ question }) => {
       });
   };
 
+  const renderHelpfulButton = () => {
+    if (!helped) {
+      return (
+        <a className="qa-helpful-link" onClick={markHelpful}>Yes</a>
+      );
+    }
+    return 'Thanks!';
+  };
+
   return (
     <div>
-      {!helped ? (
+      <span>Q: {question.question_body}    |      Helpful?
+        {renderHelpfulButton()} ({helpfulCounter})   |   Add Answer
+      </span>
+      {/* {!helped ? (
         <span>Q: {question.question_body}    |      Helpful?
         <a className="qa-helpful-link" onClick={markHelpful}>Yes</a> ({helpfulCounter})   |   Add Answer
         </span>
@@ -46,7 +58,7 @@ const Question = ({ question }) => {
         <span>Q: {question.question_body}    |      Helpful?
         <a className="qa-helpful-link">Thanks</a> ({helpfulCounter})   |   Add Answer
         </span>
-      )}
+      )} */}
       <div className="answers-list">
         {
           answers.slice(0, defaultAnswers).map((a) => <Answer answer={a} key={a.id} />)
