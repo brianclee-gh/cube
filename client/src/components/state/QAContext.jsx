@@ -31,7 +31,7 @@ export const QAProvider = ({ children }) => {
     } catch (e) {
       console.log(e);
     }
-};
+  };
 
   const markQuestionHelpful = async (questionId) => {
     try {

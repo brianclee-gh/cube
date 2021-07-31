@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 const axios = require('axios');
+const { LibraryTemplatePlugin } = require('webpack');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
     // eslint-disable-next-line prefer-const
     let { product_id, page, count } = req.query;
     page = page || 1;
-    count = count || 5;
+    count = count || 100;
     const url = `${ATELIER_URL}/qa/questions?product_id=${product_id}&page=${page}&count=${count}`;
     axios.get(url, {
       headers: { Authorization: GITHUB_KEY },
@@ -42,13 +43,15 @@ module.exports = {
   },
 
   helpfulQuestion: (req, res) => {
+    // let { question_helpfulness } = req.body;
     const { question_id } = req.params;
     const url = `${ATELIER_URL}/qa/questions/${question_id}/helpful`;
     axios.put(url, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
-        res.send(data.data);
+        console.log(data);
+        res.send(data);
         res.end();
       })
       .catch((err) => {
