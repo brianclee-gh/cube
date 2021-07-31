@@ -25,6 +25,7 @@ function Image({ images }) {
     setCurrentImage({ ...currentImage, active: image, index: photoIndex });
   };
 
+  const highlight = document.getElementsByClassName('selectActive')[0];
   const nextPhoto = () => {
     const length = currentImage.allImages.length - 1;
     const imageIndex = currentImage.index === length ? 0 : currentImage.index + 1;
@@ -33,6 +34,7 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
+    highlight.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const prevPhoto = () => {
@@ -43,23 +45,26 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
+    highlight.scrollIntoView({ behavior: "smooth", block: "end"});
   };
 
   return (
     <div className="Image-Component">
-      <div className="Thumbnail-Container">
+      <div className="Thumbnail-Arrow-Container">
         <i
           className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
           onClick={() => { prevPhoto(); }}
         />
-        {currentImage.allImages.map((image, index) => (
-          <ImageThumbnails
-            thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
-            key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
-            changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
-            currentActive={currentImage.active}
-          />
-        ))}
+        <div className="Thumbnail-Container">
+          {currentImage.allImages.map((image, index) => (
+            <ImageThumbnails
+              thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+              key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+              changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
+              currentActive={currentImage.active}
+            />
+          ))}
+        </div>
         <i
           className={currentImage.index === currentImage.allImages.length - 1
             ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
