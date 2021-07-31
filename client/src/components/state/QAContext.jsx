@@ -24,19 +24,50 @@ export const QAProvider = ({ children }) => {
   const getAnswers = async (questionId, page, count) => {
     page = page || 1;
     count = count || 2;
-    const customOptions = {
-      page,
-      count,
-      question_id: questionId,
-    };
     try {
-      const fetchAnswers = await axios.get(`/qa/questions/${questionId}/answers/?page=${page}&count=${count}`, customOptions);
+      const fetchAnswers = await axios.get(`/qa/questions/${questionId}/answers/?page=${page}&count=${count}`);
       setAnswers(fetchAnswers.data);
-    //   return fetchAnswers;
+      return fetchAnswers.data;
     } catch (e) {
       console.log(e);
     }
 };
+
+  const markQuestionHelpful = async (questionId) => {
+    try {
+      const markedHelpful = await axios.put(`/qa/questions/${questionId}/helpful`);
+      return markedHelpful;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const markAnswerHelpful = async (answerId) => {
+    try {
+      const markedHelpful = await axios.put(`/qa/answers/${answerId}/helpful`);
+      return markedHelpful;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const reportQuestion = async (questionId) => {
+    try {
+      const reported = await axios.put(`/qa/questions/${questionId}/report`);
+      return reported;
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const reportAnswer = async (answerId) => {
+    try {
+      const reported = await axios.put(`/qa/answers/${answerId}/report`);
+      return reported;
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   // when currentProduct changes...
   // update reviews, styles, metadata, etc... maybe useEffect?
@@ -61,17 +92,6 @@ export const QAProvider = ({ children }) => {
   //   const response = await axios.post(`${ATELIER_URL}reviews`, reviewBody);
   //   return response;
   // };
-
-  // const markHelpfulReview = async (reviewId) => {
-  //   const response = await axios.put(`${ATELIER_URL}reviews/${reviewId}/helpful`, { review_id: reviewId });
-  //   return response;
-  // };
-
-  // const reportReview = async (reviewId) => {
-  // const response = await axios.put((`${ATELIER_URL}reviews/${reviewId}/report`, { review_id: reviewId }));
-  //   return response;
-  // };
-
   return (
     <QAContext.Provider
       value={{
@@ -79,6 +99,10 @@ export const QAProvider = ({ children }) => {
         answers,
         getQuestions,
         getAnswers,
+        markQuestionHelpful,
+        markAnswerHelpful,
+        reportQuestion,
+        reportAnswer,
       }}
     >
       { children }

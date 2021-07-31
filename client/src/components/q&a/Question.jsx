@@ -7,6 +7,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import Answer from './Answer.jsx';
+import { markQuestionHelpful, reportQuestion } from '../state/QAContext.jsx';
 
 const Question = ({ question }) => {
   var answers = Object.entries(question.answers).map((a) => a[1]).sort((a, b) => ((a.helpfulness > b.helpfulness) ? -1 : 1));
