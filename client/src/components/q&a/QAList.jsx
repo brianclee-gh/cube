@@ -20,7 +20,7 @@ const QAList = () => {
   } = useContext(QAContext);
   //   const [productId, setProductId] = useState(17067);
   const [data, setData] = useState([]);
-  const [defaultQuestions, setDefaultQuestions] = useState(4);
+  const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(false);
 
   const getQAList = async () => {
@@ -47,7 +47,7 @@ const QAList = () => {
   }, [currentProduct]);
 
   const loadMore = () => {
-    expanded ? setDefaultQuestions(4) : setDefaultQuestions(data.length);
+    expanded ? setDefaultQuestions(2) : setDefaultQuestions(data.length);
     setExpanded(!expanded);
   }
 
@@ -59,13 +59,15 @@ const QAList = () => {
         { data
           ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
           : 'Loading..'}
-        <a className="btn load-more" onClick={loadMore}>
-          {expanded ? (
-            <span>SHOW LESS QUESTIONS</span>
-          ) : (
-            <span>LOAD MORE QUESTIONS</span>
-          )}
-        </a>
+        {data.length > 2 ? (
+          <a className="btn load-more" onClick={loadMore}>
+            {expanded ? (
+              <span>COLLAPSE QUESTIONS</span>
+            ) : (
+              <span>MORE ANSWERED QUESTIONS</span>
+            )}
+          </a>
+        ) : null}
       </div>
     </div>
   );
