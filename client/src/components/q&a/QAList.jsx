@@ -60,7 +60,7 @@ const QAList = () => {
           ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
           : 'Loading..'}
         {data.length > 2 ? (
-          <a className="btn load-more" onClick={loadMore}>
+          <a className="btn load-more-answers" onClick={loadMore}>
             {expanded ? (
               <span>COLLAPSE QUESTIONS</span>
             ) : (
