@@ -98,3 +98,11 @@
          [x]     -hide left arrow on index = 0
          [x]     -hide right arrow on index = length
          [x]      - switching styles should remember index
+
+
+         Product Info Wrap Up
+        [x] - FaceBook, Twitter, Pinterest Buttons
+        [x]  - Add to Cart opens up Size Drop Down and text to say select a size
+        [x]   - Reset quantity on style change
+             - Check for more than 8 product styles
+        [x]    - style buttons for cart

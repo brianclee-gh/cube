@@ -4,16 +4,16 @@ function AddToCart({ sku }) {
   // quantity per size selected
   const [sizeQuantity, setSizeQuantity] = useState(0);
   // size selected in dropdown
-  const [currentSize, setSize] = useState('');
+  const [currentSize, setSize] = useState('1');
   // tracking Sku for possible checkout
   const [selectedSku, setSelectedSku] = useState('');
   // quantity selected from dropdown for checkout
-  const [checkoutQuantity, setCheckoutQuantity] = useState();
+  const [checkoutQuantity, setCheckoutQuantity] = useState('1');
 
   // Check for no Quantity in any size
   const checkNoQuant = (skus) => {
     let total = 0;
-    for (let key in skus) {
+    for (const key in skus) {
       total += skus[key].quantity;
     }
     if (total === 0) {
@@ -28,9 +28,17 @@ function AddToCart({ sku }) {
     setQuant(checkNoQuant(sku));
   });
   // sets size back to unselected if new style selected
+
+  // Add to Cart Special Case- no Size Selected
+  const [sizeSelected, setSizeSelected] = useState(false);
+  const [cartClicked, setCartClicked] = useState(false);
+
   useEffect(() => {
     setSize('');
-    setCheckoutQuantity('');
+    setSizeQuantity('1');
+    setCheckoutQuantity('1');
+    setCartClicked(false);
+    setSizeSelected(false);
   }, [sku]);
 
   // Get Available Sizes
@@ -39,14 +47,25 @@ function AddToCart({ sku }) {
       return (<option key={item} value={item}>{sku[item].size}</option>);
     }
   });
-  // Add to Cart Special Case- no Size Selected
-  const [sizeSelected, setSizeSelected] = useState(false);
-  const [cartClicked, setCartClicked] = useState(false);
 
-  // const cartSubmit = () => {
-  //   // e.preventDefault();
-  //   setCartClicked(true);
+  // const [sizeRef, setSizeRef] = useState(React.createRef());
+  // const [isClicked, setIsClicked] = useState(false);
+
+  // const test = (event) => {
+  //   event.preventDefault();
+  //   // sizeRef.current.focus();
+  //   // console.log(sizeRef.current);
+  //   setIsClicked(true);
+  //   // sizeRef.current[0];
+  //   // console.log(clicked);
   // };
+
+  const cartSubmit = (event) => {
+    event.preventDefault();
+    // test(event);
+    setCartClicked(true);
+  };
+
   // Size On Change - stores Size in currentSize state for Submit
   const sizeValue = (event) => {
     if (event.target.value !== 'Select Size') {
@@ -55,6 +74,10 @@ function AddToCart({ sku }) {
       setSizeQuantity(sku[event.target.value].quantity);
       setSizeSelected(true);
     } else {
+      setSizeSelected(false);
+      setSize('');
+      setCartClicked(false);
+      setSizeQuantity(0);
       setSizeSelected(false);
     }
   };
@@ -71,12 +94,12 @@ function AddToCart({ sku }) {
   return (
     <>
       <div className="Cart-Container">
-        {/* {!sizeSelected && cartClicked && (
-          <span>Please select size</span>
-        )} */}
+        {!sizeSelected && cartClicked ? (
+          <span className="size-error">Please select size</span>
+        ) : (<span className="size-error" />)}
         {checkQuant && (
         <form>
-          <select className="Size-Options" name="size" label="select-size" onChange={sizeValue}>
+          <select size={cartClicked && !currentSize ? '8' : 0} className="Size-Options" name="size" label="select-size" onChange={sizeValue}>
             <option value="Select Size" defaultValue="Select Size">Select Size</option>
             {selectedSizes}
           </select>
@@ -103,7 +126,12 @@ function AddToCart({ sku }) {
             </select>
           </form>
         )}
-        {checkQuant && (<button className="add-to-cart" type="submit">Add To Cart</button>)}
+        {checkQuant && (
+          <>
+            <button className="add-to-cart" type="submit" onClick={cartSubmit}>Add To Bag</button>
+            <button className="favorite-star" type="button"><i className="far fa-star" /></button>
+          </>
+        )}
       </div>
     </>
   );

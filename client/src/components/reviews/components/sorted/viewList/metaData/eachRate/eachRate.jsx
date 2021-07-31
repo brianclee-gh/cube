@@ -22,6 +22,8 @@ function eachScoreList() {
   if (metaData !== null) {
     return (
       <div className="eachScoreListing">
+        <div>Rating Breakdown</div>
+        <div>applied filters(if only it has) remove all filters</div>
         <div className="eachScoreListing_5">5 stars: {rating5}</div>
         <div className="eachScoreListing_5">4 stars: {rating4}</div>
         <div className="eachScoreListing_5">3 stars: {rating3}</div>
