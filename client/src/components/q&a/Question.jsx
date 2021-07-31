@@ -10,7 +10,7 @@ import Answer from './Answer.jsx';
 import { markQuestionHelpful, reportQuestion } from '../state/QAContext.jsx';
 import axios from 'axios';
 
-const Question = ({ question, handleChange }) => {
+const Question = ({ question }) => {
   var answers = Object.entries(question.answers).map((a) => a[1]).sort((a, b) => ((a.helpfulness > b.helpfulness) ? -1 : 1));
 
   const [defaultAnswers, setDefaultAnswers] = useState(2);
