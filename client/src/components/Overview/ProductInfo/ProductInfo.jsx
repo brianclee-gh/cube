@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProductInfo.css';
 // eslint-disable-next-line import/extensions
 import Styles from './Styles.jsx';
@@ -41,6 +41,11 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
     setCurrentStyleTitle(style.name);
     getPhotos(style);
   };
+
+  // useEffect(() => {
+  //  setCurrentSku(productStyles[0].skus);
+  // }, [currentProduct]);
+
   return (
     <div className="Product-InfoAll">
       <div className="Product-Info-Top">
