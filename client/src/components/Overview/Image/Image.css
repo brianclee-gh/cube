@@ -73,7 +73,7 @@ i {
   min-height: 5px;
 }
 
-.top-arrow-hidden, .bottom-arrow-hidden {
+.top-arrow-hidden, .bottom-arrow-hidden, .left-arrow-hidden, .right-arrow-hidden {
   visibility: hidden;
 }
 

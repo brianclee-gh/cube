@@ -34,7 +34,7 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
-    highlight.scrollIntoView({ behavior: "smooth", block: "center" });
+    highlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const prevPhoto = () => {
@@ -45,7 +45,7 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
-    highlight.scrollIntoView({ behavior: "smooth", block: "end"});
+    highlight.scrollIntoView({ behavior: 'smooth', block: 'end' });
   };
 
   return (
@@ -72,9 +72,17 @@ function Image({ images }) {
         />
       </div>
       <div className="Main-Image-Container">
-        <i className="fas fa-arrow-left" onClick={() => { prevPhoto(); }} />
+        <i
+          className={currentImage.index === 0
+            ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
+          onClick={() => { prevPhoto(); }}
+        />
         <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
-        <i className="fas fa-arrow-right" onClick={() => { nextPhoto(); }} />
+        <i
+          className={currentImage.index === currentImage.allImages.length - 1
+            ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
+          onClick={() => { nextPhoto(); }}
+        />
       </div>
     </div>
   );
