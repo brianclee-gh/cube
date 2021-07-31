@@ -20,10 +20,20 @@
   width: 450px;
   height: auto;
 }
-.Thumbnail-Container{
-  position: absolute;
+
+.Thumbnail-Arrow-Container {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.Thumbnail-Container{
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  max-height: 81%;
+  overflow-y: scroll;
+  overflow: hidden;
 }
 .Thumbnail-Wrapper {
   z-index: 10;
@@ -52,7 +62,7 @@ i {
 }
 .fa-angle-up, .fa-angle-down {
   font-size: 29px;
-  display: block;
+
 }
 .fa-angle-down {
   align-self: center;
