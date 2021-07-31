@@ -57,9 +57,9 @@ const Question = ({ question }) => {
         {answers.length > 2 ? (
           <a className="expand-answers-btn" onClick={loadMore}>
             {expanded ? (
-              <span>COLLAPSE ANSWERS</span>
+              <button>COLLAPSE ANSWERS</button>
             ) : (
-              <span>SEE MORE ANSWERS</span>
+              <button>SEE MORE ANSWERS</button>
             )}
           </a>
         ) : null}
