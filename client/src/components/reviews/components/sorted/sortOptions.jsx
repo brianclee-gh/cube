@@ -9,12 +9,12 @@ import Select from 'react-select'
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
   const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
-  const [ currentSort, updateSort ] = useState('newest');
+  const [ currentSort, updateSort ] = useState('relevant');
 
   const sort = [
     { value: 'newest', label: 'Newest' },
     { value: 'helpful', label: 'Helpful' },
-    { value: 'relevant', label: 'Relevant' }
+    { value: 'relevant', label: 'Relevant' },
   ];
 
   const getReviewList = async () => {
@@ -61,7 +61,8 @@ function sortReviews() {
     return (
       <div>
         <MetaRate />
-        <Select options={sort} onChange={handleSort} />
+        <div>Sort on:</div>
+        <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList />
       </div>
     );

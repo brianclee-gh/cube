@@ -22,3 +22,9 @@
 .reviewBodyBox_thumbnail {
   margin: 5px;
 }
+
+.reviewBodyBox{
+  max-height: 35rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
