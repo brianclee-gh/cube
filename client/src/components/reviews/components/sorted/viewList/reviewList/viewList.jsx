@@ -7,6 +7,11 @@ import moment from 'moment';
 function reviewList({sort}) {
   const { reviews } = useContext(ReviewsContext);
 
+  const loadMore = () => {
+    expanded ? setDefaultQuestions(4) : setDefaultQuestions(data.length);
+    setExpanded(!expanded);
+  }
+
   if (reviews !== null) {
     return (
       <div className="reviewBodyBox">
