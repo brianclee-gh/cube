@@ -21,8 +21,8 @@ function App() {
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
-          {/* <Related />
-          <QAProvider>
+          <Related />
+          {/* <QAProvider>
             <QA />
           </QAProvider>
           <Review /> */}
