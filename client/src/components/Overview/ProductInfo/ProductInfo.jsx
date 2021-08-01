@@ -55,6 +55,7 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
         <h2 className="product-name">{currentProduct.name}</h2>
         <div className="Prices">
           <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
+          {' '}
           <span className="salePrice">{salePrice}</span>
         </div>
         <div className="Share-Buttons">
@@ -66,6 +67,7 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
       <div className="Product-Info-Mid">
         <div className="Style-Title">
           STYLE &gt;
+          {' '}
           {currentStyleTitle}
         </div>
         {productStyles.map((style, index) => (
