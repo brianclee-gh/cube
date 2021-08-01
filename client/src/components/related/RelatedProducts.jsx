@@ -59,13 +59,15 @@ function RelatedProducts({
     }
   };
 
+  const uniqueItems = [...new Set(relatedIds)]
+
   return (
     <div className="related-products-container">
       <div className="related-products-header">
         <h3>YOU MAY LIKE...</h3>
       </div>
       <Carousel relatedOrOutfit="related">
-        { relatedIds.map((id, index) => (
+        { uniqueItems.map((id, index) => (
           <RelatedCard
             relatedIds={relatedIds}
             key={uuidv4()}
