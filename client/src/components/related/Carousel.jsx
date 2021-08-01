@@ -31,7 +31,7 @@ function Carousel({ children, relatedOrOutfit }) {
 
   return (
     <div className="related-carousel">
-      { startIdx <= 0
+      { startIdx <= 0 || ((window.innerWidth / 325) > childrenLength)
         ? ''
         : <button className="related-scroll-btn-left" type="button" onClick={scrollLeft}>Left</button>}
       <ul
@@ -39,7 +39,7 @@ function Carousel({ children, relatedOrOutfit }) {
       >
         { children }
       </ul>
-      { endIdx >= childrenLength
+      { endIdx >= childrenLength || ((window.innerWidth / 325) > childrenLength)
         ? ''
         : <button onClick={scrollRight} className="related-scroll-btn-right" type="button">Right</button>}
 
