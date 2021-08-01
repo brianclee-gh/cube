@@ -26,17 +26,19 @@ function YourOutfitProducts({
   return (
     <div className="outfit-products-container">
       <ul>
-        { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
-        { Object.entries(outfit).map((data, index) => (
-          <OutfitCard
-            key={uuidv4()}
-            handleOutfitClick={handleOutfitClick}
-            product={data[1]}
-            cachedData={cachedData}
-            setCachedData={setCachedData}
-            index={index}
-          />
-        )) }
+        <Carousel relatedOrOutfit="outfit">
+          { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
+          { Object.entries(outfit).map((data, index) => (
+            <OutfitCard
+              key={uuidv4()}
+              handleOutfitClick={handleOutfitClick}
+              product={data[1]}
+              cachedData={cachedData}
+              setCachedData={setCachedData}
+              index={!outfit[currentProduct.id] ? index + 1 : index}
+            />
+          )) }
+        </Carousel>
       </ul>
     </div>
   );

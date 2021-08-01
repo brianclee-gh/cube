@@ -2,19 +2,19 @@
 import React, { useState } from 'react';
 
 function Carousel({ children, relatedOrOutfit }) {
-  // const [index, setIndex] = useState(3);
+  const childrenLength = relatedOrOutfit === 'related' ? children.length : children[1].length;
   const [startIdx, setStartIdx] = useState(0);
   const [endIdx, setEndIdx] = useState(() => {
     const width = window.innerWidth;
-    return (Math.floor(width / 350) >= children.length)
-      ? children.length
+    return (Math.floor(width / 350) >= childrenLength)
+      ? childrenLength
       : Math.floor(width / 350);
   });
   const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
+
   const scrollLeft = () => {
     const startCard = document.getElementById(`${setId}_${startIdx - 1}`);
-    console.log(startCard);
     if (!startCard) { return; }
     startCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     setStartIdx(startIdx - 1);
@@ -39,7 +39,7 @@ function Carousel({ children, relatedOrOutfit }) {
       >
         { children }
       </ul>
-      { endIdx >= children.length
+      { endIdx >= childrenLength
         ? ''
         : <button onClick={scrollRight} className="related-scroll-btn-right" type="button">Right</button>}
 
