@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
@@ -7,6 +8,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
+import QuestionModal from './QuestionModal.jsx';
 import { QAContext } from '../state/QAContext.jsx';
 import './qa-style.scss';
 
@@ -19,6 +21,7 @@ const QAList = () => {
   const [data, setData] = useState([]);
   const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
@@ -67,24 +70,32 @@ const QAList = () => {
     setExpanded(null);
   }, [currentProduct]);
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
   return (
-    <div className="qa-container">
-      <h2>Questions & Answers</h2>
-      <div classID="qa-list">
+    <div className="qa-flex-container">
+      <div className="qa-container">
+        <h2 className="qa-header">Questions & Answers</h2>
         <QASearch />
-        { data
-          ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
-          : 'Loading..'}
-        {expanded ? <button className="expand-questions-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
-        {/* {data.length > 2 ? (
-          <a className="expand-questions-btn" onClick={loadMore}>
-            {expanded ? (
-              <span>COLLAPSE QUESTIONS</span>
-            ) : (
-              <span>MORE ANSWERED QUESTIONS</span>
-            )}
-          </a>
-        ) : null} */}
+        <div className="qa-list">
+          { data
+            ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
+            : 'Loading..'}
+          <div className="qa-list-btn-container">
+            {expanded ? <button className="expand-questions-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
+            <QuestionModal
+              modalOpen={modalOpen}
+              closeModal={closeModal}
+              openModal={openModal}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

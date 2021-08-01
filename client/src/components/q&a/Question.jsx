@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-var */
@@ -6,9 +7,10 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import Answer from './Answer.jsx';
-import { markQuestionHelpful, reportQuestion } from '../state/QAContext.jsx';
 import axios from 'axios';
+import Answer from './Answer.jsx';
+import AnswerModal from './AnswerModal.jsx';
+// import { markQuestionHelpful, reportQuestion } from '../state/QAContext.jsx';
 
 const Question = ({ question }) => {
   var answers = Object.entries(question.answers).map((a) => a[1]).sort((a, b) => ((a.helpfulness > b.helpfulness) ? -1 : 1));
@@ -17,6 +19,7 @@ const Question = ({ question }) => {
   const [expanded, setExpanded] = useState(false);
   const [helpfulCounter, setHepfulCounter] = useState(question.question_helpfulness);
   const [helped, setHelped] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const loadMore = () => {
     expanded ? setDefaultAnswers(2) : setDefaultAnswers(answers.length);
@@ -45,10 +48,23 @@ const Question = ({ question }) => {
     return 'Thanks!';
   };
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <div>
       <span>Q: {question.question_body}    |      Helpful?
-        {renderHelpfulButton()} ({helpfulCounter})   |   Add Answer
+        {renderHelpfulButton()} ({helpfulCounter})   |   
+        <AnswerModal
+          modalOpen={modalOpen}
+          closeModal={closeModal}
+          openModal={openModal}
+        />
       </span>
       <div className="answers-list">
         {

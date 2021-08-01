@@ -73,7 +73,7 @@ Add a Question
 - [] At the bottom of the Q&A module, a button will appear allowing users to create a new question for the product. 
     - [] This button should always be available on any product page
 - [] Upon clicking the button, a modal window should open, overlaying the product page
-- [] Should be titled “Ask your Question” and subtitled “About the [Product Name Here]”
+- [x] Should be titled “Ask your Question” and subtitled “About the [Product Name Here]”
     -[] Product name should be inserted into subtitle
 - [] Following inputs should appear on the question form:
     - [] Those indicated as mandatory should have an asterisk next to the title
@@ -81,12 +81,12 @@ Add a Question
         - [] Should be a larger text window allowing up to 1000 character
     - [] What is your nickname*
         - [] Allowing up to 60 char for the user’s display name
-        - [] Placeholder: “Example: jackson11!”
-        - [] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
+        - [x] Placeholder: “Example: jackson11!”
+        - [x] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
     - [] Your email*
         - [] 60 char
         - [] Placeholder: “Why did you like the product or not?”
-        - [] Below this field: “For authentication reasons, you will not be emailed”
+        - [x] Below this field: “For authentication reasons, you will not be emailed”
     - [] Submit questions(button)
         - [] Upon selecting this button, the form’s inputs should be validated
         - [] If there are any invalid entries, the submission should be prevented, and a warning message will appear
@@ -98,21 +98,21 @@ Add a Question
 Add an Answer Modal
 - [] Though the link provided on each questions list, users will be allowed to submit an answer for the product
 - [] Upon clicking the button, a modal window should open, overlaying the product page
-    - [] Modal should be titled: “Submit your Answer”
+    - [x] Modal should be titled: “Submit your Answer”
     - [] Subtitle: “[Product Name]: [Question Body]”
     - [] The appropriate product name and question body should be inserted into the subtitle
 - [] Following inputs should appear on the answer form:
-    - [] Those indicated as mandatory should have an asterisk next to the title
+    - [x] Those indicated as mandatory should have an asterisk next to the title
     - [] Your Answer*
         - [] Should be a larger text window allowing up to 1000 character
     - [] What is your nickname*
         - [] Allowing up to 60 char for the user’s display name
-        - [] Placeholder: “Example:jack543!”
-        - [] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
+        - [x] Placeholder: “Example:jack543!”
+        - [x] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
     - [] Your email*
         - [] 60 char
-        - [] Placeholder: “Example: jack@gmail.com”
-        - [] Below this field: “For authentication reasons, you will not be emailed”
+        - [x] Placeholder: “Example: jack@gmail.com”
+        - [x] Below this field: “For authentication reasons, you will not be emailed”
     - [] Upload your photos
         - [] Button allowing users to upload their photos to the form
         - [] Up to 5 photos should be allowed for each answer

@@ -107,6 +107,37 @@ module.exports = {
         res.end();
       });
   },
+
+  postQuestion: (req, res) => {
+    const url = `${ATELIER_URL}/qa/questions/`;
+    axios.post(url, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+
+  postAnswer: (req, res) => {
+    const { question_id } = req.params;
+    const url = `${ATELIER_URL}/qa/questions/${question_id}/answers`;
+    axios.post(url, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((data) => {
+        res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
 };
 
 // axios.get('/qa/questions');

@@ -10,9 +10,7 @@ import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
 import Related from './related/Related.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
-
 import QA from './q&a/QAList.jsx';
-// import Q&A component
 
 function App() {
   return (
