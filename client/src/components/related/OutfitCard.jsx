@@ -13,7 +13,7 @@ function OutfitCard({
   handleOutfitClick,
   cachedData,
   setCachedData,
-  outfit,
+  index,
 }) {
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
@@ -79,7 +79,7 @@ function OutfitCard({
   }, [product]);
 
   return (
-    <li className="outfit-card-container" key={uuidv4()}>
+    <li className="outfit-card-container" id={`outfit_${index}`} key={uuidv4()}>
       <div tabIndex="0" role="button" onClick={() => {}} onKeyDown={() => {}}>
         { !loading ? (
           <>

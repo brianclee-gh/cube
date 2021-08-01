@@ -27,14 +27,14 @@ function YourOutfitProducts({
     <div className="outfit-products-container">
       <ul>
         { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
-        { Object.entries(outfit).map(([id, data]) => (
+        { Object.entries(outfit).map((data, index) => (
           <OutfitCard
-            id={id}
             key={uuidv4()}
             handleOutfitClick={handleOutfitClick}
-            product={data}
+            product={data[1]}
             cachedData={cachedData}
             setCachedData={setCachedData}
+            index={index}
           />
         )) }
       </ul>
