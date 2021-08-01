@@ -19,7 +19,6 @@ function OutfitCard({
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
   let isMounted = false;
-  const mounted = useRef(true);
   const getStars = (meta) => {
     if (!meta) { return null; }
     const { ratings } = meta;
@@ -52,27 +51,6 @@ function OutfitCard({
       (fetchedStyle.data),
       (fetchedMeta.data)]);
   };
-
-  // useEffect(() => {
-  //   mounted.current = true;
-  //   setLoading(true);
-  //   getRelatedData()
-  //     .then(data => {
-  //       if (data) {
-  //         setCachedData((prevState) => ({
-  //           ...prevState,
-  //           [product.id]: data,
-  //         }));
-  //         setStyleData(data[1]);
-  //         setMetaData(data[2]);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     })
-  //     .finally(() => setLoading(false));
-  //   return () => mounted.current = false;
-  // }, []);
 
   useEffect(() => {
     setLoading(true);

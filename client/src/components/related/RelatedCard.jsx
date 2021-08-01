@@ -125,7 +125,12 @@ function RelatedCard({
                         </span>
                       </span>
                     )
-                    : <span className="related-product-price">${styleData.results[0].original_price}</span>}
+                    : (
+                      <span className="related-product-price">
+                        $
+                        {styleData.results[0].original_price}
+                      </span>
+                    )}
                   { metaData.ratings ? <span className="related-product-stars">{starRating(getStars(metaData))}</span> : ''}
                 </div>
               </div>

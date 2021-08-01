@@ -1,32 +1,21 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-function Carousel({ children, show }) {
+function Carousel({ children, relatedOrOutfit }) {
   const [index, setIndex] = useState(0);
-
-  const decrementIndex = () => {
-    if (index <= 0) { return; }
-    setIndex(index - 1);
-  };
-
-  const incrementIndex = () => {
-    if (index >= show - 1) { return; }
-    setIndex(index + 1);
-  };
+  const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
   const scrollLeft = () => {
-    const startCard = document.getElementById(`card_${index - 1}`);
+    const startCard = document.getElementById(`${setId}_${index - 1}`);
     if (!startCard) { return; }
-    console.log(startCard);
-    startCard.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    startCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     setIndex(index - 1);
-  }
+  };
 
   const testScroll = () => {
-    const startCard = document.getElementById(`card_${index + 1}`);
+    const startCard = document.getElementById(`${setId}_${index + 1}`);
     if (!startCard) { return; }
-    console.log(startCard);
-    startCard.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+    startCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
     setIndex(index + 1);
   };
 
@@ -34,8 +23,7 @@ function Carousel({ children, show }) {
     <div className="related-carousel">
       <button className="related-scroll-btn-left" type="button" onClick={scrollLeft}>Left</button>
       <ul
-        className={`related-carousel show-${show}`}
-        // style={{ transform: `translateX(-${index * (100 / show)}%)` }}s
+        className="related-carousel"
       >
         { children }
       </ul>

@@ -1,9 +1,10 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import OutfitCard from './OutfitCard.jsx';
 import AddToOutfit from './AddToOutfit.jsx';
+import Carousel from './Carousel.jsx';
 
 function YourOutfitProducts({
   outfit,
@@ -28,6 +29,7 @@ function YourOutfitProducts({
         { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
         { Object.entries(outfit).map(([id, data]) => (
           <OutfitCard
+            id={id}
             key={uuidv4()}
             handleOutfitClick={handleOutfitClick}
             product={data}
