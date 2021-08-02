@@ -6,21 +6,25 @@ function Modal({ combined, modalOpen, closeModal }) {
   return (
     <div className={`related-modal ${modalOpen ? '' : 'hidden'}`}>
       <div className="related-modal-container">
-        <h3>Comparing...</h3>
-        <table>
+        <h3 className="modal-comparing-heading">COMPARING</h3>
+        <table className="modal-table">
           <tbody>
             <tr>
-              <th>Current</th>
+              <th><span className="modal-heading">{combined ? combined.names.current : 'Current'}</span></th>
               <th>{' '}</th>
-              <th>Comparing</th>
+              <th><span className="modal-heading">{combined ? combined.names.comparing : 'Comparing'}</span></th>
             </tr>
-            { combined ? Object.keys(combined).map((feature) => (
-              <tr key={uuidv4()}>
-                <th>{combined[feature][0]}</th>
-                <th>{feature}</th>
-                <th>{combined[feature][1]}</th>
-              </tr>
-            )) : (
+            { combined ? Object.keys(combined).map((feature) => {
+              if (feature !== 'names') {
+                return (
+                  <tr key={uuidv4()}>
+                    <th className="skinny-text">{combined[feature][0]}</th>
+                    <th>{feature}</th>
+                    <th className="skinny-text">{combined[feature][1]}</th>
+                  </tr>
+                );
+              }
+            }) : (
               <tr>
                 <th>Loading...</th>
               </tr>
