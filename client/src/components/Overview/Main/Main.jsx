@@ -22,9 +22,7 @@ function Main() {
     getData('17067');
   }, []);
 
-  // useEffect(() => {
-  //   setPhotoArray(currentStyle.results[0]);
-  // }, []);
+
 
   return (
     <div className="Overview-Section">
