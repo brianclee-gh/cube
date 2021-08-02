@@ -40,11 +40,11 @@ Individual Question
         - [x] The rest should be hidden
         - [x] If more than 2 answers exist for the question, a link to “See more answers” should display below the list
             - [x] Clicking on this link should expand the area below the question and display the remainder of the list
-            - [] View for the full list of answers should be confined to half the screen
-            - [] List should be scrollable 
+            - [x] View for the full list of answers should be confined to half the screen
+            - [x] List should be scrollable 
             - [x] When expanded, button for “See more answers” should change to read “Collapse answers”
-    - [] Another link should appear next in line with each question titled “Add Answer”
-        - [] Clicking on this link should open up a modal window containing a dorm through which answers can be submitted
+    - [x] Another link should appear next in line with each question titled “Add Answer”
+        - [x] Clicking on this link should open up a modal window containing a dorm through which answers can be submitted
 
 Search Questions
 - [x] Search bar will appear above the questions list
@@ -59,58 +59,58 @@ Search Questions
 More Answered Questions
 - [x] Default: Display up to 2 questions asked
 - [x] If there are more than 2 questions that have been asked about a product, a button for “More Answered Questions” will appear below the list
-    - [] If there are 2 or less questions, then the button will not appear
-    - [] Clicking this button will cause up to 2 additional questions to appear
-        - [] List should expand and the questions should show in order below the previously loaded questions
-        - [] As long as there are still unloaded questions, the button will remain below the list
-        - [] Only when there are no more questions, the burrow should no longer appear
-- [] After several loads, the length of the list will become very long. 
-    - [] In order to keep the page manageable, the max height of the questions list should be capped such that the entire q&a module should fit on a single screen
-    - [] The questions should become scrollable
-    - [] The search bar and button should remain fixed outside of the scrollable list
+    - [x] If there are 2 or less questions, then the button will not appear
+    - [x] Clicking this button will cause up to 2 additional questions to appear
+        - [x] List should expand and the questions should show in order below the previously loaded questions
+        - [x] As long as there are still unloaded questions, the button will remain below the list
+        - [x] Only when there are no more questions, the burrow should no longer appear
+- [x] After several loads, the length of the list will become very long. 
+    - [x] In order to keep the page manageable, the max height of the questions list should be capped such that the entire q&a module should fit on a single screen
+    - [x] The questions should become scrollable
+    - [x] The search bar and button should remain fixed outside of the scrollable list
 
 Add a Question
-- [] At the bottom of the Q&A module, a button will appear allowing users to create a new question for the product. 
-    - [] This button should always be available on any product page
+- [x] At the bottom of the Q&A module, a button will appear allowing users to create a new question for the product. 
+    - [x] This button should always be available on any product page
 - [] Upon clicking the button, a modal window should open, overlaying the product page
 - [x] Should be titled “Ask your Question” and subtitled “About the [Product Name Here]”
     -[] Product name should be inserted into subtitle
-- [] Following inputs should appear on the question form:
-    - [] Those indicated as mandatory should have an asterisk next to the title
-    - [] Your Question*
-        - [] Should be a larger text window allowing up to 1000 character
-    - [] What is your nickname*
-        - [] Allowing up to 60 char for the user’s display name
+- [x] Following inputs should appear on the question form:
+    - [x] Those indicated as mandatory should have an asterisk next to the title
+    - [x] Your Question*
+        - [x] Should be a larger text window allowing up to 1000 character
+    - [x] What is your nickname*
+        - [x] Allowing up to 60 char for the user’s display name
         - [x] Placeholder: “Example: jackson11!”
         - [x] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
-    - [] Your email*
-        - [] 60 char
-        - [] Placeholder: “Why did you like the product or not?”
+    - [x] Your email*
+        - [x] 60 char
+        - [x] Placeholder: “Why did you like the product or not?”
         - [x] Below this field: “For authentication reasons, you will not be emailed”
-    - [] Submit questions(button)
-        - [] Upon selecting this button, the form’s inputs should be validated
-        - [] If there are any invalid entries, the submission should be prevented, and a warning message will appear
-            - [] Message Title: “You must enter the following:”
-            - [] This error will occur if:
-                - 1. [] Any mandatory fields are blank
-                - 2. [] The email address provided is not in correct email format
+    - [x] Submit questions(button)
+        - [x] Upon selecting this button, the form’s inputs should be validated
+        - [x] If there are any invalid entries, the submission should be prevented, and a warning message will appear
+            - [x] Message Title: “You must enter the following:”
+            - [x] This error will occur if:
+                - 1. [x] Any mandatory fields are blank
+                - 2. [x] The email address provided is not in correct email format
 
 Add an Answer Modal
-- [] Though the link provided on each questions list, users will be allowed to submit an answer for the product
+- [x] Though the link provided on each questions list, users will be allowed to submit an answer for the product
 - [] Upon clicking the button, a modal window should open, overlaying the product page
     - [x] Modal should be titled: “Submit your Answer”
     - [] Subtitle: “[Product Name]: [Question Body]”
     - [] The appropriate product name and question body should be inserted into the subtitle
 - [] Following inputs should appear on the answer form:
     - [x] Those indicated as mandatory should have an asterisk next to the title
-    - [] Your Answer*
-        - [] Should be a larger text window allowing up to 1000 character
-    - [] What is your nickname*
-        - [] Allowing up to 60 char for the user’s display name
+    - [x] Your Answer*
+        - [x] Should be a larger text window allowing up to 1000 character
+    - [x] What is your nickname*
+        - [x] Allowing up to 60 char for the user’s display name
         - [x] Placeholder: “Example:jack543!”
         - [x] Below this field, there should be a “For privacy reasons, do not use your full name or email address”
-    - [] Your email*
-        - [] 60 char
+    - [x] Your email*
+        - [x] 60 char
         - [x] Placeholder: “Example: jack@gmail.com”
         - [x] Below this field: “For authentication reasons, you will not be emailed”
     - [] Upload your photos
@@ -122,8 +122,8 @@ Add an Answer Modal
     - [] Submit answer (button)
         - [] Upon selecting this button, the form’s inputs should be validated
         - [] If there are any invalid entries, the submission should be prevented, and a warning message will appear
-            - [] Message Title: “You must enter the following:”
+            - [x] Message Title: “You must enter the following:”
             - [] This error will occur if:
-                - 1. [] Any mandatory fields are blank
-                - 2. [] The email address provided is not in correct email format
+                - 1. [x] Any mandatory fields are blank
+                - 2. [x] The email address provided is not in correct email format
                 - 3. [] The images selected are invalid or unable to be uploaded

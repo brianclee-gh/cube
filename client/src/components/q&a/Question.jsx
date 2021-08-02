@@ -32,7 +32,7 @@ const Question = ({ question }) => {
 //   });
 
   const markHelpful = () => {
-    axios.put(`/qa/questions/${question.question_id}/helpful`)
+    axios.put('/question/helpful')
       .then(() => {
         setHepfulCounter(helpfulCounter + 1);
         setHelped(true);
@@ -58,14 +58,21 @@ const Question = ({ question }) => {
 
   return (
     <div>
-      <span>Q: {question.question_body}    |      Helpful?
-        {renderHelpfulButton()} ({helpfulCounter})   |   
-        <AnswerModal
-          modalOpen={modalOpen}
-          closeModal={closeModal}
-          openModal={openModal}
-        />
-      </span>
+      <div className="individual-question-container">
+        <p className="individual-q-body">
+          Q: {question.question_body}
+        </p>
+        <div className="individual-q-btn-container">
+          Helpful?
+          {renderHelpfulButton()} ({helpfulCounter})   |
+          <AnswerModal
+            question={question}
+            modalOpen={modalOpen}
+            closeModal={closeModal}
+            openModal={openModal}
+          />
+        </div>
+      </div>
       <div className="answers-list">
         {
           answers.slice(0, defaultAnswers).map((a) => <Answer answer={a} key={a.id} />)

@@ -12,7 +12,7 @@ const Answer = ({ answer }) => {
   const [reported, setReported] = useState(false);
 
   const markHelpful = () => {
-    axios.put(`/qa/answers/${answer.id}/helpful`)
+    axios.put('/answer/helpful')
       .then(() => {
         setHepfulCounter(helpfulCounter + 1);
         setHelped(true);
@@ -20,7 +20,7 @@ const Answer = ({ answer }) => {
   };
 
   const reportAnswer = () => {
-    axios.put(`/qa/answers/${answer.id}/report`)
+    axios.put('/answer/report')
       .then(() => {
         setReported(true);
         alert('This answer has been reported and marked for review');

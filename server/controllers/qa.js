@@ -46,7 +46,7 @@ module.exports = {
     // let { question_helpfulness } = req.body;
     const { question_id } = req.params;
     const url = `${ATELIER_URL}/qa/questions/${question_id}/helpful`;
-    axios.put(url, {
+    axios.put(url, null, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
@@ -63,7 +63,7 @@ module.exports = {
   reportQuestion: (req, res) => {
     const { question_id } = req.params;
     const url = `${ATELIER_URL}/qa/questions/${question_id}/report`;
-    axios.put(url, {
+    axios.put(url, null, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
@@ -79,7 +79,7 @@ module.exports = {
   helpfulAnswer: (req, res) => {
     const { answer_id } = req.params;
     const url = `${ATELIER_URL}/qa/answers/${answer_id}/helpful`;
-    axios.put(url, {
+    axios.put(url, null, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
@@ -95,7 +95,7 @@ module.exports = {
   reportAnswer: (req, res) => {
     const { answer_id } = req.params;
     const url = `${ATELIER_URL}/qa/answers/${answer_id}/report`;
-    axios.put(url, {
+    axios.put(url, null, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
@@ -109,8 +109,16 @@ module.exports = {
   },
 
   postQuestion: (req, res) => {
+    const productID = Number(req.body.product_id);
     const url = `${ATELIER_URL}/qa/questions/`;
-    axios.post(url, {
+    const body = {
+      body: req.body.body,
+      name: req.body.name,
+      email: req.body.email,
+      product_id: productID,
+    };
+
+    axios.post(url, body, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {
@@ -126,7 +134,14 @@ module.exports = {
   postAnswer: (req, res) => {
     const { question_id } = req.params;
     const url = `${ATELIER_URL}/qa/questions/${question_id}/answers`;
-    axios.post(url, {
+    const body = {
+      body: req.body.body,
+      name: req.body.name,
+      email: req.body.email,
+      photos: [req.body.photos],
+    };
+
+    axios.post(url, body, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((data) => {

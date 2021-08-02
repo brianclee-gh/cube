@@ -87,14 +87,14 @@ const QAList = () => {
           { data
             ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
             : 'Loading..'}
-          <div className="qa-list-btn-container">
-            {expanded ? <button className="expand-questions-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
-            <QuestionModal
-              modalOpen={modalOpen}
-              closeModal={closeModal}
-              openModal={openModal}
-            />
-          </div>
+        </div>
+        <div className="qa-list-btn-container">
+          {expanded ? <button className="expand-questions-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
+          <QuestionModal
+            modalOpen={modalOpen}
+            closeModal={closeModal}
+            openModal={openModal}
+          />
         </div>
       </div>
     </div>
