@@ -38,6 +38,34 @@ module.exports = {
         res.end();
       });
   },
+
+  // postReview: (req, res) => {
+  //   const productID = Number(req.body.product_id);
+  //   const url = `${ATELIER_URL}/reviews`;
+  //   const body = {
+  //     product_id: productID,
+  //     rating: Number(req.body.rating),
+  //     summary: req.body.summary,
+  //     body: req.body.body,
+  //     recommend: req.body.recommend,
+  //     name: req.body.name,
+  //     email: req.body.email,
+  //     photos: req.body.photos,
+  //     characteristics: req.body.characteristics,
+  //   };
+
+  //   axios.post(url, body, {
+  //     headers: { Authorization: GITHUB_KEY },
+  //   })
+  //     .then((data) => {
+  //       res.send(data.data);
+  //       res.end();
+  //     })
+  //     .catch((err) => {
+  //       res.send(err);
+  //       res.end();
+  //     });
+  // },
 };
 
 // axios.get('/reviews');
