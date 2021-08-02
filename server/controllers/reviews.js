@@ -43,18 +43,18 @@ module.exports = {
 
   postReviews: async (req, res) => {
     const body = {
-      product_id: Number(req.body.product_id),
-      rating: req.body.rating,
-      summary: req.body.summary,
-      body: req.body.body,
-      recommend: req.body.recommend,
-      name: req.body.name,
-      email: req.body.email,
-      photos: req.body.photos,
-      characteristics: req.body.characteristics,
+      product_id: req.body.body.product_id,
+      rating: req.body.body.rating,
+      summary: req.body.body.summary,
+      body: req.body.body.body,
+      recommend: req.body.body.recommend,
+      name: req.body.body.name,
+      email: req.body.body.email,
+      photos: req.body.body.photos,
+      characteristics: req.body.body.characteristics,
     };
     const url = `${ATELIER_URL}/reviews/`;
-    axios.post(url, body, {
+    await axios.post(url, body, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((response) => {

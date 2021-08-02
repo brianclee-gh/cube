@@ -15,7 +15,7 @@ const characteristics = ({ char, change }) => {
   characteristicsName(char);
 
   const onChangeCharacteristics = (e) => {
-    charObject[e.target.name] = e.target.value;
+    charObject[e.target.name] = Number(e.target.value);
     setCharObj(charObject);
   };
 

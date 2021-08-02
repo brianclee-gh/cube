@@ -41,10 +41,10 @@ export const ReviewsProvider = ({ children }) => {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: data,
       };
-      const postData = await axios.post(`/reviews`, requestOptions);
-      return postData;
+      await axios.post(`/reviews`, requestOptions);
+      console.log('successfully posted data');
     } catch (e) {
       console.log(e);
     }
