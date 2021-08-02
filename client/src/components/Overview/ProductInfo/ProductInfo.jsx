@@ -74,9 +74,9 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
           <Styles
             style={style}
             key={productStyles[index].style_id}
-            current={() => { updateCurrent(style); }}
+            current={() => { updateCurrent(style); changeActive(index); }}
             isActive={isActive}
-            changeActive={() => { changeActive(index); }}
+            // changeActive={() => { changeActive(index); }}
           />
         ))}
       </div>
