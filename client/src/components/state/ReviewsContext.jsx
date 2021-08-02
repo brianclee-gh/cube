@@ -36,10 +36,24 @@ export const ReviewsProvider = ({ children }) => {
     setRatings({ calculatedRating, starRating });
   };
 
+  const postReview = async (data) => {
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: data,
+      };
+      await axios.post(`/reviews`, requestOptions);
+      console.log('successfully posted data');
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   // when currentProduct changes...
   // update reviews, styles, metadata, etc... maybe useEffect?
 
-  // const addReview = async (review) => {
+  // const postReview = async (review) => {
   //   const {
   //     // eslint-disable-next-line camelcase
   //     product_id, rating, summary, body, recommend,
@@ -79,6 +93,7 @@ export const ReviewsProvider = ({ children }) => {
         getReviews,
         getRatings,
         ratings,
+        postReview,
       }}
     >
       { children }

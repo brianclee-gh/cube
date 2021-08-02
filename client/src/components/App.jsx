@@ -10,6 +10,7 @@ import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 import QA from './q&a/QAList.jsx';
+import Related from './related/Related.jsx';
 
 function App() {
   return (
@@ -17,12 +18,12 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
-          {/* <Related /> */}
+          <Main />
+          <Related />
           <QAProvider>
             <QA />
           </QAProvider>
-          {/* <Review /> */}
+          <Review />
         </ProductsProvider>
       </ReviewsProvider>
     </div>
