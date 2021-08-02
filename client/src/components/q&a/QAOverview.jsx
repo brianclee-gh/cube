@@ -3,7 +3,7 @@ import axios from 'axios';
 import QAList from './QAList.jsx';
 import qData from './questionsSample.js';
 // import aData from './answersSample.js';
-import './qa-style.scss';
+// import './qa-style.scss';
 
 function QAOverview() {
   const questions = qData.results;
