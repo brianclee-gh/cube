@@ -89,7 +89,7 @@ const QAList = () => {
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
-          {expanded ? <button className="expand-questions-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
+          {expanded ? <button className="expand-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
           <QuestionModal
             modalOpen={modalOpen}
             closeModal={closeModal}

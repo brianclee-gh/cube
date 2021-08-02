@@ -56,7 +56,7 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
     <div>
       {currentProduct && (
       <>
-        <button onClick={openModal}>ADD ANSWER</button>
+        <button className="qa-link" onClick={openModal}>ADD ANSWER</button>
         <div className={`answer-modal ${modalOpen ? '' : 'qa-hidden'}`}>
           <div className="answer-modal-container">
             <h2 className="answer-modal-title">Submit your Answer</h2>

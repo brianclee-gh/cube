@@ -72,9 +72,9 @@ More Answered Questions
 Add a Question
 - [x] At the bottom of the Q&A module, a button will appear allowing users to create a new question for the product. 
     - [x] This button should always be available on any product page
-- [] Upon clicking the button, a modal window should open, overlaying the product page
+- [x] Upon clicking the button, a modal window should open, overlaying the product page
 - [x] Should be titled “Ask your Question” and subtitled “About the [Product Name Here]”
-    -[] Product name should be inserted into subtitle
+    -[x] Product name should be inserted into subtitle
 - [x] Following inputs should appear on the question form:
     - [x] Those indicated as mandatory should have an asterisk next to the title
     - [x] Your Question*
@@ -97,10 +97,10 @@ Add a Question
 
 Add an Answer Modal
 - [x] Though the link provided on each questions list, users will be allowed to submit an answer for the product
-- [] Upon clicking the button, a modal window should open, overlaying the product page
+- [x] Upon clicking the button, a modal window should open, overlaying the product page
     - [x] Modal should be titled: “Submit your Answer”
-    - [] Subtitle: “[Product Name]: [Question Body]”
-    - [] The appropriate product name and question body should be inserted into the subtitle
+    - [x] Subtitle: “[Product Name]: [Question Body]”
+    - [x] The appropriate product name and question body should be inserted into the subtitle
 - [] Following inputs should appear on the answer form:
     - [x] Those indicated as mandatory should have an asterisk next to the title
     - [x] Your Answer*

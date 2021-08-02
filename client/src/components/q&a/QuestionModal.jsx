@@ -1,3 +1,10 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable object-shorthand */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/button-has-type */
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
@@ -48,7 +55,7 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
     <div>
       {currentProduct && (
       <>
-        <button onClick={openModal}>ADD A QUESTION</button>
+        <button className="add-question-btn" onClick={openModal}>ADD A QUESTION</button>
         <div className={`question-modal ${modalOpen ? '' : 'qa-hidden'}`}>
           <div className="question-modal-container">
             <h2 className="question-modal-title">Ask your Question</h2>

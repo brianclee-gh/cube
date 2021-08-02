@@ -42,7 +42,7 @@ const Question = ({ question }) => {
   const renderHelpfulButton = () => {
     if (!helped) {
       return (
-        <a className="qa-helpful-link" onClick={markHelpful}>Yes</a>
+        <a className="qa-link" onClick={markHelpful}>Yes</a>
       );
     }
     return 'Thanks!';
@@ -60,11 +60,14 @@ const Question = ({ question }) => {
     <div>
       <div className="individual-question-container">
         <p className="individual-q-body">
-          Q: {question.question_body}
+          <b>Q: </b> {question.question_body}
         </p>
         <div className="individual-q-btn-container">
-          Helpful?
-          {renderHelpfulButton()} ({helpfulCounter})   |
+          <span className="helpful">
+            Helpful?
+          </span>
+          {renderHelpfulButton()} ({helpfulCounter})
+          <span className="divider"> | </span>
           <AnswerModal
             question={question}
             modalOpen={modalOpen}
@@ -78,11 +81,11 @@ const Question = ({ question }) => {
           answers.slice(0, defaultAnswers).map((a) => <Answer answer={a} key={a.id} />)
         }
         {answers.length > 2 ? (
-          <a className="expand-answers-btn" onClick={loadMore}>
+          <a onClick={loadMore}>
             {expanded ? (
-              <button>COLLAPSE ANSWERS</button>
+              <button className="expand-btn">COLLAPSE ANSWERS</button>
             ) : (
-              <button>SEE MORE ANSWERS</button>
+              <button className="expand-btn">SEE MORE ANSWERS</button>
             )}
           </a>
         ) : null}

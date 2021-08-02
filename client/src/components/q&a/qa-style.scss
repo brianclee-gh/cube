@@ -15,28 +15,37 @@
 }
 
 .qa-header {
-    background-color: yellow;
+    background-color: transparent;
     height: 30px;
-}
-
-.qa-search {
-    width: 100%;
-    position: relative;
-    display: flex;
 }
 
 .qa-search-bar {
     width: 100%;
+    position: relative;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.qa-search-bar-input {
+    width: 100%;
     box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid #ccc;
+    border: 1px solid black;
+    border-radius: 7px;
     font-size: 20px;
-    background-color: none;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 15px;
     outline: none;
 }
+
+.qa-search-input-btn {
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    color: #616161;
+    margin-left: 0.5rem;
+  }
 
 .qa-list::-webkit-scrollbar {
     width: 20px;
@@ -60,9 +69,13 @@
 .qa-list {
     display: flex;
     flex-direction: column;
-    max-height: 35rem;
+    max-height: 50vh;
     overflow-y: scroll;
     scroll-behavior: smooth;
+}
+
+.qa-list-btn-container {
+    display: flex;
 }
 
 .individual-question-container {
@@ -74,6 +87,51 @@
 .individual-q-btn-container {
     display: flex;
     flex-direction: row;
+}
+
+.qa-link {
+    text-decoration: underline;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.qa-link:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.divider {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.helpful {
+    margin-right: 5px;
+}
+
+.expand-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-question-btn {
+    height: 30px;
+    width: 175px;
+    background-color: white;
+    border-radius: 7px;
+    margin-left: 10px;
+}
+
+.add-question-btn:hover {
+    background-color: lightgrey;
+    border: 1px solid black;
+    border-radius: 7px;
+    transition: all ease 0.3s;
 }
 
 // QUESTION MODAL
