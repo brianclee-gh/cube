@@ -20,7 +20,9 @@
   width: 450px;
   height: auto;
   max-height: 700px;
+  cursor: zoom-in;
 }
+
 
 .Thumbnail-Arrow-Container {
   display: flex;
@@ -29,7 +31,6 @@
 }
 
 .Thumbnail-Container{
-  /* position: relative; */
   display: flex;
   flex-direction: column;
   max-height: 81%;
@@ -49,7 +50,6 @@
   object-fit: cover;
   object-position:50% 50%;
   border: 1px solid black;
-  /* scale: 120% */
 }
 
 .selectActive {
@@ -77,4 +77,48 @@ i {
 .top-arrow-hidden, .bottom-arrow-hidden, .left-arrow-hidden, .right-arrow-hidden {
   visibility: hidden;
 }
+
+/*expanded*/
+.expanded-main {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 150%;
+  background-color: rgb(163, 159, 159);
+  z-index: 999;
+  margin-top: 25px;
+  padding: 20px;
+  /* overflow: hidden; */
+}
+
+.Main-Image-Expanded {
+  min-height: 100%;
+  cursor: zoom-out;
+
+  /* object-fit: cover; */
+}
+
+
+
+
+
+/*click zoom*/
+/* input[type=checkbox] {
+  display:none;
+}
+
+.expanded-main img {
+  transition: 0.25s ease;
+  cursor: zoom-in;
+}
+
+input[type=checkbox]:checked ~ label > img {
+  margin: 100px;
+  transform: scale(2);
+  cursor: zoom-out;
+} */
+
+
 

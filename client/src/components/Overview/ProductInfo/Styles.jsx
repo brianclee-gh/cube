@@ -3,10 +3,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from 'react';
 
-function Style({ style, current, isActive, changeActive }) {
+function Style({ style, current, isActive }) {
   return (
     <>
-      <div className="Style-Wrapper" onClick={changeActive}>
+      <div className="Style-Wrapper">
         <img
           className="Style-Selection"
           src={style.photos[0].thumbnail_url || 'https://source.unsplash.com/random/600x800'}
