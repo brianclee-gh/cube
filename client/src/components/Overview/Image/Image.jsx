@@ -20,7 +20,6 @@ function Image({ images }) {
     setCurrentImage({
       ...currentImage,
       allImages: images,
-      // index: (prevIndex) => {prevIndex; },
       active: images[currentImage.index].thumbnail_url || defaultImage,
     });
   }, [images]);
