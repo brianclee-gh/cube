@@ -1,27 +1,27 @@
-.rating {
-  transform: translate(-70%, -70%) rotateY(180deg);
+.writeReviewRating {
+  transform: rotateY(180deg);
   display: flex;
   font-size: 30px;
 }
 
-.rating input {
+.writeReviewRating input {
   display: none;
 }
 
-.rating label {
+.writeReviewRating label {
   display: block;
   cursor: pointer;
   width: 30px;
 }
 
-.rating label:before {
+.writeReviewRating label:before {
   content: '\f005';
   font-family: fontAwesome;
   display: block;
   color: #101010;
 }
 
-.rating label:after {
+.writeReviewRating label:after {
   content: '\f005';
   font-family: "fontAwesome";
   position: absolute;
@@ -32,8 +32,8 @@
   transition: .3s;
   text-shadow: 0 2px 5px rgba(0,0,0,.5);
 }
-.rating label:hover:after,
-.rating label:hover ~ label:after,
-.rating input:checked ~ label:after {
+.writeReviewRating label:hover:after,
+.writeReviewRating label:hover ~ label:after,
+.writeReviewRating input:checked ~ label:after {
   opacity: 1;
 }
