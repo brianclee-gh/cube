@@ -1,13 +1,17 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import './Image.css';
 
 function Image({ images }) {
+  const defaultImage = 'https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1';
+
   const [currentImage, setCurrentImage] = useState({
-    active: images[0].thumbnail_url || 'https://source.unsplash.com/random/600x800',
+    active: images[0].thumbnail_url || defaultImage,
     allImages: images,
     index: 0,
   });
@@ -17,7 +21,7 @@ function Image({ images }) {
       ...currentImage,
       allImages: images,
       // index: (prevIndex) => {prevIndex; },
-      active: images[currentImage.index].thumbnail_url || 'https://source.unsplash.com/random/600x800',
+      active: images[currentImage.index].thumbnail_url || defaultImage,
     });
   }, [images]);
 
@@ -67,7 +71,7 @@ function Image({ images }) {
           /> */}
           {/* <input type="checkbox" id="zoomCheck" />
           <label htmlFor="zoomCheck"> */}
-          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => {expandMain()}} />
+          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => { expandMain(); }} />
           {/* </label> */}
           {/* <i
             className={currentImage.index === currentImage.allImages.length - 1
@@ -85,8 +89,8 @@ function Image({ images }) {
             <div className="Thumbnail-Container">
               {currentImage.allImages.map((image, index) => (
                 <ImageThumbnails
-                  thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
-                  key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+                  thumbnail={image.thumbnail_url || defaultImage}
+                  key={uuidv4()}
                   changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
                   currentActive={currentImage.active}
                 />

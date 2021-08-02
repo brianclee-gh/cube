@@ -45,7 +45,6 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   useEffect(() => {
     setCurrentSku(productStyles[0].skus);
     setActive(productStyles[0]);
-    // getPhotos(currentStyle.results);
   }, [currentStyle]);
 
   return (
