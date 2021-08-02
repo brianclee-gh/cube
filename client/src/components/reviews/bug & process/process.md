@@ -115,10 +115,10 @@
   [x] Above the five buttons, the meaning of the current selection will be explicitly presented.  The default will be “none selected”.  After making a selection, this should update as applicable for the given characteristic.   The meaning of the selections is outlined below:
   [x] A text input allowing up to 60 characters.
   [x] Placeholder text should read: “Example: Best purchase ever!”
-  [ ] A text input allowing up to 1000 characters.
-  [ ] Placeholder text should read: “Why did you like the product or not?”.
-  [ ] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.
-  [ ] Below the input for the Review body, a counter should appear.  This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.  As the user types, the count of characters should update.   After the user reaches 50 characters, the counter should be replaced by a message stating “Minimum reached”.
+  [x] A text input allowing up to 1000 characters.
+  [x] Placeholder text should read: “Why did you like the product or not?”.
+  [x] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.
+  [x] Below the input for the Review body, a counter should appear.  This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.  As the user types, the count of characters should update.   After the user reaches 50 characters, the counter should be replaced by a message stating “Minimum reached”.
   [ ] A button will appear allowing users to upload their photos to the form.
   [ ] Clicking the button should open a separate window where the photo to be can be selected.
   [ ] After the first image is uploaded, a thumbnail showing the image should appear.  A user should be able to add up to five images before the button to add disappears, preventing further additions.

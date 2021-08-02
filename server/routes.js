@@ -21,4 +21,5 @@ router.put('/qa/answers/:answer_id/report', controller.qa.reportAnswer);
 // router.get('/reviews', controller.reviews.post);
 router.get('/reviews', controller.reviews.getReviews);
 router.get('/reviews/meta', controller.reviews.getReviewMeta);
+router.post('/reviews', controller.reviews.postReviews);
 module.exports = router;

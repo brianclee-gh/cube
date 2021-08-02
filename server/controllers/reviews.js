@@ -6,7 +6,9 @@ const { GITHUB_KEY, ATELIER_URL } = require('../config');
 module.exports = {
   // eslint-disable-next-line object-shorthand
   getReviews: (req, res) => {
-    const { product_id, page, count, sort} = req.query;
+    const {
+      product_id, page, count, sort,
+    } = req.query;
     axios.get(`${ATELIER_URL}/reviews/?page=${page}&count=${count}&sort=${sort}&product_id=${product_id}`, {
       headers: { Authorization: GITHUB_KEY },
     })
@@ -31,6 +33,35 @@ module.exports = {
     })
       .then((data) => {
         res.send(data.data);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+
+  postReviews: async (req, res) => {
+    const {
+      product_id, rating, summary, body, recommend, name, email, photos, characteristics,
+    } = req.body;
+    const url = `${ATELIER_URL}/reviews/`;
+    axios.post(url, {
+      product_id,
+      rating,
+      summary,
+      body,
+      recommend,
+      name,
+      email,
+      photos,
+      characteristics,
+    },
+    {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((response) => {
+        res.send(response).status(201);
         res.end();
       })
       .catch((err) => {

@@ -36,6 +36,21 @@ export const ReviewsProvider = ({ children }) => {
     setRatings({ calculatedRating, starRating });
   };
 
+  const postReview = async (data) => {
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( data )
+      };
+      const postData = await axios.post(`/reviews`, requestOptions);
+      return postData;
+    } catch (e) {
+      console.log(e);
+    }
+
+  }
+
   // when currentProduct changes...
   // update reviews, styles, metadata, etc... maybe useEffect?
 
@@ -79,6 +94,7 @@ export const ReviewsProvider = ({ children }) => {
         getReviews,
         getRatings,
         ratings,
+        postReview,
       }}
     >
       { children }

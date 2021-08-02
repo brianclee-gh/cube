@@ -34,7 +34,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Size:
             </div>
-            <input type="radio" id="sizeCharReview1" value="1" name={char.Size.id} />
+            <input type="radio" id="sizeCharReview1" value="1" name={char.Size.id} required/>
               <label htmlFor="sizeCharReview1">(1) A size too small</label>
             <input type="radio" id="sizeCharReview2" value="2" name={char.Size.id} />
               <label htmlFor="sizeCharReview2">(2) ½ a size too small</label>
@@ -53,7 +53,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Width:
             </div>
-            <input type="radio" id="widthCharReview1" value="1" name={char.Width.id} />
+            <input type="radio" id="widthCharReview1" value="1" name={char.Width.id} required/>
               <label htmlFor="sizeCharReview1">(1) Too narrow</label>
             <input type="radio" id="widthCharReview2" value="2" name={char.Width.id} />
               <label htmlFor="widthCharReview2">(2) Slightly narrow</label>
@@ -72,7 +72,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Comfort:
             </div>
-            <input type="radio" id="comfortCharReview1" value="1" name={char.Comfort.id} />
+            <input type="radio" id="comfortCharReview1" value="1" name={char.Comfort.id} required/>
               <label htmlFor="comfortCharReview1">(1) Uncomfortable</label>
             <input type="radio" id="comfortCharReview2" value="2" name={char.Comfort.id} />
               <label htmlFor="comfortCharReview2">(2) Slightly uncomfortable</label>
@@ -91,7 +91,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Quality:
             </div>
-            <input type="radio" id="qualityCharReview1" value="1" name={char.Quality.id} />
+            <input type="radio" id="qualityCharReview1" value="1" name={char.Quality.id} required/>
               <label htmlFor="qualityCharReview1">(1) Poor</label>
             <input type="radio" id="qualityCharReview2" value="2" name={char.Quality.id} />
               <label htmlFor="qualityCharReview2">(2) Below average</label>
@@ -110,7 +110,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Length:
             </div>
-            <input type="radio" id="lengthCharReview1" value="1" name={char.Length.id} />
+            <input type="radio" id="lengthCharReview1" value="1" name={char.Length.id} required/>
               <label htmlFor="lengthCharReview1">(1) Runs Short</label>
             <input type="radio" id="lengthCharReview2" value="2" name={char.Length.id} />
               <label htmlFor="lengthCharReview2">(2) Runs slightly short</label>
@@ -129,7 +129,7 @@ const characteristics = ({ char, change }) => {
             <div className="writeReviewCharacteristic_subtitle">
               Fit:
             </div>
-            <input type="radio" id="fitCharReview1" value="1" name={char.Fit.id} />
+            <input type="radio" id="fitCharReview1" value="1" name={char.Fit.id} required/>
               <label htmlFor="fitCharReview1">(1) Runs tight</label>
             <input type="radio" id="fitCharReview2" value="2" name={char.Fit.id} />
               <label htmlFor="fitCharReview2">(2) Runs slightly tight</label>

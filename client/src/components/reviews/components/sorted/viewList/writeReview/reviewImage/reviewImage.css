@@ -1,4 +1,4 @@
-.modal {
+.reviewImageModal {
   position: fixed;
   top: 0;
   left: 0;
@@ -7,7 +7,7 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.writeReview_modal {
+.reviewImage_modal {
   position:fixed;
   background: white;
   width: 80%;
@@ -25,9 +25,3 @@
   display: none;
 }
 
-.reviewImage_upload {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  padding: 1px;
-}

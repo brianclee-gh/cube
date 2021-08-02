@@ -14,8 +14,8 @@ const reviewSummary = ({change}) => {
   return (
     <div>
       <label>
-        Review Summary:
-      <input type="text" name="reviewSummary" onChange={updateSummary} maxLength="60" defaultValue="Example: Best purchase ever!"/>
+        Review Summary *:
+      <input type="text" name="reviewSummary" onChange={updateSummary} maxLength="60" placeholder="Example: Best purchase ever!" required />
       </label>
     </div>
   );

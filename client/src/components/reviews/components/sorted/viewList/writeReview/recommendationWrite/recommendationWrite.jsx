@@ -12,7 +12,7 @@ const recommend = ({recommend}) => {
         Do you recommend this product? *
       </div>
       <div onChange={onChangeValue}>
-        <input type="radio" id="reviewRecommendYes" value="Yes" name="recommendReview" />
+        <input type="radio" id="reviewRecommendYes" value="Yes" name="recommendReview" required/>
           <label htmlFor="reviewRecommendYes">Yes</label>
         <input type="radio" id="reviewRecommendNo" value="No"  name="recommendReview" defaultChecked />
         <label htmlFor="reviewRecommendNo">No</label>
