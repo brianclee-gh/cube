@@ -42,26 +42,23 @@ module.exports = {
   },
 
   postReviews: async (req, res) => {
-    const {
-      product_id, rating, summary, body, recommend, name, email, photos, characteristics,
-    } = req.body;
+    const body = {
+      product_id: Number(req.body.product_id),
+      rating: req.body.rating,
+      summary: req.body.summary,
+      body: req.body.body,
+      recommend: req.body.recommend,
+      name: req.body.name,
+      email: req.body.email,
+      photos: req.body.photos,
+      characteristics: req.body.characteristics,
+    };
     const url = `${ATELIER_URL}/reviews/`;
-    axios.post(url, {
-      product_id,
-      rating,
-      summary,
-      body,
-      recommend,
-      name,
-      email,
-      photos,
-      characteristics,
-    },
-    {
+    axios.post(url, body, {
       headers: { Authorization: GITHUB_KEY },
     })
       .then((response) => {
-        res.send(response).status(201);
+        res.send(response.data).status(201);
         res.end();
       })
       .catch((err) => {

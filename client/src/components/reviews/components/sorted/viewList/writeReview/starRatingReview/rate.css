@@ -1,5 +1,5 @@
 .writeReviewRating {
-  transform: translate(-84.5%, 0%) rotateY(180deg);
+  transform: rotateY(180deg);
   display: flex;
   font-size: 30px;
 }

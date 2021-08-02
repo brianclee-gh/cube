@@ -16,15 +16,15 @@ const postRequestObj = {};
 const Modal = ({ handleClose, show }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const { currentProduct } = useContext(ProductsContext);
-  const { metaData } = useContext(ReviewsContext);
+  const { metaData, postReview } = useContext(ReviewsContext);
   const [recommendProduct, setRecommendProduct] = useState(false);
-  const [reviewCharacteristics, setReviewCharacteristics] = useState(null);
+  const [reviewCharacteristics, setReviewCharacteristics] = useState({});
   const [reviewSummaryWrite, setReviewSummaryWrite] = useState(null);
   const [reviewBodyWrite, setReviewBodyWrite] = useState(null);
   const [nicknameWrite, setNicknameWrite] = useState(null);
   const [emailWrite, setEmailWrite] = useState(null);
-  const [imageUploadPopUp, setImageUploadPopUp] = useState(false);
-  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUploadPopUp, setImageUploadPopUp] = useState(null);
+  const [imageUpload, setImageUpload] = useState([]);
   const [starRate, setStarRate] = useState(null);
   const [postRequestBody, setPostRequestBody] = useState(null);
 
@@ -64,6 +64,12 @@ const Modal = ({ handleClose, show }) => {
     setReviewCharacteristics(obj);
   };
 
+  const postRequestReview = async () => {
+    if (!currentProduct) { return null; }
+    const postRequest = await postReview(postRequestBody);
+    return postRequest;
+  };
+
   useEffect(() => {
     postRequestObj['product_id'] = currentProduct.id;
     postRequestObj['rating'] = starRate;
@@ -76,10 +82,6 @@ const Modal = ({ handleClose, show }) => {
     postRequestObj['characteristics'] = reviewCharacteristics;
     setPostRequestBody(postRequestObj);
   }, [starRate, reviewSummaryWrite, reviewBodyWrite, recommendProduct, nicknameWrite, emailWrite, imageUpload, reviewCharacteristics]);
-
-  const postRequestReviewSubmit = () => {
-    
-  }
 
   return (
     <div className={showHideClassName}>
@@ -107,7 +109,7 @@ const Modal = ({ handleClose, show }) => {
                 <img className="reviewImage_upload" src={photo} alt="image" />
               </div>
             )) : null}
-            <input type="submit" value="Submit" onClick={postRequestReviewSubmit} className="reviewSubmitButton" />
+            <input type="submit" value="Submit" onClick={postRequestReview} className="reviewSubmitButton" />
           </form>
           <button type="button" onClick={handleClose}>Close</button>
         </section>
