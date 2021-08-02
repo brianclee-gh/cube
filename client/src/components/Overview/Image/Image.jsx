@@ -34,7 +34,9 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
-    highlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (highlight) {
+      highlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   const prevPhoto = () => {
@@ -45,46 +47,78 @@ function Image({ images }) {
       active: currentImage.allImages[imageIndex].thumbnail_url,
       index: imageIndex,
     });
-    highlight.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (highlight) {
+      highlight.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  };
+  const [expanded, setExpanded] = useState(false);
+  const expandMain = () => {
+    setExpanded(!expanded);
   };
 
   return (
-    <div className="Image-Component">
-      <div className="Thumbnail-Arrow-Container">
-        <i
-          className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
-          onClick={() => { prevPhoto(); }}
-        />
-        <div className="Thumbnail-Container">
-          {currentImage.allImages.map((image, index) => (
-            <ImageThumbnails
-              thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
-              key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
-              changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
-              currentActive={currentImage.active}
-            />
-          ))}
+    <>
+      {expanded ? (
+        <div className="expanded-main">
+          {/* <i
+            className={currentImage.index === 0
+              ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
+            onClick={() => { prevPhoto(); }}
+          /> */}
+          {/* <input type="checkbox" id="zoomCheck" />
+          <label htmlFor="zoomCheck"> */}
+          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => {expandMain()}} />
+          {/* </label> */}
+          {/* <i
+            className={currentImage.index === currentImage.allImages.length - 1
+              ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
+            onClick={() => { nextPhoto(); }}
+          /> */}
         </div>
-        <i
-          className={currentImage.index === currentImage.allImages.length - 1
-            ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
-          onClick={() => { nextPhoto(); }}
-        />
-      </div>
-      <div className="Main-Image-Container">
-        <i
-          className={currentImage.index === 0
-            ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
-          onClick={() => { prevPhoto(); }}
-        />
-        <img className="Main-Image" src={currentImage.active} alt="currentProduct" />
-        <i
-          className={currentImage.index === currentImage.allImages.length - 1
-            ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
-          onClick={() => { nextPhoto(); }}
-        />
-      </div>
-    </div>
+      ) : (
+        <div className="Image-Component">
+          <div className="Thumbnail-Arrow-Container">
+            <i
+              className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
+              onClick={() => { prevPhoto(); }}
+            />
+            <div className="Thumbnail-Container">
+              {currentImage.allImages.map((image, index) => (
+                <ImageThumbnails
+                  thumbnail={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+                  key={image.thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+                  changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
+                  currentActive={currentImage.active}
+                />
+              ))}
+            </div>
+            <i
+              className={currentImage.index === currentImage.allImages.length - 1
+                ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
+              onClick={() => { nextPhoto(); }}
+            />
+          </div>
+          <div className="Main-Image-Container">
+            <i
+              className={currentImage.index === 0
+                ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
+              onClick={() => { prevPhoto(); }}
+            />
+            <img
+              className="Main-Image"
+              src={currentImage.active}
+              alt="currentProduct"
+              onClick={() => { expandMain(); }}
+            />
+            <i
+              className={currentImage.index === currentImage.allImages.length - 1
+                ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
+              onClick={() => { nextPhoto(); }}
+            />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
