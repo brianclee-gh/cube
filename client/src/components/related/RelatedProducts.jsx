@@ -70,7 +70,7 @@ function RelatedProducts({
         { uniqueItems.map((id, index) => (
           <RelatedCard
             relatedIds={relatedIds}
-            key={uuidv4()}
+            key={`${id}1`}
             handleCardClick={handleCardClick}
             id={id}
             index={index}
