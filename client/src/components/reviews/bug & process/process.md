@@ -108,13 +108,13 @@
 	3 stars - “Average”
 	4 stars - “Good”
 	5 stars - “Great”
-  [ ] Recommendation will be captured via a radio button array of “Yes” and “No”.  Default radio button behavior will apply.
-  [ ] Any characteristics designated as applicable for the current product will appear in this area.  For these inputs, the title will be the characteristic title.
-  [ ] This input will appear as an array of five radio buttons.  The meaning of the lowest (1) and highest (5) selection will appear below the array of radio buttons.
-  [ ] By default, no button will be selected.
-  [ ] Above the five buttons, the meaning of the current selection will be explicitly presented.  The default will be “none selected”.  After making a selection, this should update as applicable for the given characteristic.   The meaning of the selections is outlined below:
-  [ ] A text input allowing up to 60 characters.
-  [ ] Placeholder text should read: “Example: Best purchase ever!”
+  [x] Recommendation will be captured via a radio button array of “Yes” and “No”.  Default radio button behavior will apply.
+  [x] Any characteristics designated as applicable for the current product will appear in this area.  For these inputs, the title will be the characteristic title.
+  [x] This input will appear as an array of five radio buttons.  The meaning of the lowest (1) and highest (5) selection will appear below the array of radio buttons.
+  [x] By default, no button will be selected.
+  [x] Above the five buttons, the meaning of the current selection will be explicitly presented.  The default will be “none selected”.  After making a selection, this should update as applicable for the given characteristic.   The meaning of the selections is outlined below:
+  [x] A text input allowing up to 60 characters.
+  [x] Placeholder text should read: “Example: Best purchase ever!”
   [ ] A text input allowing up to 1000 characters.
   [ ] Placeholder text should read: “Why did you like the product or not?”.
   [ ] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.

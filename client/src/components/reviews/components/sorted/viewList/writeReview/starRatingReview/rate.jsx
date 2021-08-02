@@ -26,6 +26,7 @@ const star = () => {
 
   return (
     <div className="writeReviewRating_body">
+      <div className="writeReviewRating_title">Overall rating *</div>
       <div className="writeReviewRating">
         <input type="radio" name="star" id="rate5" value="5" onClick={starRateDescriptionFive} />
         <label htmlFor="rate5" />
