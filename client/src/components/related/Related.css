@@ -309,3 +309,11 @@ svg {
 .related-card-container:hover {
   opacity: 0.5;
 }
+
+tr {
+  display: flex;
+}
+
+th {
+  flex: 1;
+}

@@ -59,7 +59,7 @@ function RelatedProducts({
     }
   };
 
-  const uniqueItems = [...new Set(relatedIds)]
+  const uniqueItems = [...new Set(relatedIds.filter((id) => id !== currentProduct.id))];
 
   return (
     <div className="related-products-container">
