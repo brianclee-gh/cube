@@ -5,7 +5,7 @@ import './App.css';
 import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
 import { QAProvider } from './state/QAContext.jsx';
-
+import Related from './related/Related.jsx';
 import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
@@ -17,12 +17,12 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main /> */}
-          {/* <Related /> */}
+          <Main />
+          <Related />
           <QAProvider>
             <QA />
           </QAProvider>
-          {/* <Review /> */}
+          <Review />
         </ProductsProvider>
       </ReviewsProvider>
     </div>
