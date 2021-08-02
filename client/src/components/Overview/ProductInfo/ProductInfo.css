@@ -144,9 +144,10 @@
   width: 60px;
   margin-left: 60px;
   background-color: white;
+  font-size: 40px;
 }
 
 .fa-star {
   color: black;
-  font-size: 40px;
+
 }
