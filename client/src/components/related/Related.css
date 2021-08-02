@@ -41,17 +41,38 @@
 }
 
 .related-action-btn,
+svg {
+  display: inline-block;
+  vertical-align: middle;
+  horizontal-align: middle;
+}
+
+.related-action-btn > svg {
+  font-size: 20px;
+}
+
+.related-action-btn,
 .outfit-action-btn {
   position: absolute;
   right: 0;
   top: 0;
-  background-color: transparent;
+  background-color: white;
   border: none;
   margin-top: 0.5rem;
   margin-right: 0.5rem;
-  font-size: 20px;
-  color: yellow;
+  color: black;
   cursor: pointer;
+  padding: 0.2rem;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.outfit-action-btn {
+  padding: 0.2rem 0.4rem;
+}
+
+.outfit-action-btn:hover {
+  opacity: 0.8;
 }
 
 .related-image-container {
@@ -142,7 +163,7 @@
 
 .related-modal {
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   left: 0;
   top: 0;
   width: 100%;
@@ -183,8 +204,29 @@
   transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
+.modal-table {
+  border-spacing: 0.5rem;
+}
+
 .close-related-modal-btn:hover {
   opacity: 0.85;
+}
+
+.skinny-text {
+  font-weight: 100;
+}
+
+.med-text {
+  font-weight: 300;
+}
+
+.modal-comparing-heading {
+  font-size: 14px;
+}
+
+.modal-heading {
+  font-size: 18px;
+  margin-bottom: 2rem;
 }
 
 /* CAROUSEL */
@@ -202,6 +244,13 @@
   z-index: 1;
   top: 50%;
   transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: white;
+  border: 1px solid #ddd;
+  margin-left: 0.5rem;
+  cursor:pointer;
 }
 
 .related-scroll-btn-right {
@@ -215,5 +264,44 @@
   border-radius: 24px;
   background-color: white;
   border: 1px solid #ddd;
+  margin-right: 0.5rem;
+  cursor:pointer;
 }
 
+.related-scroll-btn-right:hover,
+.related-scroll-btn-left:hover {
+  opacity: 0.8;
+}
+
+/* HOVER */
+
+.hover {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+.hover:hover .hover__no-hover {
+  opacity: 1;
+}
+.hover:hover .hover__hover {
+  opacity: 1;
+}
+.hover__hover {
+  position: absolute;
+  margin-top: 0.5rem;
+  right: 0;
+  opacity: 0;
+
+}
+.hover__no-hover {
+  opacity: 1;
+}
+
+.tooltip {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #fefefe;
+  background-color: white;
+  font-size: 16px;
+  width: 5rem;
+  padding: 0.2rem;
+  pointer-events: none;
+}

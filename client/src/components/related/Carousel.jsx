@@ -1,28 +1,47 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
-function Carousel({ children, show }) {
-  const [index, setIndex] = useState(0);
+function Carousel({ children, relatedOrOutfit }) {
+  const childrenLength = relatedOrOutfit === 'related' ? children.length : children[1].length;
+  const [startIdx, setStartIdx] = useState(0);
+  const [endIdx, setEndIdx] = useState(() => {
+    const width = window.innerWidth;
+    return (Math.floor(width / 350) >= childrenLength)
+      ? childrenLength
+      : Math.floor(width / 350);
+  });
+  const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
-  const decrementIndex = () => {
-    if (index <= 0) { return; }
-    setIndex(index - 1);
+
+  const scrollLeft = () => {
+    const startCard = document.getElementById(`${setId}_${startIdx - 1}`);
+    if (!startCard) { return; }
+    startCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    setStartIdx(startIdx - 1);
+    setEndIdx(endIdx - 1);
   };
 
-  const incrementIndex = () => {
-    if (index >= show - 1) { return; }
-    setIndex(index + 1);
+  const scrollRight = () => {
+    const startCard = document.getElementById(`${setId}_${endIdx}`);
+    if (!startCard) { return; }
+    startCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+    setEndIdx(endIdx + 1);
+    setStartIdx(startIdx + 1);
   };
+
   return (
     <div className="related-carousel">
-      <button className="related-scroll-btn-left" type="button" onClick={decrementIndex}>Left</button>
+      { startIdx <= 0 || ((window.innerWidth / 325) > childrenLength)
+        ? ''
+        : <button className="related-scroll-btn-left" type="button" onClick={scrollLeft}>Left</button>}
       <ul
-        className={`related-carousel show-${show}`}
-        style={{ transform: `translateX(-${index * (100 / show)}%)` }}
+        className="related-carousel"
       >
         { children }
       </ul>
-      <button onClick={incrementIndex} className="related-scroll-btn-right" type="button">Right</button>
+      { endIdx >= childrenLength || ((window.innerWidth / 325) > childrenLength)
+        ? ''
+        : <button onClick={scrollRight} className="related-scroll-btn-right" type="button">Right</button>}
 
     </div>
   );
