@@ -14,12 +14,13 @@ function YourOutfit({ cachedData, setCachedData }) {
   const { currentProduct, currentStyle } = useContext(ProductsContext);
 
   const addToOutfit = () => {
-    if (outfit[currentProduct.id]) { return null; }
-    const { id } = currentProduct;
-    setOutfit((prevState) => ({
-      ...prevState,
-      [id]: currentProduct,
-    }));
+    if (!outfit[currentProduct.id]) {
+      const { id } = currentProduct;
+      setOutfit((prevState) => ({
+        ...prevState,
+        [id]: currentProduct,
+      }));
+    }
   };
 
   // useEffect(() => {
@@ -40,7 +41,6 @@ function YourOutfit({ cachedData, setCachedData }) {
     } else if (Object.keys(outfit).length === 0) {
       localStorage.setItem('yourSavedOutfit', JSON.stringify({}));
     }
-    console.log(outfit, 'set')
     // don't want to overwrite on load
   }, [outfit]);
 

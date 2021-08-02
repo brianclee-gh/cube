@@ -1,22 +1,23 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
+import Hover from './helperFunctions/Hover.jsx';
 
 function OutfitCard({
   product,
   handleOutfitClick,
   cachedData,
   setCachedData,
+  index,
 }) {
   const [styleData, setStyleData] = useState({});
   const [metaData, setMetaData] = useState([]);
   const [loading, setLoading] = useState(true);
-  // const [loaded, setLoaded] = useState(false);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
@@ -33,7 +34,6 @@ function OutfitCard({
 
   const loadCachedData = (id) => {
     const data = cachedData[id];
-    console.log(data);
     setStyleData(data[1]);
     setMetaData(data[2]);
   };
@@ -41,11 +41,9 @@ function OutfitCard({
   const getRelatedData = async () => {
     if (!isMounted) { return null; }
     if (cachedData[product.id]) {
-      console.log('found?');
       loadCachedData(product.id);
       return null;
     }
-    console.log('should not get down here');
     const fetchedStyle = await axios.get(`/products/${product.id}/styles`);
     const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${product.id}`);
     return Promise.all([
@@ -78,42 +76,27 @@ function OutfitCard({
     return () => {
       isMounted = false;
     };
-  }, []);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   isMounted = true;
-  //   if (isMounted) {
-  //     getRelatedData()
-  //       .then((data) => {
-  //         if (data) {
-  //           setCachedData((prevState) => ({
-  //             ...prevState,
-  //             [product.id]: data,
-  //           }));
-  //           setStyleData(data[0]);
-  //           setMetaData(data[1]);
-  //         }
-  //         setLoading(false);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //         setLoading(false);
-  //       });
-  //   }
-  //   return () => {
-  //     isMounted = false;
-  //   };
-  // }, []);
+  }, [product]);
 
   return (
-    <li className="outfit-card-container" key={uuidv4()}>
+    <li className="outfit-card-container" id={`outfit_${index}`} key={uuidv4()}>
       <div tabIndex="0" role="button" onClick={() => {}} onKeyDown={() => {}}>
         { !loading ? (
           <>
             <div className="related-image-container">
-              <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
-              <button onClick={() => handleOutfitClick(product.id)} type="button" aria-label="Save" className="related-action-btn"><FontAwesomeIcon icon={faTimesCircle} /></button>
+              { styleData.results[0].photos[0].thumbnail_url
+                ? <img className="related-product-img" src={`${styleData.results[0].photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+                : <img className="related-product-img" src="https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1" alt="product" />}
+              <button
+                onClick={(e) => handleOutfitClick(e, product.id)}
+                type="button"
+                aria-label="Save"
+                className="related-action-btn"
+              >
+                <Hover onHover={<div className="tooltip"> Remove from outfit </div>}>
+                  <FontAwesomeIcon icon={faTimesCircle} />
+                </Hover>
+              </button>
             </div>
             <div className="related-card-info-container">
               <div className="related-card-info">
@@ -135,7 +118,12 @@ function OutfitCard({
                       </span>
                     </span>
                   )
-                  : <span className="related-product-price">{styleData.results[0].original_price}</span>}
+                  : (
+                    <span className="related-product-price">
+                      $
+                      {styleData.results[0].original_price}
+                    </span>
+                  )}
                 { metaData.ratings ? <span className="related-product-stars">{starRating(getStars(metaData))}</span> : ''}
               </div>
             </div>
