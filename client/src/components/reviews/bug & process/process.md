@@ -33,16 +33,16 @@
 
 ----------------------------------------------------------------------
 
-[ ] Reviews List
+[x] Reviews List
   [x] The heart of the Ratings and Reviews module will be the list of reviews available for the user to read. This list will display all the reviews that have been submitted for the product being viewed.
-  [ ] The reviews within this list will be displayed on tiles of a standard size (the contents of this tile are described in section 1.2.2).
+  [x] The reviews within this list will be displayed on tiles of a standard size (the contents of this tile are described in section 1.2.2).
   [x] The list should display 2 tiles at a time. If there are more than 2 reviews that have been written for the given product, a button for “More Reviews” will appear below the list.
   [x] If there are 2 or less reviews for the given product, then the button will not appear.
   [x] Clicking this button will cause up to 2 additional reviews to appear. The list should expand, and the review tiles should show in order below the previously loaded questions.
   [x] As long as there are still unloaded reviews, the button will remain below the list.  Once all of the reviews for the product have been loaded, the button should no longer appear.
   [x] After several loads, the length of the list will become very long.  In order to keep the page manageable, the maximum height of the questions list should be capped such that the entire Reviews module should fit on a single screen.   The reviews list should become scrollable. The sort dropdown and buttons should remain fixed outside of the scrollable list.
   [x] The order in which the reviews appear, as well as whether all or a filtered subset of the reviews appear will be changeable.
-  [ ] If no reviews have been submitted for this product, then the list will collapse, and the button to submit a new review (section 1.2.7) will appear near the top of the module.
+  [x] If no reviews have been submitted for this product, then the list will collapse, and the button to submit a new review (section 1.2.7) will appear near the top of the module.
   [ ] Future Enhancement - Instead of incrementally loading 2 reviews at a time, clicking the “More Reviews” button should immediately expand the list to its maximum height.  The reviews appearing within should no longer need to be explicitly loaded.  Instead, the list should load in an ‘infinite scroll’, where as the user nears the end of the list, additional questions tack on to the bottom.
 
 [ ] Individual Review Tile
@@ -99,26 +99,26 @@
   [ ] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
 
 [ ] Write New Review
-  [ ] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product.   This button should always be available on any product page.
-  [ ] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
+  [x] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product. This button should always be available on any product page.
+  [x] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
   [ ] The following inputs should appear on the review form.  Each should be labelled as titled below.  Those indicated as mandatory should have an asterisk next to the title.
-  [ ] The overall rating will be selected via five selectable star icons.  Initially, the stars will all be outlines, and none will be solid.  Clicking on a star will fill that star and all of the stars to the left of it with solid color.  Customers will not be able to select fractions of a star.  After selecting a star, text will appear to the right of the stars explaining the meaning of the selection.  The text will vary as follows:
+  [x] The overall rating will be selected via five selectable star icons.  Initially, the stars will all be outlines, and none will be solid.  Clicking on a star will fill that star and all of the stars to the left of it with solid color.  Customers will not be able to select fractions of a star.  After selecting a star, text will appear to the right of the stars explaining the meaning of the selection.  The text will vary as follows:
 	1 star - “Poor”
 	2 stars - “Fair”
 	3 stars - “Average”
 	4 stars - “Good”
 	5 stars - “Great”
-  [ ] Recommendation will be captured via a radio button array of “Yes” and “No”.  Default radio button behavior will apply.
-  [ ] Any characteristics designated as applicable for the current product will appear in this area.  For these inputs, the title will be the characteristic title.
-  [ ] This input will appear as an array of five radio buttons.  The meaning of the lowest (1) and highest (5) selection will appear below the array of radio buttons.
-  [ ] By default, no button will be selected.
-  [ ] Above the five buttons, the meaning of the current selection will be explicitly presented.  The default will be “none selected”.  After making a selection, this should update as applicable for the given characteristic.   The meaning of the selections is outlined below:
-  [ ] A text input allowing up to 60 characters.
-  [ ] Placeholder text should read: “Example: Best purchase ever!”
-  [ ] A text input allowing up to 1000 characters.
-  [ ] Placeholder text should read: “Why did you like the product or not?”.
-  [ ] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.
-  [ ] Below the input for the Review body, a counter should appear.  This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.  As the user types, the count of characters should update.   After the user reaches 50 characters, the counter should be replaced by a message stating “Minimum reached”.
+  [x] Recommendation will be captured via a radio button array of “Yes” and “No”.  Default radio button behavior will apply.
+  [x] Any characteristics designated as applicable for the current product will appear in this area.  For these inputs, the title will be the characteristic title.
+  [x] This input will appear as an array of five radio buttons.  The meaning of the lowest (1) and highest (5) selection will appear below the array of radio buttons.
+  [x] By default, no button will be selected.
+  [x] Above the five buttons, the meaning of the current selection will be explicitly presented.  The default will be “none selected”.  After making a selection, this should update as applicable for the given characteristic.   The meaning of the selections is outlined below:
+  [x] A text input allowing up to 60 characters.
+  [x] Placeholder text should read: “Example: Best purchase ever!”
+  [x] A text input allowing up to 1000 characters.
+  [x] Placeholder text should read: “Why did you like the product or not?”.
+  [x] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.
+  [x] Below the input for the Review body, a counter should appear.  This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.  As the user types, the count of characters should update.   After the user reaches 50 characters, the counter should be replaced by a message stating “Minimum reached”.
   [ ] A button will appear allowing users to upload their photos to the form.
   [ ] Clicking the button should open a separate window where the photo to be can be selected.
   [ ] After the first image is uploaded, a thumbnail showing the image should appear.  A user should be able to add up to five images before the button to add disappears, preventing further additions.
