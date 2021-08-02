@@ -8,7 +8,7 @@ function Carousel({ children, relatedOrOutfit }) {
     const width = window.innerWidth;
     return (Math.floor(width / 350) >= childrenLength)
       ? childrenLength
-      : Math.floor(width / 350);
+      : Math.floor(width / 350) + 1;
   });
   const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 

@@ -305,3 +305,7 @@ svg {
   padding: 0.2rem;
   pointer-events: none;
 }
+
+.related-card-container:hover {
+  opacity: 0.5;
+}
