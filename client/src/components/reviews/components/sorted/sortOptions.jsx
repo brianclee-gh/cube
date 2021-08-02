@@ -12,7 +12,7 @@ function sortReviews() {
   const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
   const [ currentSort, updateSort ] = useState('relevant');
   const [ showWriteReviewModal, setShowWriteReviewModal ] = useState(false);
-  console.log(showWriteReviewModal);
+
   const sort = [
     { value: 'newest', label: 'Newest' },
     { value: 'helpful', label: 'Helpful' },

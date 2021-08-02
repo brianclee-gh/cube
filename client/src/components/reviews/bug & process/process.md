@@ -99,10 +99,10 @@
   [ ] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
 
 [ ] Write New Review
-  [ ] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product.   This button should always be available on any product page.
-  [ ] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
+  [x] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product. This button should always be available on any product page.
+  [x] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
   [ ] The following inputs should appear on the review form.  Each should be labelled as titled below.  Those indicated as mandatory should have an asterisk next to the title.
-  [ ] The overall rating will be selected via five selectable star icons.  Initially, the stars will all be outlines, and none will be solid.  Clicking on a star will fill that star and all of the stars to the left of it with solid color.  Customers will not be able to select fractions of a star.  After selecting a star, text will appear to the right of the stars explaining the meaning of the selection.  The text will vary as follows:
+  [x] The overall rating will be selected via five selectable star icons.  Initially, the stars will all be outlines, and none will be solid.  Clicking on a star will fill that star and all of the stars to the left of it with solid color.  Customers will not be able to select fractions of a star.  After selecting a star, text will appear to the right of the stars explaining the meaning of the selection.  The text will vary as follows:
 	1 star - “Poor”
 	2 stars - “Fair”
 	3 stars - “Average”
