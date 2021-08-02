@@ -12,7 +12,7 @@ const Answer = ({ answer }) => {
   const [reported, setReported] = useState(false);
 
   const markHelpful = () => {
-    axios.put(`/qa/answers/${answer.id}/helpful`)
+    axios.put('/answer/helpful')
       .then(() => {
         setHepfulCounter(helpfulCounter + 1);
         setHelped(true);
@@ -20,7 +20,7 @@ const Answer = ({ answer }) => {
   };
 
   const reportAnswer = () => {
-    axios.put(`/qa/answers/${answer.id}/report`)
+    axios.put('/answer/report')
       .then(() => {
         setReported(true);
         alert('This answer has been reported and marked for review');
@@ -30,7 +30,7 @@ const Answer = ({ answer }) => {
   const renderHelpfulButton = () => {
     if (!helped) {
       return (
-        <a className="qa-helpful-link" onClick={markHelpful}>Yes</a>
+        <a className="qa-link" onClick={markHelpful}>Yes</a>
       );
     }
     return 'Thanks!';
@@ -39,17 +39,32 @@ const Answer = ({ answer }) => {
   const renderReportButton = () => {
     if (!reported) {
       return (
-        <a className="qa-report-link" onClick={reportAnswer}>Report</a>
+        <a className="qa-link" onClick={reportAnswer}>Report</a>
       );
     }
     return 'Reported';
   };
 
   return (
-    <div>
-      <div>A: {answer.body}</div>
-      <div>by {answer.answerer_name}, {moment(answer.date).format('LL')} | Helpful? {renderHelpfulButton()} ({helpfulCounter})  | {renderReportButton()}</div>
-    </div>
+    <>
+      <div className="individual-answer-container">
+        <div>
+          <b>A: </b> {answer.body}
+        </div>
+        <div className="individual-answer-sub-container">
+          <span className="individual-answer-name-date">
+            by {answer.answerer_name}, {moment(answer.date).format('LL')}
+          </span>
+          <span className="divider"> | </span>
+          <span className="helpful">
+            Helpful?
+          </span>
+          {renderHelpfulButton()} ({helpfulCounter})
+          <span className="divider"> | </span>
+          {renderReportButton()}
+        </div>
+      </div>
+    </>
   );
 };
 

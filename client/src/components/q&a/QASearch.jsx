@@ -1,12 +1,16 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const QASearch = () => (
-  <div>
-    {/* <h3>Question Search </h3> */}
-    <form className="qa-search">
-      <input type="text" name="searchTerm" placeholder="Have a question? Search for answers..." />
+  <>
+    <form className="qa-search-bar" noValidate autoComplete="off">
+      <input className="qa-search-bar-input" type="text" name="searchTerm" placeholder="Have a question? Search for answers..." />
+      <button className="qa-search-input-btn" type="submit">
+        <FontAwesomeIcon icon={faSearch} />
+      </button>
     </form>
-  </div>
+  </>
 );
 
 export default QASearch;
