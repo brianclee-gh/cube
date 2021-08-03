@@ -39,9 +39,9 @@ function Related() {
       .catch((err) => console.log(err));
   }, [currentProduct]);
 
-  useEffect(() => {
-    getData('17067');
-  }, []);
+  // useEffect(() => {
+  //   getData('17067');
+  // }, []);
 
   return (
     <div className="related-products-section">
