@@ -59,7 +59,7 @@ function RelatedProducts({
     }
   };
 
-  const uniqueItems = [...new Set(relatedIds)]
+  const uniqueItems = [...new Set(relatedIds.filter((id) => id !== currentProduct.id))];
 
   return (
     <div className="related-products-container">
@@ -70,7 +70,7 @@ function RelatedProducts({
         { uniqueItems.map((id, index) => (
           <RelatedCard
             relatedIds={relatedIds}
-            key={uuidv4()}
+            key={`${id}1`}
             handleCardClick={handleCardClick}
             id={id}
             index={index}
