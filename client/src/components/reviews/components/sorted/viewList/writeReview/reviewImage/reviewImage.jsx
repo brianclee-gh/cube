@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './reviewImage.css';
 
-const imageArr = [];
+let imageArr = [];
 
-const Modal = ({ handleClose, show, upload }) => {
+const Modal = ({ handleClose, show, upload, reset }) => {
   const showHideClassName = show ? "reviewImageModal display-block" : "reviewImageModal display-none";
-  const [reviewImageUpload, setReviewImageUpload] = useState('');
+  const [reviewImageUpload, setReviewImageUpload] = useState([]);
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [imageThree, setImageThree] = useState(null);
@@ -29,7 +29,7 @@ const Modal = ({ handleClose, show, upload }) => {
       imageArr.push(imageFive);
     }
     setReviewImageUpload(imageArr);
-    upload(reviewImageUpload);
+    imageArr = [];
     handleClose();
   };
 
@@ -52,6 +52,14 @@ const Modal = ({ handleClose, show, upload }) => {
   const onChangeURLFive = (e) => {
     setImageFive(e.target.value);
   }
+
+  useEffect(() => {
+    upload(reviewImageUpload);
+  }, [reviewImageUpload]);
+
+  useEffect(() => {
+    reset(false);
+  }, [reviewImageUpload]);
 
   return (
     <div className={showHideClassName}>
