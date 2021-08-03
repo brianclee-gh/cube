@@ -19,12 +19,12 @@ function Main() {
   const [photoArray, setPhotoArray] = useState(null);
 
   useEffect(() => {
-    getData('17071');
+    getData('17067');
   }, []);
 
-  // useEffect(() => {
-  //   setPhotoArray(currentStyle.results[0]);
-  // }, []);
+  useEffect(() => {
+    setPhotoArray(null);
+  }, [currentProduct]);
 
   return (
     <div className="Overview-Section">

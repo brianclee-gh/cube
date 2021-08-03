@@ -9,7 +9,7 @@ function Style({ style, current, isActive }) {
       <div className="Style-Wrapper">
         <img
           className="Style-Selection"
-          src={style.photos[0].thumbnail_url || 'https://source.unsplash.com/random/600x800'}
+          src={style.photos[0].thumbnail_url || 'https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1'}
           alt=""
           onClick={current}
         />
