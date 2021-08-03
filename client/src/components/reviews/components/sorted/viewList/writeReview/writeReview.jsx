@@ -24,17 +24,24 @@ const Modal = ({ handleClose, show }) => {
   const [nicknameWrite, setNicknameWrite] = useState(null);
   const [emailWrite, setEmailWrite] = useState(null);
   const [imageUploadPopUp, setImageUploadPopUp] = useState(null);
-  const [imageUpload, setImageUpload] = useState([]);
+  const [imageUpload, setImageUpload] = useState(null);
   const [starRate, setStarRate] = useState(null);
   const [postRequestBody, setPostRequestBody] = useState(null);
+  const [errorImg, setErrorImg] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const errorImage = (e) => {
+    (e === false) ? setErrorImg(false) : setErrorImg(true);
+  };
 
   const writeStarRrating = (star) => {
     setStarRate(star);
   };
 
   const imageUploading = (image) => {
+    setImageUpload([]);
     setImageUpload(image);
-  }
+  };
 
   const imageModalPop = () => {
     setImageUploadPopUp(!imageUploadPopUp);
@@ -42,7 +49,7 @@ const Modal = ({ handleClose, show }) => {
 
   const writeEmail = (email) => {
     setEmailWrite(email);
-  }
+  };
 
   const writeNickname = (nickname) => {
     setNicknameWrite(nickname);
@@ -66,8 +73,13 @@ const Modal = ({ handleClose, show }) => {
 
   const postRequestReview = async () => {
     if (!currentProduct) { return null; }
-    const postRequest = await postReview(postRequestBody);
-    return postRequest;
+    if (errorImg) {
+      setErrorMessage('Please submit valid image');
+    } else {
+      setErrorMessage(null);
+      const postRequest = await postReview(postRequestBody);
+      return postRequest;
+    }
   };
 
   useEffect(() => {
@@ -101,14 +113,17 @@ const Modal = ({ handleClose, show }) => {
             <ReviewBody change={writeReviewBody} />
             <Nickname change={writeNickname} />
             <Email change={writeEmail} />
-            <Image show={imageUploadPopUp} handleClose={imageModalPop} upload={imageUploading} />
+            <Image show={imageUploadPopUp} handleClose={imageModalPop} upload={imageUploading} reset={errorImage} />
             <button type="button" className="writeReviewButton" onClick={imageModalPop} >Upload Image</button>
             {(imageUpload !== null) ? <div>{imageUpload.length} images saved</div> : null}
-            {imageUpload ? imageUpload.map((photo) => (
-              <div className="reviewImage_thumbnail" key={photo}>
-                <img className="reviewImage_upload" src={photo} alt="image" />
+            {imageUpload ? imageUpload.map((photo) => {
+              return(
+                <div className="reviewImage_thumbnail" key={photo}>
+                <img className="reviewImage_upload" src={photo} alt="image" onError={errorImage} />
               </div>
-            )) : null}
+              )
+              }) : null}
+            <div className="writeReview_submissionError">{errorMessage}</div>
             <input type="submit" value="Submit" onClick={postRequestReview} className="reviewSubmitButton" />
           </form>
           <button type="button" onClick={handleClose}>Close</button>

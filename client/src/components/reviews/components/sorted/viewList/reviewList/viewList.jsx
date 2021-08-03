@@ -12,6 +12,10 @@ function reviewList({sort}) {
   const [viewableReviews, setViewableReviews] = useState(2);
   const [expandReview, setExpandReview] = useState(null);
 
+  const failImageUpload = () => {
+    <img src="https://via.placeholder.com/150" />
+  }
+
   const loadMore = () => {
     setViewableReviews(viewableReviews + 2);
     if (viewableReviews >= reviews.length) {
@@ -65,7 +69,7 @@ function reviewList({sort}) {
             </div>
             {review.photos.map((photo) => (
               <div className="reviewBodyBox_thumbnail" key={photo.id}>
-                <img className="reviewBodyBox_img" src={photo.url} alt="image" />
+                <img className="reviewBodyBox_img" src={photo.url} alt="image" onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
               </div>
             ))}
             <div className="reviewBodyBox_helpful">
