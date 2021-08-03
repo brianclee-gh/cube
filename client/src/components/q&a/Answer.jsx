@@ -48,7 +48,7 @@ const Answer = ({ answer }) => {
   return (
     <>
       <div className="individual-answer-container">
-        <div className="answer">
+        <div className="answer-body">
           <b>A: </b> {answer.body}
         </div>
         <div className="answer-photos">
