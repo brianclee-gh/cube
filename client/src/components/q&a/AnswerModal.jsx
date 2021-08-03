@@ -1,3 +1,5 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React, { useState, useContext, useEffect } from 'react';
@@ -8,7 +10,7 @@ import UploadPhotoModal from './UploadPhotoModal.jsx';
 
 let postRequestObj = {};
 
-const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
+const AnswerModal = ({ question, closeModal }) => {
   const { currentProduct } = useContext(ProductsContext);
   const { postAnswer } = useContext(QAContext);
   const [name, setName] = useState('');
@@ -48,13 +50,13 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
     postRequestObj['email'] = email;
     postRequestObj['photos'] = photos;
     setPostRequestBody(postRequestObj);
-    console.log(postRequestBody);
+    // console.log(postRequestBody);
   }, [answer, name, email, photos]);
 
   const addPhotos = (imageArr) => {
     setPhotos([]);
     setPhotos(imageArr);
-    console.log(photos);
+    console.log(imageArr);
   };
 
   const handleChange = (e) => {
@@ -93,7 +95,7 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
           <h3 className="modal-subtitle"> {currentProduct.name}: {question.question_body} </h3>
           <form className="answer-modal-form" onSubmit={handleSubmit}>
             <label className="modal-name">Nickname*</label>
-            <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={(e) => { handleChange(e); }} />
+            <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
             <br />
             <span>For privacy reasons, do not use your full name or email address.</span>
             <br />
@@ -106,19 +108,26 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
             <input className="modal-answer" placeholder="Your answer here..." required type="text" maxLength="1000" minLength="" autoComplete="off" value={answer} onChange={(e) => { handleChange(e); }} />
             <br />
             <button className="photo-modal-btn" onClick={openPhotoModal}>Upload Photos</button>
-            { uploadPhoto ? (
+            {/* { uploadPhoto ? (
               <UploadPhotoModal
                 addPhotos={addPhotos}
                 closePhotoModal={closePhotoModal}
               />
-            ) : null}
-            {photos ? photos.map((photo) => (
-              <div className="photo-thumbnail" key={photo}>
-                <img className="photo-img" src={photo} alt="image" />
-              </div>
-            )) : null}
+            ) : null} */}
+            <UploadPhotoModal
+              uploadPhoto={uploadPhoto}
+              addPhotos={addPhotos}
+              closePhotoModal={closePhotoModal}
+            />
+            {photos ? photos.map((photo) => {
+              return (
+                <div className="photo-thumbnail" key={photo}>
+                  <img className="photo-img" src={photo} alt="image" />
+                </div>
+              );
+            }) : null}
             <div className="btn-container">
-              <button onClick={postRequestAnswer} className="modal-submit-btn" type="submit">Add</button>
+              <button onClick={postRequestAnswer} className="modal-submit-btn" type="button">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
           </form>
