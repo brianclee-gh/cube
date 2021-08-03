@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 let imageArr = [];
 
-const UploadPhotoModal = ({ addPhotos, closePhotoModal }) => {
+const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal }) => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [imageThree, setImageThree] = useState(null);
@@ -41,8 +41,8 @@ const UploadPhotoModal = ({ addPhotos, closePhotoModal }) => {
     if (imageFive !== null && imageArr.includes(imageFive) !== true && imageOne !== "") {
       imageArr.push(imageFive);
     }
-    // console.log(imageArr);
     console.log(imageOne);
+    console.log(imageArr);
     setImages(imageArr);
     console.log(images);
     imageArr = [];
@@ -74,30 +74,30 @@ const UploadPhotoModal = ({ addPhotos, closePhotoModal }) => {
   }, [images]);
 
   return (
-    <div className="photo-modal">
+    <div className={uploadPhoto ? 'photo-modal' : 'qa-hidden'}>
       <div className="photo-modal-container">
         <div className="photo-modal-form">
           <h2 className="modal-title">Upload Photos</h2>
           <p className="modal-photo-sub"> Up to 5 URL links can be added!</p>
           {/* <p className="modal-photo-sub"> Please separate your URL links with a comma.</p> */}
           <br />
-          <label className="modal-photo-label">Image URL</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" maxLength="1000" autoComplete="off" value={imageOne} onChange={changeOne} />
+          <label className="modal-photo-label">Image URL #1</label>
+          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeOne} />
           <br />
-          <label className="modal-photo-label">Image #2</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" maxLength="1000" autoComplete="off" onChange={changeTwo} />
+          <label className="modal-photo-label">Image URL #2</label>
+          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeTwo} />
           <br />
-          <label className="modal-photo-label">Image #3</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" maxLength="1000" autoComplete="off" onChange={changeThree} />
+          <label className="modal-photo-label">Image URL #3</label>
+          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeThree} />
           <br />
-          <label className="modal-photo-label">Image #4</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" maxLength="1000" autoComplete="off" onChange={changeFour} />
+          <label className="modal-photo-label">Image URL #4</label>
+          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeFour} />
           <br />
-          <label className="modal-photo-label">Image #5</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" maxLength="1000" autoComplete="off" onChange={changeFive} />
+          <label className="modal-photo-label">Image URL #5</label>
+          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeFive} />
         </div>
         <div className="btn-container">
-          <button onClick={uploadImageURL} className="modal-submit-btn" type="submit">Upload</button>
+          <button onClick={uploadImageURL} className="modal-submit-btn" type="button">Upload</button>
           <button onClick={closePhotoModal} className="close-question-modal-btn" type="button">Close</button>
         </div>
       </div>
