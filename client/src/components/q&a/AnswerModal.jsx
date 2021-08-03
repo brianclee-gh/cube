@@ -1,31 +1,62 @@
+/* eslint-disable arrow-body-style */
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext } from 'react';
-import axios from 'axios';
-import ImageModal from './ImageModal.jsx';
+import React, { useState, useContext, useEffect } from 'react';
+// import axios from 'axios';
+import { QAContext } from '../state/QAContext.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
+import UploadPhotoModal from './UploadPhotoModal.jsx';
 
-const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
+let postRequestObj = {};
+
+const AnswerModal = ({ question, closeModal }) => {
   const { currentProduct } = useContext(ProductsContext);
+  const { postAnswer } = useContext(QAContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [answer, setAnswer] = useState('');
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState(null);
+  const [uploadPhoto, setUploadPhoto] = useState(false);
+  const [postRequestBody, setPostRequestBody] = useState(null);
 
-  const postAnswer = () => {
+  //   const postAnswer = () => {
+  //     const questionId = question.question_id;
+  //     axios.post(`add/answer/${questionId}`, {
+  //       body: answer,
+  //       name: name,
+  //       email: email,
+  //       photos: photos,
+  //     })
+  //       .then((res) => {
+  //         console.log('posted', res.data);
+  //         closeModal;
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
+
+  const postRequestAnswer = async () => {
+    if (!currentProduct) { return null; }
     const questionId = question.question_id;
-    axios.post(`add/answer/${questionId}`, {
-      body: answer,
-      name: name,
-      email: email,
-      photos: photos,
-    })
-      .then((res) => {
-        console.log('posted', res.data);
-        closeModal;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const postRequest = await postAnswer(questionId, postRequestBody);
+    return postRequest;
+  };
+
+  useEffect(() => {
+    postRequestObj['body'] = answer;
+    postRequestObj['name'] = name;
+    postRequestObj['email'] = email;
+    postRequestObj['photos'] = photos;
+    setPostRequestBody(postRequestObj);
+    // console.log(postRequestBody);
+  }, [answer, name, email, photos]);
+
+  const addPhotos = (imageArr) => {
+    setPhotos([]);
+    setPhotos(imageArr);
+    console.log(imageArr);
   };
 
   const handleChange = (e) => {
@@ -33,10 +64,8 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
       setName(e.target.value);
     } else if (e.target.placeholder === 'Example: jack@gmail.com') {
       setEmail(e.target.value);
-    } else if (e.target.placeholder === 'Your answer here...') {
-      setAnswer(e.target.value);
     } else {
-      setPhotos(e.target.value);
+      setAnswer(e.target.value);
     }
   };
 
@@ -47,43 +76,61 @@ const AnswerModal = ({ question, modalOpen, closeModal, openModal }) => {
     setName('');
     setEmail('');
     setAnswer('');
-    setPhotos([]);
   };
 
-  //   {`question-modal ${modalOpen ? '' : 'hidden'}`}
+  const closePhotoModal = () => {
+    setUploadPhoto(false);
+  };
+
+  const openPhotoModal = () => {
+    setUploadPhoto(true);
+  };
 
   return (
-    <div>
+    <div className="answer-modal">
       {currentProduct && (
       <>
-        <button className="qa-link" onClick={openModal}>ADD ANSWER</button>
-        <div className={`answer-modal ${modalOpen ? '' : 'qa-hidden'}`}>
-          <div className="answer-modal-container">
-            <h2 className="answer-modal-title">Submit your Answer</h2>
-            <h3 className="answer-modal-subtitle"> {currentProduct.name}: {question.question_body} </h3>
-            <form className="answer-modal-form" onSubmit={handleSubmit}>
-              <label className="modal-name">Nickname*</label>
-              <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={(e) => { handleChange(e); }} />
-              <br />
-              <span>For privacy reasons, do not use your full name or email address.</span>
-              <br />
-              <label className="modal-email">Email*</label>
-              <input className="modal-email" placeholder="Example: jack@gmail.com" required type="email" maxLength="60" autoComplete="off" value={email} onChange={(e) => { handleChange(e); }} />
-              <br />
-              <span>For authentication reasons, you will not be emailed.</span>
-              <br />
-              <label className="modal-answer-label">Answer*</label>
-              <input className="modal-answer" placeholder="Your answer here..." required type="text" maxLength="1000" minLength="" autoComplete="off" value={answer} onChange={(e) => { handleChange(e); }} />
-              <br />
-              <label className="modal-photos">Upload Photos</label>
-              <input className="modal-photos" placeholder="drop image URL link here" required type="text" maxLength="500" autoComplete="off" value={photos} onChange={(e) => { handleChange(e); }} />
-              {/* <ImageModal /> */}
-              <div className="btn-container">
-                <button onClick={postAnswer} className="modal-submit-btn" type="submit">Add</button>
-                <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
-              </div>
-            </form>
-          </div>
+        <div className="answer-modal-container">
+          <h2 className="modal-title">Submit your Answer</h2>
+          <h3 className="modal-subtitle"> {currentProduct.name}: {question.question_body} </h3>
+          <form className="answer-modal-form" onSubmit={handleSubmit}>
+            <label className="modal-name">Nickname*</label>
+            <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
+            <br />
+            <span>For privacy reasons, do not use your full name or email address.</span>
+            <br />
+            <label className="modal-email">Email*</label>
+            <input className="modal-email" placeholder="Example: jack@gmail.com" required type="email" maxLength="60" autoComplete="off" value={email} onChange={(e) => { handleChange(e); }} />
+            <br />
+            <span>For authentication reasons, you will not be emailed.</span>
+            <br />
+            <label className="modal-answer-label">Answer*</label>
+            <input className="modal-answer" placeholder="Your answer here..." required type="text" maxLength="1000" minLength="" autoComplete="off" value={answer} onChange={(e) => { handleChange(e); }} />
+            <br />
+            <button className="photo-modal-btn" onClick={openPhotoModal}>Upload Photos</button>
+            {/* { uploadPhoto ? (
+              <UploadPhotoModal
+                addPhotos={addPhotos}
+                closePhotoModal={closePhotoModal}
+              />
+            ) : null} */}
+            <UploadPhotoModal
+              uploadPhoto={uploadPhoto}
+              addPhotos={addPhotos}
+              closePhotoModal={closePhotoModal}
+            />
+            {photos ? photos.map((photo) => {
+              return (
+                <div className="photo-thumbnail" key={photo}>
+                  <img className="photo-img" src={photo} alt="image" />
+                </div>
+              );
+            }) : null}
+            <div className="btn-container">
+              <button onClick={postRequestAnswer} className="modal-submit-btn" type="button">Add</button>
+              <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
+            </div>
+          </form>
         </div>
       </>
       )}

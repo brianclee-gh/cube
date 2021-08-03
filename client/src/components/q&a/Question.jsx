@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -26,11 +27,6 @@ const Question = ({ question }) => {
     setExpanded(!expanded);
   };
 
-//   useEffect(() => {
-//     markQuestionHelpful(question.question_id)
-//       .then((res) => setHelpfulness(res.data.results.question_helpfulness + 1));
-//   });
-
   const markHelpful = () => {
     axios.put('/question/helpful')
       .then(() => {
@@ -57,9 +53,9 @@ const Question = ({ question }) => {
   };
 
   return (
-    <div>
+    <>
       <div className="individual-question-container">
-        <p className="individual-q-body">
+        <p className="question-body">
           <b>Q: </b> {question.question_body}
         </p>
         <div className="individual-q-btn-container">
@@ -68,12 +64,7 @@ const Question = ({ question }) => {
           </span>
           {renderHelpfulButton()} ({helpfulCounter})
           <span className="divider"> | </span>
-          <AnswerModal
-            question={question}
-            modalOpen={modalOpen}
-            closeModal={closeModal}
-            openModal={openModal}
-          />
+          <button className="qa-link" onClick={openModal}>ADD ANSWER</button>
         </div>
       </div>
       <div className="answers-list">
@@ -89,8 +80,14 @@ const Question = ({ question }) => {
             )}
           </a>
         ) : null}
+        { modalOpen ? (
+          <AnswerModal
+            question={question}
+            closeModal={closeModal}
+          />
+        ) : null}
       </div>
-    </div>
+    </>
   );
 };
 

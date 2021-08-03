@@ -31,9 +31,9 @@ const QAList = () => {
     return fetchedData;
   };
 
-  // useEffect(() => {
-  //   getData('17071');
-  // }, []);
+  useEffect(() => {
+    getData('17071');
+  }, []);
 
   useEffect(() => {
     getQAList()
@@ -89,14 +89,17 @@ const QAList = () => {
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
-          {expanded ? <button className="expand-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
-          <QuestionModal
-            modalOpen={modalOpen}
-            closeModal={closeModal}
-            openModal={openModal}
-          />
+          {expanded ? <button className="outer-question-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
+          <button className="outer-question-btn" onClick={openModal}>ADD A QUESTION</button>
         </div>
       </div>
+      { modalOpen ? (
+        <QuestionModal
+          modalOpen={modalOpen}
+          closeModal={closeModal}
+          openModal={openModal}
+        />
+      ) : null}
     </div>
   );
 };

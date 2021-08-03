@@ -29,6 +29,7 @@ const Modal = ({ handleClose, show }) => {
   const [postRequestBody, setPostRequestBody] = useState(null);
   const [errorImg, setErrorImg] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [postRequestUpdate, setPostRequestUpdate] = useState(false);
 
   const errorImage = (e) => {
     (e === false) ? setErrorImg(false) : setErrorImg(true);
@@ -73,14 +74,28 @@ const Modal = ({ handleClose, show }) => {
 
   const postRequestReview = async () => {
     if (!currentProduct) { return null; }
-    if (errorImg) {
-      setErrorMessage('Please submit valid image');
+    if (errorMessage === 'Please submit valid image') {
+      alert('Not able to submit it due to invalid entry')
     } else {
-      setErrorMessage(null);
-      const postRequest = await postReview(postRequestBody);
-      return postRequest;
+      await postReview(postRequestBody);
+      setPostRequestUpdate(true);
     }
   };
+
+  useEffect(() => {
+    if (postRequestUpdate === true) {
+      handleClose();
+    }
+    setPostRequestUpdate(false);
+  }, [postRequestUpdate]);
+
+  useEffect(() => {
+    if (errorImg === true) {
+      setErrorMessage('Please submit valid image')
+    } else {
+      setErrorMessage(null);
+    }
+  }, [errorImg]);
 
   useEffect(() => {
     postRequestObj['product_id'] = currentProduct.id;
@@ -124,7 +139,7 @@ const Modal = ({ handleClose, show }) => {
               )
               }) : null}
             <div className="writeReview_submissionError">{errorMessage}</div>
-            <input type="submit" value="Submit" onClick={postRequestReview} className="reviewSubmitButton" />
+            <button type="button" value="Submit" onClick={postRequestReview} className="reviewSubmitButton">Submit</button>
           </form>
           <button type="button" onClick={handleClose}>Close</button>
         </section>
