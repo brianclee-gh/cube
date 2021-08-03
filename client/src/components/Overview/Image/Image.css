@@ -11,6 +11,7 @@
 .Main-Image-Container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   margin: auto;
   width: auto;
@@ -63,8 +64,11 @@ i {
 }
 .fa-angle-up, .fa-angle-down {
   font-size: 29px;
-
 }
+.fa-arrow-left, .fa-arrow-right {
+  font-size: 20px;
+}
+
 .fa-angle-down {
   align-self: center;
 }
@@ -80,6 +84,20 @@ i {
 
 /*expanded*/
 .expanded-main {
+
+  grid-area: Image;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  /* margin-left: 50px; */
+  margin-top: 25px;
+  background-color: rgb(163, 159, 159);
+
+  width: 150%;
+  z-index: 20;
+
+  /* height: auto;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -87,38 +105,23 @@ i {
   justify-content: center;
   width: 150%;
   background-color: rgb(163, 159, 159);
-  z-index: 999;
-  margin-top: 25px;
-  padding: 20px;
+  z-index: 20;
+  margin-top: 25px; */
+  /* padding: 20px; */
+  /* min-height: 100%; */
   /* overflow: hidden; */
 }
 
 .Main-Image-Expanded {
-  min-height: 100%;
+  /* position: fixed; */
+  width: auto;
+  height: 100%;
+  /* height: auto; */
+  /* max-height: 700px; */
   cursor: zoom-out;
 
   /* object-fit: cover; */
 }
-
-
-
-
-
-/*click zoom*/
-/* input[type=checkbox] {
-  display:none;
-}
-
-.expanded-main img {
-  transition: 0.25s ease;
-  cursor: zoom-in;
-}
-
-input[type=checkbox]:checked ~ label > img {
-  margin: 100px;
-  transform: scale(2);
-  cursor: zoom-out;
-} */
 
 
 

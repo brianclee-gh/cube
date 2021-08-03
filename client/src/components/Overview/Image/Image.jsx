@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable import/extensions */
@@ -61,22 +62,22 @@ function Image({ images }) {
 
   return (
     <>
-      {expanded ? (
+      {/* {expanded ? (
         <div className="expanded-main">
-          {/* <i
+          <i
             className={currentImage.index === 0
               ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
             onClick={() => { prevPhoto(); }}
-          /> */}
+          />
           <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => {expandMain()}} />
-          {/* <i
+          <i
             className={currentImage.index === currentImage.allImages.length - 1
               ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
             onClick={() => { nextPhoto(); }}
-          /> */}
+          />
         </div>
-      ) : (
-        <div className={expanded ? "expanded-main" : "Image-Component"}>
+      ) : ( */}
+        <div className={expanded ? 'expanded-main' : 'Image-Component'}>
           <div className="Thumbnail-Arrow-Container">
             <i
               className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
@@ -105,7 +106,7 @@ function Image({ images }) {
               onClick={() => { prevPhoto(); }}
             />
             <img
-              className="Main-Image"
+              className={expanded ? "Main-Image-Expanded" : "Main-Image"}
               src={currentImage.active}
               alt="currentProduct"
               onClick={() => { expandMain(); }}
@@ -117,7 +118,7 @@ function Image({ images }) {
             />
           </div>
         </div>
-      )}
+      {/* )} */}
     </>
   );
 }
