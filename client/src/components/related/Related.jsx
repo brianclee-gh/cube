@@ -7,7 +7,7 @@ import YourOutfit from './YourOutfit.jsx';
 import './Related.css';
 
 function Related() {
-  const { currentProduct } = useContext(ProductsContext);
+  const { currentProduct, getData } = useContext(ProductsContext);
   const [cachedData, setCachedData] = useState(() => {
     const storedData = localStorage.getItem('relatedProducts');
     return storedData !== null
@@ -40,6 +40,10 @@ function Related() {
       })
       .catch((err) => console.log(err));
   }, [currentProduct]);
+
+  useEffect(() => {
+    getData('17067');
+  }, []);
 
   return (
     <div className="related-products-section">

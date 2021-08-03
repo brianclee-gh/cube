@@ -1,11 +1,13 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, lazy, Suspense } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Carousel from './Carousel.jsx';
 import RelatedCard from './RelatedCard.jsx';
-import Modal from './Modal.jsx';
+// import Modal from './Modal.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
+
+const Modal = lazy(() => import('./Modal.jsx'));
 
 function RelatedProducts({
   relatedIds,
@@ -79,12 +81,14 @@ function RelatedProducts({
           />
         )) }
       </Carousel>
-      <Modal
-        currentProduct={currentProduct}
-        modalOpen={modalOpen}
-        combined={combined}
-        closeModal={closeModal}
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Modal
+          currentProduct={currentProduct}
+          modalOpen={modalOpen}
+          combined={combined}
+          closeModal={closeModal}
+        />
+      </Suspense>
     </div>
   );
 }
