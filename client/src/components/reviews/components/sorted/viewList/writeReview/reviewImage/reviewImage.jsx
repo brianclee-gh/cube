@@ -13,19 +13,19 @@ const Modal = ({ handleClose, show, upload, reset }) => {
   const [imageFive, setImageFive] = useState(null);
 
   const uploadImageURL = () => {
-    if (imageOne !== null && imageArr.includes(imageOne) !== true) {
+    if (imageOne !== null && imageArr.includes(imageOne) !== true && imageOne !== "") {
       imageArr.push(imageOne);
     }
-    if (imageTwo !== null && imageArr.includes(imageTwo) !== true) {
+    if (imageTwo !== null && imageArr.includes(imageTwo) !== true && imageTwo !== "") {
       imageArr.push(imageTwo);
     }
-    if (imageThree !== null && imageArr.includes(imageThree) !== true) {
+    if (imageThree !== null && imageArr.includes(imageThree) !== true && imageThree !== "") {
       imageArr.push(imageThree);
     }
-    if (imageFour !== null && imageArr.includes(imageFour) !== true) {
+    if (imageFour !== null && imageArr.includes(imageFour) !== true && imageFour !== "") {
       imageArr.push(imageFour);
     }
-    if (imageFive !== null && imageArr.includes(imageFive) !== true) {
+    if (imageFive !== null && imageArr.includes(imageFive) !== true && imageFive !== "") {
       imageArr.push(imageFive);
     }
     setReviewImageUpload(imageArr);
