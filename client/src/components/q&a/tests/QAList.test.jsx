@@ -18,7 +18,7 @@ afterEach(() => {
   container = null;
 });
 
-test('it should render a QA list card', async () => {
+test('it should render a QA list', async () => {
   await setTimeout(5000);
   act(() => {
     render(<QAList />, container);
