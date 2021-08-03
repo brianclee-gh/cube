@@ -52,8 +52,8 @@
   [x] Date of review - The date the review was written should appear in the format “Month DD, YYYY”
   [x] Review Summary - Reviews submitted will have a one sentence summary. This single sentence will be capped at 60 characters.  On the review tile, this summary will appear in bold font above the full review.
   [x] Review Body - The review body will be a free-form multimedia input where the user can submit text and images regarding their experience with the product.
-  [ ] The text submitted as part of the review will be between 50 and 1000 characters long.
-  [ ] Users should be able to submit up to 5 images along with a single review.
+  [x] The text submitted as part of the review will be between 50 and 1000 characters long.
+  [x] Users should be able to submit up to 5 images along with a single review.
   [x] By default the first 250 characters of the review should display.  If the review is longer than 250 characters, below the body a link reading “Show more” will appear.  Upon clicking this link, the review tile should expand and the rest of the review should display.
   [ ] Any images that were submitted as part of the review should appear as thumbnails below the review text. Upon clicking a thumbnail, the image should open in a modal window, displaying at full resolution.  The only functionality available within this modal should be the ability to close the window.
   [ ] Recommend - If the reviewer recommends buying the product, the text “I recommend this product” and a checkmark icon will display below the review.  If the reviewer does not recommend the product, nothing will display here.
@@ -101,7 +101,7 @@
 [ ] Write New Review
   [x] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product. This button should always be available on any product page.
   [x] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
-  [ ] The following inputs should appear on the review form.  Each should be labelled as titled below.  Those indicated as mandatory should have an asterisk next to the title.
+  [x] The following inputs should appear on the review form.  Each should be labelled as titled below.  Those indicated as mandatory should have an asterisk next to the title.
   [x] The overall rating will be selected via five selectable star icons.  Initially, the stars will all be outlines, and none will be solid.  Clicking on a star will fill that star and all of the stars to the left of it with solid color.  Customers will not be able to select fractions of a star.  After selecting a star, text will appear to the right of the stars explaining the meaning of the selection.  The text will vary as follows:
 	1 star - “Poor”
 	2 stars - “Fair”
@@ -119,21 +119,21 @@
   [x] Placeholder text should read: “Why did you like the product or not?”.
   [x] The review must be over 50 characters long in order to be submitted.   If the user tries to submit a review shorter that 50 characters, then the submission should fail in the same manner as it would for a blank mandatory field.
   [x] Below the input for the Review body, a counter should appear.  This counter should let the user know how many characters are needed to reach the 50 character minimum.  It should appear in the format “Minimum required characters left: [##]”.  As the user types, the count of characters should update.   After the user reaches 50 characters, the counter should be replaced by a message stating “Minimum reached”.
-  [ ] A button will appear allowing users to upload their photos to the form.
-  [ ] Clicking the button should open a separate window where the photo to be can be selected.
-  [ ] After the first image is uploaded, a thumbnail showing the image should appear.  A user should be able to add up to five images before the button to add disappears, preventing further additions.
-  [ ] A text input allowing up to 60 characters for the user’s display name.
-  [ ] Placeholder text should read: “Example: jackson11!”.
-  [ ] Below this field, the text “For privacy reasons, do not use your full name or email address” will appear.
-  [ ] A text input allowing up to 60 characters.
-  [ ] Placeholder text should read: “Example: jackson11@email.com”.
-  [ ] Below this field, the text “For authentication reasons, you will not be emailed” will appear.
-  [ ] A button by which the review can be submitted.
-  [ ] Upon selecting this button the form’s inputs should be validated.   If there are any invalid entries, the submission should be prevented, and a warning message will appear.   This message should be titled “You must enter the following:”
-  [ ] This error will occur if:
-  [ ] Any mandatory fields are blank
-  [ ] The review body is less than 50 characters
-  [ ] The email address provided is not in correct email format
+  [x] A button will appear allowing users to upload their photos to the form.
+  [x] Clicking the button should open a separate window where the photo to be can be selected.
+  [x] After the first image is uploaded, a thumbnail showing the image should appear.  A user should be able to add up to five images before the button to add disappears, preventing further additions.
+  [x] A text input allowing up to 60 characters for the user’s display name.
+  [x] Placeholder text should read: “Example: jackson11!”.
+  [x] Below this field, the text “For privacy reasons, do not use your full name or email address” will appear.
+  [x] A text input allowing up to 60 characters.
+  [x] Placeholder text should read: “Example: jackson11@email.com”.
+  [x] Below this field, the text “For authentication reasons, you will not be emailed” will appear.
+  [x] A button by which the review can be submitted.
+  [x] Upon selecting this button the form’s inputs should be validated.   If there are any invalid entries, the submission should be prevented, and a warning message will appear.   This message should be titled “You must enter the following:”
+  [x] This error will occur if:
+  [x] Any mandatory fields are blank
+  [x] The review body is less than 50 characters
+  [x] The email address provided is not in correct email format
   [ ] The images selected are invalid or unable to be uploaded.
 
 [ ] Keyword search - Low Priority
