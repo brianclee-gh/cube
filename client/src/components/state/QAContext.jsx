@@ -26,8 +26,8 @@ export const QAProvider = ({ children }) => {
     count = count || 2;
     try {
       const fetchAnswers = await axios.get(`/qa/questions/${questionId}/answers/?page=${page}&count=${count}`);
-      setAnswers(fetchAnswers.data);
-      return fetchAnswers.data;
+      setAnswers(fetchAnswers.data.results);
+      return fetchAnswers.data.results;
     } catch (e) {
       console.log(e);
     }
