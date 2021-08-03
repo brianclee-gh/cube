@@ -8,7 +8,7 @@ function Carousel({ children, relatedOrOutfit }) {
     const width = window.innerWidth;
     return (Math.floor(width / 350) >= childrenLength)
       ? childrenLength
-      : Math.floor(width / 350) + 1;
+      : Math.floor(width / 350);
   });
   const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
@@ -39,7 +39,7 @@ function Carousel({ children, relatedOrOutfit }) {
       >
         { children }
       </ul>
-      { endIdx >= childrenLength || ((window.innerWidth / 325) > childrenLength)
+      { endIdx >= childrenLength || ((window.innerWidth / 350) > childrenLength)
         ? ''
         : <button onClick={scrollRight} className="related-scroll-btn-right" type="button">Right</button>}
 

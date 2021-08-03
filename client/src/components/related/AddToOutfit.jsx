@@ -9,7 +9,6 @@ import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
 function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
   const [metaData, setMetaData] = useState(null);
-  const [loading, setLoading] = useState(true);
   let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
@@ -31,7 +30,6 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
   };
 
   useEffect(() => {
-    setLoading(true);
     isMounted = true;
     if (isMounted) {
       getMetaData()
@@ -39,17 +37,15 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
           if (data) {
             setMetaData(data);
           }
-          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
-          setLoading(false);
         });
     }
     return () => {
       isMounted = false;
     };
-  }, [currentProduct]);
+  }, []);
 
   return (
     <>
@@ -61,12 +57,12 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
               role="button"
               data-btn="add-to-outfit"
               className="outfit-action-btn"
+              onClick={addToOutfit}
+              tabIndex="-1"
+              onKeyDown={() => {}}
             >
               <Hover onHover={<div className="tooltip"> Add to outfit </div>}>
                 <FontAwesomeIcon
-                  onClick={addToOutfit}
-                  tabIndex="-1"
-                  onKeyDown={() => {}}
                   icon={faPlus}
                 />
               </Hover>
