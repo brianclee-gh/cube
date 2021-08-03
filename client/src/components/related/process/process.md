@@ -18,10 +18,10 @@
     - [x] Default to primary image
     - [x] Use Unsplash URL to resize images for loading
   - [x] Action button => Modal
-- [ ] Carousel
-  - [ ] Any product cards that do not fit on screen should appear offscreen on the carousel
-  - [ ] Center list so that first product is on left hand side
-  - [ ] Navigation arrows
+- [x] Carousel
+  - [x] Any product cards that do not fit on screen should appear offscreen on the carousel
+  - [x] Center list so that first product is on left hand side
+  - [x] Navigation arrows
 - [ ] Tests
   - [ ] Does clicking a card navigate the user to the detail page of that product?
   - [ ] Does the image scale correctly?
@@ -41,6 +41,9 @@
     - [x] 3rd column: compared product
     - [x] Display specific quality or checkmark if "true"
     - [x] Make scrollable if too long, with product names fixed at top
+  - [ ] Inner carousel
+    - [ ] Shows additional product/style photos on hover
+    - [ ] Can scroll/navigate through
   - [ ] Tests
     - [ ] Renders correctly?
     - [ ] Is the list the same across multiple users?
