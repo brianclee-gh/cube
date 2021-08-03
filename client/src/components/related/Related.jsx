@@ -23,8 +23,6 @@ function Related() {
     return fetchedIds.data;
   };
 
-
-
   useEffect(() => {
     if (Object.keys(cachedData).length > 0) {
       localStorage.setItem('relatedProducts', JSON.stringify(cachedData));

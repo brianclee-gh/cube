@@ -69,7 +69,7 @@ function RelatedProducts({
         <h3>YOU MAY LIKE...</h3>
       </div>
       <Carousel relatedOrOutfit="related">
-        { uniqueItems.map((id, index) => (
+        { uniqueItems ? (uniqueItems.map((id, index) => (
           <RelatedCard
             relatedIds={relatedIds}
             key={`${id}1`}
@@ -79,7 +79,7 @@ function RelatedProducts({
             cachedData={cachedData}
             setCachedData={setCachedData}
           />
-        )) }
+        ))) : <div className="related-products-placeholder">Loading...</div> }
       </Carousel>
       <Suspense fallback={<div>Loading...</div>}>
         <Modal

@@ -18,6 +18,12 @@
   padding: 2rem;
 }
 
+.related-products-placeholder {
+ height: 680px;
+ width: 300px;
+ border: 1px solid black;
+}
+
 .related-products-container ul,
 .outfit-products-container ul {
   display: flex;

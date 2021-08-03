@@ -19,12 +19,12 @@ function App() {
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
-          {/* <Main />
-          <Related /> */}
+          <Main />
+          <Related />
           <QAProvider>
             <QA />
           </QAProvider>
-          {/* <Review /> */}
+          <Review />
         </ProductsProvider>
       </ReviewsProvider>
     </div>
