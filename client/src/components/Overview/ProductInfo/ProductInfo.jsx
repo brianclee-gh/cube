@@ -62,9 +62,9 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
         <h3 className="product-category">{currentProduct.category}</h3>
         <h2 className="product-name">{currentProduct.name}</h2>
         <div className="Prices">
-          <span className={salePrice ? 'isSale' : null}>{currentPrice}</span>
+          <span className={salePrice ? 'isSale' : null}>${currentPrice}</span>
           {' '}
-          <span className="salePrice">{salePrice}</span>
+          <span className="salePrice">{salePrice ? `$${salePrice}` : salePrice}</span>
         </div>
         <div className="Share-Buttons">
           <i className="fab fa-facebook-square" />
