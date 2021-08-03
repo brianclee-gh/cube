@@ -30,7 +30,7 @@ function YourOutfitProducts({
           { !outfit[currentProduct.id] ? <AddToOutfit currentStyle={currentStyle} currentProduct={currentProduct} addToOutfit={addToOutfit} /> : ''}
           { Object.entries(outfit).map((data, index) => (
             <OutfitCard
-              key={uuidv4()}
+              key={`${data[1].id}2`}
               handleOutfitClick={handleOutfitClick}
               product={data[1]}
               cachedData={cachedData}

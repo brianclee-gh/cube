@@ -5,6 +5,7 @@ const email = ({change}) => {
 
   const updateEmail = (e) => {
     setemailUpdate(e.target.value);
+
   };
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const email = ({change}) => {
     <div>
       <label>
         Your email *:
-      <input type="text" name="writeEmail" onChange={updateEmail} placeholder="Example: jackson11@email.com" maxLength="60" required />
+      <input type="email" name="writeEmail" onChange={updateEmail} placeholder="Example: jackson11@email.com" maxLength="60" required />
       </label>
       <div>
         For authentication reasons, you will not be emailed

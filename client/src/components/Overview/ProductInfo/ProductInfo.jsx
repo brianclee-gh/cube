@@ -11,15 +11,22 @@ import AddToCart from './AddToCart.jsx';
 
 function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   const productStyles = currentStyle.results;
+  // const [productStyles, setProductStyles] = useState(currentStyle.results);
   // current style price
+
   const [currentPrice, setCurrentPrice] = useState(productStyles[0].original_price);
+
   const [salePrice, setSalePrice] = useState();
   // current SKU Stores Quantity and Sizes
   const [currentSku, setCurrentSku] = useState(productStyles[0].skus);
 
   // current Style Title
   const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
-  // current Image Array
+  // useEffect to watch for global style change to update price
+  useEffect(() => {
+    setCurrentPrice(productStyles[0].original_price);
+    setCurrentStyleTitle(productStyles[0].name);
+  }, [currentStyle]);
 
   // Set checkmark to Initial Style
   const [isActive, setActive] = useState(productStyles[0]);
