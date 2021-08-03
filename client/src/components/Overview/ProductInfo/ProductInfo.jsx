@@ -74,7 +74,7 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
       </div>
       <div className="Product-Info-Mid">
         <div className="Style-Title">
-          STYLE &gt;
+          <b>STYLE &gt; </b>
           {' '}
           {currentStyleTitle}
         </div>

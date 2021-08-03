@@ -79,6 +79,28 @@ i {
 }
 
 
+.fa-arrow-left, .fa-arrow-right {
+  font-size: 24px;
+  color: black;
+  background-color: white;
+  border: 4px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: .9;
+}
+
+.fa-arrow-left:hover, .fa-arrow-right:hover {
+  opacity: 1;
+}
+
+.fa-arrow-left {
+  margin-right: 15px;
+}
+
+.fa-arrow-right {
+  margin-left: 15px;
+}
+
 /*expanded*/
 .expanded-main {
   position: relative;
