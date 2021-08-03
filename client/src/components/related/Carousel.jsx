@@ -39,7 +39,7 @@ function Carousel({ children, relatedOrOutfit }) {
       >
         { children }
       </ul>
-      { endIdx >= childrenLength || ((window.innerWidth / 350) > childrenLength)
+      { endIdx >= childrenLength || ((window.innerWidth / 325) > childrenLength)
         ? ''
         : <button onClick={scrollRight} className="related-scroll-btn-right" type="button">Right</button>}
 

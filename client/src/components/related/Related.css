@@ -39,6 +39,8 @@
   max-width: 300px;
   max-height: 680px;
   border-radius: 5px;
+  cursor: pointer;
+  padding: 0 0.2rem;
 }
 
 .related-card-container > div,
@@ -74,9 +76,10 @@ svg {
   margin-right: 0.5rem;
   color: black;
   cursor: pointer;
-  padding: 0.2rem;
+  padding: 0.3rem;
   border-radius: 50%;
   text-align: center;
+  font-size: 17px;
 }
 
 .outfit-action-btn {
@@ -89,13 +92,26 @@ svg {
   margin-right: 0.5rem;
   color: black;
   cursor: pointer;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.4rem;
   border-radius: 50%;
   text-align: center;
+  font-size: 12px;
 }
 
-.outfit-action-btn {
-  padding: 0.2rem 0.4rem;
+.fit-action-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: white;
+  border: none;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  color: black;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
 }
 
 .outfit-action-btn:hover {
@@ -171,7 +187,8 @@ svg {
   display: flex;
   flex-direction: column;
   font-size: 13px;
-  padding: 0.4rem;
+  padding: 0.8rem;
+  line-height: 1.2rem;
 }
 
 .related-product-name,

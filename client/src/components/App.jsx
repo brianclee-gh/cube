@@ -1,6 +1,5 @@
 /* eslint-disable import/extensions */
 import React from 'react';
-import './App.css';
 
 import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
