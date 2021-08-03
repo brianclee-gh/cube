@@ -26,6 +26,7 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   useEffect(() => {
     setCurrentPrice(productStyles[0].original_price);
     setCurrentStyleTitle(productStyles[0].name);
+    setSalePrice();
   }, [currentStyle]);
 
   // Set checkmark to Initial Style
