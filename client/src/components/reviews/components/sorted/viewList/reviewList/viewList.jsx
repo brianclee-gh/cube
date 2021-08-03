@@ -5,12 +5,22 @@ import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import moment from 'moment';
 import LongerThan from './longerThan.jsx';
+import ImagePopUp from './imagePopUp/imagePopUp.jsx';
 
 function reviewList({sort}) {
   const { reviews } = useContext(ReviewsContext);
   const { currentProduct } = useContext(ProductsContext);
   const [viewableReviews, setViewableReviews] = useState(2);
   const [expandReview, setExpandReview] = useState(null);
+  const [imageModalPopUp, setImageModalPopUp] = useState(false);
+
+  const imageModalPop = () => {
+    setImageModalPopUp(true);
+  };
+
+  const hideImageModalPop = () => {
+    setImageModalPopUp(false);
+  };
 
   const failImageUpload = () => {
     <img src="https://via.placeholder.com/150" />
@@ -69,7 +79,8 @@ function reviewList({sort}) {
             </div>
             {review.photos.map((photo) => (
               <div className="reviewBodyBox_thumbnail" key={photo.id}>
-                <img className="reviewBodyBox_img" src={photo.url} alt="image" onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
+                <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={imageModalPop} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
+                <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={photo.url} />
               </div>
             ))}
             <div className="reviewBodyBox_helpful">

@@ -10,7 +10,6 @@ import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 import QA from './q&a/QAList.jsx';
 
-
 function App() {
   return (
     <div>
@@ -18,10 +17,10 @@ function App() {
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
-          <Related />
+          {/* <Related />
           <QAProvider>
             <QA />
-          </QAProvider>
+          </QAProvider> */}
           <Review />
         </ProductsProvider>
       </ReviewsProvider>

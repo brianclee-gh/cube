@@ -1,38 +1,3 @@
-[x] Create star component
-  [x] create rating star component
-    [x] make 5 stars with input method
-    [x] once clicked, it should create event with number between 1~5
-    [x] use star images on the inputs
-    [x] make star change color while hovering over the stars
-    [x] chain stars together as it goes up the value
-  [x] create review star component
-    [x] for review star component, create 5 stars that will reflect rating of the item.
-    [x] change color according to the rating of the item
-    [x] receive state and update the star rating
-
-
-[ ] View List
-  [x] Successfully Retrieve review list data
-  [x] Display 2 tiles at a time.
-  [x] Display imgs as thumbnail
-  [ ] Receive data according to its sorted by type
-  [ ] If there are more than 2 reviews, create a button for “more reviews”
-  [ ] If there are less than 2, no button
-  [ ] Clicking button loads 2 more reviews below current 2
-  [ ] Once review becomes long, it shouldn’t extend the page but become scrollable module
-  [ ] Able to change order of reviews
-  [ ] If no reviews, show ‘submit a new review’ button on the top of the review module
-
-[x] Rating List
-  [x] Successfully retrieve meta rate data
-  [x] Display average star
-  [x] Display average star with star component
-  [x] Display % of recommendation
-  [x] Display how many stars it received for each stars
-  [x] Display types & its ratings
-
-----------------------------------------------------------------------
-
 [x] Reviews List
   [x] The heart of the Ratings and Reviews module will be the list of reviews available for the user to read. This list will display all the reviews that have been submitted for the product being viewed.
   [x] The reviews within this list will be displayed on tiles of a standard size (the contents of this tile are described in section 1.2.2).
@@ -75,7 +40,7 @@
   [x] The sort selected should persist even when filters are added or removed.
 
 [ ] Rating Breakdown (Filtering)
-  [ ] A breakdown of the ratings received for the product will double as the filtering options for the reviews list.  This breakdown will display at the top left corner of the Rating and Reviews module.
+  [x] A breakdown of the ratings received for the product will double as the filtering options for the reviews list.  This breakdown will display at the top left corner of the Rating and Reviews module.
   [x] The top of the breakdown will simply display the average rating for the product.  The rating should be displayed both as a number value as well as represented by star icons.
   [x] The number displayed should be rounded to the nearest single decimal.
   [x] The average rating of the product will be displayed in the format of solid or outlined stars, where the solid stars represent the review score. A total of 5 stars should always appear, and the amount filled in should correspond to the average score.
@@ -94,11 +59,11 @@
   [x] The percentage of reviews that ‘recommend’ the product will be displayed below the breakdown.
 
 [ ] Product Breakdown (Factors)
-  [ ] Reviews will provide ability to give feedback on specific characteristics of the product.   The characteristics include Size, Width, Comfort, Quality, Length, and Fit. One or more of these may be relevant for a product.  In the Reviews module, the average feedback received will be displayed for all characteristics which apply to the product.
-  [ ] Feedback for characteristics will be on a 5 point scale.  The range of this scale will depend on the characteristic in question.  For example, Size can range from (1) “too small” to (5) “too big”, with the middle option (3) being “perfect”.  Using the same 5 point scale for Quality, however, the scale would range from (1) “poor” to (5) “great”.
-  [ ] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
+  [x] Reviews will provide ability to give feedback on specific characteristics of the product.   The characteristics include Size, Width, Comfort, Quality, Length, and Fit. One or more of these may be relevant for a product.  In the Reviews module, the average feedback received will be displayed for all characteristics which apply to the product.
+  [x] Feedback for characteristics will be on a 5 point scale.  The range of this scale will depend on the characteristic in question.  For example, Size can range from (1) “too small” to (5) “too big”, with the middle option (3) being “perfect”.  Using the same 5 point scale for Quality, however, the scale would range from (1) “poor” to (5) “great”.
+  [x] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
 
-[ ] Write New Review
+[x] Write New Review
   [x] At the bottom of the Ratings & Reviews module, a button will appear allowing users to create new reviews for the product. This button should always be available on any product page.
   [x] Upon clicking the button a modal window should open, overlaying the product page.  The modal should be titled “Write Your Review” and subtitled “About the [Product Name Here]”.  The product name should be inserted into the subtitle.
   [x] The following inputs should appear on the review form.  Each should be labelled as titled below.  Those indicated as mandatory should have an asterisk next to the title.
@@ -134,7 +99,7 @@
   [x] Any mandatory fields are blank
   [x] The review body is less than 50 characters
   [x] The email address provided is not in correct email format
-  [ ] The images selected are invalid or unable to be uploaded.
+  [x] The images selected are invalid or unable to be uploaded.
 
 [ ] Keyword search - Low Priority
   [ ] Above the reviews list, a search bar will allow the user to filter the reviews for any that contain text matching the search term.
