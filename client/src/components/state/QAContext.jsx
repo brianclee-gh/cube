@@ -69,29 +69,20 @@ export const QAProvider = ({ children }) => {
     }
   };
 
-  // when currentProduct changes...
-  // update reviews, styles, metadata, etc... maybe useEffect?
+  const postAnswer = async (questionId, data) => {
+    try {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: data,
+      };
+      await axios.post(`/add/answer/${questionId}`, requestOptions);
+      console.log('successfully posted');
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  // const addReview = async (review) => {
-  //   const {
-  //     // eslint-disable-next-line camelcase
-  //     product_id, rating, summary, body, recommend,
-  //     name, email, photos, characteristics,
-  //   } = review;
-  //   const reviewBody = {
-  //     product_id,
-  //     rating,
-  //     summary,
-  //     body,
-  //     recommend,
-  //     name,
-  //     email,
-  //     photos,
-  //     characteristics,
-  //   };
-  //   const response = await axios.post(`${ATELIER_URL}reviews`, reviewBody);
-  //   return response;
-  // };
   return (
     <QAContext.Provider
       value={{
@@ -103,6 +94,7 @@ export const QAProvider = ({ children }) => {
         markAnswerHelpful,
         reportQuestion,
         reportAnswer,
+        postAnswer,
       }}
     >
       { children }

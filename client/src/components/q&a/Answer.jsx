@@ -51,6 +51,13 @@ const Answer = ({ answer }) => {
         <div className="answer">
           <b>A: </b> {answer.body}
         </div>
+        <div className="answer-photos">
+          {answer.photos.map((photo) => (
+            <div className="photo-thumbnail" key={photo.id}>
+              <img className="photo-img" src={photo.url} alt="image" />
+            </div>
+          ))}
+        </div>
         <div className="individual-answer-sub-container">
           <span className="individual-answer-name-date">
             by {answer.answerer_name}, {moment(answer.date).format('LL')}

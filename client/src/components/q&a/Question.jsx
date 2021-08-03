@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable react/jsx-one-expression-per-line */
@@ -57,7 +58,7 @@ const Question = ({ question }) => {
   };
 
   return (
-    <div>
+    <>
       <div className="individual-question-container">
         <p className="individual-q-body">
           <b>Q: </b> {question.question_body}
@@ -68,12 +69,7 @@ const Question = ({ question }) => {
           </span>
           {renderHelpfulButton()} ({helpfulCounter})
           <span className="divider"> | </span>
-          <AnswerModal
-            question={question}
-            modalOpen={modalOpen}
-            closeModal={closeModal}
-            openModal={openModal}
-          />
+          <button className="qa-link" onClick={openModal}>ADD ANSWER</button>
         </div>
       </div>
       <div className="answers-list">
@@ -89,8 +85,16 @@ const Question = ({ question }) => {
             )}
           </a>
         ) : null}
+        { modalOpen ? (
+          <AnswerModal
+            question={question}
+            modalOpen={modalOpen}
+            closeModal={closeModal}
+            openModal={openModal}
+          />
+        ) : null}
       </div>
-    </div>
+    </>
   );
 };
 
