@@ -1,28 +1,23 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React, { useState, useEffect } from 'react';
 import './ProductInfo.css';
-// eslint-disable-next-line import/extensions
 import Styles from './Styles.jsx';
-// eslint-disable-next-line react/prop-types
-// eslint-disable-next-line no-unused-vars
 import StarComponent from './StarComponent.jsx';
-
 import AddToCart from './AddToCart.jsx';
 
 function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   const productStyles = currentStyle.results;
-  // const [productStyles, setProductStyles] = useState(currentStyle.results);
+
   // current style price
-
   const [currentPrice, setCurrentPrice] = useState(productStyles[0].original_price);
-
+  // current sale price
   const [salePrice, setSalePrice] = useState();
   // current SKU Stores Quantity and Sizes
   const [currentSku, setCurrentSku] = useState(productStyles[0].skus);
-
   // current Style Title
   const [currentStyleTitle, setCurrentStyleTitle] = useState(productStyles[0].name);
-  // useEffect to watch for global style change to update price
+  // useEffect to watch for global style change to update price, title, salePrice
   useEffect(() => {
     setCurrentPrice(productStyles[0].original_price);
     setCurrentStyleTitle(productStyles[0].name);
@@ -35,8 +30,7 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
   const changeActive = (index) => {
     setActive(productStyles[index]);
   };
-  // Star Component Rating
-  // const averageRating = 3;
+
   // UPDATE PRICE CLICK HANDLER
   const updateCurrent = (style) => {
     if (style.sale_price !== null) {
@@ -62,7 +56,10 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
         <h3 className="product-category">{currentProduct.category}</h3>
         <h2 className="product-name">{currentProduct.name}</h2>
         <div className="Prices">
-          <span className={salePrice ? 'isSale' : null}>${currentPrice}</span>
+          <span className={salePrice ? 'isSale' : null}>
+            $
+            {currentPrice}
+          </span>
           {' '}
           <span className="salePrice">{salePrice ? `$${salePrice}` : salePrice}</span>
         </div>
@@ -84,7 +81,6 @@ function ProductInfo({ currentProduct, currentStyle, getPhotos }) {
             key={productStyles[index].style_id}
             current={() => { updateCurrent(style); changeActive(index); }}
             isActive={isActive}
-            // changeActive={() => { changeActive(index); }}
           />
         ))}
       </div>
