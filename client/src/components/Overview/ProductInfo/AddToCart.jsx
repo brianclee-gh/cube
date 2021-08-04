@@ -53,15 +53,18 @@ function AddToCart({ sku }) {
   const cartSubmit = (event) => {
     event.preventDefault();
     if (currentSize && checkoutQuantity) {
-      const checkoutItems = { sku_id: selectedSku, count: checkoutQuantity };
-      axios
-        .post('/cart', checkoutItems)
-        .then((res) => {
-          console.log('posted', res.data);
-        })
-        .catch((err) => {
-          console.log('error client side post', err);
-        });
+      const checkoutItems = { sku_id: selectedSku };
+      const count = Number(checkoutQuantity);
+      for (let i = 0; i < count; i += 1) {
+        axios
+          .post('/cart', checkoutItems)
+          .then((res) => {
+            console.log('posted', res.data);
+          })
+          .catch((err) => {
+            console.log('error client side post', err);
+          });
+      }
     }
     setCartClicked(true);
   };
