@@ -17,10 +17,8 @@ module.exports = {
   },
   addCart: (req, res) => {
     const skuID = Number(req.body.sku_id);
-    const count = Number(req.body.count);
     const body = {
       sku_id: skuID,
-      count: count,
     };
     axios.post(`${ATELIER_URL}/cart`, body, {
       headers: { Authorization: GITHUB_KEY },
