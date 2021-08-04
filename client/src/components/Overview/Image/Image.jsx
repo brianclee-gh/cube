@@ -61,23 +61,23 @@ function Image({ images }) {
   };
 
   const zoomPan = (event) => {
-    const area = document.getElementsByClassName('expanded-main')[0];
-    const photoZoom = document.getElementsByClassName('Main-Image-Expanded')[0];
+    const area = document.getElementsByClassName('Main-Image-Zoom-Area')[0];
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded-Zoom')[0];
 
     let clientX = event.clientX - area.offsetLeft;
     let clientY = event.clientY - area.offsetTop;
 
     const mWidth = area.offsetWidth;
     const mHeight = area.offsetHeight;
-
     clientX = (clientX / mWidth) * 100;
     clientY = (clientY / mHeight) * 100;
+
 
     photoZoom.style.transform = `translate(-${clientX}%, -${clientY}%) scale(2)`;
   };
 
   const changeStyle = () => {
-    const photoZoom = document.getElementsByClassName('Main-Image-Expanded')[0];
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded-Zoom')[0];
     photoZoom.style.transform = null;
   };
   // onMouseMove={expanded ? zoomPan : null}
@@ -126,12 +126,16 @@ function Image({ images }) {
                 ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
               onClick={() => { prevPhoto(); }}
             />
-            <img
-              className={expanded ? "Main-Image-Expanded" : "Main-Image"}
-              src={currentImage.active}
-              alt="currentProduct"
-              onClick={() => { expandMain(); }}
-            />
+            <div className={expanded ? "Main-Image-Zoom-Area" : "Main-Image-Expanded"}
+            onMouseMove={expanded ? zoomPan : null}
+            >
+              <img
+                className={expanded ? "Main-Image-Expanded-Zoom" : "Main-Image"}
+                src={currentImage.active}
+                alt="currentProduct"
+                onClick={() => { expandMain(); }}
+              />
+            </div>
             <i
               className={currentImage.index === currentImage.allImages.length - 1
                 ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}

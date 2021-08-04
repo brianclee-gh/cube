@@ -139,14 +139,37 @@ i {
 
 .Main-Image-Expanded {
   /* position: fixed; */
-  position: absolute;
-  min-height: 100%;
-  max-width: 100%;
+  width: 450px;
+  height: auto;
+  max-height: 700px;
+  /* height: auto; */
+  /* max-height: 700px; */
+  cursor: zoom-out;
+  /* pointer-events: none; */
+  /* object-fit: cover; */
+}
+
+.Main-Image-Zoom-Area {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 150%;
+  /* min-height: 700px; */
+  background-color: rgb(163, 159, 159);
+  z-index: 999;
+  overflow: hidden;
+  border: 3px solid #fff;
+  cursor: vertical-text;
+}
+
+.Main-Image-Expanded-Zoom {
+  /* position: fixed; */
+  min-height: 700px;
+  width: auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
-
-
-
