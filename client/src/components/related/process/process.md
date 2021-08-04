@@ -4,6 +4,11 @@
   - List of products that are related to current product
   - Custom list created by user of products which user has grouped into an outfit
 
+## Click Reporting
+- [x] Should be active on every component
+- [x] Should utilize HOC
+- [x] Reports clicked element, component name, time stamp at time of click
+
 ## Related Product Cards
 - [x] Clickable, navigates to detail page of that product
 - [x] Product information

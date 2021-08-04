@@ -14,7 +14,6 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
   const [viewableReviews, setViewableReviews] = useState(2);
   const [expandReview, setExpandReview] = useState(null);
   const [imageModalPopUp, setImageModalPopUp] = useState(false);
-  console.log(filteredReview);
 
   const imageModalPop = () => {
     setImageModalPopUp(true);

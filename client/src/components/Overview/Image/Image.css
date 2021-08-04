@@ -60,6 +60,7 @@ i {
   font-family: fontAwesome;
   z-index: 12;
   display: inline-block;
+  font-style: normal;
 }
 .fa-angle-up, .fa-angle-down {
   font-size: 29px;
