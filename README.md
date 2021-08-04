@@ -20,6 +20,8 @@ Fork and clone this repo then run:
 
 - Front-end: ReactJS, Babel, Webpack
 
+- Icons: FontAwesome
+
 - CSS Framework: CSS
 
 - Server: ExpressJS
