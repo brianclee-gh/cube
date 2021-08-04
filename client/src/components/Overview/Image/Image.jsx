@@ -60,11 +60,26 @@ function Image({ images }) {
     setExpanded(!expanded);
   };
 
+  const zoomPan = (event) => {
+    const area = document.getElementsByClassName('expanded-main')[0];
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded')[0];
 
+    let clientX = event.clientX - area.offsetLeft;
+    let clientY = event.clientY - area.offsetTop;
 
+    const mWidth = area.offsetWidth;
+    const mHeight = area.offsetHeight;
 
+    clientX = (clientX / mWidth) * 100;
+    clientY = (clientY / mHeight) * 100;
 
+    photoZoom.style.transform = `translate(-${clientX}%, -${clientY}%) scale(2)`;
+  };
 
+  const changeStyle = () => {
+    const photoZoom = document.getElementById('Main-Image-Expanded-Zoom');
+    photoZoom.style.transform = null;
+  };
 
   return (
     <>
@@ -116,6 +131,7 @@ function Image({ images }) {
               src={currentImage.active}
               alt="currentProduct"
               onClick={() => { expandMain(); }}
+              onMouseOver={expanded? zoomPan : null}
             />
             <i
               className={currentImage.index === currentImage.allImages.length - 1

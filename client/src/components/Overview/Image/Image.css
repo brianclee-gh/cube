@@ -120,6 +120,8 @@ i {
   width: 150%;
   z-index: 20;
 
+
+  overflow: hidden;
   /* height: auto;
   position: relative;
   display: flex;
