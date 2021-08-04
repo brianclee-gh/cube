@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import './eachRate.css';
 import { ReviewsContext } from '../../../../../../state/ReviewsContext.jsx';
 
-function eachScoreList({ starOne, starTwo, starThree, starFour, starFive }) {
+function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, starThree, starFour, starFive }) {
   const { metaData } = useContext(ReviewsContext);
 
   const oneClick = () => {
@@ -23,6 +23,24 @@ function eachScoreList({ starOne, starTwo, starThree, starFour, starFive }) {
 
   const fiveClick = () => {
     starFive();
+  };
+
+  const clickAll = () => {
+    if (star1 === 1) {
+      starOne();
+    }
+    if (star2 === 2) {
+      starTwo();
+    }
+    if (star3 === 3) {
+      starThree();
+    }
+    if (star4 === 4) {
+      starFour();
+    }
+    if (star5 === 5) {
+      starFive();
+    }
   };
 
   const ratingValue = (num) => {
@@ -51,7 +69,12 @@ function eachScoreList({ starOne, starTwo, starThree, starFour, starFive }) {
     return (
       <div className="eachScoreListing">
         <div>Rating Breakdown</div>
-        <div>applied filters(if only it has) remove all filters</div>
+        {star1 === 1 ? <button className="eachScoreListing_star1_button" onClick={oneClick}>1 star</button> : null}
+        {star2 === 2 ? <button className="eachScoreListing_star1_button" onClick={twoClick}>2 star</button> : null}
+        {star3 === 3 ? <button className="eachScoreListing_star1_button" onClick={threeClick}>3 star</button> : null}
+        {star4 === 4 ? <button className="eachScoreListing_star1_button" onClick={fourClick}>4 star</button> : null}
+        {star5 === 5 ? <button className="eachScoreListing_star1_button" onClick={fiveClick}>5 star</button> : null}
+        {(star1 === 1 || star2 === 2 || star3 === 3 || star4 === 4 || star5 === 5)  ? <button className="eachScoreListing_star1_button" onClick={clickAll}>Remove all filters</button> : null}
         <div className="eachScoreListing_body">
           <div className="eachScorelisting_stars" onClick={fiveClick} >
             <label>5 stars:</label>

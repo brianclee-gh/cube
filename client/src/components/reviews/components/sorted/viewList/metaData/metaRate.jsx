@@ -15,19 +15,19 @@ function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
   const [starFivefunc, setStarFivefunc] = useState(null);
 
   const setStarOnefunction = () => {
-    starOnefunc === 0 ? setStarOnefunc(1) : setStarOnefunc(0)
+    starOnefunc === 1 ? setStarOnefunc(0) : setStarOnefunc(1)
   };
   const setStarTwofunction = () => {
-    starTwofunc === 0 ? setStarTwofunc(2) : setStarTwofunc(0)
+    starTwofunc === 2 ? setStarTwofunc(0) : setStarTwofunc(2)
   };
   const setStarThreefunction = () => {
-    starThreefunc === 0 ? setStarThreefunc(3) : setStarThreefunc(0)
+    starThreefunc === 3 ? setStarThreefunc(0) : setStarThreefunc(3)
   };
   const setStarFourfunction = () => {
-    starFourfunc === 0 ? setStarFourfunc(4) : setStarFourfunc(0)
+    starFourfunc === 4 ? setStarFourfunc(0) : setStarFourfunc(4)
   };
   const setStarFivefunction = () => {
-    starFivefunc === 0 ? setStarFivefunc(5) : setStarFivefunc(0)
+    starFivefunc === 5 ? setStarFivefunc(0) : setStarFivefunc(5)
   };
 
   useEffect(() => {
@@ -67,7 +67,7 @@ function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
         <div className="reviewMetaRating_score">{ratings.starRatingOne}</div>
         <span className="reviewMetaRating_star">{StarRating(ratings.calculatedRating)}</span>
         <Recommendation />
-        <EachRate starOne={setStarOnefunction} starTwo={setStarTwofunction} starThree={setStarThreefunction} starFour={setStarFourfunction} starFive={setStarFivefunction} />
+        <EachRate star1={starOnefunc} star2={starTwofunc} star3={starThreefunc} star4={starFourfunc} star5={starFivefunc} starOne={setStarOnefunction} starTwo={setStarTwofunction} starThree={setStarThreefunction} starFour={setStarFourfunction} starFive={setStarFivefunction} />
         <SizeComfort />
       </div>
     );
