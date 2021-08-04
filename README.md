@@ -7,13 +7,12 @@ Project Catwalk comprises a complete redesign of a clothing retail portal front-
 ## Table of Contents
 - Description
 - Installation
-- Usage
-- Team Members
-- Contributing
+- Technology Used
+- Contributors
 
 Users should be able to browse different styles and images for a selected product, view detailed product information, view and navigate to similar items, and see and post Q&A and reviews for the product.
 
-### Description
+## Description
 This project is designed around serving a detailed single page website for each of its unique products. Each page is comprised of 4 main widgets or modules: overview, related products, questions and answers, and reviews.
 
 The overview widget is to be seen first by the user. Users should be able to fluidly navigate through different images and views of the product using the photo carousel feature. The information bar should show users essential information: the product name, price, and category. Users should also be able to select different styles and have the widget update its content on demand. The add to cart button should add the product to the user's cart if a size and quantity are selected and valid.
@@ -24,7 +23,7 @@ The question and answers widget should display questions and answers that other 
 
 The rating and reviews widget should display a visual breakdown of the product's reviews and also the reviews themselves. The breakdown should show the average review metrics, the number of 1, 2, 3, 4 and 5 star reviews and also serve as a filter selector for said numbered-star reviews. Each individual review should load its ratings, date, content, and any images added by the user. Users should also be able to post their own reviews with options to upload images.
 
-### Installation
+## Installation
 Fork and clone this repo then run:
 
 `npm install` in both root and /client folders
