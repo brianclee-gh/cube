@@ -66,6 +66,40 @@ module.exports = {
         res.end();
       });
   },
+
+  putHelpful: async (req, res) => {
+    const { review_id } = req.params;
+    const id = { review_id: Number(review_id) };
+    const url = `${ATELIER_URL}/reviews/${review_id}/helpful`;
+    await axios.put(url, id, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((response) => {
+        res.send(response.data).status(201);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+
+  putReport: async (req, res) => {
+    const { review_id } = req.params;
+    const id = { review_id: Number(review_id) };
+    const url = `${ATELIER_URL}/reviews/${review_id}/report`;
+    await axios.put(url, id, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((response) => {
+        res.send(response.data).status(201);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
 };
 
 // axios.get('/reviews');

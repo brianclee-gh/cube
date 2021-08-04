@@ -6,6 +6,7 @@ import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import moment from 'moment';
 import LongerThan from './longerThan.jsx';
 import ImagePopUp from './imagePopUp/imagePopUp.jsx';
+import Helpful from './helpful/helpful.jsx';
 
 function reviewList({sort}) {
   const { reviews } = useContext(ReviewsContext);
@@ -21,10 +22,6 @@ function reviewList({sort}) {
   const hideImageModalPop = () => {
     setImageModalPopUp(false);
   };
-
-  const failImageUpload = () => {
-    <img src="https://via.placeholder.com/150" />
-  }
 
   const loadMore = () => {
     setViewableReviews(viewableReviews + 2);
@@ -70,8 +67,7 @@ function reviewList({sort}) {
               { (review.body.length >= 250) ? <LongerThan half={review.body.substring(0, 250)} test={review.body}/> : review.body }
             </div>
             <div className="reviewBodyBox_recommend">
-              recommend?
-              {String(review.recommend)}
+              {(review.recommend) ? <div className="reviewBodyBox_Irecommend"><i className="fad fa-check-circle" />I recommend this product</div> : null}
             </div>
             <div className="reviewBodyBox_response">
               response from seller:
@@ -84,8 +80,7 @@ function reviewList({sort}) {
               </div>
             ))}
             <div className="reviewBodyBox_helpful">
-              helpful?
-              {review.helpfulness}
+              <Helpful helpfulNum={review.helpfulness} reviewId={review.review_id} />
             </div>
           </div>
         ))}
