@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 function Modal({
   combined, modalOpen, closeModal, reportClick,
@@ -28,7 +27,7 @@ function Modal({
             { combined ? Object.keys(combined).map((feature) => {
               if (feature !== 'names') {
                 return (
-                  <tr key={uuidv4()}>
+                  <tr key={feature}>
                     <th className="skinny-text">{combined[feature][0]}</th>
                     <th>{feature}</th>
                     <th className="skinny-text">{combined[feature][1]}</th>

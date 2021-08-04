@@ -2,7 +2,7 @@
 import React from 'react';
 
 const withClickTracker = (Component) => {
-  const reportClick = (e, currentWidget) => {
+  const reportClick = (e, currentWidget) => { // 'Modal'
     const data = {
       clickedElement: e.target,
       component: currentWidget || 'Not a Widget',
