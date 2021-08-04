@@ -77,10 +77,10 @@ function Image({ images }) {
   };
 
   const changeStyle = () => {
-    const photoZoom = document.getElementById('Main-Image-Expanded-Zoom');
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded')[0];
     photoZoom.style.transform = null;
   };
-
+  // onMouseMove={expanded ? zoomPan : null}
   return (
     <>
       {/* {expanded ? (
@@ -131,7 +131,6 @@ function Image({ images }) {
               src={currentImage.active}
               alt="currentProduct"
               onClick={() => { expandMain(); }}
-              onMouseOver={expanded? zoomPan : null}
             />
             <i
               className={currentImage.index === currentImage.allImages.length - 1

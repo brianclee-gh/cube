@@ -139,14 +139,13 @@ i {
 
 .Main-Image-Expanded {
   /* position: fixed; */
-  width: 450px;
-  height: auto;
-  max-height: 700px;
-  /* height: auto; */
-  /* max-height: 700px; */
-  cursor: zoom-out;
-
-  /* object-fit: cover; */
+  position: absolute;
+  min-height: 100%;
+  max-width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 
