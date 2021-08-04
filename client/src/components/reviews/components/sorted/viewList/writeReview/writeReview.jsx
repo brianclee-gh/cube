@@ -13,7 +13,7 @@ import Image from './reviewImage/reviewImage.jsx';
 
 const postRequestObj = {};
 
-const Modal = ({ handleClose, show }) => {
+const Modal = ({ handleClose, show, submit }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const { currentProduct } = useContext(ProductsContext);
   const { metaData, postReview } = useContext(ReviewsContext);
@@ -87,6 +87,10 @@ const Modal = ({ handleClose, show }) => {
       handleClose();
     }
     setPostRequestUpdate(false);
+  }, [postRequestUpdate]);
+
+  useEffect(() => {
+    submit();
   }, [postRequestUpdate]);
 
   useEffect(() => {

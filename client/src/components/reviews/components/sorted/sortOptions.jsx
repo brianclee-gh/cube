@@ -12,12 +12,17 @@ function sortReviews() {
   const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
   const [ currentSort, updateSort ] = useState('relevant');
   const [ showWriteReviewModal, setShowWriteReviewModal ] = useState(false);
+  const [afterSubmit, setAfterSubmit] = useState(false);
 
   const sort = [
     { value: 'newest', label: 'Newest' },
     { value: 'helpful', label: 'Helpful' },
     { value: 'relevant', label: 'Relevant' },
   ];
+
+  const clickedSubmit = () => {
+    setAfterSubmit(!afterSubmit);
+  };
 
   const getReviewList = async () => {
     if (!currentProduct) { return null; }
@@ -49,23 +54,23 @@ function sortReviews() {
     getReviewList()
       .then()
       .catch((err) => console.log(err));
-  }, [currentProduct]);
+  }, [currentProduct, afterSubmit]);
 
   useEffect(() => {
     getMetaData()
       .then()
       .catch((err) => console.log(err));
-  }, [currentProduct]);
+  }, [currentProduct, afterSubmit]);
 
   useEffect(() => {
     getRatings(metaData);
-  }, [metaData]);
+  }, [metaData, afterSubmit]);
 
   useEffect(() => {
     getReviewList()
       .then()
       .catch((err) => console.log(err));
-  }, [currentSort]);
+  }, [currentSort, afterSubmit]);
 
   if (currentProduct !== null && ratings !== null) {
     return (
@@ -74,7 +79,7 @@ function sortReviews() {
         <div>Sort on:</div>
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList />
-        <WriteReview show={showWriteReviewModal} handleClose={hideReviewModalPop} />
+        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} submit={clickedSubmit} />
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
       </div>
     );
