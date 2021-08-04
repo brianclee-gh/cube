@@ -4,6 +4,7 @@ import React, { lazy, Suspense } from 'react';
 import { ProductsProvider } from './state/ProductsContext.jsx';
 import { ReviewsProvider } from './state/ReviewsContext.jsx';
 import { QAProvider } from './state/QAContext.jsx';
+import { OverviewProvider } from './state/OverviewContext.jsx';
 import Related from './related/Related.jsx';
 import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
@@ -23,8 +24,8 @@ function App() {
           {/* <Related />
           <QAProvider>
             <QA />
-          </QAProvider> */}
-          <Review />
+          </QAProvider>
+          <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
     </div>
