@@ -66,14 +66,38 @@ module.exports = {
         res.end();
       });
   },
+
+  putHelpful: async (req, res) => {
+    const { review_id } = req.params;
+    const id = { review_id: Number(review_id) };
+    const url = `${ATELIER_URL}/reviews/${review_id}/helpful`;
+    await axios.put(url, id, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((response) => {
+        res.send(response.data).status(201);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
+
+  putReport: async (req, res) => {
+    const { review_id } = req.params;
+    const id = { review_id: Number(review_id) };
+    const url = `${ATELIER_URL}/reviews/${review_id}/report`;
+    await axios.put(url, id, {
+      headers: { Authorization: GITHUB_KEY },
+    })
+      .then((response) => {
+        res.send(response.data).status(201);
+        res.end();
+      })
+      .catch((err) => {
+        res.send(err);
+        res.end();
+      });
+  },
 };
-
-// axios.get('/reviews');
-// parameters
-//  page(INT) selects page to return, default is 1
-//  count(INT) specifies results per page to return, default is 5
-//  sort(TEXT) changes sort order based on: 'newest', 'helpful', relevant
-//  product_id(INT) specifies product to retrieve
-
-// axios.get('/reviews/meta');
-// returns review metadata for product_id parameter
