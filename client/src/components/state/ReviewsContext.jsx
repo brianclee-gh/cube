@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const ReviewsContext = createContext(null);
@@ -7,6 +7,17 @@ export const ReviewsProvider = ({ children }) => {
   const [reviews, setReviews] = useState(null);
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
+  const [filteredReview, setFilteredReview] = useState(null);
+  console.log(filteredReview);
+
+  const filterReview = (one, two, three, four, five) => {
+    if (reviews !== null) {
+      let newReview = reviews.filter(function (parameter) {
+        return parameter.rating === one || parameter.rating === two || parameter.rating === three || parameter.rating === four || parameter.rating === five
+      });
+      setFilteredReview(newReview);
+    }
+  };
 
   const getReviews = async (productId, page, count, sortBy) => {
     try {
@@ -50,39 +61,27 @@ export const ReviewsProvider = ({ children }) => {
     }
   };
 
-  // when currentProduct changes...
-  // update reviews, styles, metadata, etc... maybe useEffect?
+  const markHelpfulReview = async (reviewId) => {
+    try {
+      const requestOptions = { review_id: Number(reviewId) };
+      await axios.put(`/reviews/${reviewId}/helpful`, requestOptions);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  // const postReview = async (review) => {
-  //   const {
-  //     // eslint-disable-next-line camelcase
-  //     product_id, rating, summary, body, recommend,
-  //     name, email, photos, characteristics,
-  //   } = review;
-  //   const reviewBody = {
-  //     product_id,
-  //     rating,
-  //     summary,
-  //     body,
-  //     recommend,
-  //     name,
-  //     email,
-  //     photos,
-  //     characteristics,
-  //   };
-  //   const response = await axios.post(`${ATELIER_URL}reviews`, reviewBody);
-  //   return response;
-  // };
+  const reportReview = async (reviewId) => {
+    try {
+      const requestOptions = { review_id: Number(reviewId) };
+      await axios.put(`/reviews/${reviewId}/report`, requestOptions);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  // const markHelpfulReview = async (reviewId) => {
-  //   const response = await axios.put(`${ATELIER_URL}reviews/${reviewId}/helpful`, { review_id: reviewId });
-  //   return response;
-  // };
-
-  // const reportReview = async (reviewId) => {
-  // const response = await axios.put((`${ATELIER_URL}reviews/${reviewId}/report`, { review_id: reviewId }));
-  //   return response;
-  // };
+  useEffect(() => {
+    setFilteredReview(reviews);
+  }, [reviews]);
 
   return (
     <ReviewsContext.Provider
@@ -94,6 +93,10 @@ export const ReviewsProvider = ({ children }) => {
         getRatings,
         ratings,
         postReview,
+        markHelpfulReview,
+        reportReview,
+        filterReview,
+        filteredReview,
       }}
     >
       { children }

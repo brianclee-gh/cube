@@ -7,7 +7,9 @@ router.get('/products/:product_id', controller.products.getProduct);
 router.get('/products/:product_id/styles', controller.products.getStyles);
 router.get('/products/:product_id/related', controller.products.getRelatedProducts);
 router.get('/products/:product_id/relatedData', controller.products.getRelatedData);
-
+// Cart:
+router.get('/cart', controller.cart.getCart);
+router.post('/cart', controller.cart.addCart);
 // Q&A:
 router.get('/qa/questions', controller.qa.getQuestions);
 router.get('/qa/questions/:question_id/answers', controller.qa.getAnswers);
@@ -24,4 +26,6 @@ router.post('/add/answer/:question_id', controller.qa.postAnswer);
 router.get('/reviews', controller.reviews.getReviews);
 router.get('/reviews/meta', controller.reviews.getReviewMeta);
 router.post('/reviews', controller.reviews.postReviews);
+router.put('/reviews/:review_id/helpful', controller.reviews.putHelpful);
+router.put('/reviews/:review_id/report', controller.reviews.putReport);
 module.exports = router;

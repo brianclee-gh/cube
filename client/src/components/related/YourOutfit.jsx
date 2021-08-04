@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useState, useContext, useEffect } from 'react';
-import YourOutfitProducts from './YourOutfitProducts.jsx';
+import React, {
+  useState, useContext, useEffect, lazy, Suspense,
+} from 'react';
+// import YourOutfitProducts from './YourOutfitProducts.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
+
+const YourOutfitProducts = lazy(() => import('./YourOutfitProducts.jsx'));
 
 function YourOutfit({ cachedData, setCachedData }) {
   const [outfit, setOutfit] = useState(() => {
@@ -23,18 +27,6 @@ function YourOutfit({ cachedData, setCachedData }) {
     }
   };
 
-  // useEffect(() => {
-  //   // check local storage for outfit, if outfit does not exist, intialize with empty outfit object
-  //   // if outfit does exist, intialize
-  //   // need to save outfit after each addition and subtraction
-  //   const savedOutfit = localStorage.getItem('yourSavedOutfit');
-  //   if (!savedOutfit) {
-  //     console.log('nothing here');
-  //   } else {
-  //     console.log('found', JSON.parse(savedOutfit));
-  //   }
-  // }, []);
-
   useEffect(() => {
     if (Object.keys(outfit).length > 0) {
       localStorage.setItem('yourSavedOutfit', JSON.stringify(outfit));
@@ -49,7 +41,20 @@ function YourOutfit({ cachedData, setCachedData }) {
       <div className="related-products-header">
         <h3>YOUR OUTFIT</h3>
       </div>
-      { currentProduct && currentStyle ? (
+      <Suspense fallback={<div className="related-products-placeholder">Loading...</div>}>
+        { currentStyle ? (
+          <YourOutfitProducts
+            cachedData={cachedData}
+            setCachedData={setCachedData}
+            setOutfit={setOutfit}
+            outfit={outfit}
+            addToOutfit={addToOutfit}
+            currentProduct={currentProduct}
+            currentStyle={currentStyle.results[0]}
+          />
+        ) : <div className="related-products-placeholder">Loading...</div>}
+      </Suspense>
+      {/* { currentProduct && currentStyle ? (
         <YourOutfitProducts
           cachedData={cachedData}
           setCachedData={setCachedData}
@@ -59,7 +64,7 @@ function YourOutfit({ cachedData, setCachedData }) {
           currentProduct={currentProduct}
           currentStyle={currentStyle.results[0]}
         />
-      ) : 'Loading'}
+      ) : 'Loading'} */}
     </div>
   );
 }
