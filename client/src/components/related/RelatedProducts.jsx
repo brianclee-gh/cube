@@ -65,6 +65,7 @@ function RelatedProducts({
 
   const uniqueItems = [...new Set(relatedIds.filter((id) => id !== currentProduct.id))];
   const TrackedRelatedCard = withClickTracker(RelatedCard);
+  const TrackedModal = withClickTracker(Modal);
 
   return (
     <div className="related-products-container">
@@ -85,7 +86,7 @@ function RelatedProducts({
         ))) : <div className="related-products-placeholder">Loading...</div> }
       </Carousel>
       <Suspense fallback={<div>Loading...</div>}>
-        <Modal
+        <TrackedModal
           currentProduct={currentProduct}
           modalOpen={modalOpen}
           combined={combined}

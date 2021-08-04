@@ -2,9 +2,20 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-function Modal({ combined, modalOpen, closeModal }) {
+function Modal({
+  combined, modalOpen, closeModal, reportClick,
+}) {
   return (
-    <div className={`related-modal ${modalOpen ? '' : 'hidden'}`}>
+    <div
+      tabIndex="-4"
+      role="button"
+      onClick={(e) => {
+        reportClick(e, 'Modal');
+        if (e.target.classList.contains('related-modal')) { closeModal(); }
+      }}
+      onKeyDown={() => {}}
+      className={`related-modal ${modalOpen ? '' : 'hidden'}`}
+    >
       <div className="related-modal-container">
         <h3 className="modal-comparing-heading">COMPARING</h3>
         <table className="modal-table">
