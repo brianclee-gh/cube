@@ -12,7 +12,6 @@ function Carousel({ children, relatedOrOutfit }) {
   });
   const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
-
   const scrollLeft = () => {
     const startCard = document.getElementById(`${setId}_${startIdx - 1}`);
     if (!startCard) { return; }

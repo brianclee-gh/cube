@@ -7,15 +7,7 @@ import Description from '../Description/Description.jsx';
 import './Main.css';
 
 function Main() {
-  // console.log(getProductSampleData);
   const { currentProduct, currentStyle, getData } = useContext(ProductsContext);
-  // const [current, setCurrent] = useState(getProductSampleData);
-  // const [currentStyle, setStyle] = useState(productStyleSampleData);
-  // const [current, setCurrent] = useState();
-  // const [style, setStyle] = useState();
-  // const [currentImages, setCurrentImages] = useState(currentStyle.results);
-  // need to store style image array here, pass to image component,
-  // pass a function down to update it based on style click
   const [photoArray, setPhotoArray] = useState(null);
 
   useEffect(() => {

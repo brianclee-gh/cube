@@ -1,15 +1,14 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Hover from './helperFunctions/Hover.jsx';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
-function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
-  const [metaData, setMetaData] = useState(null);
-  let isMounted = false;
+function AddToOutfit({
+  currentProduct, currentStyle, addToOutfit, reportClick, metaData,
+}) {
   const getStars = (meta) => {
     if (!meta) { return null; }
     const { ratings } = meta;
@@ -23,36 +22,16 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
   };
 
-  const getMetaData = async () => {
-    if (!isMounted) { return null; }
-    const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${currentProduct.id}`);
-    return fetchedMeta.data;
-  };
-
-  useEffect(() => {
-    isMounted = true;
-    if (isMounted) {
-      getMetaData()
-        .then((data) => {
-          if (data) {
-            setMetaData(data);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
   return (
     <>
       <li className="outfit-card-container" id="outfit_0">
-        <div>
+        <div role="button" tabIndex="-3" onClick={(e) => reportClick(e, 'AddToOutfit')} onKeyDown={() => {}}>
           <div className="outfit-image-container">
-            <img className="outfit-product-img faded" src={`${currentStyle.photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+            <img
+              className="outfit-product-img faded"
+              src={`${currentStyle.photos[0].thumbnail_url}&ar=0.75:1&fit=crop`}
+              alt="product"
+            />
             <div
               role="button"
               data-btn="add-to-outfit"
@@ -94,7 +73,6 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
                     {currentStyle.original_price}
                   </span>
                 )}
-              {/* <span className="outfit-product-stars">{starRating(getStars(meta))}</span> */}
               { metaData ? <span className="related-product-stars">{starRating(getStars(metaData))}</span> : ''}
             </div>
           </div>

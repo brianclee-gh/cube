@@ -8,6 +8,7 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState(null); // Maybe Overview
   const [currentProduct, setCurrentProduct] = useState(null); // All 4
   const [currentStyle, setCurrentStyle] = useState(null); // Only Overview and Related
+  const [metaData, setMetaData] = useState(null);
 
   const getProducts = async () => {
     try {
@@ -38,9 +39,19 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const getMetaData = async (id) => {
+    try {
+      const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${id}`);
+      setMetaData(fetchedMeta.data);
+      return fetchedMeta;
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const getData = async (id) => {
     try {
-      Promise.all([getCurrentProduct(id), getCurrentStyle(id)]);
+      Promise.all([getCurrentProduct(id), getCurrentStyle(id), getMetaData(id)]);
     } catch (e) {
       console.log(e);
     }
@@ -55,6 +66,7 @@ export const ProductsProvider = ({ children }) => {
       currentStyle,
       getCurrentStyle,
       getData,
+      metaData,
     }}
     >
       {children}
