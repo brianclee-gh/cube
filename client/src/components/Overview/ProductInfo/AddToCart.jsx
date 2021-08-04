@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -14,9 +15,10 @@ function AddToCart({ sku }) {
   // Check for no Quantity in any size
   const checkNoQuant = (skus) => {
     let total = 0;
-    for (const key in skus) {
-      total += skus[key].quantity;
-    }
+    const skuList = Object.entries(skus);
+    skuList.forEach((item) => {
+      total += item[1].quantity;
+    });
     if (total === 0) {
       return false;
     }
@@ -44,6 +46,7 @@ function AddToCart({ sku }) {
   }, [sku]);
 
   // Get Available Sizes
+
   const selectedSizes = Object.keys(sku).map((item) => {
     if (sku[item].quantity !== 0) {
       return (<option key={item} value={item}>{sku[item].size}</option>);
@@ -90,9 +93,10 @@ function AddToCart({ sku }) {
   };
 
   // Get all Quantities for dropdown
-  const selectedQuantity = [...Array(Math.min(sizeQuantity, 15)).keys()].map((x) => ++x).map((item) => (
-    <option key={item} value={item}>{item}</option>
-  ));
+  const selectedQuantity = [...Array(Math.min(sizeQuantity, 15)).keys()].map((x) => ++x)
+    .map((item) => (
+      <option key={item} value={item}>{item}</option>
+    ));
 
   return (
     <>
@@ -131,8 +135,8 @@ function AddToCart({ sku }) {
         )}
         {checkQuant && (
           <>
-            <button className="add-to-cart" type="Submit" onClick={cartSubmit}>Add To Bag</button>
-            <button className="favorite-star" type="button"><i className="far fa-star" /></button>
+            <button className="add-to-cart" type="submit" onClick={cartSubmit}>Add To Bag</button>
+            <button className="favorite-star" type="button" aria-label="favorite-star"><i className="far fa-star" /></button>
           </>
         )}
       </div>

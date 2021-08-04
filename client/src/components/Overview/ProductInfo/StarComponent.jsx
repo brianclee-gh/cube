@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
 import { ReviewsContext } from '../../state/ReviewsContext.jsx';
 
@@ -31,7 +32,7 @@ function StarComponent({ productID }) {
       {metaData ? (
         <div className="star-Component-top">
           <span className="star-rating-top">{StarRating((getRatings(metaData)))}</span>
-          <a href='#' className="view-total-reviews">
+          <a href="#overAllReview" className="view-total-reviews">
             Read All
             {' '}
             {productReviews}
