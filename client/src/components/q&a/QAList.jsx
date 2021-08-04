@@ -17,7 +17,6 @@ const QAList = () => {
   const {
     getQuestions, questions, getAnswers, answers,
   } = useContext(QAContext);
-  //   const [productId, setProductId] = useState(17067);
   const [data, setData] = useState([]);
   const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(null);
@@ -27,12 +26,11 @@ const QAList = () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
     const fetchedData = await getQuestions(productId, 1, 21);
-    // might not be working.. cannot read property sort of undefined. but i can't find a productId that has questions not sorted in helpfulness already
     return fetchedData;
   };
 
   useEffect(() => {
-    getData('17071');
+    getData('17092');
   }, []);
 
   useEffect(() => {
