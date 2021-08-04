@@ -1,0 +1,14 @@
+.reviewEachMetaFull {
+  height: 20;
+  width: '100%';
+  background-color: "#e0e0de";
+  border-radius: 50;
+  margin: 50;
+}
+
+.reviewEachMetaBar {
+  height: '100%';
+  background-color: grey;
+  border-radius: 'inherit';
+  text-align: 'right';
+}
