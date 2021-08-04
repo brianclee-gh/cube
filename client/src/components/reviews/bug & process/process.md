@@ -49,9 +49,9 @@
   [x] Below the average rating, a section titled “Rating Breakdown” will appear.  Within this section, the rating distribution will be broken down.
   [x] 5 bars will appear; one for each of the star ratings that a customer can give to a product.  To the left of the bar, the star count will be explicitly stated in the form “# Stars”.
   [x] To the right of the bar, a label with the total number of reviews submitted with that particular rating will be shown.   Only the count will show.
-  [ ] The bar itself will be two toned, green and grey.  The portion of the bar which is green will represent the percentage of total reviews which have been submitted that have that particular star rating.  For example, if a product has received 200 reviews and 150 are 5 stars, then the “5 stars” bar should be three quarters green.
-  [ ] The green portion of the bar should always be left of the grey portion.
-  [ ] If all the reviews submitted for a product are the same rating, then the bar for that star rating will be completely green and the other bars will be completely grey.
+  [x] The bar itself will be two toned, green and grey.  The portion of the bar which is green will represent the percentage of total reviews which have been submitted that have that particular star rating.  For example, if a product has received 200 reviews and 150 are 5 stars, then the “5 stars” bar should be three quarters green.
+  [x] The green portion of the bar should always be left of the grey portion.
+  [x] If all the reviews submitted for a product are the same rating, then the bar for that star rating will be completely green and the other bars will be completely grey.
   [ ] Each rating breakdown, consisting of the label, the bar, and the count, will act as a filter. Clicking on the breakdown for a star count will filter the reviews list so that only reviews of that rating display.  Hovering over this breakdown will change the background color to indicate it is actionable.
   [ ] The filters will be additive.  If the list has already been filtered for 1 star reviews, clicking on the “2 star” breakdown will update the reviews list such that 1 and 2 star reviews are displayed.
   [ ] The filters will be toggled on and off with each click.  Clicking a second time on a rating breakdown will remove the filter for that rating type.  If this action removes the last or only filter, then the list should return to its default state and all reviews should be shown.

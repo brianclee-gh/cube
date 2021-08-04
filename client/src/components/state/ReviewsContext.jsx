@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const ReviewsContext = createContext(null);
@@ -7,6 +7,17 @@ export const ReviewsProvider = ({ children }) => {
   const [reviews, setReviews] = useState(null);
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
+  const [filteredReview, setFilteredReview] = useState(null);
+  console.log(filteredReview);
+
+  const filterReview = (one, two, three, four, five) => {
+    if (reviews !== null) {
+      let newReview = reviews.filter(function (parameter) {
+        return parameter.rating === one || parameter.rating === two || parameter.rating === three || parameter.rating === four || parameter.rating === five
+      });
+      setFilteredReview(newReview);
+    }
+  };
 
   const getReviews = async (productId, page, count, sortBy) => {
     try {
@@ -68,6 +79,10 @@ export const ReviewsProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    setFilteredReview(reviews);
+  }, [reviews]);
+
   return (
     <ReviewsContext.Provider
       value={{
@@ -80,6 +95,8 @@ export const ReviewsProvider = ({ children }) => {
         postReview,
         markHelpfulReview,
         reportReview,
+        filterReview,
+        filteredReview,
       }}
     >
       { children }
