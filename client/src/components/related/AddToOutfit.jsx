@@ -7,9 +7,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Hover from './helperFunctions/Hover.jsx';
 import starRating from '../reviews/components/averageReview/metaRate.jsx';
 
-function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
-  const [metaData, setMetaData] = useState(null);
-  let isMounted = false;
+function AddToOutfit({
+  currentProduct, currentStyle, addToOutfit, reportClick, metaData,
+}) {
+  // const [metaData, setMetaData] = useState(null);
+  // let isMounted = false;
   const getStars = (meta) => {
     if (!meta) { return null; }
     const { ratings } = meta;
@@ -23,34 +25,34 @@ function AddToOutfit({ currentProduct, currentStyle, addToOutfit }) {
     return (Math.round(calculatedRating * 4) / 4).toFixed(2);
   };
 
-  const getMetaData = async () => {
-    if (!isMounted) { return null; }
-    const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${currentProduct.id}`);
-    return fetchedMeta.data;
-  };
+  // const getMetaData = async () => {
+  //   if (!isMounted) { return null; }
+  //   const fetchedMeta = await axios.get(`/reviews/meta/?product_id=${currentProduct.id}`);
+  //   return fetchedMeta.data;
+  // };
 
-  useEffect(() => {
-    isMounted = true;
-    if (isMounted) {
-      getMetaData()
-        .then((data) => {
-          if (data) {
-            setMetaData(data);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    return () => {
-      isMounted = false;
-    };
-  }, []);
+  // useEffect(() => {
+  //   isMounted = true;
+  //   if (isMounted) {
+  //     getMetaData()
+  //       .then((data) => {
+  //         if (data) {
+  //           setMetaData(data);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, []);
 
   return (
     <>
       <li className="outfit-card-container" id="outfit_0">
-        <div>
+        <div role="button" tabIndex="-3" onClick={(e) => reportClick(e, 'AddToOutfit')} onKeyDown={() => {}}>
           <div className="outfit-image-container">
             <img className="outfit-product-img faded" src={`${currentStyle.photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
             <div
