@@ -106,3 +106,10 @@
         [x]   - Reset quantity on style change
              - Check for more than 8 product styles
         [x]    - style buttons for cart
+
+
+        Cart-Post
+          [x]  - Add server route
+          [x]  -Test server route
+          [x]     -add axios post to submit function, check for size and quantity before allowing submit
+          [x]  - call function on submit of cart
