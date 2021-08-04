@@ -52,17 +52,6 @@ function RelatedCard({
       (fetchedProduct.data),
       (fetchedStyle.data),
       (fetchedMeta.data)]);
-    // setProductData(fetchedProduct.data),
-    // setStyleData(fetchedStyle.data),
-    // setMetaData(fetchedMeta.data)]);
-
-    // await axios.get(`/products/${id}/relatedData`)
-    //   .then((relatedData) => {
-    //     console.log(relatedData);
-    //     setProductData(relatedData.data[0]);
-    //     setStyleData(relatedData.data[1]);
-    //     setMetaData(relatedData.data[2]);
-    //   });
   };
 
   useEffect(() => {
