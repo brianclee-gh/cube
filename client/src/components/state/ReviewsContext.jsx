@@ -8,7 +8,6 @@ export const ReviewsProvider = ({ children }) => {
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
   const [filteredReview, setFilteredReview] = useState(null);
-  console.log(filteredReview);
 
   const filterReview = (one, two, three, four, five) => {
     if (reviews !== null) {

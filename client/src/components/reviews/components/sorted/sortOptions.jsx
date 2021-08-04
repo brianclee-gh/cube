@@ -12,7 +12,6 @@ function sortReviews() {
   const { getReviews, filterReview, reviews, filteredReview, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
   const [currentSort, updateSort] = useState('relevant');
   const [showWriteReviewModal, setShowWriteReviewModal] = useState(false);
-  const [afterSubmit, setAfterSubmit] = useState(false);
   const [starOne, setStarOne] = useState(0);
   const [starTwo, setStarTwo] = useState(0);
   const [starThree, setStarThree] = useState(0);
@@ -44,10 +43,6 @@ function sortReviews() {
     { value: 'helpful', label: 'Helpful' },
     { value: 'relevant', label: 'Relevant' },
   ];
-
-  const clickedSubmit = () => {
-    setAfterSubmit(!afterSubmit);
-  };
 
   const getReviewList = async () => {
     if (!currentProduct) { return null; }
@@ -83,23 +78,23 @@ function sortReviews() {
     getReviewList()
       .then()
       .catch((err) => console.log(err));
-  }, [currentProduct, afterSubmit]);
+  }, [currentProduct]);
 
   useEffect(() => {
     getMetaData()
       .then()
       .catch((err) => console.log(err));
-  }, [currentProduct, afterSubmit]);
+  }, [currentProduct]);
 
   useEffect(() => {
     getRatings(metaData);
-  }, [metaData, afterSubmit]);
+  }, [metaData]);
 
   useEffect(() => {
     getReviewList()
       .then()
       .catch((err) => console.log(err));
-  }, [currentSort, afterSubmit]);
+  }, [currentSort]);
 
   if (currentProduct !== null && ratings !== null) {
     return (
@@ -108,7 +103,7 @@ function sortReviews() {
         <div>Sort on:</div>
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
-        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} submit={clickedSubmit} />
+        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
       </div>
     );

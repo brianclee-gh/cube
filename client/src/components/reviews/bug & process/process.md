@@ -39,7 +39,7 @@
   [x] Changing the sort order will always refresh the reviews list.
   [x] The sort selected should persist even when filters are added or removed.
 
-[ ] Rating Breakdown (Filtering)
+[X] Rating Breakdown (Filtering)
   [x] A breakdown of the ratings received for the product will double as the filtering options for the reviews list.  This breakdown will display at the top left corner of the Rating and Reviews module.
   [x] The top of the breakdown will simply display the average rating for the product.  The rating should be displayed both as a number value as well as represented by star icons.
   [x] The number displayed should be rounded to the nearest single decimal.

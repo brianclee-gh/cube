@@ -19,11 +19,11 @@ const helpful = ({ reviewId, helpfulNum }) => {
   };
 
   useEffect(async () => {
-    (helpful && (countHelpful === 1)) ? await markHelpfulReview(reviewId) : console.log('already updated');
+    (helpful && (countHelpful === 1)) ? await markHelpfulReview(reviewId) : setHelpful(true);
   }, [helpful]);
 
   useEffect(async () => {
-    (report && (countReport >= 1)) ? await reportReview(reviewId) : console.log('report');
+    (report && (countReport >= 1)) ? await reportReview(reviewId) : setReport(true);
   }, [report]);
 
   return(
@@ -35,7 +35,7 @@ const helpful = ({ reviewId, helpfulNum }) => {
         {helpful ? <div className="reviewHelpful_yes">Yes</div> : <div className="reviewHelpful_no">Yes</div>}
       </div>
       <div className="reviewHelpful_count">
-        {(countHelpful < 0) ? <div className="reviewHelpful_count_normal">({helpfulNum})</div> : <div className="reviewHelpful_count_plusOne">({Number(helpfulNum) + 1})</div>}
+        {(countHelpful === 0) ? <div className="reviewHelpful_count_normal">({helpfulNum})</div> : <div className="reviewHelpful_count_plusOne">({Number(helpfulNum) + 1})</div>}
       </div>
       <div className="reviewHelpful_report" onClick={reporting} >
         {report ? <div className="reviewHelpful_reportYes">Reported</div> : <div className="reviewHelpful_reportNo">Report</div>}

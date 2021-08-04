@@ -1,0 +1,416 @@
+.qa-flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.qa-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.qa-header {
+  background-color: transparent;
+  height: 30px;
+}
+
+.qa-search-bar {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.qa-search-bar-input {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 7px;
+  font-size: 20px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 15px;
+  outline: none;
+}
+
+.qa-search-input-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: #616161;
+  margin-left: 0.5rem;
+}
+
+.qa-list::-webkit-scrollbar {
+  width: 20px;
+}
+
+.qa-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.qa-list::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+.qa-list::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+
+.qa-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 50vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.qa-list-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.individual-question-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.individual-q-btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.qa-link {
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.qa-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.divider {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.helpful {
+  margin-right: 5px;
+}
+
+.expand-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.outer-question-btn {
+  height: 40px;
+  width: 175px;
+  background-color: white;
+  border-radius: 7px;
+  margin-left: 10px;
+}
+
+.outer-question-btn:hover {
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 7px;
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+
+/* QUESTION MODAL */
+.question-modal {
+  position: fixed;
+  padding-top: 100px;
+  z-index: 150;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.question-modal-container {
+  background-color: white;
+  z-index: 1000;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  height: auto;
+  margin: auto;
+  width: auto;
+  max-width: 550px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.qa-hidden {
+  display: none;
+}
+
+.question-modal-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding: 0.4rem 1.0rem;
+}
+
+.modal-question {
+  padding: 5px;
+  height: 100px;
+  width: 100%;
+}
+
+.modal-question-label {
+  padding: 5px;
+  width: 170px;
+}
+
+/* ANSWER MODAL */
+.answer-modal {
+  position: fixed;
+  padding-top: 100px;
+  z-index: 150;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.answer-modal-container {
+  background-color: white;
+  z-index: 1000;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  height: auto;
+  margin: auto;
+  width: auto;
+  max-width: 550px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.answer-modal-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  padding: 0.4rem 1.0rem;
+}
+
+.modal-answer {
+  padding: 5px;
+  height: 100px;
+  width: 100%;
+}
+
+.modal-photos {
+  padding: 5px;
+  width: 170px;
+}
+
+.modal-answer-label {
+  padding: 5px;
+  width: 170px;
+}
+
+/* PHOTO MODAL */
+.photo-modal {
+  position: fixed;
+  padding-top: 100px;
+  z-index: 150;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.photo-modal-container {
+  background-color: white;
+  z-index: 1000;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  height: auto;
+  margin: auto;
+  width: auto;
+  max-width: 550px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.photo-modal-btn {
+  padding: 0.4rem 1.0rem;
+  cursor: pointer;
+  background-color: #1565c0;
+  color: white;
+  border: 0.2px solid #fefefe;
+  -webkit-transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 80px;
+}
+
+/* COMMON */
+.btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 0.5rem;
+}
+
+.modal-submit-btn {
+  padding: 0.4rem 1.0rem;
+  cursor: pointer;
+  background-color: #1565c0;
+  color: white;
+  border: 0.2px solid #fefefe;
+  -webkit-transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 80px;
+}
+
+.modal-submit-btn:hover {
+  opacity: 0.85;
+}
+
+.close-question-modal-btn {
+  padding: 0.4rem 1.0rem;
+  cursor: pointer;
+  background-color: #1565c0;
+  color: white;
+  border: 0.2px solid #fefefe;
+  -webkit-transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  width: 80px;
+}
+
+.close-question-modal-btn:hover {
+  opacity: 0.85;
+}
+
+.modal-name {
+  padding: 5px;
+  width: 170px;
+}
+
+.modal-email {
+  padding: 5px;
+  width: 170px;
+}
+
+.photo-thumbnail {
+  margin: 5px;
+}
+
+.photo-img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  padding: 1px;
+}
+/*# sourceMappingURL=qa-style.css.map */
