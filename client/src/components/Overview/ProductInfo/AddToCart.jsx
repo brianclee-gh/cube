@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function AddToCart({ sku }) {
   // quantity per size selected
@@ -49,21 +50,19 @@ function AddToCart({ sku }) {
     }
   });
 
-  // const [sizeRef, setSizeRef] = useState(React.createRef());
-  // const [isClicked, setIsClicked] = useState(false);
-
-  // const test = (event) => {
-  //   event.preventDefault();
-  //   // sizeRef.current.focus();
-  //   // console.log(sizeRef.current);
-  //   setIsClicked(true);
-  //   // sizeRef.current[0];
-  //   // console.log(clicked);
-  // };
-
   const cartSubmit = (event) => {
     event.preventDefault();
-    // test(event);
+    if (currentSize && checkoutQuantity) {
+      const checkoutItems = { sku_id: selectedSku, count: checkoutQuantity };
+      axios
+        .post('/cart', checkoutItems)
+        .then((res) => {
+          console.log('posted', res.data);
+        })
+        .catch((err) => {
+          console.log('error client side post', err);
+        });
+    }
     setCartClicked(true);
   };
 
@@ -129,7 +128,7 @@ function AddToCart({ sku }) {
         )}
         {checkQuant && (
           <>
-            <button className="add-to-cart" type="submit" onClick={cartSubmit}>Add To Bag</button>
+            <button className="add-to-cart" type="Submit" onClick={cartSubmit}>Add To Bag</button>
             <button className="favorite-star" type="button"><i className="far fa-star" /></button>
           </>
         )}
