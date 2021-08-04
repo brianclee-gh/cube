@@ -23,8 +23,8 @@ function App() {
           {/* <Related />
           <QAProvider>
             <QA />
-          </QAProvider> */}
-          <Review />
+          </QAProvider>
+          <Review /> */}
         </ProductsProvider>
       </ReviewsProvider>
     </div>

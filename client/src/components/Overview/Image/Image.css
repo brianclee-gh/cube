@@ -137,8 +137,9 @@ i {
 
 .Main-Image-Expanded {
   /* position: fixed; */
-  width: auto;
-  height: 100%;
+  width: 450px;
+  height: auto;
+  max-height: 700px;
   /* height: auto; */
   /* max-height: 700px; */
   cursor: zoom-out;
