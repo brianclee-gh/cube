@@ -10,7 +10,7 @@
   [x] If no reviews have been submitted for this product, then the list will collapse, and the button to submit a new review (section 1.2.7) will appear near the top of the module.
   [ ] Future Enhancement - Instead of incrementally loading 2 reviews at a time, clicking the “More Reviews” button should immediately expand the list to its maximum height.  The reviews appearing within should no longer need to be explicitly loaded.  Instead, the list should load in an ‘infinite scroll’, where as the user nears the end of the list, additional questions tack on to the bottom.
 
-[ ] Individual Review Tile
+[x] Individual Review Tile
   [x] Each review will be displayed on a single tile within the list.  The tile will display the following information:
   [x] Star Rating - This will be the rating given to the product by this individual review..  The rating will be displayed in the format of solid or outlined stars, where the solid stars represent the review score.  A total of 5 stars should always appear, and the amount filled in should correspond to the average score.
   [x] The visual for rating should be representative of up to a quarter of a review point.  For example, if the average is 3.8, this should display as 3¾ solid stars and 1¼ outlined stars.
@@ -24,9 +24,9 @@
   [x] Recommend - If the reviewer recommends buying the product, the text “I recommend this product” and a checkmark icon will display below the review.  If the reviewer does not recommend the product, nothing will display here.
   [x] Reviewer name - The username for the reviewer will appear.  Only the username will appear. No email addresses or other personal information will display.  However, if the user’s email is associated with a sale in the system then next to the username the text “Verified Purchaser” will appear.
   [x] Response to Review - Our internal sales team has the ability to respond to any reviews written.  If the review has a corresponding response, this should appear below the reviewer name.  The response should be preceded by the text “Response from seller”, and should be visually distinguished from the rest of the review.
-  [ ] Rating Helpfulness - Any user on the site will have the ability to provide feedback on whether reviews are helpful.  At the bottom of the review tile the text “Was this review helpful?” will precede two links “Yes (#)” and “No (#)”.   Following “Yes” and “No” will be the count of users that have selected that button.  Clicking either link should cast a vote for that selection.
+  [x] Rating Helpfulness - Any user on the site will have the ability to provide feedback on whether reviews are helpful.  At the bottom of the review tile the text “Was this review helpful?” will precede two links “Yes (#)” and “No (#)”.   Following “Yes” and “No” will be the count of users that have selected that button.  Clicking either link should cast a vote for that selection.
   [x] A user on the site does not need to be logged in to provide feedback on helpfulness.
-  [ ] A user can provide feedback on any review.  However, they can only make one submission for each review. If the user selects either “Yes” or “No” for a review, they should not be able to select another option again for that review.
+  [x] A user can provide feedback on any review.  However, they can only make one submission for each review. If the user selects either “Yes” or “No” for a review, they should not be able to select another option again for that review.
 
 [x] Sort Options
   [x] Users will be able to change this ordering.  A dropdown labeled “Sort on'' will contain options on sort order.
@@ -49,16 +49,16 @@
   [x] Below the average rating, a section titled “Rating Breakdown” will appear.  Within this section, the rating distribution will be broken down.
   [x] 5 bars will appear; one for each of the star ratings that a customer can give to a product.  To the left of the bar, the star count will be explicitly stated in the form “# Stars”.
   [x] To the right of the bar, a label with the total number of reviews submitted with that particular rating will be shown.   Only the count will show.
-  [ ] The bar itself will be two toned, green and grey.  The portion of the bar which is green will represent the percentage of total reviews which have been submitted that have that particular star rating.  For example, if a product has received 200 reviews and 150 are 5 stars, then the “5 stars” bar should be three quarters green.
-  [ ] The green portion of the bar should always be left of the grey portion.
-  [ ] If all the reviews submitted for a product are the same rating, then the bar for that star rating will be completely green and the other bars will be completely grey.
-  [ ] Each rating breakdown, consisting of the label, the bar, and the count, will act as a filter. Clicking on the breakdown for a star count will filter the reviews list so that only reviews of that rating display.  Hovering over this breakdown will change the background color to indicate it is actionable.
-  [ ] The filters will be additive.  If the list has already been filtered for 1 star reviews, clicking on the “2 star” breakdown will update the reviews list such that 1 and 2 star reviews are displayed.
-  [ ] The filters will be toggled on and off with each click.  Clicking a second time on a rating breakdown will remove the filter for that rating type.  If this action removes the last or only filter, then the list should return to its default state and all reviews should be shown.
-  [ ] Once one or more filters has been applied, a message will appear below the “Rating Breakdown” title.  It will state the filters that have been currently applied.   It will also include a link to “Remove all filters”.  Clicking on this link will remove any filters applied and return the list to the default state.
+  [x] The bar itself will be two toned, green and grey.  The portion of the bar which is green will represent the percentage of total reviews which have been submitted that have that particular star rating.  For example, if a product has received 200 reviews and 150 are 5 stars, then the “5 stars” bar should be three quarters green.
+  [x] The green portion of the bar should always be left of the grey portion.
+  [x] If all the reviews submitted for a product are the same rating, then the bar for that star rating will be completely green and the other bars will be completely grey.
+  [x] Each rating breakdown, consisting of the label, the bar, and the count, will act as a filter. Clicking on the breakdown for a star count will filter the reviews list so that only reviews of that rating display.  Hovering over this breakdown will change the background color to indicate it is actionable.
+  [x] The filters will be additive.  If the list has already been filtered for 1 star reviews, clicking on the “2 star” breakdown will update the reviews list such that 1 and 2 star reviews are displayed.
+  [x] The filters will be toggled on and off with each click.  Clicking a second time on a rating breakdown will remove the filter for that rating type.  If this action removes the last or only filter, then the list should return to its default state and all reviews should be shown.
+  [x] Once one or more filters has been applied, a message will appear below the “Rating Breakdown” title.  It will state the filters that have been currently applied.   It will also include a link to “Remove all filters”.  Clicking on this link will remove any filters applied and return the list to the default state.
   [x] The percentage of reviews that ‘recommend’ the product will be displayed below the breakdown.
 
-[ ] Product Breakdown (Factors)
+[x] Product Breakdown (Factors)
   [x] Reviews will provide ability to give feedback on specific characteristics of the product.   The characteristics include Size, Width, Comfort, Quality, Length, and Fit. One or more of these may be relevant for a product.  In the Reviews module, the average feedback received will be displayed for all characteristics which apply to the product.
   [x] Feedback for characteristics will be on a 5 point scale.  The range of this scale will depend on the characteristic in question.  For example, Size can range from (1) “too small” to (5) “too big”, with the middle option (3) being “perfect”.  Using the same 5 point scale for Quality, however, the scale would range from (1) “poor” to (5) “great”.
   [x] Regardless of what the range of the scale represents, the 5 point scale will display the same for all of the characteristics of the product.  Each will appear as a grey bar similar to the rating breakdown.  Above the bar, a label will state the characteristic.  Below the bar, the meaning of the lowest selection (1) and the highest selection (5) will appear.   On the bar, a single icon will appear representing the average value received via reviews submitted.  The icon should appear horizontally from the left edge of the bar such that it represents the average input for the characteristic.  For example, if the average is 5, the icon should appear all the way to the right.  An average of 3 should appear in the middle.
