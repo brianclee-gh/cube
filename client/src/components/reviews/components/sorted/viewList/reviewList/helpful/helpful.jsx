@@ -7,8 +7,6 @@ const helpful = ({ reviewId, helpfulNum }) => {
   const [report, setReport] = useState(false);
   const [countHelpful, setCountHelpful] = useState(0);
   const [countReport, setCountReport] = useState(0);
-  console.log(helpfulNum)
-  console.log(countHelpful)
 
   const updateHelpful = () => {
     setHelpful(true);
