@@ -14,13 +14,18 @@ import './qa-style.scss';
 
 const QAList = () => {
   const { currentProduct, getData } = useContext(ProductsContext);
-  const {
-    getQuestions, questions, getAnswers, answers,
-  } = useContext(QAContext);
+  const { getQuestions } = useContext(QAContext);
   const [data, setData] = useState([]);
   const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [afterQuestionPost, setAfterQuestionPost] = useState(false);
+
+  const clickedSubmit = () => {
+    setAfterQuestionPost(!afterQuestionPost);
+    // setAfterQuestionPost(afterQuestionPost + 1);
+    console.log(afterQuestionPost);
+  };
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
@@ -42,7 +47,7 @@ const QAList = () => {
         }
       })
       .catch((err) => console.log(err));
-  }, [currentProduct]);
+  }, [currentProduct, afterQuestionPost]);
 
   const loadMore = () => {
     // expanded ? setDefaultQuestions(2) : setDefaultQuestions(data.length);
@@ -87,15 +92,14 @@ const QAList = () => {
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
-          {expanded ? <button className="outer-question-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
-          <button className="outer-question-btn" onClick={openModal}>ADD A QUESTION</button>
+          {expanded ? <button className="first-outer-question-btn" onClick={loadMore}>MORE ANSWERED QUESTIONS</button> : null}
+          <button className="second-outer-question-btn" onClick={openModal}>ADD A QUESTION</button>
         </div>
       </div>
       { modalOpen ? (
         <QuestionModal
-          modalOpen={modalOpen}
           closeModal={closeModal}
-          openModal={openModal}
+          submit={clickedSubmit}
         />
       ) : null}
     </div>

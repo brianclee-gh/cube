@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/extensions */
@@ -40,43 +41,21 @@ const AnswerModal = ({ question, closeModal }) => {
   //     });
   // };
 
-//   const getQAList = async () => {
-//     if (!currentProduct) { return null; }
-//     const productId = currentProduct.id;
-//     const fetchedData = await getQuestions(productId, 1, 21);
-//     return fetchedData;
-//   };
-
-//   useEffect(() => {
-//     getQAList()
-//       .then((fetched) => {
-//         if (fetched) {
-//           const sorted = fetched.sort((a, b) => ((a.question_helpfulness > b.question_helpfulness) ? -1 : 1));
-//           setData(sorted);
-//         }
-//       })
-//       .catch((err) => console.log(err));
-//   }, [currentProduct]);
-
   const postAnswer = () => {
     const questionId = question.question_id;
-    console.log(postRequestBody);
-    axios.post(`add/answer/${questionId}`, postRequestBody)
-      .then((res) => {
-        console.log('posted', res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    // console.log(postRequestBody);
+    if (errorMessage === 'Please submit valid images') {
+      alert('Not able to submit answer due to invalid entry');
+    } else {
+      axios.post(`add/answer/${questionId}`, postRequestBody)
+        .then((res) => {
+          console.log('posted', res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
-
-  //   const postRequestAnswer = async () => {
-  //     if (!question) { return null; }
-  //     const questionId = question.question_id;
-  //     const postRequest = await postAnswer(questionId, postRequestBody);
-  //     closeModal();
-  //     return postRequest;
-  //   };
 
   useEffect(() => {
     postRequestObj['body'] = answer;
@@ -127,9 +106,9 @@ const AnswerModal = ({ question, closeModal }) => {
 
   useEffect(() => {
     if (errorImg === true) {
-        setErrorMessage('Please submit a valid image')
+      setErrorMessage('Please submit valid images');
     } else {
-        setErrorMessage(null);
+      setErrorMessage(null);
     }
   }, [errorImg]);
 

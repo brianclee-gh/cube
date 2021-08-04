@@ -5,15 +5,16 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
-const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
+const QuestionModal = ({ closeModal, submit }) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [question, setQuestion] = useState('');
+//   const [postRequestUpdate, setPostRequestUpdate] = useState(false);
 
   const postQuestion = () => {
     const productId = currentProduct.id;
@@ -45,13 +46,24 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postQuestion();
+    // setPostRequestUpdate(true);
+    submit();
     closeModal();
     setName('');
     setEmail('');
     setQuestion('');
   };
 
-//   let test = modalOpen ? 'question-modal' : 'qa-hidden';
+//   useEffect(() => {
+//     if (postRequestUpdate === true) {
+//       closeModal();
+//     }
+//     setPostRequestUpdate(false);
+//   }, [postRequestUpdate]);
+
+//   useEffect(() => {
+//     submit();
+//   }, [postRequestUpdate]);
 
   return (
     <div className="question-modal">
@@ -79,7 +91,7 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="btn-container">
-              <button onClick={handleSubmit} className="modal-submit-btn" type="submit">Add</button>
+              <button className="modal-submit-btn" type="submit">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
           </form>
