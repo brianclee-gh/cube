@@ -16,6 +16,7 @@ function Image({ images }) {
   });
   // Watches for images prop to change
   useEffect(() => {
+    console.log(images);
     setCurrentImage({
       ...currentImage,
       allImages: images,
