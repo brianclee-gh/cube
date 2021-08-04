@@ -7,6 +7,7 @@ import Carousel from './Carousel.jsx';
 import RelatedCard from './RelatedCard.jsx';
 // import Modal from './Modal.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
+import withClickTracker from '../shared/ClickTracker.jsx';
 
 const Modal = lazy(() => import('./Modal.jsx'));
 
@@ -63,6 +64,7 @@ function RelatedProducts({
   };
 
   const uniqueItems = [...new Set(relatedIds.filter((id) => id !== currentProduct.id))];
+  const TrackedRelatedCard = withClickTracker(RelatedCard);
 
   return (
     <div className="related-products-container">
@@ -71,7 +73,7 @@ function RelatedProducts({
       </div>
       <Carousel relatedOrOutfit="related">
         { uniqueItems ? (uniqueItems.map((id, index) => (
-          <RelatedCard
+          <TrackedRelatedCard
             relatedIds={relatedIds}
             key={`${id}1`}
             handleCardClick={handleCardClick}

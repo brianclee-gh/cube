@@ -25,6 +25,7 @@ function YourOutfitProducts({
   };
 
   const TrackedAddToOutfit = withClickTracker(AddToOutfit);
+  const TrackedOutfitCard = withClickTracker(OutfitCard);
 
   return (
     <div className="outfit-products-container">
@@ -40,7 +41,7 @@ function YourOutfitProducts({
           )
           : ''}
         { Object.entries(outfit).map((data, index) => (
-          <OutfitCard
+          <TrackedOutfitCard
             key={`${data[1].id}2`}
             handleOutfitClick={handleOutfitClick}
             product={data[1]}
