@@ -14,7 +14,6 @@ const imagePopUp = ({ handleClose, show, img }) => {
       </div>
     </div>
   )
-
 }
 
 export default imagePopUp;
