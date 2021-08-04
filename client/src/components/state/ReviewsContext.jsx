@@ -8,13 +8,10 @@ export const ReviewsProvider = ({ children }) => {
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
   const [filteredReview, setFilteredReview] = useState(null);
-  console.log(filteredReview);
 
   const filterReview = (one, two, three, four, five) => {
     if (reviews !== null) {
-      let newReview = reviews.filter(function (parameter) {
-        return parameter.rating === one || parameter.rating === two || parameter.rating === three || parameter.rating === four || parameter.rating === five
-      });
+      const newReview = reviews.filter((parameter) => parameter.rating === one || parameter.rating === two || parameter.rating === three || parameter.rating === four || parameter.rating === five);
       setFilteredReview(newReview);
     }
   };
@@ -24,7 +21,7 @@ export const ReviewsProvider = ({ children }) => {
       const fetchedReviews = await axios.get(`/reviews/?page=${page}&count=${count}&sort=${sortBy}&product_id=${productId}`);
       setReviews(fetchedReviews.data.results);
     } catch (e) {
-      console.log('error fetching review data')
+      console.log('error fetching review data');
     }
   };
 
@@ -54,7 +51,7 @@ export const ReviewsProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: data,
       };
-      await axios.post(`/reviews`, requestOptions);
+      await axios.post('/reviews', requestOptions);
       console.log('successfully posted data');
     } catch (e) {
       console.log(e);

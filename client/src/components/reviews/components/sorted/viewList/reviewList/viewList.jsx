@@ -14,10 +14,11 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
   const [viewableReviews, setViewableReviews] = useState(2);
   const [expandReview, setExpandReview] = useState(null);
   const [imageModalPopUp, setImageModalPopUp] = useState(false);
-  console.log(filteredReview);
+  const [currentImg, setCurrentImg] = useState(null);
 
-  const imageModalPop = () => {
+  const imageModalPop = (param) => {
     setImageModalPopUp(true);
+    setCurrentImg(param);
   };
 
   const hideImageModalPop = () => {
@@ -76,8 +77,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
             </div>
             {review.photos.map((photo) => (
               <div className="reviewBodyBox_thumbnail" key={photo.id}>
-                <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={imageModalPop} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
-                <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={photo.url} />
+                <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={() => {imageModalPop(photo.url)}} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
               </div>
             ))}
             <div className="reviewBodyBox_helpful">
@@ -85,6 +85,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
             </div>
           </div>
         ))}
+        <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
       </div>
       {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
       {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
@@ -115,8 +116,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
           </div>
           {review.photos.map((photo) => (
             <div className="reviewBodyBox_thumbnail" key={photo.id}>
-              <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={imageModalPop} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
-              <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={photo.url} />
+              <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={() => {imageModalPop(photo.url)}} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
             </div>
           ))}
           <div className="reviewBodyBox_helpful">
@@ -124,6 +124,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
           </div>
         </div>
       ))}
+      <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
     </div>
     {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
     {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
