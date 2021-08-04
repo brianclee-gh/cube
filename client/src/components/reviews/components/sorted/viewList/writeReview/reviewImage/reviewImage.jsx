@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './reviewImage.css';
 
-const imageArr = [];
+let imageArr = [];
 
-const Modal = ({ handleClose, show, upload }) => {
+const Modal = ({ handleClose, show, upload, reset }) => {
   const showHideClassName = show ? "reviewImageModal display-block" : "reviewImageModal display-none";
-  const [reviewImageUpload, setReviewImageUpload] = useState('');
+  const [reviewImageUpload, setReviewImageUpload] = useState([]);
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [imageThree, setImageThree] = useState(null);
@@ -13,23 +13,23 @@ const Modal = ({ handleClose, show, upload }) => {
   const [imageFive, setImageFive] = useState(null);
 
   const uploadImageURL = () => {
-    if (imageOne !== null && imageArr.includes(imageOne) !== true) {
+    if (imageOne !== null && imageArr.includes(imageOne) !== true && imageOne !== "") {
       imageArr.push(imageOne);
     }
-    if (imageTwo !== null && imageArr.includes(imageTwo) !== true) {
+    if (imageTwo !== null && imageArr.includes(imageTwo) !== true && imageTwo !== "") {
       imageArr.push(imageTwo);
     }
-    if (imageThree !== null && imageArr.includes(imageThree) !== true) {
+    if (imageThree !== null && imageArr.includes(imageThree) !== true && imageThree !== "") {
       imageArr.push(imageThree);
     }
-    if (imageFour !== null && imageArr.includes(imageFour) !== true) {
+    if (imageFour !== null && imageArr.includes(imageFour) !== true && imageFour !== "") {
       imageArr.push(imageFour);
     }
-    if (imageFive !== null && imageArr.includes(imageFive) !== true) {
+    if (imageFive !== null && imageArr.includes(imageFive) !== true && imageFive !== "") {
       imageArr.push(imageFive);
     }
     setReviewImageUpload(imageArr);
-    upload(reviewImageUpload);
+    imageArr = [];
     handleClose();
   };
 
@@ -52,6 +52,14 @@ const Modal = ({ handleClose, show, upload }) => {
   const onChangeURLFive = (e) => {
     setImageFive(e.target.value);
   }
+
+  useEffect(() => {
+    upload(reviewImageUpload);
+  }, [reviewImageUpload]);
+
+  useEffect(() => {
+    reset(false);
+  }, [reviewImageUpload]);
 
   return (
     <div className={showHideClassName}>

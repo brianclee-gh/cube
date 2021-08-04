@@ -91,7 +91,7 @@ function OutfitCard({
                 onClick={(e) => handleOutfitClick(e, product.id)}
                 type="button"
                 aria-label="Save"
-                className="related-action-btn"
+                className="fit-action-btn"
               >
                 <Hover onHover={<div className="tooltip"> Remove from outfit </div>}>
                   <FontAwesomeIcon icon={faTimesCircle} />

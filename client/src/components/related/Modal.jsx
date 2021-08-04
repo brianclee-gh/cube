@@ -32,7 +32,7 @@ function Modal({ combined, modalOpen, closeModal }) {
           </tbody>
         </table>
         <div className="close-btn-container">
-          <button onClick={closeModal} className="close-related-modal-btn" type="button">Close</button>
+          <button onClick={closeModal} className="close-related-modal-btn" type="button">CLOSE</button>
         </div>
       </div>
     </div>

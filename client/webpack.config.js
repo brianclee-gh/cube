@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FontPreloadPlugin = require('webpack-font-preload-plugin');
 
 module.exports = {
   devtool: 'source-map',
@@ -56,5 +57,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
     new MiniCssExtractPlugin(),
+    new FontPreloadPlugin(),
   ],
 };
