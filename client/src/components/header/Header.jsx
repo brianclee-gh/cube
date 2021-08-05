@@ -8,7 +8,7 @@ function Header() {
     <div className="header">
       <span><h2>Project Catwalk</h2></span>
       <div className="search-bar">
-        <form onSubmit={() => {}}>
+        <form onSubmit={() => {}} aria-label="search form">
           <input className="search-input" type="text" placeholder="" />
           <button className="search-input-btn" type="submit" aria-label="search">
             <FontAwesomeIcon icon={faSearch} />
