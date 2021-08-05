@@ -8,13 +8,10 @@ import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
-// import QuestionModal from './QuestionModal.jsx';
 import { QAContext } from '../state/QAContext.jsx';
 import './qa-style.scss';
 
 const QuestionModal = lazy(() => import('./QuestionModal.jsx'));
-
-let overallData = [];
 
 const QAList = () => {
   const { currentProduct, getData } = useContext(ProductsContext);
@@ -24,18 +21,7 @@ const QAList = () => {
   const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [afterQuestionPost, setAfterQuestionPost] = useState(false);
   const [search, setSearch] = useState('');
-
-  //   const clickedSubmit = () => {
-  //     setAfterQuestionPost(!afterQuestionPost);
-  //     // setAfterQuestionPost(afterQuestionPost + 1);
-  //     // console.log(afterQuestionPost);
-  //   };
-
-  const addData = (obj) => {
-    overallData.push(obj);
-  };
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
@@ -44,9 +30,9 @@ const QAList = () => {
     return fetchedData;
   };
 
-  // useEffect(() => {
-  //   getData('17092');
-  // }, []);
+  useEffect(() => {
+    getData('17092');
+  }, []);
 
   useEffect(() => {
     getQAList()
@@ -59,6 +45,21 @@ const QAList = () => {
       })
       .catch((err) => console.log(err));
   }, [currentProduct]);
+
+  const loadData = () => {
+    getQAList()
+      .then((fetched) => {
+        if (fetched) {
+          const sorted = fetched.sort((a, b) => ((a.question_helpfulness > b.question_helpfulness) ? -1 : 1));
+          setData(sorted);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
 
   const loadMore = () => {
     setDefaultQuestions(defaultQuestions + 2);
@@ -85,7 +86,6 @@ const QAList = () => {
   const searchList = () => {
     if (search.length <= 2) {
       setFilteredData(data);
-    //   console.log(filteredData);
     } else {
       const filteredArr = [];
       for (let i = 0; i < filteredData.length; i += 1) {
@@ -106,9 +106,9 @@ const QAList = () => {
     }
   };
 
-//   useEffect = (() => {
-//     searchList();
-//   }, [filteredData, search]);
+  //   useEffect = (() => {
+  //     searchList();
+  //   }, [filteredData, search]);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -137,7 +137,9 @@ const QAList = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <QuestionModal
             closeModal={closeModal}
-          //   submit={clickedSubmit}
+            updateList={loadData}
+            setData={setData}
+            getQAList={getQAList}
           />
         </Suspense>
       ) : null}
