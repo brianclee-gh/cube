@@ -9,9 +9,34 @@ import WriteReview from './viewList/writeReview/writeReview.jsx';
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
-  const { getReviews, reviews, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
-  const [ currentSort, updateSort ] = useState('relevant');
-  const [ showWriteReviewModal, setShowWriteReviewModal ] = useState(false);
+  const { getReviews, filterReview, reviews, filteredReview, getReviewMetaData, metaData, ratings, getRatings } = useContext(ReviewsContext);
+  const [currentSort, updateSort] = useState('relevant');
+  const [showWriteReviewModal, setShowWriteReviewModal] = useState(false);
+  const [starOne, setStarOne] = useState(0);
+  const [starTwo, setStarTwo] = useState(0);
+  const [starThree, setStarThree] = useState(0);
+  const [starFour, setStarFour] = useState(0);
+  const [starFive, setStarFive] = useState(0);
+
+  const starOneFunction = () => {
+    starOne === 0 ? setStarOne(1) : setStarOne(0)
+  };
+
+  const starTwoFunction = () => {
+    starTwo === 0 ? setStarTwo(2) : setStarTwo(0)
+  };
+
+  const starThreeFunction = () => {
+    starThree === 0 ? setStarThree(3) : setStarThree(0)
+  };
+
+  const starFourFunction = () => {
+    starFour === 0 ? setStarFour(4) : setStarFour(0)
+  };
+
+  const starFiveFunction = () => {
+    starFive === 0 ? setStarFive(5) : setStarFive(0)
+  };
 
   const sort = [
     { value: 'newest', label: 'Newest' },
@@ -23,7 +48,7 @@ function sortReviews() {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
     await getReviews(productId, 1, 100000, currentSort);
-    return reviews;
+    return filteredReview;
   };
 
   const getMetaData = async () => {
@@ -44,6 +69,10 @@ function sortReviews() {
   const hideReviewModalPop = () => {
     setShowWriteReviewModal(false);
   };
+
+  useEffect(() => {
+    filterReview(starOne, starTwo, starThree, starFour, starFive);
+  }, [starOne, starTwo, starThree, starFour, starFive]);
 
   useEffect(() => {
     getReviewList()
@@ -70,11 +99,11 @@ function sortReviews() {
   if (currentProduct !== null && ratings !== null) {
     return (
       <div>
-        <MetaRate />
+        <MetaRate starOne={starOneFunction} starTwo={starTwoFunction} starThree={starThreeFunction} starFour={starFourFunction} starFive={starFiveFunction} />
         <div>Sort on:</div>
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
-        <ViewList />
-        <WriteReview show={showWriteReviewModal} handleClose={hideReviewModalPop} />
+        <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
+        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
       </div>
     );

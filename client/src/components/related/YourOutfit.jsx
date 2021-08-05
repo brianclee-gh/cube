@@ -8,7 +8,7 @@ import { ProductsContext } from '../state/ProductsContext.jsx';
 
 const YourOutfitProducts = lazy(() => import('./YourOutfitProducts.jsx'));
 
-function YourOutfit({ cachedData, setCachedData }) {
+function YourOutfit({ cachedData, setCachedData, metaData }) {
   const [outfit, setOutfit] = useState(() => {
     const storedOutfit = localStorage.getItem('yourSavedOutfit');
     return storedOutfit !== null
@@ -44,6 +44,7 @@ function YourOutfit({ cachedData, setCachedData }) {
       <Suspense fallback={<div className="related-products-placeholder">Loading...</div>}>
         { currentStyle ? (
           <YourOutfitProducts
+            metaData={metaData}
             cachedData={cachedData}
             setCachedData={setCachedData}
             setOutfit={setOutfit}

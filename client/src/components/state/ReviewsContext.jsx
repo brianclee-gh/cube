@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const ReviewsContext = createContext(null);
@@ -7,13 +7,21 @@ export const ReviewsProvider = ({ children }) => {
   const [reviews, setReviews] = useState(null);
   const [metaData, setMetaData] = useState(null);
   const [ratings, setRatings] = useState(null);
+  const [filteredReview, setFilteredReview] = useState(null);
+
+  const filterReview = (one, two, three, four, five) => {
+    if (reviews !== null) {
+      const newReview = reviews.filter((parameter) => parameter.rating === one || parameter.rating === two || parameter.rating === three || parameter.rating === four || parameter.rating === five);
+      setFilteredReview(newReview);
+    }
+  };
 
   const getReviews = async (productId, page, count, sortBy) => {
     try {
       const fetchedReviews = await axios.get(`/reviews/?page=${page}&count=${count}&sort=${sortBy}&product_id=${productId}`);
       setReviews(fetchedReviews.data.results);
     } catch (e) {
-      console.log('error fetching review data')
+      console.log('error fetching review data');
     }
   };
 
@@ -43,7 +51,7 @@ export const ReviewsProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: data,
       };
-      await axios.post(`/reviews`, requestOptions);
+      await axios.post('/reviews', requestOptions);
       console.log('successfully posted data');
     } catch (e) {
       console.log(e);
@@ -68,6 +76,10 @@ export const ReviewsProvider = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    setFilteredReview(reviews);
+  }, [reviews]);
+
   return (
     <ReviewsContext.Provider
       value={{
@@ -80,6 +92,8 @@ export const ReviewsProvider = ({ children }) => {
         postReview,
         markHelpfulReview,
         reportReview,
+        filterReview,
+        filteredReview,
       }}
     >
       { children }

@@ -112,3 +112,15 @@
             - hover to zoom (on mouse move)
             - click to exit zoom
             - need a close for expanded
+
+        Cart-Post
+          [x]  - Add server route
+          [x]  -Test server route
+          [x]     -add axios post to submit function, check for size and quantity before allowing submit
+          [x]  - call function on submit of cart
+
+
+       Outstanding Items
+           - Social Media Share
+           - Star link to Review Page
+           - Zoom

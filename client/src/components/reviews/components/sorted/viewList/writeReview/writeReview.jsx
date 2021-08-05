@@ -13,7 +13,7 @@ import Image from './reviewImage/reviewImage.jsx';
 
 const postRequestObj = {};
 
-const Modal = ({ handleClose, show }) => {
+const Modal = ({ handleClose, show, submit }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const { currentProduct } = useContext(ProductsContext);
   const { metaData, postReview } = useContext(ReviewsContext);
@@ -29,7 +29,6 @@ const Modal = ({ handleClose, show }) => {
   const [postRequestBody, setPostRequestBody] = useState(null);
   const [errorImg, setErrorImg] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-  const [postRequestUpdate, setPostRequestUpdate] = useState(false);
 
   const errorImage = (e) => {
     (e === false) ? setErrorImg(false) : setErrorImg(true);
@@ -72,22 +71,9 @@ const Modal = ({ handleClose, show }) => {
     setReviewCharacteristics(obj);
   };
 
-  const postRequestReview = async () => {
-    if (!currentProduct) { return null; }
-    if (errorMessage === 'Please submit valid image') {
-      alert('Not able to submit it due to invalid entry')
-    } else {
-      await postReview(postRequestBody);
-      setPostRequestUpdate(true);
-    }
+  const handleSubmit = async () => {
+    await postReview(postRequestBody);
   };
-
-  useEffect(() => {
-    if (postRequestUpdate === true) {
-      handleClose();
-    }
-    setPostRequestUpdate(false);
-  }, [postRequestUpdate]);
 
   useEffect(() => {
     if (errorImg === true) {
@@ -120,7 +106,7 @@ const Modal = ({ handleClose, show }) => {
           <div className="writeReview_subtitle">
             About the {currentProduct.name}
           </div>
-          <form>
+          <form onSubmit={handleSubmit}>
             <Star change={writeStarRrating}/>
             <Recommend recommend={recommendation} />
             <Characteristics char={metaData.characteristics} change={characteristicsSet} />
@@ -139,7 +125,7 @@ const Modal = ({ handleClose, show }) => {
               )
               }) : null}
             <div className="writeReview_submissionError">{errorMessage}</div>
-            <button type="button" value="Submit" onClick={postRequestReview} className="reviewSubmitButton">Submit</button>
+            <input type="submit" value="Submit" disabled={errorImg ? true : false} className="reviewSubmitButton" />
           </form>
           <button type="button" onClick={handleClose}>Close</button>
         </section>

@@ -1,10 +1,20 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
-function Modal({ combined, modalOpen, closeModal }) {
+function Modal({
+  combined, modalOpen, closeModal, reportClick,
+}) {
   return (
-    <div className={`related-modal ${modalOpen ? '' : 'hidden'}`}>
+    <div
+      tabIndex="-4"
+      role="button"
+      onClick={(e) => {
+        reportClick(e, 'Modal');
+        if (e.target.classList.contains('related-modal')) { closeModal(); }
+      }}
+      onKeyDown={() => {}}
+      className={`related-modal ${modalOpen ? '' : 'hidden'}`}
+    >
       <div className="related-modal-container">
         <h3 className="modal-comparing-heading">COMPARING</h3>
         <table className="modal-table">
@@ -17,7 +27,7 @@ function Modal({ combined, modalOpen, closeModal }) {
             { combined ? Object.keys(combined).map((feature) => {
               if (feature !== 'names') {
                 return (
-                  <tr key={uuidv4()}>
+                  <tr key={feature}>
                     <th className="skinny-text">{combined[feature][0]}</th>
                     <th>{feature}</th>
                     <th className="skinny-text">{combined[feature][1]}</th>
