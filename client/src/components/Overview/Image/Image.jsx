@@ -87,18 +87,9 @@ function Image({ images }) {
             className={currentImage.index === 0
               ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
             onClick={() => { prevPhoto(); }}
-<<<<<<< HEAD
           />
           <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => {expandMain()}} />
           <i
-=======
-          /> */}
-          {/* <input type="checkbox" id="zoomCheck" />
-          <label htmlFor="zoomCheck"> */}
-          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => { expandMain(); }} onKeyDown={() => {}} />
-          {/* </label> */}
-          {/* <i
->>>>>>> main
             className={currentImage.index === currentImage.allImages.length - 1
               ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
             onClick={() => { nextPhoto(); }}
