@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './WriteEmail.css';
 
 const email = ({change}) => {
   const [emailUpdate, setemailUpdate] = useState("");

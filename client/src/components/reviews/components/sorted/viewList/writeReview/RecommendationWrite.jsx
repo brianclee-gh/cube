@@ -1,5 +1,5 @@
 import React from 'react';
-import './recommendationWrite.css';
+import './RecommendationWrite.css';
 
 const recommend = ({recommend}) => {
   const onChangeValue = () => {

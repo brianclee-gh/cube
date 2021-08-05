@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './reviewImage.css';
+import './ReviewImage.css';
 
 let imageArr = [];
 

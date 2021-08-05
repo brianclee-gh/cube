@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ReviewBody.css';
 
 const reviewBody = ({change}) => {
   const [bodyUpdate, setbodyUpdate] = useState("");

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Nickname.css';
 
 const nickname = ({change}) => {
   const [nicknameUpdate, setNicknameUpdate] = useState("");

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ReviewSummary.css';
 
 const reviewSummary = ({change}) => {
   const [summaryUpdate, setSummaryUpdate] = useState("");

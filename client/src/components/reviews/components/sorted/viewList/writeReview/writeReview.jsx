@@ -3,13 +3,13 @@ import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import './writeReview.css';
 import Star from './starRatingReview/Rate.jsx';
-import Recommend from './recommendationWrite/RecommendationWrite.jsx';
-import Characteristics from './characteristics/Characteristics.jsx';
-import ReviewSummary from './reviewSummary/ReviewSummary.jsx';
-import ReviewBody from './reviewBody/ReviewBody.jsx';
-import Nickname from './nickname/Nickname.jsx';
-import Email from './writeEmail/WriteEmail.jsx';
-import Image from './reviewImage/ReviewImage.jsx';
+import Recommend from './RecommendationWrite.jsx';
+import Characteristics from './Characteristics.jsx';
+import ReviewSummary from './ReviewSummary.jsx';
+import ReviewBody from './ReviewBody.jsx';
+import Nickname from './Nickname.jsx';
+import Email from './WriteEmail.jsx';
+import Image from './ReviewImage.jsx';
 
 const postRequestObj = {};
 
