@@ -14,7 +14,7 @@ import Answer from './Answer.jsx';
 
 const AnswerModal = lazy(() => import('./AnswerModal.jsx'));
 
-const Question = ({ question }) => {
+const Question = ({ question, setData, getQAList }) => {
   var answers = Object.entries(question.answers).map((a) => a[1]).sort((a, b) => ((a.helpfulness > b.helpfulness) ? -1 : 1));
 
   const [defaultAnswers, setDefaultAnswers] = useState(2);
@@ -86,6 +86,8 @@ const Question = ({ question }) => {
             <AnswerModal
               question={question}
               closeModal={closeModal}
+              setData={setData}
+              getQAList={getQAList}
             />
           </Suspense>
         ) : null}

@@ -5,24 +5,20 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
 import axios from 'axios';
-import { QAContext } from '../state/QAContext.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
-// import UploadPhotoModal from './UploadPhotoModal.jsx';
 
 const UploadPhotoModal = lazy(() => import('./UploadPhotoModal.jsx'));
 
-let postRequestObj = {};
+const postRequestObj = {};
 
-const AnswerModal = ({ question, closeModal }) => {
+const AnswerModal = ({ question, closeModal, setData, getQAList }) => {
   const { currentProduct } = useContext(ProductsContext);
-  const { getQuestions } = useContext(QAContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [answer, setAnswer] = useState('');
   const [photos, setPhotos] = useState([]);
   const [uploadPhoto, setUploadPhoto] = useState(false);
   const [postRequestBody, setPostRequestBody] = useState(null);
-  const [answerAdded, setAnswerAdded] = useState(false);
   const [errorImg, setErrorImg] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -33,8 +29,9 @@ const AnswerModal = ({ question, closeModal }) => {
       alert('Not able to submit answer due to invalid entry');
     } else {
       axios.post(`add/answer/${questionId}`, postRequestBody)
-        .then((res) => {
+        .then(async (res) => {
           console.log('posted', res.data);
+          setData(await getQAList());
         })
         .catch((err) => {
           console.log(err);
@@ -48,7 +45,6 @@ const AnswerModal = ({ question, closeModal }) => {
     postRequestObj['email'] = email;
     postRequestObj['photos'] = photos;
     setPostRequestBody(postRequestObj);
-    // console.log(postRequestBody);
   }, [answer, name, email, photos]);
 
   const addPhotos = (imageArr) => {
@@ -74,7 +70,6 @@ const AnswerModal = ({ question, closeModal }) => {
     setEmail('');
     setAnswer('');
     setPhotos([]);
-    setAnswerAdded(true);
   };
 
   const closePhotoModal = () => {
@@ -91,7 +86,7 @@ const AnswerModal = ({ question, closeModal }) => {
 
   useEffect(() => {
     if (errorImg === true) {
-      setErrorMessage('Please submit valid images');
+      setErrorMessage('*Please submit valid images*');
     } else {
       setErrorMessage(null);
     }
@@ -119,7 +114,9 @@ const AnswerModal = ({ question, closeModal }) => {
             <input className="modal-answer" placeholder="Your answer here..." required type="text" maxLength="1000" minLength="" autoComplete="off" value={answer} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="photos-feature-container">
-              <button className="photo-modal-btn" onClick={openPhotoModal} type="button">Upload Photos</button>
+              { (photos.length !== 5)
+                ? <button className="photo-modal-btn" onClick={openPhotoModal} type="button">Upload Photos</button>
+                : null}
               <Suspense fallback={<div>Loading...</div>}>
                 <UploadPhotoModal
                   uploadPhoto={uploadPhoto}

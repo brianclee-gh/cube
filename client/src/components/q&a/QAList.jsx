@@ -125,7 +125,14 @@ const QAList = () => {
         <QASearch searchText={search} handleSearch={handleSearch} />
         <div className="qa-list">
           { filteredData
-            ? filteredData.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
+            ? filteredData.slice(0, defaultQuestions).map((q) => (
+              <Question
+                question={q}
+                key={q.question_id}
+                setData={setData}
+                getQAList={getQAList}
+              />
+            ))
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
