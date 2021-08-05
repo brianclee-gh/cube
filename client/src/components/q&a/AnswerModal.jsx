@@ -3,11 +3,13 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
 import axios from 'axios';
 import { QAContext } from '../state/QAContext.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
-import UploadPhotoModal from './UploadPhotoModal.jsx';
+// import UploadPhotoModal from './UploadPhotoModal.jsx';
+
+const UploadPhotoModal = lazy(() => import('./UploadPhotoModal.jsx'));
 
 let postRequestObj = {};
 
@@ -23,23 +25,6 @@ const AnswerModal = ({ question, closeModal }) => {
   const [answerAdded, setAnswerAdded] = useState(false);
   const [errorImg, setErrorImg] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
-
-  // const postAnswer = () => {
-  //   const questionId = question.question_id;
-  //   axios.post(`add/answer/${questionId}`, {
-  //     body: answer,
-  //     name: name,
-  //     email: email,
-  //     photos: photos,
-  //   })
-  //     .then((res) => {
-  //       console.log('posted', res.data);
-  //       closeModal;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
 
   const postAnswer = () => {
     const questionId = question.question_id;
@@ -135,12 +120,14 @@ const AnswerModal = ({ question, closeModal }) => {
             <br />
             <div className="photos-feature-container">
               <button className="photo-modal-btn" onClick={openPhotoModal} type="button">Upload Photos</button>
-              <UploadPhotoModal
-                uploadPhoto={uploadPhoto}
-                addPhotos={addPhotos}
-                closePhotoModal={closePhotoModal}
-                reset={errorImage}
-              />
+              <Suspense fallback={<div>Loading...</div>}>
+                <UploadPhotoModal
+                  uploadPhoto={uploadPhoto}
+                  addPhotos={addPhotos}
+                  closePhotoModal={closePhotoModal}
+                  reset={errorImage}
+                />
+              </Suspense>
               <div className="thumbnails-container">
                 {photos ? photos.map((photo) => {
                   return (
