@@ -62,7 +62,7 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
             {' '}
             {currentProduct.name}
           </h3>
-          <div className="question-modal-form">
+          <form className="question-modal-form" onSubmit={handleSubmit}>
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
             <br />
@@ -77,10 +77,10 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={handleChange} />
             <br />
             <div className="btn-container">
-              <button onClick={handleSubmit} className="modal-submit-btn" type="button">Add</button>
+              <button className="modal-submit-btn" type="submit">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
-          </div>
+          </form>
         </div>
       </>
       )}
