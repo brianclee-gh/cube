@@ -9,12 +9,22 @@ import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
+const postRequestObj = {};
+
 const QuestionModal = ({ closeModal, submit }) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [question, setQuestion] = useState('');
-//   const [postRequestUpdate, setPostRequestUpdate] = useState(false);
+  const [postRequestBody, setPostRequestBody] = useState(null);
+
+  useEffect(() => {
+    postRequestObj['body'] = question;
+    postRequestObj['name'] = name;
+    postRequestObj['email'] = email;
+    setPostRequestBody(postRequestObj);
+    // console.log(postRequestBody);
+  }, [question, name, email]);
 
   const postQuestion = () => {
     const productId = currentProduct.id;
@@ -26,7 +36,6 @@ const QuestionModal = ({ closeModal, submit }) => {
     })
       .then((res) => {
         console.log('posted', res.data);
-        closeModal;
       })
       .catch((err) => {
         console.log(err);
@@ -46,24 +55,12 @@ const QuestionModal = ({ closeModal, submit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postQuestion();
-    // setPostRequestUpdate(true);
-    submit();
+    // submit();
     closeModal();
     setName('');
     setEmail('');
     setQuestion('');
   };
-
-//   useEffect(() => {
-//     if (postRequestUpdate === true) {
-//       closeModal();
-//     }
-//     setPostRequestUpdate(false);
-//   }, [postRequestUpdate]);
-
-//   useEffect(() => {
-//     submit();
-//   }, [postRequestUpdate]);
 
   return (
     <div className="question-modal">
@@ -76,7 +73,7 @@ const QuestionModal = ({ closeModal, submit }) => {
             {' '}
             {currentProduct.name}
           </h3>
-          <form className="question-modal-form" onSubmit={handleSubmit}>
+          <div className="question-modal-form">
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={(e) => { handleChange(e); }} />
             <br />
@@ -91,10 +88,10 @@ const QuestionModal = ({ closeModal, submit }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="btn-container">
-              <button className="modal-submit-btn" type="submit">Add</button>
+              <button onClick={handleSubmit} className="modal-submit-btn" type="button">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
-          </form>
+          </div>
         </div>
       </>
       )}

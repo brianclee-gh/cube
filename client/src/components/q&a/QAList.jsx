@@ -24,13 +24,13 @@ const QAList = () => {
   const clickedSubmit = () => {
     setAfterQuestionPost(!afterQuestionPost);
     // setAfterQuestionPost(afterQuestionPost + 1);
-    console.log(afterQuestionPost);
+    // console.log(afterQuestionPost);
   };
 
   const getQAList = async () => {
     if (!currentProduct) { return null; }
     const productId = currentProduct.id;
-    const fetchedData = await getQuestions(productId, 1, 21);
+    const fetchedData = await getQuestions(productId, 1, 100);
     return fetchedData;
   };
 
@@ -50,8 +50,6 @@ const QAList = () => {
   }, [currentProduct, afterQuestionPost]);
 
   const loadMore = () => {
-    // expanded ? setDefaultQuestions(2) : setDefaultQuestions(data.length);
-    // setExpanded(!expanded);
     setDefaultQuestions(defaultQuestions + 2);
     if (defaultQuestions >= data.length) {
       setExpanded(false);
