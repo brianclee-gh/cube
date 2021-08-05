@@ -30,6 +30,7 @@
 }
 
 .product-name {
+  width: 400px;
   font-size: 40px;
   font-weight: bold;
 }
