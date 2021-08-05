@@ -76,8 +76,8 @@ export const QAProvider = ({ children }) => {
         headers: { 'Content-Type': 'application/json' },
         body: data,
       };
-      await axios.post(`/add/answer/${questionId}`, requestOptions);
-      console.log('successfully posted');
+      return await axios.post(`/add/answer/${questionId}`, requestOptions);
+    //   console.log('successfully posted');
     } catch (err) {
       console.log(err);
     }
