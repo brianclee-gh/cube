@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './metaData.css';
-import StarRating from '../../../averageReview/metaRate.jsx';
-import EachRate from './eachRate/eachRate.jsx';
+import StarRating from '../../../averageReview/MetaRate.jsx';
+import EachRate from './eachRate/EachRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
-import SizeComfort from './sizeComfort/sizeComfort.jsx';
-import Recommendation from './recommendation/recommendation.jsx';
+import SizeComfort from './sizeComfort/SizeComfort.jsx';
+import Recommendation from './recommendation/Recommendation.jsx';
 
 function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
   const { ratings } = useContext(ReviewsContext);

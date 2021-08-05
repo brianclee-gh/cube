@@ -45,7 +45,7 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postQuestion();
-    closeModal();
+    // closeModal();
     setName('');
     setEmail('');
     setQuestion('');
@@ -79,7 +79,7 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="btn-container">
-              <button onClick={handleSubmit} className="modal-submit-btn" type="submit">Add</button>
+              <input className="modal-submit-btn" type="submit" value="Add" />
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
           </form>

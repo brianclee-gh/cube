@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
-import MetaRate from './viewList/metaData/metaRate.jsx';
-import ViewList from './viewList/reviewList/viewList.jsx';
+import MetaRate from './viewList/metaData/MetaRate.jsx';
+import ViewList from './viewList/reviewList/ViewList.jsx';
 import Select from 'react-select'
-import WriteReview from './viewList/writeReview/writeReview.jsx';
+import WriteReview from './viewList/writeReview/WriteReview.jsx';
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);

@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './viewList.css';
-import StarRating from '../../../averageReview/metaRate.jsx';
+import StarRating from '../../../averageReview/MetaRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import moment from 'moment';
-import LongerThan from './longerThan.jsx';
-import ImagePopUp from './imagePopUp/imagePopUp.jsx';
-import Helpful from './helpful/helpful.jsx';
+import LongerThan from './LongerThan.jsx';
+import ImagePopUp from './imagePopUp/ImagePopUp.jsx';
+import Helpful from './helpful/Helpful.jsx';
 
 function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
   const { filteredReview, reviews } = useContext(ReviewsContext);

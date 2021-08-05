@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import './writeReview.css';
-import Star from './starRatingReview/rate.jsx';
-import Recommend from './recommendationWrite/recommendationWrite.jsx';
-import Characteristics from './characteristics/characteristics.jsx';
-import ReviewSummary from './reviewSummary/reviewSummary.jsx';
-import ReviewBody from './reviewBody/reviewBody.jsx';
-import Nickname from './nickname/nickname.jsx';
-import Email from './writeEmail/writeEmail.jsx';
-import Image from './reviewImage/reviewImage.jsx';
+import Star from './starRatingReview/Rate.jsx';
+import Recommend from './recommendationWrite/RecommendationWrite.jsx';
+import Characteristics from './characteristics/Characteristics.jsx';
+import ReviewSummary from './reviewSummary/ReviewSummary.jsx';
+import ReviewBody from './reviewBody/ReviewBody.jsx';
+import Nickname from './nickname/Nickname.jsx';
+import Email from './writeEmail/WriteEmail.jsx';
+import Image from './reviewImage/ReviewImage.jsx';
 
 const postRequestObj = {};
 
@@ -73,6 +73,7 @@ const Modal = ({ handleClose, show, submit }) => {
 
   const handleSubmit = async () => {
     await postReview(postRequestBody);
+
   };
 
   useEffect(() => {
