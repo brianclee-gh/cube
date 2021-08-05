@@ -6,7 +6,7 @@
   height: auto;
   /* margin-left: 50px; */
   margin-top: 25px;
-  background-color: rgb(163, 159, 159);
+  /* background-color: rgb(163, 159, 159); */
 }
 .Main-Image-Container {
   display: flex;
@@ -50,11 +50,13 @@
   height: 70px;
   object-fit: cover;
   object-position:50% 50%;
-  border: 1px solid white;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 .selectActive {
-  background-color: yellow;
+  /* border: 1px solid yellow; */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 i {
@@ -116,7 +118,7 @@ i {
   height: auto;
   /* margin-left: 50px; */
   margin-top: 25px;
-  background-color: rgb(163, 159, 159);
+  background-color: rgb(182, 177, 177);
 
   width: 150%;
   z-index: 20;
@@ -174,4 +176,23 @@ i {
   top: 50%;
   /* transform: translate(-50%, -50%); */
   pointer-events: none;
+}
+
+.close-expanded {
+  align-self: flex-end;
+  background-color: rgb(7, 7, 7);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  cursor: pointer;
+  width: 210px;
+  height: 40px;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.close-expanded:hover {
+  background-color: white;
+  border-radius: 4px;
+  color: black;
+  border: 2px solid white;
 }
