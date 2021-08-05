@@ -140,7 +140,7 @@ function Image({ images }) {
             onClick={() => { nextPhoto(); }}
             onKeyDown={() => {}}
           />
-          {expanded && (<button type="button" className="close-expanded" onClick={() => { expandMain(); }}>Close Expanded</button>)}
+          {expanded && (<button type="button" className="close-expanded" onClick={() => { expandMain(); }}>Close</button>)}
         </div>
       </div>
       {/* )} */}
