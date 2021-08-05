@@ -122,5 +122,7 @@
 
        Outstanding Items
            - Social Media Share
-           - Star link to Review Page
-           - Zoom
+        [x]- Star link to Review Page
+        [x] - Zoom
+            - Accessibility
+            - Optimization
