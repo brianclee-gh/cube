@@ -14,7 +14,6 @@ import './qa-style.scss';
 
 const QuestionModal = lazy(() => import('./QuestionModal.jsx'));
 
-
 let overallData = [];
 
 const QAList = () => {
