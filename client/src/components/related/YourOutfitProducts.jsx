@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React from 'react';
 import OutfitCard from './OutfitCard.jsx';
 import AddToOutfit from './AddToOutfit.jsx';
 import Carousel from './Carousel.jsx';

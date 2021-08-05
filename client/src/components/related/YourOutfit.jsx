@@ -55,17 +55,6 @@ function YourOutfit({ cachedData, setCachedData, metaData }) {
           />
         ) : <div className="related-products-placeholder">Loading...</div>}
       </Suspense>
-      {/* { currentProduct && currentStyle ? (
-        <YourOutfitProducts
-          cachedData={cachedData}
-          setCachedData={setCachedData}
-          setOutfit={setOutfit}
-          outfit={outfit}
-          addToOutfit={addToOutfit}
-          currentProduct={currentProduct}
-          currentStyle={currentStyle.results[0]}
-        />
-      ) : 'Loading'} */}
     </div>
   );
 }
