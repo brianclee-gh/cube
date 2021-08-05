@@ -13,14 +13,25 @@ function Image({ images }) {
     allImages: images,
     index: 0,
   });
+
   // Watches for images prop to change
   useEffect(() => {
-    setCurrentImage({
-      ...currentImage,
-      allImages: images,
-      // index: (prevIndex) => {prevIndex; },
-      active: images[currentImage.index].thumbnail_url || 'https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1',
-    });
+    if (images[currentImage.index] === undefined) {
+      setCurrentImage({
+        ...currentImage,
+        allImages: images,
+        // index: (prevIndex) => {prevIndex; },
+        active: images[0].thumbnail_url || defaultImage,
+        index: 0,
+      });
+    } else {
+      setCurrentImage({
+        ...currentImage,
+        allImages: images,
+        active: images[currentImage.index].thumbnail_url || defaultImage,
+        index: currentImage.index,
+      });
+    }
   }, [images]);
 
   const changeMainPhoto = (image, photoIndex) => {
@@ -55,76 +66,84 @@ function Image({ images }) {
   };
   const [expanded, setExpanded] = useState(false);
   const expandMain = () => {
-    setExpanded(!expanded);
+    if (!expanded) {
+      setExpanded(true);
+    } else {
+      setExpanded(false);
+      changeStyle();
+    }
   };
+  // const area = React.useRef(null);
+  const zoomPan = (event) => {
+    const area = document.getElementsByClassName('Main-Image-Zoom-Area')[0];
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded-Zoom')[0];
+    let clientX = event.clientX - area.offsetLeft;
+    let clientY = event.clientY - area.offsetTop;
 
+    const mWidth = area.offsetWidth;
+    const mHeight = area.offsetHeight;
+    clientX = -((clientX / mWidth) * 100 - 50);
+    clientY = -((clientY / mHeight) * 100 - 50);
+    photoZoom.style.transform = `translate(${clientX}%, ${clientY}%) scale(2)`;
+  };
+  const changeStyle = () => {
+    const photoZoom = document.getElementsByClassName('Main-Image-Expanded-Zoom')[0];
+    photoZoom.style.transform = null;
+  };
   return (
     <>
-      {expanded ? (
-        <div className="expanded-main">
-          {/* <i
+      <div className={expanded ? 'expanded-main' : 'Image-Component'}>
+        <div className="Thumbnail-Arrow-Container">
+          <i
+            className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
+            onClick={() => { prevPhoto(); }}
+            onKeyDown={() => {}}
+          />
+          <div className="Thumbnail-Container">
+            {currentImage.allImages.map((image, index) => (
+              <ImageThumbnails
+                thumbnail={image.thumbnail_url || defaultImage}
+                key={image.thumbnail_url + index || defaultImage}
+                changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url || defaultImage, index); }}
+                currentActive={currentImage.active}
+              />
+            ))}
+          </div>
+          <i
+            className={currentImage.index === currentImage.allImages.length - 1
+              ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
+            onClick={() => { nextPhoto(); }}
+            onKeyDown={() => {}}
+          />
+        </div>
+        <div className="Main-Image-Container">
+          <i
             className={currentImage.index === 0
               ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
             onClick={() => { prevPhoto(); }}
-          /> */}
-          {/* <input type="checkbox" id="zoomCheck" />
-          <label htmlFor="zoomCheck"> */}
-          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => { expandMain(); }} onKeyDown={() => {}} />
-          {/* </label> */}
-          {/* <i
-            className={currentImage.index === currentImage.allImages.length - 1
-              ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
-            onClick={() => { nextPhoto(); }}
-          /> */}
-        </div>
-      ) : (
-        <div className="Image-Component">
-          <div className="Thumbnail-Arrow-Container">
-            <i
-              className={currentImage.index === 0 ? 'fas fa-angle-up top-arrow-hidden' : 'fas fa-angle-up'}
-              onClick={() => { prevPhoto(); }}
-              onKeyDown={() => {}}
-            />
-            <div className="Thumbnail-Container">
-              {currentImage.allImages.map((image, index) => (
-                <ImageThumbnails
-                  thumbnail={image.thumbnail_url || defaultImage}
-                  key={image.thumbnail_url + index || defaultImage}
-                  changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url, index); }}
-                  currentActive={currentImage.active}
-                />
-              ))}
-            </div>
-            <i
-              className={currentImage.index === currentImage.allImages.length - 1
-                ? 'fas fa-angle-down bottom-arrow-hidden' : 'fas fa-angle-down'}
-              onClick={() => { nextPhoto(); }}
-              onKeyDown={() => {}}
-            />
-          </div>
-          <div className="Main-Image-Container">
-            <i
-              className={currentImage.index === 0
-                ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
-              onClick={() => { prevPhoto(); }}
-              onKeyDown={() => {}}
-            />
+            onKeyDown={() => {}}
+          />
+          <div
+            className={expanded ? 'Main-Image-Zoom-Area' : 'Main-Image-Expanded'}
+            onMouseMove={expanded ? zoomPan : null}
+          >
             <img
-              className="Main-Image"
+              className={expanded ? 'Main-Image-Expanded-Zoom' : 'Main-Image'}
               src={currentImage.active}
               alt="currentProduct"
               onClick={() => { expandMain(); }}
-              onKeyDown={() => {}}
-            />
-            <i
-              className={currentImage.index === currentImage.allImages.length - 1
-                ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
-              onClick={() => { nextPhoto(); }}
-              onKeyDown={() => {}}
             />
           </div>
+          <i
+            className={currentImage.index === currentImage.allImages.length - 1
+              ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
+            onClick={() => { nextPhoto(); }}
+            onKeyDown={() => {}}
+          />
+          {expanded && (<button type="button" className="close-expanded" onClick={() => { expandMain(); }}>Close</button>)}
         </div>
-      )}
+      </div>
+      {/* )} */}
     </>
   );
 }
