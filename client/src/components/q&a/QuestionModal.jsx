@@ -5,15 +5,26 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
-const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
+const postRequestObj = {};
+
+const QuestionModal = ({ closeModal, submit }) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [question, setQuestion] = useState('');
+  const [postRequestBody, setPostRequestBody] = useState(null);
+
+  useEffect(() => {
+    postRequestObj['body'] = question;
+    postRequestObj['name'] = name;
+    postRequestObj['email'] = email;
+    setPostRequestBody(postRequestObj);
+    // console.log(postRequestBody);
+  }, [question, name, email]);
 
   const postQuestion = () => {
     const productId = currentProduct.id;
@@ -25,7 +36,6 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
     })
       .then((res) => {
         console.log('posted', res.data);
-        closeModal;
       })
       .catch((err) => {
         console.log(err);
@@ -45,13 +55,12 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postQuestion();
+    // submit();
     closeModal();
     setName('');
     setEmail('');
     setQuestion('');
   };
-
-//   let test = modalOpen ? 'question-modal' : 'qa-hidden';
 
   return (
     <div className="question-modal">
@@ -64,7 +73,7 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
             {' '}
             {currentProduct.name}
           </h3>
-          <form className="question-modal-form" onSubmit={handleSubmit}>
+          <div className="question-modal-form">
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={(e) => { handleChange(e); }} />
             <br />
@@ -79,10 +88,10 @@ const QuestionModal = ({ modalOpen, closeModal, openModal }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="btn-container">
-              <button onClick={handleSubmit} className="modal-submit-btn" type="submit">Add</button>
+              <button onClick={handleSubmit} className="modal-submit-btn" type="button">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
-          </form>
+          </div>
         </div>
       </>
       )}
