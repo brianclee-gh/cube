@@ -10,7 +10,7 @@ function Header() {
       <div className="search-bar">
         <form onSubmit={() => {}}>
           <input className="search-input" type="text" placeholder="" />
-          <button className="search-input-btn" type="submit">
+          <button className="search-input-btn" type="submit" aria-label="search">
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </form>
