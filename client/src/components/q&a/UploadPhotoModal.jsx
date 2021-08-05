@@ -3,31 +3,17 @@ import React, { useState, useEffect } from 'react';
 
 let imageArr = [];
 
-const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal }) => {
+const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal, reset }) => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [imageThree, setImageThree] = useState(null);
   const [imageFour, setImageFour] = useState(null);
   const [imageFive, setImageFive] = useState(null);
-  const [images, setImages] = useState(null);
-  //   let [imageUploadCounter, setImageUploadCounter] = useState(0);
-
-  //   useEffect(() => {
-  //     imageArr = [];
-  //     setImageUploadCounter(0);
-  //   }, []);
-
-  //   useEffect(() => {
-  //     console.log(imageArr);
-  //     setImages(imageArr);
-  //     console.log(images);
-  //     closePhotoModal();
-  //   }, [imageUploadCounter]);
+  const [images, setImages] = useState([]);
 
   const uploadImageURL = () => {
     if (imageOne !== null && imageArr.includes(imageOne) !== true && imageOne !== "") {
       imageArr.push(imageOne);
-    //   setImageUploadCounter(imageUploadCounter + 1);
     }
     if (imageTwo !== null && imageArr.includes(imageTwo) !== true && imageOne !== "") {
       imageArr.push(imageTwo);
@@ -41,10 +27,7 @@ const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal }) => {
     if (imageFive !== null && imageArr.includes(imageFive) !== true && imageOne !== "") {
       imageArr.push(imageFive);
     }
-    console.log(imageOne);
-    console.log(imageArr);
     setImages(imageArr);
-    console.log(images);
     imageArr = [];
     closePhotoModal();
   };
@@ -73,28 +56,35 @@ const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal }) => {
     addPhotos(images);
   }, [images]);
 
+  useEffect(() => {
+    reset(false);
+  }, [images]);
+
   return (
     <div className={uploadPhoto ? 'photo-modal' : 'qa-hidden'}>
       <div className="photo-modal-container">
         <div className="photo-modal-form">
           <h2 className="modal-title">Upload Photos</h2>
-          <p className="modal-photo-sub"> Up to 5 URL links can be added!</p>
-          {/* <p className="modal-photo-sub"> Please separate your URL links with a comma.</p> */}
+          <p className="modal-photo-sub">*Up to 5 images can be added!*</p>
           <br />
-          <label className="modal-photo-label">Image URL #1</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeOne} />
+          <label className="modal-photo-label">Image URL (1)</label>
+          <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeOne} />
           <br />
-          <label className="modal-photo-label">Image URL #2</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeTwo} />
           <br />
-          <label className="modal-photo-label">Image URL #3</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeThree} />
+          <label className="modal-photo-label">Image URL (2)</label>
+          <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeTwo} />
           <br />
-          <label className="modal-photo-label">Image URL #4</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeFour} />
           <br />
-          <label className="modal-photo-label">Image URL #5</label>
-          <input className="modal-photo" placeholder="URL link here..." type="text" onChange={changeFive} />
+          <label className="modal-photo-label">Image URL (3)</label>
+          <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeThree} />
+          <br />
+          <br />
+          <label className="modal-photo-label">Image URL (4)</label>
+          <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeFour} />
+          <br />
+          <br />
+          <label className="modal-photo-label">Image URL (5)</label>
+          <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeFive} />
         </div>
         <div className="btn-container">
           <button onClick={uploadImageURL} className="modal-submit-btn" type="button">Upload</button>

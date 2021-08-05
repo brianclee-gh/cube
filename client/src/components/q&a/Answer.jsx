@@ -7,6 +7,7 @@ import moment from 'moment';
 import axios from 'axios';
 
 const Answer = ({ answer }) => {
+//   console.log(answer.photos);
   const [helpfulCounter, setHepfulCounter] = useState(answer.helpfulness);
   const [helped, setHelped] = useState(false);
   const [reported, setReported] = useState(false);
@@ -51,10 +52,10 @@ const Answer = ({ answer }) => {
         <div className="answer-body">
           <b>A: </b> {answer.body}
         </div>
-        <div className="answer-photos">
+        <div className={(answer.photos !== []) ? 'answer-photos' : 'qa-hidden'}>
           {answer.photos.map((photo) => (
-            <div className="photo-thumbnail" key={photo.id}>
-              <img className="photo-img" src={photo.url} alt="image" />
+            <div className="photo-thumbnail" key={photo}>
+              <img className="photo-img" src={photo} alt="image" />
             </div>
           ))}
         </div>
