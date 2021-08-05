@@ -27,11 +27,9 @@ function AddToOutfit({
       <li className="outfit-card-container" id="outfit_0">
         <div role="button" tabIndex="-3" onClick={(e) => reportClick(e, 'AddToOutfit')} onKeyDown={() => {}}>
           <div className="outfit-image-container">
-            <img
-              className="outfit-product-img faded"
-              src={`${currentStyle.photos[0].thumbnail_url}&ar=0.75:1&fit=crop`}
-              alt="product"
-            />
+            {currentStyle.photos[0].thumbnail_url !== null
+              ? <img className="outfit-product-img faded" src={`${currentStyle.photos[0].thumbnail_url}&ar=0.75:1&fit=crop`} alt="product" />
+              : <img className="outfit-product-img faded" src="https://images.unsplash.com/photo-1599839575338-31b11ae2cd16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80&ar=0.75:1" alt="product" />}
             <div
               role="button"
               data-btn="add-to-outfit"
