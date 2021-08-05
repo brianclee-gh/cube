@@ -1,11 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, lazy, Suspense } from 'react';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
 import MetaRate from './viewList/metaData/MetaRate.jsx';
 import ViewList from './viewList/reviewList/ViewList.jsx';
-import Select from 'react-select'
+import Select from 'react-select';
 import WriteReview from './viewList/writeReview/WriteReview.jsx';
+
+// const WriteReview = lazy(() => import('./viewList/writeReview/WriteReview.jsx'));
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
@@ -103,7 +105,7 @@ function sortReviews() {
         <div>Sort on:</div>
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
-        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
+          <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
       </div>
     );
