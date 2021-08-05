@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/extensions */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ImageThumbnails from './ImageThumbnails.jsx';
 import './Image.css';
 
@@ -57,21 +57,21 @@ function Image({ images }) {
   const expandMain = () => {
     setExpanded(!expanded);
   };
-
+  // const area = React.useRef(null);
   const zoomPan = (event) => {
     const area = document.getElementsByClassName('Main-Image-Zoom-Area')[0];
     const photoZoom = document.getElementsByClassName('Main-Image-Expanded-Zoom')[0];
-
     let clientX = event.clientX - area.offsetLeft;
     let clientY = event.clientY - area.offsetTop;
 
     const mWidth = area.offsetWidth;
     const mHeight = area.offsetHeight;
-    clientX = (clientX / mWidth) * 100;
-    clientY = (clientY / mHeight) * 100;
-
-
-    photoZoom.style.transform = `translate(-${clientX}%, -${clientY}%) scale(2)`;
+    clientX = -((clientX / mWidth) * 100 - 50);
+    clientY = -((clientY / mHeight) * 100 - 50);
+    // x: 50 = (130 / y) * 100 + c
+    // x: -50 = (670 / y) * 100 + c
+    // mWidth calculcation
+    photoZoom.style.transform = `translate(${clientX}%, ${clientY}%) scale(2)`;
   };
 
   const changeStyle = () => {
@@ -81,21 +81,6 @@ function Image({ images }) {
   // onMouseMove={expanded ? zoomPan : null}
   return (
     <>
-      {/* {expanded ? (
-        <div className="expanded-main">
-          <i
-            className={currentImage.index === 0
-              ? 'fas fa-arrow-left left-arrow-hidden' : 'fas fa-arrow-left'}
-            onClick={() => { prevPhoto(); }}
-          />
-          <img className="Main-Image-Expanded" src={currentImage.active} alt="currentProduct" onClick={() => {expandMain()}} />
-          <i
-            className={currentImage.index === currentImage.allImages.length - 1
-              ? 'fas fa-arrow-right right-arrow-hidden' : 'fas fa-arrow-right'}
-            onClick={() => { nextPhoto(); }}
-          />
-        </div>
-      ) : ( */}
         <div className={expanded ? 'expanded-main' : 'Image-Component'}>
           <div className="Thumbnail-Arrow-Container">
             <i

@@ -167,10 +167,11 @@ i {
 
 .Main-Image-Expanded-Zoom {
   /* position: fixed; */
+  /* transform-origin: top left; */
   min-height: 700px;
   width: auto;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   pointer-events: none;
 }
