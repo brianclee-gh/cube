@@ -104,6 +104,7 @@ function Image({ images }) {
               <ImageThumbnails
                 thumbnail={image.thumbnail_url || defaultImage}
                 key={image.thumbnail_url + index || defaultImage}
+                // eslint-disable-next-line max-len
                 changeMainPhoto={() => { changeMainPhoto(image.thumbnail_url || defaultImage, index); }}
                 currentActive={currentImage.active}
               />
@@ -132,6 +133,7 @@ function Image({ images }) {
               src={currentImage.active}
               alt="currentProduct"
               onClick={() => { expandMain(); }}
+              onKeyDown={() => {}}
             />
           </div>
           <i
@@ -143,7 +145,6 @@ function Image({ images }) {
           {expanded && (<button type="button" className="close-expanded" onClick={() => { expandMain(); }}>Close</button>)}
         </div>
       </div>
-      {/* )} */}
     </>
   );
 }
