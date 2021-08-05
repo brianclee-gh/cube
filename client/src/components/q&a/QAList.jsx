@@ -3,28 +3,39 @@
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
 // import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
-import QuestionModal from './QuestionModal.jsx';
+// import QuestionModal from './QuestionModal.jsx';
 import { QAContext } from '../state/QAContext.jsx';
 import './qa-style.scss';
+
+const QuestionModal = lazy(() => import('./QuestionModal.jsx'));
+
+
+let overallData = [];
 
 const QAList = () => {
   const { currentProduct, getData } = useContext(ProductsContext);
   const { getQuestions } = useContext(QAContext);
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [defaultQuestions, setDefaultQuestions] = useState(2);
   const [expanded, setExpanded] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [afterQuestionPost, setAfterQuestionPost] = useState(false);
+  const [search, setSearch] = useState('');
 
-  const clickedSubmit = () => {
-    setAfterQuestionPost(!afterQuestionPost);
-    // setAfterQuestionPost(afterQuestionPost + 1);
-    // console.log(afterQuestionPost);
+  //   const clickedSubmit = () => {
+  //     setAfterQuestionPost(!afterQuestionPost);
+  //     // setAfterQuestionPost(afterQuestionPost + 1);
+  //     // console.log(afterQuestionPost);
+  //   };
+
+  const addData = (obj) => {
+    overallData.push(obj);
   };
 
   const getQAList = async () => {
@@ -44,32 +55,61 @@ const QAList = () => {
         if (fetched) {
           const sorted = fetched.sort((a, b) => ((a.question_helpfulness > b.question_helpfulness) ? -1 : 1));
           setData(sorted);
+          setFilteredData(sorted);
         }
       })
       .catch((err) => console.log(err));
-  }, [currentProduct, afterQuestionPost]);
+  }, [currentProduct]);
 
   const loadMore = () => {
     setDefaultQuestions(defaultQuestions + 2);
-    if (defaultQuestions >= data.length) {
+    if (defaultQuestions >= filteredData.length) {
       setExpanded(false);
     }
   };
 
   useEffect(() => {
-    if (data != null) {
-      if (data.length <= 2) {
+    if (filteredData != null) {
+      if (filteredData.length <= 2) {
         setExpanded(false);
       } else {
         setExpanded(true);
       }
     }
-  }, [data]);
+  }, [filteredData, search]);
 
   useEffect(() => {
     setDefaultQuestions(2);
     setExpanded(null);
   }, [currentProduct]);
+
+  const searchList = () => {
+    if (search.length <= 2) {
+      setFilteredData(data);
+    //   console.log(filteredData);
+    } else {
+      const filteredArr = [];
+      for (let i = 0; i < filteredData.length; i += 1) {
+        if (filteredData[i].question_body.toLowerCase().includes(search)) {
+          filteredArr.push(filteredData[i]);
+        }
+      }
+      setFilteredData(filteredArr);
+      console.log(filteredData);
+    }
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearch(e.target.value);
+    if (search.length > 2 || search === '') {
+      searchList();
+    }
+  };
+
+//   useEffect = (() => {
+//     searchList();
+//   }, [filteredData, search]);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -83,10 +123,10 @@ const QAList = () => {
     <div className="qa-flex-container">
       <div className="qa-container">
         <h2 className="qa-header">Questions & Answers</h2>
-        <QASearch />
+        <QASearch searchText={search} handleSearch={handleSearch} />
         <div className="qa-list">
-          { data
-            ? data.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
+          { filteredData
+            ? filteredData.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
@@ -95,10 +135,12 @@ const QAList = () => {
         </div>
       </div>
       { modalOpen ? (
-        <QuestionModal
-          closeModal={closeModal}
-          submit={clickedSubmit}
-        />
+        <Suspense fallback={<div>Loading...</div>}>
+          <QuestionModal
+            closeModal={closeModal}
+          //   submit={clickedSubmit}
+          />
+        </Suspense>
       ) : null}
     </div>
   );

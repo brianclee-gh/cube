@@ -7,11 +7,12 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import axios from 'axios';
 import Answer from './Answer.jsx';
-import AnswerModal from './AnswerModal.jsx';
-// import { markQuestionHelpful, reportQuestion } from '../state/QAContext.jsx';
+// import AnswerModal from './AnswerModal.jsx';
+
+const AnswerModal = lazy(() => import('./AnswerModal.jsx'));
 
 const Question = ({ question }) => {
   var answers = Object.entries(question.answers).map((a) => a[1]).sort((a, b) => ((a.helpfulness > b.helpfulness) ? -1 : 1));
@@ -81,10 +82,12 @@ const Question = ({ question }) => {
           </a>
         ) : null}
         { modalOpen ? (
-          <AnswerModal
-            question={question}
-            closeModal={closeModal}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <AnswerModal
+              question={question}
+              closeModal={closeModal}
+            />
+          </Suspense>
         ) : null}
       </div>
     </>
