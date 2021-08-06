@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './viewList.css';
+import './ViewList.css';
 
 const fullBodyReviewList = ({half, test}) => {
   const [testUnit, setTest] = useState(true);
