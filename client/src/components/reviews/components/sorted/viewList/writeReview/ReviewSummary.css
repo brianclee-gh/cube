@@ -1,0 +1,25 @@
+.writeReviewSummary {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px
+}
+
+.writeReviewSummaryLabel {
+  width: 300px;
+  color: #373737;
+  margin-right: 10px;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#writeReviewSummaryInput {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}

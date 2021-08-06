@@ -1,7 +1,27 @@
+.writeReviewRating_title {
+  color: #373737;
+  margin-right: 10px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.writeReviewRating_description {
+  width: 49%;
+  color: #575757;
+  margin-right: 10px;
+  font-size: 12px;
+  text-align: right;
+  float: right;
+  display: inline;
+
+}
+
 .writeReviewRating {
+  width: 137px;
   transform: rotateY(180deg);
   display: flex;
   font-size: 30px;
+  margin-bottom: 10px;
 }
 
 .writeReviewRating input {

@@ -5,8 +5,8 @@ import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import moment from 'moment';
 import LongerThan from './LongerThan.jsx';
-import ImagePopUp from './imagePopUp/ImagePopUp.jsx';
-import Helpful from './helpful/Helpful.jsx';
+import ImagePopUp from './ImagePopUp.jsx';
+import Helpful from './Helpful.jsx';
 
 function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
   const { filteredReview, reviews } = useContext(ReviewsContext);

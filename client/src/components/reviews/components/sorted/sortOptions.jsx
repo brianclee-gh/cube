@@ -5,9 +5,10 @@ import './sorted.css';
 import MetaRate from './viewList/metaData/MetaRate.jsx';
 import ViewList from './viewList/reviewList/ViewList.jsx';
 import Select from 'react-select';
-import WriteReview from './viewList/writeReview/WriteReview.jsx';
+import './SortOptions.jsx';
+// import WriteReview from './viewList/writeReview/WriteReview.jsx';
 
-// const WriteReview = lazy(() => import('./viewList/writeReview/WriteReview.jsx'));
+const WriteReview = lazy(() => import('./viewList/writeReview/WriteReview.jsx'));
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
@@ -100,12 +101,14 @@ function sortReviews() {
 
   if (currentProduct !== null && ratings !== null) {
     return (
-      <div>
+      <div className="sortOptions">
         <MetaRate starOne={starOneFunction} starTwo={starTwoFunction} starThree={starThreeFunction} starFour={starFourFunction} starFive={starFiveFunction} />
         <div>Sort on:</div>
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
+        <Suspense fallback={<div>...Loading</div>}>
           <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
+        </Suspense>
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
       </div>
     );

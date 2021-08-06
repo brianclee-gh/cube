@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect }from 'react';
-import { ReviewsContext } from '../../../../../../state/ReviewsContext.jsx';
+import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 
 const helpful = ({ reviewId, helpfulNum }) => {
   const { markHelpfulReview, reportReview } = useContext(ReviewsContext);

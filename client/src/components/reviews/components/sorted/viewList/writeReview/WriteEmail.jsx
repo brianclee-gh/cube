@@ -15,13 +15,15 @@ const email = ({change}) => {
 
   return (
     <div>
-      <label>
+    <div className="writeReviewEmail">
+      <label HtmlFor="writeReviewEmail_input" className="writeReviewEmail_label">
         Your email *:
-      <input type="email" name="writeEmail" onChange={updateEmail} placeholder="Example: jackson11@email.com" maxLength="60" required />
-      </label>
-      <div>
-        For authentication reasons, you will not be emailed
-      </div>
+        </label>
+      <input type="email" name="writeEmail" onChange={updateEmail} placeholder="Example: jackson11@email.com" id="writeReviewEmail_input" maxLength="60" required />
+    </div>
+    <div className="writeReviewEmail_warning">
+      For authentication reasons, you will not be emailed
+    </div>
     </div>
   );
 };

@@ -22,9 +22,9 @@ function App() {
         <ProductsProvider>
           <Main />
           <Related />
-          <QAProvider>
+          {/* <QAProvider>
             <QA />
-          </QAProvider>
+          </QAProvider> */}
           <Review />
         </ProductsProvider>
       </ReviewsProvider>

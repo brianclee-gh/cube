@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
-import './writeReview.css';
-import Star from './starRatingReview/Rate.jsx';
+import './WriteReview.css';
+import Star from './StarRateReview.jsx';
 import Recommend from './RecommendationWrite.jsx';
 import Characteristics from './Characteristics.jsx';
 import ReviewSummary from './ReviewSummary.jsx';
@@ -101,6 +101,7 @@ const Modal = ({ handleClose, show, submit }) => {
     <div className={showHideClassName}>
       <div className="writeReview">
         <section className="writeReview_modal">
+          <div className="writeReview_inside_model" >
           <div className="writeReview_title">
             Write Your Review
           </div>
@@ -116,8 +117,10 @@ const Modal = ({ handleClose, show, submit }) => {
             <Nickname change={writeNickname} />
             <Email change={writeEmail} />
             <Image show={imageUploadPopUp} handleClose={imageModalPop} upload={imageUploading} reset={errorImage} />
-            <button type="button" className="writeReviewButton" onClick={imageModalPop} >Upload Image</button>
-            {(imageUpload !== null) ? <div>{imageUpload.length} images saved</div> : null}
+            <div className="writeReviewButton_UploadImg_wrapper">
+            <button type="button" className="writeReviewButton_UploadImg" onClick={imageModalPop} >Upload Image</button>
+            </div>
+            {(imageUpload !== null) ? <div className="writeReviewImg_count">{imageUpload.length} images saved</div> : null}
             {imageUpload ? imageUpload.map((photo) => {
               return(
                 <div className="reviewImage_thumbnail" key={photo}>
@@ -126,9 +129,13 @@ const Modal = ({ handleClose, show, submit }) => {
               )
               }) : null}
             <div className="writeReview_submissionError">{errorMessage}</div>
-            <input type="submit" value="Submit" disabled={errorImg ? true : false} className="reviewSubmitButton" />
+            <div className="writeReviewButton_wrappers">
+            <input type="submit" value="Submit" disabled={errorImg ? true : false} className="writeReviewButton" />
+            <div class="writeReviewButton_divider" />
+            <button type="button" className="writeReviewButton" onClick={handleClose}>Close</button>
+            </div>
           </form>
-          <button type="button" onClick={handleClose}>Close</button>
+          </div>
         </section>
       </div>
     </div>

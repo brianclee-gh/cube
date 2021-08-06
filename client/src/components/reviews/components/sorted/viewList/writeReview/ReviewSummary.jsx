@@ -13,11 +13,12 @@ const reviewSummary = ({change}) => {
   }, [summaryUpdate]);
 
   return (
-    <div>
-      <label>
+    <div className="writeReviewSummary">
+      <label className="writeReviewSummaryLabel" htmlFor="writeReviewSummaryInput">
         Review Summary *:
-      <input type="text" name="reviewSummary" onChange={updateSummary} maxLength="60" placeholder="Example: Best purchase ever!" required />
       </label>
+      <input type="text" id="writeReviewSummaryInput" name="reviewSummary" onChange={updateSummary} maxLength="60" placeholder="Example: Best purchase ever!" required />
+
     </div>
   );
 };

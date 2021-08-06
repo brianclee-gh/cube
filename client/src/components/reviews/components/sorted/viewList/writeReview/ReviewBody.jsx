@@ -16,11 +16,13 @@ const reviewBody = ({change}) => {
 
   return (
     <div>
-      <label>
+    <div className="writeReviewBody">
+      <label className="writeReviewBody_label" HtmlFor="writeReviewBody_input">
         Review Body *:
-      <input type="text" name="reviewBody" onChange={updateBody} minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required />
       </label>
-      {minimumCount <= 50 ? <div>Minimum required characters left: {minimumCount}</div> : <div>Minimum reached</div>}
+      <textarea type="text" name="reviewBody" id="writeReviewBody_input" onChange={updateBody} minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required />
+    </div>
+    {minimumCount <= 50 ? <div className="writeReviewBody_count">Minimum required characters left: {minimumCount}</div> : <div>Minimum reached</div>}
     </div>
   );
 };

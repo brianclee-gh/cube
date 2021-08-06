@@ -65,16 +65,53 @@ const Modal = ({ handleClose, show, upload, reset }) => {
     <div className={showHideClassName}>
       <div className="reviewImage">
         <section className="reviewImage_modal">
+          <div className="reviewImage_modal_inside">
           <div className="reviewImage_title">
             Upload your photos
           </div>
-          <input type="text" name="reviewImageURL1" onChange={onChangeURLOne} /> First Image URL <br />
-          <input type="text" name="reviewImageURL2" onChange={onChangeURLTwo} /> Second Image URL <br />
-          <input type="text" name="reviewImageURL3" onChange={onChangeURLThree} /> Third Image URL <br />
-          <input type="text" name="reviewImageURL4" onChange={onChangeURLFour} /> Fourth Image URL <br />
-          <input type="text" name="reviewImageURL5" onChange={onChangeURLFive} /> Fifth Image URL <br />
-          <button type="button" onClick={handleClose}>Close</button>
-          <button type="button" onClick={uploadImageURL}>Upload</button>
+          <div className="reviewImage_subtitle">
+            Only URL is available
+          </div>
+
+          <div className="reviewImageURL_head1">
+          <label htmlFor="reviewImageURL1" className="reviewImageURL1_label">First Image URL</label>
+          <input type="text" id="reviewImageURL1" name="url1" onChange={onChangeURLOne} />
+          <br />
+          </div>
+
+          <div className="reviewImageURL_head2">
+          <label htmlFor="reviewImageURL2" className="reviewImageURL2_label">Second Image URL</label>
+          <input type="text" id="reviewImageURL2" name="url2" onChange={onChangeURLTwo} />
+          <br />
+          </div>
+
+          <div className="reviewImageURL_head3">
+          <label htmlFor="reviewImageURL3" className="reviewImageURL3_label">Third Image URL</label>
+          <input type="text" id="reviewImageURL3" name="url3" onChange={onChangeURLThree} />
+          <br />
+          </div>
+
+          <div className="reviewImageURL_head4">
+          <label htmlFor="reviewImageURL4" className="reviewImageURL4_label">Fourth Image URL</label>
+          <input type="text" id="reviewImageURL4" name="url4" onChange={onChangeURLFour} />
+          <br />
+          </div>
+
+          <div className="reviewImageURL_head5">
+          <label htmlFor="reviewImageURL5"
+          className="reviewImageURL5_label">Fifth Image URL</label>
+          <input type="text" id="reviewImageURL5" name="url5" onChange={onChangeURLFive} />
+          <br />
+          </div>
+
+          <div className="reviewImageUpload_buttons_header">
+          <button type="button" className="reviewImageUpload_buttons" onClick={uploadImageURL}>Upload</button>
+          <div className="reviewImageUploadDivider"></div>
+          <button type="button" className="reviewImageUpload_buttons"  onClick={handleClose}>Close</button>
+          </div>
+
+          </div>
+
         </section>
       </div>
     </div>
