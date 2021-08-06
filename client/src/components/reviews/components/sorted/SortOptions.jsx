@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, lazy, Suspense } from 'react';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
-import './sorted.css';
+import './Sorted.css';
 import MetaRate from './viewList/metaData/MetaRate.jsx';
 import ViewList from './viewList/reviewList/ViewList.jsx';
 import Select from 'react-select';

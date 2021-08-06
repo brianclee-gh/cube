@@ -1,15 +1,10 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Carousel({ children, relatedOrOutfit }) {
   const childrenLength = relatedOrOutfit === 'related' ? children.length : children[1].length;
   const [startIdx, setStartIdx] = useState(0);
-  const [endIdx, setEndIdx] = useState(() => {
-    const width = window.innerWidth;
-    return (Math.floor(width / 350) >= childrenLength)
-      ? childrenLength
-      : Math.floor(width / 350);
-  });
+  const [endIdx, setEndIdx] = useState(0);
   const setId = relatedOrOutfit === 'related' ? 'card' : 'outfit';
 
   const scrollLeft = () => {
@@ -27,6 +22,13 @@ function Carousel({ children, relatedOrOutfit }) {
     setEndIdx(endIdx + 1);
     setStartIdx(startIdx + 1);
   };
+
+  useEffect(() => {
+    const width = window.innerWidth;
+    setEndIdx((Math.floor(width / 350) >= childrenLength)
+      ? childrenLength
+      : Math.floor(width / 350));
+  }, [children]);
 
   return (
     <div className="related-carousel">

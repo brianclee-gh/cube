@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import './metaData.css';
+import './MetaData.css';
 import StarRating from '../../../averageReview/MetaRate.jsx';
 import EachRate from './EachRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';

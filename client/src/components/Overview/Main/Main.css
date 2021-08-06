@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap');
+
 .Overview-Section {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-template-rows: 750px 1fr;
   column-gap: 1%;
   row-gap: 1%;
+  font-family: 'Montserrat', sans-serif;
   /* flex-flow: wrap; */
   grid-template-areas:
   "Image ProductInfo"

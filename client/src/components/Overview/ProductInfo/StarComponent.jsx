@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
-import React, { useContext, useEffect } from 'react';
-import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
+import React, { useContext, useEffect, useState } from 'react';
+import StarRating from '../../reviews/components/averageReview/MetaRate.jsx';
 import { ReviewsContext } from '../../state/ReviewsContext.jsx';
 
 function StarComponent({ productID }) {
-  const { metaData, getReviewMetaData } = useContext(ReviewsContext);
+  const { filteredReview, metaData, getReviewMetaData } = useContext(ReviewsContext);
+  const [totalReview, setTotalReview] = useState(0);
+
+  const getTotalReviews = () => {
+    setTotalReview(filteredReview.length);
+  };
 
   // gives us both number rating and star rating, rounded to nearest 0.25
   let productReviews;
@@ -27,6 +32,12 @@ function StarComponent({ productID }) {
     getReviewMetaData(productID);
   }, [productID]);
 
+  useEffect(() => {
+    if (filteredReview) {
+      getTotalReviews();
+    }
+  }, [filteredReview]);
+
   return (
     <>
       {metaData ? (
@@ -35,7 +46,7 @@ function StarComponent({ productID }) {
           <a href="#overAllReview" className="view-total-reviews">
             Read All
             {' '}
-            {productReviews}
+            {totalReview}
             {' '}
             Reviews
           </a>
