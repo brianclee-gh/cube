@@ -28,8 +28,12 @@ This project is designed around serving a detailed single page website for each 
 ### Questions and Answers
 >The question and answers widget should display questions and answers that other users have posted about the product. Users should be able to see this content, add their own questions and answers, and report or commend previously posted questions and answers. Each question or answer should track its user, time of posting, number of helpful commendations and reports.
 
+![Alt text](/screenshots/qa.png?raw=true "Q and A Widget")
+
 ### Ratings and Reviews
 >The rating and reviews widget should display a visual breakdown of the product's reviews and also the reviews themselves. The breakdown should show the average review metrics, the number of 1, 2, 3, 4 and 5 star reviews and also serve as a filter selector for said numbered-star reviews. Each individual review should load its ratings, date, content, and any images added by the user. Users should also be able to post their own reviews with options to upload images.
+
+![Alt text](/screenshots/reviews.png?raw=true "Reviews Widget")
 
 ## Installation
 Fork and clone this repo then run:
