@@ -10,7 +10,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Size;
-      return {name: 'Size', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Size', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 
@@ -19,7 +19,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Fit;
-      return {name: 'Fit', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Fit', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 
@@ -28,7 +28,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Comfort;
-      return {name: 'Comfort', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Comfort', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 
@@ -37,7 +37,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Length;
-      return {name: 'Length', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Length', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 
@@ -46,7 +46,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Quality;
-      return {name: 'Quality', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Quality', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 
@@ -55,7 +55,7 @@ function sizeComfort() {
       return null;
     } else {
       let num = metaData.characteristics.Width;
-      return {name: 'Width', value: Number(num.value).toFixed(2), id: num.id}
+      return {name: 'Width', value: Number(num.value).toFixed(0), id: num.id}
     }
   };
 

@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect }from 'react';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
+import './Helpful.css';
 
 const helpful = ({ reviewId, helpfulNum }) => {
   const { markHelpfulReview, reportReview } = useContext(ReviewsContext);
-  const [helpful, setHelpful] = useState(false);
+  const [helpfulNow, setHelpful] = useState(false);
   const [report, setReport] = useState(false);
   const [countHelpful, setCountHelpful] = useState(0);
   const [countReport, setCountReport] = useState(0);
@@ -32,7 +33,7 @@ const helpful = ({ reviewId, helpfulNum }) => {
         Was this review helpful?
       </div>
       <div className="reviewHelpful_response" onClick={updateHelpful} >
-        {helpful ? <div className="reviewHelpful_yes">Yes</div> : <div className="reviewHelpful_no">Yes</div>}
+        {helpfulNow === false ? <div className="reviewHelpful_no">Yes</div> : <div className="reviewHelpful_yes">Yes</div> }
       </div>
       <div className="reviewHelpful_count">
         {(countHelpful === 0) ? <div className="reviewHelpful_count_normal">({helpfulNum})</div> : <div className="reviewHelpful_count_plusOne">({Number(helpfulNum) + 1})</div>}

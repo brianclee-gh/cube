@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 310px 1fr;
   grid-template-rows: 750px 1fr;
-  column-gap: 1%;
+  column-gap: 6%;
   row-gap: 1%;
   /* flex-flow: wrap; */
   grid-template-areas:
@@ -24,11 +24,12 @@
   font-weight: 700;
   margin-bottom: 1px;
   color: rgb(75, 75, 75);
-  width: 210px;
+  width: 230px;
   display: inline-block;
 }
 
 .css-2b097c-container {
   width: 130px;
   display: inline-block;
+  margin: 50px 0 20px 0
 }
