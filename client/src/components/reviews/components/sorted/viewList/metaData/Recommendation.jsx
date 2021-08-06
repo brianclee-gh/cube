@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './recommendation.css';
-import { ReviewsContext } from '../../../../../../state/ReviewsContext.jsx';
+import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 
 function recommendation() {
   const { metaData } = useContext(ReviewsContext);

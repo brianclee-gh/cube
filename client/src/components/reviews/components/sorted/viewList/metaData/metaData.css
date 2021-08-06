@@ -1,5 +1,25 @@
 .reviewMetaRating{
-  border: 1px solid black;
+  width: 22%;
   padding: 5px;
   margin: 5px;
 }
+
+.reviewMetaRating_title {
+  font-size: 17px;
+  margin-bottom: 1px;
+  color: rgb(75, 75, 75);
+  text-transform: uppercase;
+}
+
+.reviewMetaRating_score {
+  font-size: 60px;
+  font-weight: 700;
+  color: rgb(75, 75, 75);
+  display: inline-block;
+}
+
+.reviewMetaRating_star {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+

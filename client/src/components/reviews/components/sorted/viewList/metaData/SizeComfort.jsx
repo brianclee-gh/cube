@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import './sizeComfort.css';
-import { ReviewsContext } from '../../../../../../state/ReviewsContext.jsx';
+import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 
 function sizeComfort() {
   const { metaData } = useContext(ReviewsContext);

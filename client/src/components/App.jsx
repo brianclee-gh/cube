@@ -11,12 +11,13 @@ import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 import QA from './q&a/QAList.jsx';
 
+import './App.css';
 // const Related = lazy(() => import('./related/Related.jsx'));
 // const Review = lazy(() => import('./reviews/ReviewsAndRatings.jsx'));
 
 function App() {
   return (
-    <div>
+    <div className="AppBody">
       <Header />
       <ReviewsProvider>
         <ProductsProvider>
