@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
-import starRating from '../reviews/components/averageReview/metaRate.jsx';
+import starRating from '../reviews/components/averageReview/MetaRate.jsx';
 import Hover from './helperFunctions/Hover.jsx';
 
 function RelatedCard({

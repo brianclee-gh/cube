@@ -5,7 +5,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons';
 import { v4 as uuidv4 } from 'uuid';
-import starRating from '../reviews/components/averageReview/metaRate.jsx';
+import starRating from '../reviews/components/averageReview/MetaRate.jsx';
 import Hover from './helperFunctions/Hover.jsx';
 
 function OutfitCard({

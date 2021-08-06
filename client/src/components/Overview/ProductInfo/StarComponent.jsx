@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/extensions */
 import React, { useContext, useEffect, useState } from 'react';
-import StarRating from '../../reviews/components/averageReview/metaRate.jsx';
+import StarRating from '../../reviews/components/averageReview/MetaRate.jsx';
 import { ReviewsContext } from '../../state/ReviewsContext.jsx';
 
 function StarComponent({ productID }) {

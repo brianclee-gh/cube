@@ -4,7 +4,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import Hover from './helperFunctions/Hover.jsx';
-import starRating from '../reviews/components/averageReview/metaRate.jsx';
+import starRating from '../reviews/components/averageReview/MetaRate.jsx';
 
 function AddToOutfit({
   currentProduct, currentStyle, addToOutfit, reportClick, metaData,
