@@ -15,6 +15,7 @@ Questions List
 - [X] Should appear in order of ‘helpfulness’, corresponding to how many users have indicated that the question was helpful
 - [] Have the potential to be filtered to a subset based on user searches
 - [] If no questions have been submitted for the product, then the list will collapse and the button to submit a new question will appear near the top of the module**
+  - can't test this because I haven't been able to find a product that does not have any questions!
 
 Individual Question
 - QUESTION:
@@ -101,7 +102,7 @@ Add an Answer Modal
     - [x] Modal should be titled: “Submit your Answer”
     - [x] Subtitle: “[Product Name]: [Question Body]”
     - [x] The appropriate product name and question body should be inserted into the subtitle
-- [] Following inputs should appear on the answer form:
+- [x] Following inputs should appear on the answer form:
     - [x] Those indicated as mandatory should have an asterisk next to the title
     - [x] Your Answer*
         - [x] Should be a larger text window allowing up to 1000 character
@@ -113,17 +114,17 @@ Add an Answer Modal
         - [x] 60 char
         - [x] Placeholder: “Example: jack@gmail.com”
         - [x] Below this field: “For authentication reasons, you will not be emailed”
-    - [] Upload your photos
-        - [] Button allowing users to upload their photos to the form
-        - [] Up to 5 photos should be allowed for each answer
-        - [] Clicking the button should open a separate window where the photo can be selected
-        - [] After the first image is uploaded, a thumbnail showing the image should appear
-            - [] A user should be able to add up to 5 images before the button to add disappears, preventing further additions
-    - [] Submit answer (button)
-        - [] Upon selecting this button, the form’s inputs should be validated
-        - [] If there are any invalid entries, the submission should be prevented, and a warning message will appear
+    - [x] Upload your photos
+        - [x] Button allowing users to upload their photos to the form
+        - [x] Up to 5 photos should be allowed for each answer
+        - [x] Clicking the button should open a separate window where the photo can be selected
+        - [x] After the first image is uploaded, a thumbnail showing the image should appear
+            - [x] A user should be able to add up to 5 images before the button to add disappears, preventing further additions
+    - [x] Submit answer (button)
+        - [x] Upon selecting this button, the form’s inputs should be validated
+        - [x] If there are any invalid entries, the submission should be prevented, and a warning message will appear
             - [x] Message Title: “You must enter the following:”
-            - [] This error will occur if:
+            - [x] This error will occur if:
                 - 1. [x] Any mandatory fields are blank
                 - 2. [x] The email address provided is not in correct email format
-                - 3. [] The images selected are invalid or unable to be uploaded
+                - 3. [x] The images selected are invalid or unable to be uploaded

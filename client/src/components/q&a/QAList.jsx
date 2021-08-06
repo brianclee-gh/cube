@@ -1,14 +1,17 @@
+/* eslint-disable no-console */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
-// import axios from 'axios';
+import React, {
+  useState, useContext, useEffect, lazy, Suspense,
+} from 'react';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
 import { QAContext } from '../state/QAContext.jsx';
+import withClickTracker from '../shared/ClickTracker.jsx';
 import './qa-style.scss';
 
 const QuestionModal = lazy(() => import('./QuestionModal.jsx'));
@@ -30,9 +33,9 @@ const QAList = () => {
     return fetchedData;
   };
 
-  useEffect(() => {
-    getData('17092');
-  }, []);
+  // useEffect(() => {
+  //   getData('17092');
+  // }, []);
 
   useEffect(() => {
     getQAList()
@@ -76,39 +79,30 @@ const QAList = () => {
         setExpanded(true);
       }
     }
-  }, [filteredData, search]);
+  }, [filteredData]);
 
   useEffect(() => {
     setDefaultQuestions(2);
     setExpanded(null);
   }, [currentProduct]);
 
-  const searchList = () => {
-    if (search.length <= 2) {
-      setFilteredData(data);
-    } else {
-      const filteredArr = [];
-      for (let i = 0; i < filteredData.length; i += 1) {
-        if (filteredData[i].question_body.toLowerCase().includes(search)) {
-          filteredArr.push(filteredData[i]);
+  const onSearchChange = (e) => {
+    setSearch(e.target.value.toLowerCase());
+
+    const searchResults = [];
+
+    if (search.length > 2) {
+      data.forEach((question) => {
+        const lowerCaseQuestion = question.question_body.toLowerCase();
+        if (lowerCaseQuestion.includes(search)) {
+          searchResults.push(question);
         }
-      }
-      setFilteredData(filteredArr);
-      console.log(filteredData);
+      });
+      setFilteredData(searchResults);
+    } else {
+      setFilteredData(data);
     }
   };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-    if (search.length > 2 || search === '') {
-      searchList();
-    }
-  };
-
-  //   useEffect = (() => {
-  //     searchList();
-  //   }, [filteredData, search]);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -118,14 +112,25 @@ const QAList = () => {
     setModalOpen(true);
   };
 
+  const TrackedQuestionModal = withClickTracker(QuestionModal);
+  const TrackedQASearch = withClickTracker(QASearch);
+  const TrackedQuestion = withClickTracker(Question);
+
   return (
     <div className="qa-flex-container">
       <div className="qa-container">
         <h2 className="qa-header">Questions & Answers</h2>
-        <QASearch searchText={search} handleSearch={handleSearch} />
+        {TrackedQASearch({ searchText: search, onSearchChange })}
         <div className="qa-list">
           { filteredData
-            ? filteredData.slice(0, defaultQuestions).map((q) => <Question question={q} key={q.question_id} />)
+            ? filteredData.slice(0, defaultQuestions).map((q) => (
+              <TrackedQuestion
+                question={q}
+                key={q.question_id}
+                setData={setData}
+                getQAList={getQAList}
+              />
+            ))
             : 'Loading..'}
         </div>
         <div className="qa-list-btn-container">
@@ -135,7 +140,7 @@ const QAList = () => {
       </div>
       { modalOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <QuestionModal
+          <TrackedQuestionModal
             closeModal={closeModal}
             updateList={loadData}
             setData={setData}

@@ -1,0 +1,59 @@
+.writeReviewRating_title {
+  color: #373737;
+  margin-right: 10px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.writeReviewRating_description {
+  width: 49%;
+  color: #575757;
+  margin-right: 10px;
+  font-size: 12px;
+  text-align: right;
+  float: right;
+  display: inline;
+
+}
+
+.writeReviewRating {
+  width: 137px;
+  transform: rotateY(180deg);
+  display: flex;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.writeReviewRating input {
+  display: none;
+}
+
+.writeReviewRating label {
+  display: block;
+  cursor: pointer;
+  width: 30px;
+}
+
+.writeReviewRating label:before {
+  content: '\f005';
+  font-family: fontAwesome;
+  display: block;
+  color: #101010;
+}
+
+.writeReviewRating label:after {
+  content: '\f005';
+  font-family: "fontAwesome";
+  position: absolute;
+  display: block;
+  color: #f9f921;
+  top: 0;
+  opacity: 0;
+  transition: .3s;
+  text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+.writeReviewRating label:hover:after,
+.writeReviewRating label:hover ~ label:after,
+.writeReviewRating input:checked ~ label:after {
+  opacity: 1;
+}
