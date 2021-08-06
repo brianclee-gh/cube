@@ -6,13 +6,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 30px;
-    padding: 1.5rem 2rem;
+    margin: 0;
+    padding: 1.0rem 1rem;
     align-items: center;
-    /* padding: 0 1rem; */
-    background-color: rgb(50, 50, 50);;
+    background-color: rgb(50, 50, 50);
     color: white;
-    /* width: 100%; */
   }
 
   .footer-links {
@@ -21,25 +19,74 @@
   }
 
   .home {
-      padding-right: 20px;
+      padding-right: 90px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+  }
+
+  .home:hover {
+      font-weight: bold;
   }
 
   .about-us {
-    padding-right: 20px;
-  }
+      padding-right: 90px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+    }
+
+    .about-us:hover {
+        font-weight: bold;
+    }
 
   .services {
-    padding-right: 20px;
+      padding-right: 90px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+  }
+
+  .services:hover {
+      font-weight: bold;
   }
 
   .join-us {
-    padding-right: 20px;
+      padding-right: 90px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+  }
+
+  .join-us:hover {
+      font-weight: bold;
   }
 
   .contact-us {
-    padding-right: 20px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+  }
+
+  .contact-us:hover {
+      font-weight: bold;
   }
 
   .ending {
-      padding-top: 10px;
+      padding-top: 20px;
   }
