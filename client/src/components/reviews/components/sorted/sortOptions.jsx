@@ -20,6 +20,11 @@ function sortReviews() {
   const [starThree, setStarThree] = useState(0);
   const [starFour, setStarFour] = useState(0);
   const [starFive, setStarFive] = useState(0);
+  const [reviewCount, setReviewCount] = useState(0);
+
+  const reviewCountFiltered = () => {
+    setReviewCount(filteredReview.length);
+  };
 
   const starOneFunction = () => {
     starOne === 0 ? setStarOne(1) : setStarOne(0)
@@ -99,6 +104,12 @@ function sortReviews() {
       .catch((err) => console.log(err));
   }, [currentSort]);
 
+  useEffect(() => {
+    if (filteredReview) {
+      reviewCountFiltered();
+    }
+  }, [filteredReview]);
+
   if (currentProduct !== null && ratings !== null) {
     return (
       <div className="sortOptions">
@@ -110,7 +121,7 @@ function sortReviews() {
        <div className="sortOptionsReview_tile">
 
         <div className="sortStarReview_title">
-          Sort on
+          {reviewCount} reviews, sorted by
         </div>
 
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
