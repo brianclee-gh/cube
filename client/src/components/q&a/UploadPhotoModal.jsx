@@ -68,7 +68,7 @@ const UploadPhotoModal = ({
       <div className="photo-modal-container">
         <div className="photo-modal-form">
           <h2 className="modal-title">Upload Photos</h2>
-          <p className="modal-photo-sub">*Up to 5 images can be added!*</p>
+          <p className="modal-photo-sub">*Up to 5 images can be added*</p>
           <br />
           <label className="modal-photo-label">Image URL (1)</label>
           <input className="modal-photo-input" placeholder="URL link here..." type="text" onChange={changeOne} />
