@@ -5,11 +5,11 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer-links">
-        <div className="home">HOME</div>
-        <div className="about-us">ABOUT US</div>
-        <div className="services">SERVICES</div>
-        <div className="join-us">JOIN US</div>
-        <div className="contact-us">CONTACT US</div>
+        <button className="home">HOME</button>
+        <button className="about-us">ABOUT US</button>
+        <button className="services">SERVICES</button>
+        <button className="join-us">JOIN US</button>
+        <button className="contact-us">CONTACT US</button>
       </div>
       <span className="ending">2021 - DOM & FITCH</span>
     </div>
