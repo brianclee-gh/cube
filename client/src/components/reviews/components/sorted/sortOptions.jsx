@@ -103,13 +103,19 @@ function sortReviews() {
     return (
       <div className="sortOptions">
         <MetaRate starOne={starOneFunction} starTwo={starTwoFunction} starThree={starThreeFunction} starFour={starFourFunction} starFive={starFiveFunction} />
-        <div>Sort on:</div>
+
+        <div className="sortStarReview_title">
+          Sort on
+        </div>
+
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
         <Suspense fallback={<div>...Loading</div>}>
-          <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
+        <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
         </Suspense>
+
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
+
       </div>
     );
   } else {

@@ -54,7 +54,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
 
   if (reviews !== null && starOne === 0 && starTwo === 0 && starThree === 0 && starFour === 0 && starFive === 0) {
     return (
-      <div className="¸">
+      <div className="reviewBodyTile">
       <div className="reviewBodyBox">
         {reviews.slice(0, viewableReviews).map((review) => (
           <div className="reviewBodyBox_review" key={review.review_id}>
