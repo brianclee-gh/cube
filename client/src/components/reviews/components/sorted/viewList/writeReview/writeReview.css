@@ -116,3 +116,11 @@
   margin-bottom: 15px;
   text-align: right;
 }
+
+.writeReview_submissionError {
+  width: 100%;
+  color: rgb(189, 189, 189);
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 15px;
+}
