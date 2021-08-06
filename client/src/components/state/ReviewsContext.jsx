@@ -41,7 +41,8 @@ export const ReviewsProvider = ({ children }) => {
     });
     const calculatedRating = (totalRatings / totalReviews).toFixed(2);
     const starRating = (Math.round(calculatedRating * 4) / 4).toFixed(2);
-    setRatings({ calculatedRating, starRating });
+    const starRatingOne = (Math.round(calculatedRating * 4) / 4).toFixed(1);
+    setRatings({ calculatedRating, starRating, starRatingOne });
   };
 
   const postReview = async (data) => {

@@ -1,11 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, lazy, Suspense } from 'react';
 import { ProductsContext } from '../../../state/ProductsContext.jsx';
 import { ReviewsContext } from '../../../state/ReviewsContext.jsx';
 import './sorted.css';
-import MetaRate from './viewList/metaData/metaRate.jsx';
-import ViewList from './viewList/reviewList/viewList.jsx';
-import Select from 'react-select'
-import WriteReview from './viewList/writeReview/writeReview.jsx';
+import MetaRate from './viewList/metaData/MetaRate.jsx';
+import ViewList from './viewList/reviewList/ViewList.jsx';
+import Select from 'react-select';
+import './SortOptions.jsx';
+// import WriteReview from './viewList/writeReview/WriteReview.jsx';
+
+const WriteReview = lazy(() => import('./viewList/writeReview/WriteReview.jsx'));
 
 function sortReviews() {
   const { currentProduct } = useContext(ProductsContext);
@@ -17,6 +20,11 @@ function sortReviews() {
   const [starThree, setStarThree] = useState(0);
   const [starFour, setStarFour] = useState(0);
   const [starFive, setStarFive] = useState(0);
+  const [reviewCount, setReviewCount] = useState(0);
+
+  const reviewCountFiltered = () => {
+    setReviewCount(filteredReview.length);
+  };
 
   const starOneFunction = () => {
     starOne === 0 ? setStarOne(1) : setStarOne(0)
@@ -96,15 +104,35 @@ function sortReviews() {
       .catch((err) => console.log(err));
   }, [currentSort]);
 
+  useEffect(() => {
+    if (filteredReview) {
+      reviewCountFiltered();
+    }
+  }, [filteredReview]);
+
   if (currentProduct !== null && ratings !== null) {
     return (
-      <div>
+      <div className="sortOptions">
+        <div className="sortedOptionMetaData">
+
         <MetaRate starOne={starOneFunction} starTwo={starTwoFunction} starThree={starThreeFunction} starFour={starFourFunction} starFive={starFiveFunction} />
-        <div>Sort on:</div>
+        </div>
+
+       <div className="sortOptionsReview_tile">
+
+        <div className="sortStarReview_title">
+          {reviewCount} reviews, sorted by
+        </div>
+
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
         <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
+        <Suspense fallback={<div>...Loading</div>}>
         <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
+        </Suspense>
+
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
+
+       </div>
       </div>
     );
   } else {

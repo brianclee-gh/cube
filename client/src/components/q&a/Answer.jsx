@@ -1,21 +1,26 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-alert */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable arrow-body-style */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 
 const Answer = ({ answer }) => {
 //   console.log(answer.photos);
-  const [helpfulCounter, setHepfulCounter] = useState(answer.helpfulness);
+  const [helpfulCounter, setHelpfulCounter] = useState(answer.helpfulness);
   const [helped, setHelped] = useState(false);
   const [reported, setReported] = useState(false);
 
   const markHelpful = () => {
     axios.put('/answer/helpful')
       .then(() => {
-        setHepfulCounter(helpfulCounter + 1);
+        setHelpfulCounter(helpfulCounter + 1);
         setHelped(true);
       });
   };

@@ -5,11 +5,13 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
-const QuestionModal = ({ closeModal, setData, getQAList }) => {
+const QuestionModal = ({
+  closeModal, setData, getQAList, reportClick,
+}) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -52,7 +54,15 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
   };
 
   return (
-    <div className="question-modal">
+    <div
+      tabIndex="-4"
+      role="button"
+      onClick={(e) => {
+        reportClick(e, 'QuestionModal');
+      }}
+      onKeyDown={() => {}}
+      className="question-modal"
+    >
       {currentProduct && (
       <>
         <div className="question-modal-container">
@@ -62,7 +72,7 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
             {' '}
             {currentProduct.name}
           </h3>
-          <div className="question-modal-form">
+          <form className="question-modal-form" onSubmit={handleSubmit}>
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
             <br />
@@ -77,10 +87,10 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={handleChange} />
             <br />
             <div className="btn-container">
-              <button onClick={handleSubmit} className="modal-submit-btn" type="button">Add</button>
+              <button className="modal-submit-btn" type="submit">Add</button>
               <button onClick={closeModal} className="close-question-modal-btn" type="button">Close</button>
             </div>
-          </div>
+          </form>
         </div>
       </>
       )}

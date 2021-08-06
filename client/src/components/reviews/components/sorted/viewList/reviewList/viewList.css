@@ -29,3 +29,10 @@
   scroll-behavior: smooth;
 }
 
+.reviewImageUpload_buttons_header {
+  width: 80%;
+}
+
+.reviewBodyTile {
+  width: 100%;
+}
