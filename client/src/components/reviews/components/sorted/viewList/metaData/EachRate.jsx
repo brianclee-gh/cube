@@ -73,7 +73,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
         {star3 === 3 ? <button className="eachScoreListing_star1_button" onClick={threeClick}>3 star</button> : null}
         {star4 === 4 ? <button className="eachScoreListing_star1_button" onClick={fourClick}>4 star</button> : null}
         {star5 === 5 ? <button className="eachScoreListing_star1_button" onClick={fiveClick}>5 star</button> : null}
-        {(star1 === 1 || star2 === 2 || star3 === 3 || star4 === 4 || star5 === 5)  ? <button className="eachScoreListing_star1_button" onClick={clickAll}>Remove all filters</button> : null}
+        {(star1 === 1 || star2 === 2 || star3 === 3 || star4 === 4 || star5 === 5)  ? <button className="eachScoreListing_star1_button" onClick={clickAll}>Remove</button> : null}
         <div className="eachScoreListing_body">
           <div className="eachScoreWrapper">
 

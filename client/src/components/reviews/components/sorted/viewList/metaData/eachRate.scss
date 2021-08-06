@@ -47,3 +47,20 @@
 .eachScoreListing {
   margin-bottom: 20px;
 }
+
+.eachScoreListing_star1_button {
+  width: 50px;
+  height: 30px;
+  font-size: 12px;
+  background-color: white;
+  color: rgb(50, 50, 50);
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px 10px 0;
+}
+
+.eachScoreListing_star1_button:hover {
+  background-color: rgb(50, 50, 50);
+  color: white;
+  transition: .3s ease;
+}

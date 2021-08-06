@@ -1,0 +1,21 @@
+.reviewHelpful_title {
+  display: inline-block;
+  margin: 0 5px 20px 0
+}
+
+.reviewHelpful_response {
+  display: inline-block;
+  margin: 0 5px 20px 0
+}
+
+.reviewHelpful_count {
+  display: inline-block;
+  border-right: 1px solid rgb(169, 169, 169);
+  margin: 0 10px 20px 0;
+  padding-right: 11px;
+}
+
+.reviewHelpful_report {
+  display: inline-block;
+  margin: 0 5px 20px 0px;
+}

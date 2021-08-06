@@ -8,7 +8,7 @@ import LongerThan from './LongerThan.jsx';
 import ImagePopUp from './ImagePopUp.jsx';
 import Helpful from './Helpful.jsx';
 
-function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
+function reviewList({ starOne, starTwo, starThree, starFour, starFive, writeReview }) {
   const { filteredReview, reviews } = useContext(ReviewsContext);
   const { currentProduct } = useContext(ProductsContext);
   const [viewableReviews, setViewableReviews] = useState(2);
@@ -71,10 +71,10 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
             <div className="reviewBodyBox_recommend">
               {(review.recommend) ? <div className="reviewBodyBox_Irecommend"><i className="fad fa-check-circle" />I recommend this product</div> : null}
             </div>
-            <div className="reviewBodyBox_response">
+            {/* <div className="reviewBodyBox_response">
               response from seller:
               {String(review.response)}
-            </div>
+            </div> */}
             {review.photos.map((photo) => (
               <div className="reviewBodyBox_thumbnail" key={photo.id}>
                 <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={() => {imageModalPop(photo.url)}} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
@@ -88,6 +88,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
         <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
       </div>
       {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
+      <button className="writeReviewButtonMain" onClick={writeReview} >Write Review</button>
       {/* {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null} */}
       </div>
     );
@@ -110,10 +111,10 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
           <div className="reviewBodyBox_recommend">
             {(review.recommend) ? <div className="reviewBodyBox_Irecommend"><i className="fad fa-check-circle" />I recommend this product</div> : null}
           </div>
-          <div className="reviewBodyBox_response">
+          {/* <div className="reviewBodyBox_response">
             response from seller:
             {String(review.response)}
-          </div>
+          </div> */}
           {review.photos.map((photo) => (
             <div className="reviewBodyBox_thumbnail" key={photo.id}>
               <img className="reviewBodyBox_img" src={photo.url} alt="image" onClick={() => {imageModalPop(photo.url)}} onError={(e)=>{e.target.onerror = null; e.target.src="https://via.placeholder.com/150"}} />
@@ -127,6 +128,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
       <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
     </div>
     {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
+    <button className="writeReviewButtonMain" onClick={writeReview} >Write Review</button>
     {/* {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null} */}
     </div>
   );

@@ -47,4 +47,22 @@
 .eachScoreListing {
   margin-bottom: 20px;
 }
+
+.eachScoreListing_star1_button {
+  width: 50px;
+  height: 30px;
+  font-size: 12px;
+  background-color: white;
+  color: #323232;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px 10px 0;
+}
+
+.eachScoreListing_star1_button:hover {
+  background-color: #323232;
+  color: white;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
 /*# sourceMappingURL=eachRate.css.map */
