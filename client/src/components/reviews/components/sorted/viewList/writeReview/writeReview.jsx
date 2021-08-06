@@ -131,7 +131,7 @@ const Modal = ({ handleClose, show, submit }) => {
             <div className="writeReview_submissionError">{errorMessage}</div>
             <div className="writeReviewButton_wrappers">
             <input type="submit" value="Submit" disabled={errorImg ? true : false} className="writeReviewButton" />
-            <div class="writeReviewButton_divider" />
+            <div className="writeReviewButton_divider" />
             <button type="button" className="writeReviewButton" onClick={handleClose}>Close</button>
             </div>
           </form>

@@ -78,7 +78,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
           <div className="eachScoreWrapper">
 
           <div className="eachScorelisting_stars" onClick={fiveClick} >
-            <label className="starNumber" HtmlFor="eachScoreListing_5">5 stars</label>
+            <label className="starNumber" htmlFor="eachScoreListing_5">5 stars</label>
               <div id="eachScoreListing_5">
                 <div className="eachScoreListing_fill" style={width5}>
                   <span className="eachScoreListing_percentage">{width5.width}</span>
@@ -91,49 +91,49 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
 
           <div className="eachScoreWrapper">
           <div className="eachScorelisting_stars" onClick={fourClick} >
-            <label className="starNumber" HtmlFor="eachScoreListing_5">4 stars</label>
+            <label className="starNumber" htmlFor="eachScoreListing_5">4 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width4}>
                 <span className="eachScoreListing_percentage">{width4.width}</span>
               </div>
             </div>
-          <label HtmlFor="eachScoreListing_5" className="eachScoreCount">{rating4}</label><br />
+          <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating4}</label><br />
           </div>
           </div>
 
           <div className="eachScoreWrapper">
           <div className="eachScorelisting_stars" onClick={threeClick} >
-            <label className="starNumber" HtmlFor="eachScoreListing_5">3 stars</label>
+            <label className="starNumber" htmlFor="eachScoreListing_5">3 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width3}>
                 <span className="eachScoreListing_percentage">{width3.width}</span>
               </div>
            </div>
-          <label HtmlFor="eachScoreListing_5" className="eachScoreCount">{rating3}</label><br />
+          <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating3}</label><br />
           </div>
           </div>
 
           <div className="eachScoreWrapper">
           <div className="eachScorelisting_stars" onClick={twoClick} >
-            <label className="starNumber" HtmlFor="eachScoreListing_5">2 stars</label>
+            <label className="starNumber" htmlFor="eachScoreListing_5">2 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width2}>
                 <span className="eachScoreListing_percentage">{width2.width}</span>
               </div>
             </div>
-          <label HtmlFor="eachScoreListing_5" className="eachScoreCount">{rating2}</label><br />
+          <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating2}</label><br />
           </div>
           </div>
 
           <div className="eachScoreWrapper">
           <div className="eachScorelisting_stars" onClick={oneClick} >
-            <label className="starNumber" HtmlFor="eachScoreListing_5">1 stars</label>
+            <label className="starNumber" htmlFor="eachScoreListing_5">1 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width1}>
                 <span className="eachScoreListing_percentage">{width1.width}</span>
               </div>
             </div>
-          <label HtmlFor="eachScoreListing_5" className="eachScoreCount">{rating1}</label><br />
+          <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating1}</label><br />
 
           </div>
           </div>

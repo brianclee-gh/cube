@@ -17,7 +17,7 @@ const reviewBody = ({change}) => {
   return (
     <div>
     <div className="writeReviewBody">
-      <label className="writeReviewBody_label" HtmlFor="writeReviewBody_input">
+      <label className="writeReviewBody_label" htmlFor="writeReviewBody_input">
         Review Body *:
       </label>
       <textarea type="text" name="reviewBody" id="writeReviewBody_input" onChange={updateBody} minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required />

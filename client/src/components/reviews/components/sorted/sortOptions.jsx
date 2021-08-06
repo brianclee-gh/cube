@@ -102,7 +102,12 @@ function sortReviews() {
   if (currentProduct !== null && ratings !== null) {
     return (
       <div className="sortOptions">
+        <div className="sortedOptionMetaData">
+
         <MetaRate starOne={starOneFunction} starTwo={starTwoFunction} starThree={starThreeFunction} starFour={starFourFunction} starFive={starFiveFunction} />
+        </div>
+
+       <div className="sortOptionsReview_tile">
 
         <div className="sortStarReview_title">
           Sort on
@@ -116,6 +121,7 @@ function sortReviews() {
 
         <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
 
+       </div>
       </div>
     );
   } else {

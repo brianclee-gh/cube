@@ -16,7 +16,7 @@ const email = ({change}) => {
   return (
     <div>
     <div className="writeReviewEmail">
-      <label HtmlFor="writeReviewEmail_input" className="writeReviewEmail_label">
+      <label htmlFor="writeReviewEmail_input" className="writeReviewEmail_label">
         Your email *:
         </label>
       <input type="email" name="writeEmail" onChange={updateEmail} placeholder="Example: jackson11@email.com" id="writeReviewEmail_input" maxLength="60" required />
