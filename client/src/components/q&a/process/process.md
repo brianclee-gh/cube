@@ -13,7 +13,7 @@ Questions List
     - [x] Up to 2 answers should display for each question
     - [x] Remaining q&a’s should be hidden until user clicks “More Answered Questions” button
 - [X] Should appear in order of ‘helpfulness’, corresponding to how many users have indicated that the question was helpful
-- [] Have the potential to be filtered to a subset based on user searches
+- [x] Have the potential to be filtered to a subset based on user searches
 - [] If no questions have been submitted for the product, then the list will collapse and the button to submit a new question will appear near the top of the module**
   - can't test this because I haven't been able to find a product that does not have any questions!
 
@@ -49,13 +49,13 @@ Individual Question
 
 Search Questions
 - [x] Search bar will appear above the questions list
-- [] Search terms entered in this text input will filter the list for matching results
-    - [] After the user types 3 or more characters into the search bar the results will begin to filter to only those containing matching text
-    - [] Filter should continue to update as the user adds or removes characters
+- [x] Search terms entered in this text input will filter the list for matching results
+    - [x] After the user types 3 or more characters into the search bar the results will begin to filter to only those containing matching text
+    - [x] Filter should continue to update as the user adds or removes characters
 - [x] Placeholder: “Have a question? Search for answers…”
-- [] If the user clears the search term or has less then 3 characters remaining, the list should return to the state where t is not filtered to matching text
-- [] Search filter should work with any other filters or sorts that have been applied, and narrow the results further
-    - [] Changes to the short and rating filters should not remove the search term filter
+- [x] If the user clears the search term or has less then 3 characters remaining, the list should return to the state where t is not filtered to matching text
+- [x] Search filter should work with any other filters or sorts that have been applied, and narrow the results further(more for ratings & reviews??)
+    - [x] Changes to the sort and rating filters should not remove the search term filter
 
 More Answered Questions
 - [x] Default: Display up to 2 questions asked

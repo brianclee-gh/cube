@@ -1,0 +1,45 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    align-items: center;
+    /* padding: 0 1rem; */
+    background-color: #616161;
+    color: white;
+    /* width: 100%; */
+  }
+  
+  .footer-links {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .home {
+      padding-right: 20px;
+  }
+
+  .about-us {
+    padding-right: 20px;
+  }
+
+  .services {
+    padding-right: 20px;
+  }
+
+  .join-us {
+    padding-right: 20px;
+  }
+
+  .contact-us {
+    padding-right: 20px;
+  }
+
+  .ending {
+      padding-top: 10px;
+  }

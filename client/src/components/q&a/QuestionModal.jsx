@@ -76,12 +76,12 @@ const QuestionModal = ({
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
             <br />
-            <span>For privacy reasons, do not use your full name or email address.</span>
+            <span className="modal-info">For privacy reasons, do not use your full name or email address.</span>
             <br />
             <label className="modal-email">Email*</label>
             <input className="modal-email" placeholder="Example: jack@gmail.com" required type="email" maxLength="60" autoComplete="off" value={email} onChange={handleChange} />
             <br />
-            <span>For authentication reasons, you will not be emailed.</span>
+            <span className="modal-info">For authentication reasons, you will not be emailed.</span>
             <br />
             <label className="modal-question-label">Question*</label>
             <input className="modal-question" required type="text" maxLength="1000" minLength="" autoComplete="off" value={question} onChange={handleChange} />
