@@ -6,7 +6,7 @@
 
 .reviewMetaRating_title {
   font-size: 17px;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   color: rgb(75, 75, 75);
   text-transform: uppercase;
 }
@@ -16,6 +16,7 @@
   font-weight: 700;
   color: rgb(75, 75, 75);
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .reviewMetaRating_star {

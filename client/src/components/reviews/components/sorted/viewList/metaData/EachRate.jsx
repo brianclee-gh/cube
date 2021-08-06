@@ -81,7 +81,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
             <label className="starNumber" htmlFor="eachScoreListing_5">5 stars</label>
               <div id="eachScoreListing_5">
                 <div className="eachScoreListing_fill" style={width5}>
-                  <span className="eachScoreListing_percentage">{width5.width}</span>
+                  {/* <span className="eachScoreListing_percentage">{width5.width}</span> */}
               </div>
             </div>
           <label className="eachScoreCount">{rating5}</label><br />
@@ -94,7 +94,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
             <label className="starNumber" htmlFor="eachScoreListing_5">4 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width4}>
-                <span className="eachScoreListing_percentage">{width4.width}</span>
+                {/* <span className="eachScoreListing_percentage">{width4.width}</span> */}
               </div>
             </div>
           <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating4}</label><br />
@@ -106,7 +106,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
             <label className="starNumber" htmlFor="eachScoreListing_5">3 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width3}>
-                <span className="eachScoreListing_percentage">{width3.width}</span>
+                {/* <span className="eachScoreListing_percentage">{width3.width}</span> */}
               </div>
            </div>
           <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating3}</label><br />
@@ -118,7 +118,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
             <label className="starNumber" htmlFor="eachScoreListing_5">2 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width2}>
-                <span className="eachScoreListing_percentage">{width2.width}</span>
+                {/* <span className="eachScoreListing_percentage">{width2.width}</span> */}
               </div>
             </div>
           <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating2}</label><br />
@@ -130,7 +130,7 @@ function eachScoreList({ star1, star2, star3, star4, star5, starOne, starTwo, st
             <label className="starNumber" htmlFor="eachScoreListing_5">1 stars</label>
             <div id="eachScoreListing_5">
               <div className="eachScoreListing_fill" style={width1}>
-                <span className="eachScoreListing_percentage">{width1.width}</span>
+                {/* <span className="eachScoreListing_percentage">{width1.width}</span> */}
               </div>
             </div>
           <label htmlFor="eachScoreListing_5" className="eachScoreCount">{rating1}</label><br />

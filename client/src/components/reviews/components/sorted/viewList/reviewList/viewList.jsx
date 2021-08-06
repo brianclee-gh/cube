@@ -59,12 +59,12 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
         {reviews.slice(0, viewableReviews).map((review) => (
           <div className="reviewBodyBox_review" key={review.review_id}>
             <span className="reviewBodyBox_rating">{StarRating(review.rating)}</span>
+            {/* <div className="reviewBodyBox_userCheck" /> */}
+            <div className="reviewBodyBox_username">{review.reviewer_name}</div>
+            <div className="reviewBodyBox_date">{moment(review.date).format('ll')}</div>
             <h3 className="reviewBodyBox_title">
               {review.summary.substring(0, 60)}
             </h3>
-            <div className="reviewBodyBox_userCheck" />
-            <div className="reviewBodyBox_username">{review.reviewer_name}</div>
-            <div className="reviewBodyBox_date">{moment(review.date).format('ll')}</div>
             <div className="reviewBodyBox_body">
               { (review.body.length >= 250) ? <LongerThan half={review.body.substring(0, 250)} test={review.body}/> : review.body }
             </div>
@@ -88,7 +88,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
         <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
       </div>
       {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
-      {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
+      {/* {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null} */}
       </div>
     );
   } else if (filteredReview !== null && (starOne === 1 || starTwo === 2 || starThree === 3 || starFour === 4 || starFive === 5))
@@ -98,12 +98,12 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
       {filteredReview.slice(0, viewableReviews).map((review) => (
         <div className="reviewBodyBox_review" key={review.review_id}>
           <span className="reviewBodyBox_rating">{StarRating(review.rating)}</span>
+          {/* <div className="reviewBodyBox_userCheck" /> */}
+          <div className="reviewBodyBox_username">{review.reviewer_name}</div>
+          <div className="reviewBodyBox_date">{moment(review.date).format('ll')}</div>
           <h3 className="reviewBodyBox_title">
             {review.summary.substring(0, 60)}
           </h3>
-          <div className="reviewBodyBox_userCheck" />
-          <div className="reviewBodyBox_username">{review.reviewer_name}</div>
-          <div className="reviewBodyBox_date">{moment(review.date).format('ll')}</div>
           <div className="reviewBodyBox_body">
             { (review.body.length >= 250) ? <LongerThan half={review.body.substring(0, 250)} test={review.body}/> : review.body }
           </div>
@@ -127,7 +127,7 @@ function reviewList({ starOne, starTwo, starThree, starFour, starFive }) {
       <ImagePopUp show={imageModalPopUp} handleClose={hideImageModalPop} img={currentImg} />
     </div>
     {expandReview ? <button className="reviewShowMoreButton" onClick={loadMore}>More Reviews</button> : null}
-    {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null}
+    {/* {expandReview ? <button className="showAllReviewButton" onClick={showAll}>Show All Reviews</button> : null} */}
     </div>
   );
   return null;
