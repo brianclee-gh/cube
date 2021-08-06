@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import './viewList.css';
+import './ViewList.css';
 import StarRating from '../../../averageReview/MetaRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
 import { ProductsContext } from '../../../../../state/ProductsContext.jsx';
