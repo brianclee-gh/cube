@@ -1,5 +1,8 @@
+/* eslint-disable no-console */
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable camelcase */
 const axios = require('axios');
+// eslint-disable-next-line no-unused-vars
 const { LibraryTemplatePlugin } = require('webpack');
 const { GITHUB_KEY, ATELIER_URL } = require('../config');
 

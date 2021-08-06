@@ -1,17 +1,27 @@
+/* eslint-disable object-shorthand */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-console */
+/* eslint-disable dot-notation */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-alert */
 /* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
+import React, {
+  useState, useContext, useEffect, lazy, Suspense,
+} from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
+// import withClickTracker from '../shared/ClickTracker.jsx';
 
 const UploadPhotoModal = lazy(() => import('./UploadPhotoModal.jsx'));
 
 const postRequestObj = {};
 
-const AnswerModal = ({ question, closeModal, setData, getQAList }) => {
+const AnswerModal = ({
+  question, closeModal, setData, getQAList,
+}) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,7 +34,6 @@ const AnswerModal = ({ question, closeModal, setData, getQAList }) => {
 
   const postAnswer = () => {
     const questionId = question.question_id;
-    // console.log(postRequestBody);
     if (errorMessage === 'Please submit valid images') {
       alert('Not able to submit answer due to invalid entry');
     } else {
@@ -92,13 +101,22 @@ const AnswerModal = ({ question, closeModal, setData, getQAList }) => {
     }
   }, [errorImg]);
 
+  //   const TrackedUploadPhotoModal = withClickTracker(UploadPhotoModal);
+
   return (
     <div className="answer-modal">
       {currentProduct && (
       <>
         <div className="answer-modal-container">
           <h2 className="modal-title">Submit your Answer</h2>
-          <h3 className="modal-subtitle"> {currentProduct.name}: {question.question_body} </h3>
+          <h3 className="modal-subtitle">
+            {' '}
+            {currentProduct.name}
+            :
+            {' '}
+            {question.question_body}
+            {' '}
+          </h3>
           <form className="answer-modal-form" onSubmit={handleSubmit}>
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />

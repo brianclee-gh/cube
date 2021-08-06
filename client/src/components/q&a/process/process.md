@@ -15,6 +15,7 @@ Questions List
 - [X] Should appear in order of ‘helpfulness’, corresponding to how many users have indicated that the question was helpful
 - [] Have the potential to be filtered to a subset based on user searches
 - [] If no questions have been submitted for the product, then the list will collapse and the button to submit a new question will appear near the top of the module**
+  - can't test this because I haven't been able to find a product that does not have any questions!
 
 Individual Question
 - QUESTION:
@@ -101,7 +102,7 @@ Add an Answer Modal
     - [x] Modal should be titled: “Submit your Answer”
     - [x] Subtitle: “[Product Name]: [Question Body]”
     - [x] The appropriate product name and question body should be inserted into the subtitle
-- [] Following inputs should appear on the answer form:
+- [x] Following inputs should appear on the answer form:
     - [x] Those indicated as mandatory should have an asterisk next to the title
     - [x] Your Answer*
         - [x] Should be a larger text window allowing up to 1000 character

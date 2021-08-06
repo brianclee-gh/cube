@@ -5,11 +5,13 @@
 /* eslint-disable object-shorthand */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/button-has-type */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 
-const QuestionModal = ({ closeModal, setData, getQAList }) => {
+const QuestionModal = ({
+  closeModal, setData, getQAList, reportClick,
+}) => {
   const { currentProduct } = useContext(ProductsContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -52,7 +54,15 @@ const QuestionModal = ({ closeModal, setData, getQAList }) => {
   };
 
   return (
-    <div className="question-modal">
+    <div
+      tabIndex="-4"
+      role="button"
+      onClick={(e) => {
+        reportClick(e, 'QuestionModal');
+      }}
+      onKeyDown={() => {}}
+      className="question-modal"
+    >
       {currentProduct && (
       <>
         <div className="question-modal-container">

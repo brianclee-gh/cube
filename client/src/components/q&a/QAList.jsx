@@ -1,14 +1,18 @@
+/* eslint-disable no-console */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable max-len */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect, lazy, Suspense } from 'react';
+import React, {
+  useState, useContext, useEffect, lazy, Suspense,
+} from 'react';
 // import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
 import { QAContext } from '../state/QAContext.jsx';
+import withClickTracker from '../shared/ClickTracker.jsx';
 import './qa-style.scss';
 
 const QuestionModal = lazy(() => import('./QuestionModal.jsx'));
@@ -118,15 +122,19 @@ const QAList = () => {
     setModalOpen(true);
   };
 
+  const TrackedQuestionModal = withClickTracker(QuestionModal);
+  const TrackedQASearch = withClickTracker(QASearch);
+  const TrackedQuestion = withClickTracker(Question);
+
   return (
     <div className="qa-flex-container">
       <div className="qa-container">
         <h2 className="qa-header">Questions & Answers</h2>
-        <QASearch searchText={search} handleSearch={handleSearch} />
+        <TrackedQASearch searchText={search} handleSearch={handleSearch} />
         <div className="qa-list">
           { filteredData
             ? filteredData.slice(0, defaultQuestions).map((q) => (
-              <Question
+              <TrackedQuestion
                 question={q}
                 key={q.question_id}
                 setData={setData}
@@ -142,7 +150,7 @@ const QAList = () => {
       </div>
       { modalOpen ? (
         <Suspense fallback={<div>Loading...</div>}>
-          <QuestionModal
+          <TrackedQuestionModal
             closeModal={closeModal}
             updateList={loadData}
             setData={setData}

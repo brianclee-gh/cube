@@ -1,9 +1,12 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 
 let imageArr = [];
 
-const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal, reset }) => {
+const UploadPhotoModal = ({
+  uploadPhoto, addPhotos, closePhotoModal, reset, reportClick,
+}) => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);
   const [imageThree, setImageThree] = useState(null);
@@ -12,19 +15,19 @@ const UploadPhotoModal = ({ uploadPhoto, addPhotos, closePhotoModal, reset }) =>
   const [images, setImages] = useState([]);
 
   const uploadImageURL = () => {
-    if (imageOne !== null && imageArr.includes(imageOne) !== true && imageOne !== "") {
+    if (imageOne !== null && imageArr.includes(imageOne) !== true && imageOne !== '') {
       imageArr.push(imageOne);
     }
-    if (imageTwo !== null && imageArr.includes(imageTwo) !== true && imageOne !== "") {
+    if (imageTwo !== null && imageArr.includes(imageTwo) !== true && imageOne !== '') {
       imageArr.push(imageTwo);
     }
-    if (imageThree !== null && imageArr.includes(imageThree) !== true && imageOne !== "") {
+    if (imageThree !== null && imageArr.includes(imageThree) !== true && imageOne !== '') {
       imageArr.push(imageThree);
     }
-    if (imageFour !== null && imageArr.includes(imageFour) !== true && imageOne !== "") {
+    if (imageFour !== null && imageArr.includes(imageFour) !== true && imageOne !== '') {
       imageArr.push(imageFour);
     }
-    if (imageFive !== null && imageArr.includes(imageFive) !== true && imageOne !== "") {
+    if (imageFive !== null && imageArr.includes(imageFive) !== true && imageOne !== '') {
       imageArr.push(imageFive);
     }
     setImages(imageArr);
