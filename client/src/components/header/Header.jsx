@@ -6,7 +6,7 @@ import './Header.css';
 function Header() {
   return (
     <div className="header">
-      <span><h2>Project Catwalk</h2></span>
+      <img src="https://i.ibb.co/Gkkd7St/domfitchlogo3.png" alt="domfitchlogo" className="domLogo" />
       <div className="search-bar">
         <form onSubmit={() => {}} aria-label="search form">
           <input className="search-input" type="text" placeholder="" aria-label="search text" />
