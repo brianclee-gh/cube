@@ -1,0 +1,231 @@
+.writeReviewCharacteristic_title {
+  color: #373737;
+  font-size: 15px;
+}
+
+.writeReviewWrapper {
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.writeReviewCharacteristic_subtitle {
+  color: #fff;
+  line-height: 45px;
+  background: #333;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 10px 10px 0 0;
+}
+
+.writeReviewCharacteristic_inputDescriptions {
+  padding: 2px 30px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.writeReviewCharacteristic_inputDescriptions label {
+  display: flex;
+  height: 30px;
+  align-items: center;
+  border: 1px solid lightgray;
+  border-radius: 50px;
+  margin: 10px 0;
+  padding-left: 20px;
+  cursor: default;
+  transition: all 0.3s ease;
+}
+
+.writeReviewDot {
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+
+.writeReviewDot::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+#sizeCharReview1:checked ~ .sizeReviewOption1 .writeReviewDot::before,
+#sizeCharReview2:checked ~ .sizeReviewOption2 .writeReviewDot::before,
+#sizeCharReview3:checked ~ .sizeReviewOption3 .writeReviewDot::before,
+#sizeCharReview4:checked ~ .sizeReviewOption4 .writeReviewDot::before,
+#sizeCharReview5:checked ~ .sizeReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#widthCharReview1:checked ~ .widthReviewOption1 .writeReviewDot::before,
+#widthCharReview2:checked ~ .widthReviewOption2 .writeReviewDot::before,
+#widthCharReview3:checked ~ .widthReviewOption3 .writeReviewDot::before,
+#widthCharReview4:checked ~ .widthReviewOption4 .writeReviewDot::before,
+#widthCharReview5:checked ~ .widthReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#comfortCharReview1:checked ~ .comfortReviewOption1 .writeReviewDot::before,
+#comfortCharReview2:checked ~ .comfortReviewOption2 .writeReviewDot::before,
+#comfortCharReview3:checked ~ .comfortReviewOption3 .writeReviewDot::before,
+#comfortCharReview4:checked ~ .comfortReviewOption4 .writeReviewDot::before,
+#comfortCharReview5:checked ~ .comfortReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#qualityCharReview1:checked ~ .qualityReviewOption1 .writeReviewDot::before,
+#qualityCharReview2:checked ~ .qualityReviewOption2 .writeReviewDot::before,
+#qualityCharReview3:checked ~ .qualityReviewOption3 .writeReviewDot::before,
+#qualityCharReview4:checked ~ .qualityReviewOption4 .writeReviewDot::before,
+#qualityCharReview5:checked ~ .qualityReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#lengthCharReview1:checked ~ .lengthReviewOption1 .writeReviewDot::before,
+#lengthCharReview2:checked ~ .lengthReviewOption2 .writeReviewDot::before,
+#lengthCharReview3:checked ~ .lengthReviewOption3 .writeReviewDot::before,
+#lengthCharReview4:checked ~ .lengthReviewOption4 .writeReviewDot::before,
+#lengthCharReview5:checked ~ .lengthReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#fitCharReview1:checked ~ .fitReviewOption1 .writeReviewDot::before,
+#fitCharReview2:checked ~ .fitReviewOption2 .writeReviewDot::before,
+#fitCharReview3:checked ~ .fitReviewOption3 .writeReviewDot::before,
+#fitCharReview4:checked ~ .fitReviewOption4 .writeReviewDot::before,
+#fitCharReview5:checked ~ .fitReviewOption5 .writeReviewDot::before {
+  background: #333;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.writeReviewText {
+  color: #575757;
+  font-size: 13px;
+  font-weight: 500;
+  padding-left: 10px;
+  transition: color 0.3s ease;
+}
+
+#sizeCharReview1:checked ~ .sizeReviewOption1,
+#sizeCharReview2:checked ~ .sizeReviewOption2,
+#sizeCharReview3:checked ~ .sizeReviewOption3,
+#sizeCharReview4:checked ~ .sizeReviewOption4,
+#sizeCharReview5:checked ~ .sizeReviewOption5 {
+  background: #333;
+  border-color: #333;
+}
+
+#widthCharReview1:checked ~ .widthReviewOption1,
+#widthCharReview2:checked ~ .widthReviewOption2,
+#widthCharReview3:checked ~ .widthReviewOption3,
+#widthCharReview4:checked ~ .widthReviewOption4,
+#widthCharReview5:checked ~ .widthReviewOption5 {
+  background: #333;
+  border-color: #333;
+}
+
+#comfortCharReview1:checked ~ .comfortReviewOption1,
+#comfortCharReview2:checked ~ .comfortReviewOption2,
+#comfortCharReview3:checked ~ .comfortReviewOption3,
+#comfortCharReview4:checked ~ .comfortReviewOption4,
+#comfortCharReview5:checked ~ .comfortReviewOption5 {
+  background: #333;
+  border-color: #333;
+}
+
+#qualityCharReview1:checked ~ .qualityReviewOption1,
+#qualityCharReview2:checked ~ .qualityReviewOption2,
+#qualityCharReview3:checked ~ .qualityReviewOption3,
+#qualityCharReview4:checked ~ .qualityReviewOption4,
+#qualityCharReview5:checked ~ .qualityReviewOption5 {
+  background: #333;
+  border-color: #333;
+}
+
+#lengthCharReview1:checked ~ .lengthReviewOption1,
+#lengthCharReview2:checked ~ .lengthReviewOption2,
+#lengthCharReview3:checked ~ .lengthReviewOption3,
+#lengthCharReview4:checked ~ .lengthReviewOption4,
+#lengthCharReview5:checked ~ .lengthReviewOption5{
+  background: #333;
+  border-color: #333;
+}
+
+#fitCharReview1:checked ~ .fitReviewOption1,
+#fitCharReview2:checked ~ .fitReviewOption2,
+#fitCharReview3:checked ~ .fitReviewOption3,
+#fitCharReview4:checked ~ .fitReviewOption4,
+#fitCharReview5:checked ~ .fitReviewOption5 {
+  background: #333;
+  border-color: #333;
+}
+
+#sizeCharReview1:checked ~ .sizeReviewOption1 .writeReviewText,
+#sizeCharReview2:checked ~ .sizeReviewOption2 .writeReviewText,
+#sizeCharReview3:checked ~ .sizeReviewOption3 .writeReviewText,
+#sizeCharReview4:checked ~ .sizeReviewOption4 .writeReviewText,
+#sizeCharReview5:checked ~ .sizeReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+#widthCharReview1:checked ~ .widthReviewOption1 .writeReviewText,
+#widthCharReview2:checked ~ .widthReviewOption2 .writeReviewText,
+#widthCharReview3:checked ~ .widthReviewOption3 .writeReviewText,
+#widthCharReview4:checked ~ .widthReviewOption4 .writeReviewText,
+#widthCharReview5:checked ~ .widthReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+#comfortCharReview1:checked ~ .comfortReviewOption1 .writeReviewText,
+#comfortCharReview2:checked ~ .comfortReviewOption2 .writeReviewText,
+#comfortCharReview3:checked ~ .comfortReviewOption3 .writeReviewText,
+#comfortCharReview4:checked ~ .comfortReviewOption4 .writeReviewText,
+#comfortCharReview5:checked ~ .comfortReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+#qualityCharReview1:checked ~ .qualityReviewOption1 .writeReviewText,
+#qualityCharReview2:checked ~ .qualityReviewOption2 .writeReviewText,
+#qualityCharReview3:checked ~ .qualityReviewOption3 .writeReviewText,
+#qualityCharReview4:checked ~ .qualityReviewOption4 .writeReviewText,
+#qualityCharReview5:checked ~ .qualityReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+#lengthCharReview1:checked ~ .lengthReviewOption1 .writeReviewText,
+#lengthCharReview2:checked ~ .lengthReviewOption2 .writeReviewText,
+#lengthCharReview3:checked ~ .lengthReviewOption3 .writeReviewText,
+#lengthCharReview4:checked ~ .lengthReviewOption4 .writeReviewText,
+#lengthCharReview5:checked ~ .lengthReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+#fitCharReview1:checked ~ .fitReviewOption1 .writeReviewText,
+#fitCharReview2:checked ~ .fitReviewOption2 .writeReviewText,
+#fitCharReview3:checked ~ .fitReviewOption3 .writeReviewText,
+#fitCharReview4:checked ~ .fitReviewOption4 .writeReviewText,
+#fitCharReview5:checked ~ .fitReviewOption5 .writeReviewText {
+  color: #fff;
+}
+
+
+.writeReviewWrapper .writeReviewCharacteristic_inputDescriptions input[type="radio"]{
+  display: none;
+}

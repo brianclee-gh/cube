@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
 import './metaData.css';
-import StarRating from '../../../averageReview/metaRate.jsx';
-import EachRate from './eachRate/eachRate.jsx';
+import StarRating from '../../../averageReview/MetaRate.jsx';
+import EachRate from './EachRate.jsx';
 import { ReviewsContext } from '../../../../../state/ReviewsContext.jsx';
-import SizeComfort from './sizeComfort/sizeComfort.jsx';
-import Recommendation from './recommendation/recommendation.jsx';
+import SizeComfort from './SizeComfort.jsx';
+import Recommendation from './Recommendation.jsx';
 
 function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
   const { ratings } = useContext(ReviewsContext);
@@ -64,7 +64,8 @@ function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
     return (
       <div className="reviewMetaRating">
         <div className="reviewMetaRating_title">RATING & REVIEWS</div>
-        <div className="reviewMetaRating_score">{ratings.starRatingOne}</div>
+        <div className="reviewMetaRating_score">{ratings.starRatingOne}
+        </div>
         <span className="reviewMetaRating_star">{StarRating(ratings.calculatedRating)}</span>
         <Recommendation />
         <EachRate star1={starOnefunc} star2={starTwofunc} star3={starThreefunc} star4={starFourfunc} star5={starFivefunc} starOne={setStarOnefunction} starTwo={setStarTwofunction} starThree={setStarThreefunction} starFour={setStarFourfunction} starFive={setStarFivefunction} />
