@@ -1,55 +1,46 @@
+/* eslint-disable object-shorthand */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-console */
+/* eslint-disable dot-notation */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-alert */
 /* eslint-disable arrow-body-style */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React, { useState, useContext, useEffect } from 'react';
+import React, {
+  useState, useContext, useEffect, lazy, Suspense,
+} from 'react';
 import axios from 'axios';
-import { QAContext } from '../state/QAContext.jsx';
 import { ProductsContext } from '../state/ProductsContext.jsx';
-import UploadPhotoModal from './UploadPhotoModal.jsx';
+// import withClickTracker from '../shared/ClickTracker.jsx';
 
-let postRequestObj = {};
+const UploadPhotoModal = lazy(() => import('./UploadPhotoModal.jsx'));
 
-const AnswerModal = ({ question, closeModal }) => {
+const postRequestObj = {};
+
+const AnswerModal = ({
+  question, closeModal, setData, getQAList,
+}) => {
   const { currentProduct } = useContext(ProductsContext);
-  const { getQuestions } = useContext(QAContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [answer, setAnswer] = useState('');
   const [photos, setPhotos] = useState([]);
   const [uploadPhoto, setUploadPhoto] = useState(false);
   const [postRequestBody, setPostRequestBody] = useState(null);
-  const [answerAdded, setAnswerAdded] = useState(false);
   const [errorImg, setErrorImg] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  // const postAnswer = () => {
-  //   const questionId = question.question_id;
-  //   axios.post(`add/answer/${questionId}`, {
-  //     body: answer,
-  //     name: name,
-  //     email: email,
-  //     photos: photos,
-  //   })
-  //     .then((res) => {
-  //       console.log('posted', res.data);
-  //       closeModal;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   const postAnswer = () => {
     const questionId = question.question_id;
-    // console.log(postRequestBody);
     if (errorMessage === 'Please submit valid images') {
       alert('Not able to submit answer due to invalid entry');
     } else {
       axios.post(`add/answer/${questionId}`, postRequestBody)
-        .then((res) => {
+        .then(async (res) => {
           console.log('posted', res.data);
+          setData(await getQAList());
         })
         .catch((err) => {
           console.log(err);
@@ -63,7 +54,6 @@ const AnswerModal = ({ question, closeModal }) => {
     postRequestObj['email'] = email;
     postRequestObj['photos'] = photos;
     setPostRequestBody(postRequestObj);
-    // console.log(postRequestBody);
   }, [answer, name, email, photos]);
 
   const addPhotos = (imageArr) => {
@@ -89,7 +79,6 @@ const AnswerModal = ({ question, closeModal }) => {
     setEmail('');
     setAnswer('');
     setPhotos([]);
-    setAnswerAdded(true);
   };
 
   const closePhotoModal = () => {
@@ -106,11 +95,13 @@ const AnswerModal = ({ question, closeModal }) => {
 
   useEffect(() => {
     if (errorImg === true) {
-      setErrorMessage('Please submit valid images');
+      setErrorMessage('*Please submit valid images*');
     } else {
       setErrorMessage(null);
     }
   }, [errorImg]);
+
+  //   const TrackedUploadPhotoModal = withClickTracker(UploadPhotoModal);
 
   return (
     <div className="answer-modal">
@@ -118,7 +109,14 @@ const AnswerModal = ({ question, closeModal }) => {
       <>
         <div className="answer-modal-container">
           <h2 className="modal-title">Submit your Answer</h2>
-          <h3 className="modal-subtitle"> {currentProduct.name}: {question.question_body} </h3>
+          <h3 className="modal-subtitle">
+            {' '}
+            {currentProduct.name}
+            :
+            {' '}
+            {question.question_body}
+            {' '}
+          </h3>
           <form className="answer-modal-form" onSubmit={handleSubmit}>
             <label className="modal-name">Nickname*</label>
             <input className="modal-name" placeholder="Example:jack543!" required type="text" maxLength="60" autoComplete="off" value={name} onChange={handleChange} />
@@ -134,13 +132,17 @@ const AnswerModal = ({ question, closeModal }) => {
             <input className="modal-answer" placeholder="Your answer here..." required type="text" maxLength="1000" minLength="" autoComplete="off" value={answer} onChange={(e) => { handleChange(e); }} />
             <br />
             <div className="photos-feature-container">
-              <button className="photo-modal-btn" onClick={openPhotoModal} type="button">Upload Photos</button>
-              <UploadPhotoModal
-                uploadPhoto={uploadPhoto}
-                addPhotos={addPhotos}
-                closePhotoModal={closePhotoModal}
-                reset={errorImage}
-              />
+              { (photos.length !== 5)
+                ? <button className="photo-modal-btn" onClick={openPhotoModal} type="button">Upload Photos</button>
+                : null}
+              <Suspense fallback={<div>Loading...</div>}>
+                <UploadPhotoModal
+                  uploadPhoto={uploadPhoto}
+                  addPhotos={addPhotos}
+                  closePhotoModal={closePhotoModal}
+                  reset={errorImage}
+                />
+              </Suspense>
               <div className="thumbnails-container">
                 {photos ? photos.map((photo) => {
                   return (

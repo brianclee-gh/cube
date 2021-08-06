@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable no-param-reassign */
+/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 import React, { createContext, useState } from 'react';
 import axios from 'axios';

@@ -125,30 +125,34 @@
 .first-outer-question-btn {
     height: 40px;
     width: 175px;
-    background-color: white;
-    border-radius: 7px;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
 }
 
 .first-outer-question-btn:hover {
-    background-color: lightgrey;
-    border: 1px solid black;
-    border-radius: 7px;
-    transition: all ease 0.3s;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    transition: 0.3s ease;
 }
 
 .second-outer-question-btn {
     height: 40px;
     width: 175px;
-    background-color: white;
-    border-radius: 7px;
+    background-color: black;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
     margin-left: 10px;
 }
 
 .second-outer-question-btn:hover {
-    background-color: lightgrey;
-    border: 1px solid black;
-    border-radius: 7px;
-    transition: all ease 0.3s;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    transition: 0.3s ease;
 }
 
 .answer-photos {
@@ -337,6 +341,11 @@
     display: flex;
     justify-content: center;
     margin: 5px;
+}
+
+.img-error {
+    color: red;
+    font-style: italic;
 }
 
 /* COMMON */
