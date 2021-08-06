@@ -119,7 +119,7 @@ const QAList = () => {
   return (
     <div className="qa-flex-container">
       <div className="qa-container">
-        <h2 className="qa-header">Questions & Answers</h2>
+        <h2 className="qa-header">QUESTIONS & ANSWERS</h2>
         {TrackedQASearch({ searchText: search, onSearchChange })}
         <div className="qa-list">
           { filteredData

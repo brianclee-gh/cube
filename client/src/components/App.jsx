@@ -10,6 +10,7 @@ import Header from './header/Header.jsx';
 import Main from './Overview/Main/Main.jsx';
 import Review from './reviews/ReviewsAndRatings.jsx';
 import QA from './q&a/QAList.jsx';
+import Footer from './footer/Footer.jsx';
 
 import './App.css';
 // const Related = lazy(() => import('./related/Related.jsx'));
@@ -29,6 +30,7 @@ function App() {
           <Review />
         </ProductsProvider>
       </ReviewsProvider>
+      <Footer />
     </div>
   );
 }
