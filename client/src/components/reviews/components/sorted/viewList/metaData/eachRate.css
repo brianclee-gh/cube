@@ -1,17 +1,17 @@
 #eachScoreListing_5 {
   display: inline-block;
-  height: 16px;
+  height: 10px;
   width: 70%;
   background-color: #b6b6b6;
   border-radius: 50;
   margin-right: 5px;
+  margin-top: 10px;
 }
 
 .eachScoreListing_fill {
   height: 100%;
-  background-color: #52b052;
+  background-color: #323232;
   border-radius: inherit;
-  text-align: right;
 }
 
 .eachScoreListing_percentage {
@@ -46,5 +46,23 @@
 
 .eachScoreListing {
   margin-bottom: 20px;
+}
+
+.eachScoreListing_star1_button {
+  width: 50px;
+  height: 30px;
+  font-size: 12px;
+  background-color: white;
+  color: #323232;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 5px 10px 0;
+}
+
+.eachScoreListing_star1_button:hover {
+  background-color: #323232;
+  color: white;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
 }
 /*# sourceMappingURL=eachRate.css.map */

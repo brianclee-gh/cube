@@ -6,20 +6,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0;
+    margin-top: 5g0px;
     padding: 1.0rem 1rem;
     align-items: center;
     background-color: rgb(50, 50, 50);
     color: white;
   }
-  
+
   .footer-links {
       display: flex;
       flex-direction: row;
   }
 
   .home {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -33,7 +33,7 @@
   }
 
   .about-us {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -47,7 +47,7 @@
     }
 
   .services {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -61,7 +61,7 @@
   }
 
   .join-us {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
