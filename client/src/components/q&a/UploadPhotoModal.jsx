@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 let imageArr = [];
 
 const UploadPhotoModal = ({
-  uploadPhoto, addPhotos, closePhotoModal, reset, reportClick,
+  uploadPhoto, addPhotos, closePhotoModal, reset,
 }) => {
   const [imageOne, setImageOne] = useState(null);
   const [imageTwo, setImageTwo] = useState(null);

@@ -7,7 +7,6 @@
 import React, {
   useState, useContext, useEffect, lazy, Suspense,
 } from 'react';
-// import axios from 'axios';
 import { ProductsContext } from '../state/ProductsContext.jsx';
 import QASearch from './QASearch.jsx';
 import Question from './Question.jsx';
@@ -80,39 +79,30 @@ const QAList = () => {
         setExpanded(true);
       }
     }
-  }, [filteredData, search]);
+  }, [filteredData]);
 
   useEffect(() => {
     setDefaultQuestions(2);
     setExpanded(null);
   }, [currentProduct]);
 
-  const searchList = () => {
-    if (search.length <= 2) {
-      setFilteredData(data);
-    } else {
-      const filteredArr = [];
-      for (let i = 0; i < filteredData.length; i += 1) {
-        if (filteredData[i].question_body.toLowerCase().includes(search)) {
-          filteredArr.push(filteredData[i]);
+  const onSearchChange = (e) => {
+    setSearch(e.target.value.toLowerCase());
+
+    const searchResults = [];
+
+    if (search.length > 2) {
+      data.forEach((question) => {
+        const lowerCaseQuestion = question.question_body.toLowerCase();
+        if (lowerCaseQuestion.includes(search)) {
+          searchResults.push(question);
         }
-      }
-      setFilteredData(filteredArr);
-      console.log(filteredData);
+      });
+      setFilteredData(searchResults);
+    } else {
+      setFilteredData(data);
     }
   };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearch(e.target.value);
-    if (search.length > 2 || search === '') {
-      searchList();
-    }
-  };
-
-  //   useEffect = (() => {
-  //     searchList();
-  //   }, [filteredData, search]);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -130,7 +120,7 @@ const QAList = () => {
     <div className="qa-flex-container">
       <div className="qa-container">
         <h2 className="qa-header">Questions & Answers</h2>
-        <TrackedQASearch searchText={search} handleSearch={handleSearch} />
+        {TrackedQASearch({ searchText: search, onSearchChange })}
         <div className="qa-list">
           { filteredData
             ? filteredData.slice(0, defaultQuestions).map((q) => (
