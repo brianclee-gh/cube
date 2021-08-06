@@ -22,19 +22,11 @@ function App() {
       <ReviewsProvider>
         <ProductsProvider>
           <Main />
-<<<<<<< HEAD
-          {/* <Related />
-          <QAProvider>
-            <QA />
-          </QAProvider>
-          <Review /> */}
-=======
           <Related />
           <QAProvider>
             <QA />
           </QAProvider>
           <Review />
->>>>>>> 834ce1a4bc011172c772e3c5f5b9fa1cb71d88ee
         </ProductsProvider>
       </ReviewsProvider>
     </div>
