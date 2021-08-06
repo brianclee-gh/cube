@@ -284,8 +284,9 @@ svg {
 }
 
 .modal-heading {
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 2rem;
+  font-weight: bolder;
 }
 
 /* CAROUSEL */
