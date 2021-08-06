@@ -125,12 +125,12 @@ function sortReviews() {
         </div>
 
         <Select options={sort} onChange={handleSort} defaultValue={sort[2]} />
-        <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} />
+        <ViewList starOne={starOne} starTwo={starTwo} starThree={starThree} starFour={starFour} starFive={starFive} writeReview={writeReviewModalPop} />
         <Suspense fallback={<div>...Loading</div>}>
         <WriteReview show={showWriteReviewModal} sort={currentSort} handleClose={hideReviewModalPop} />
         </Suspense>
 
-        <button type="button" className="writeReviewButton" onClick={writeReviewModalPop} >Write Review</button>
+        {/* <button type="button" className="writeReviewButtonMain" onClick={writeReviewModalPop} >Write Review</button> */}
 
        </div>
       </div>
