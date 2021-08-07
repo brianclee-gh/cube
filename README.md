@@ -16,7 +16,7 @@ Users should be able to browse different styles and images for a selected produc
 This project is designed around serving a detailed single page website for each of its unique products. Each page is comprised of 4 main widgets or modules: overview, related products, questions and answers, and reviews.
 
 ### Overview
->The overview widget is to be seen first by the user. Users should be able to fluidly navigate through different images and views of the product using the photo carousel feature. The information bar should show users essential information: the product name, price, and category. Users should also be able to select different styles and have the widget update its content on demand. The add to cart button should add the product to the user's cart if a size and quantity are selected and valid.
+>The overview widget is to be seen first by the user. Users should be able to fluidly navigate through different images and views of the product using the photo carousel feature. The information bar should show users essential information: the product ratings, the product name, price, and category. Users should also be able to select different styles and have the widget update its content on demand. The add to cart button should add the product to the user's cart if a size and quantity are selected and valid. Additionally, the overview main photo displays in a default view as well as an expanded view that allows a user to pan zoom the current selected image.
 
 ![Alt text](/screenshots/overview.png?raw=true "Overview Widget")
 
