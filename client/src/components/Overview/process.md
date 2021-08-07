@@ -108,7 +108,7 @@
         [x]    - style buttons for cart
 
           Photo Zoom
-        []  - click to expand
+        [x]  - click to expand
             - hover to zoom (on mouse move)
             - click to exit zoom
             - need a close for expanded
