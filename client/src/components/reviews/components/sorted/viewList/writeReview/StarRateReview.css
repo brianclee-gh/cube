@@ -14,7 +14,7 @@
 }
 
 .writeReviewRating {
-  width: 330px;
+  width: 59%;
   transform: rotateY(180deg);
   display: flex;
   font-size: 30px;
