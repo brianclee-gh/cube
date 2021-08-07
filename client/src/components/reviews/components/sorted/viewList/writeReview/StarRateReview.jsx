@@ -32,7 +32,6 @@ const star = ({change}) => {
   return (
     <div className="writeReviewRating_body">
       <div className="writeReviewRating_title">Overall rating *</div>
-      <label className="writeReviewRating_description">{starDescription}</label>
       <div className="writeReviewRating">
         <input type="radio" name="star" id="rate5" value="5" onClick={starRateDescriptionFive} required/>
         <label htmlFor="rate5" />
@@ -45,6 +44,7 @@ const star = ({change}) => {
         <input type="radio" name="star" id="rate1" value="1" onClick={starRateDescriptionOne} />
         <label htmlFor="rate1" />
       </div>
+      <div className="writeReviewRating_description">{starDescription}</div>
     </div>
 
   );
