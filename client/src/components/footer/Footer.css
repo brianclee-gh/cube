@@ -19,7 +19,7 @@
   }
 
   .home {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -33,7 +33,7 @@
   }
 
   .about-us {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -47,7 +47,7 @@
     }
 
   .services {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
@@ -61,7 +61,7 @@
   }
 
   .join-us {
-      padding-right: 90px;
+      padding-right: 20px;
       cursor: pointer;
       background-color: transparent;
       outline: none;
