@@ -64,12 +64,13 @@ function metaRating({ starOne, starTwo, starThree, starFour, starFive }) {
     return (
       <div className="reviewMetaRating">
         <div className="reviewMetaRating_title">RATING & REVIEWS</div>
-        <div className="reviewMetaRating_score">{ratings.starRatingOne}
-        </div>
-        <span className="reviewMetaRating_star">{StarRating(ratings.calculatedRating)}</span>
+      <div className="reviewMetaRating_score_star">
+        <div className="reviewMetaRating_score">{ratings.starRatingOne}</div>
+        <div className="reviewMetaRating_star">{StarRating(ratings.calculatedRating)}</div>
+      </div>
         <Recommendation />
         <EachRate star1={starOnefunc} star2={starTwofunc} star3={starThreefunc} star4={starFourfunc} star5={starFivefunc} starOne={setStarOnefunction} starTwo={setStarTwofunction} starThree={setStarThreefunction} starFour={setStarFourfunction} starFive={setStarFivefunction} />
-        <SizeComfort />
+        {/* <SizeComfort /> */}
       </div>
     );
   } else {

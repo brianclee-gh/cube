@@ -16,11 +16,14 @@
   font-weight: 700;
   color: rgb(75, 75, 75);
   display: inline-block;
-  margin-bottom: 20px;
 }
 
 .reviewMetaRating_star {
   display: inline-block;
-  margin-bottom: 15px;
+  align-content: center;
+  margin-left: 15px;
 }
 
+.reviewMetaRating_score_star {
+  margin-bottom: 10px;
+}
