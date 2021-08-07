@@ -82,8 +82,8 @@ function Image({ images }) {
 
     const mWidth = area.offsetWidth;
     const mHeight = area.offsetHeight;
-    clientX = -((clientX / mWidth) * 100 - 50);
-    clientY = -((clientY / mHeight) * 100 - 50);
+    clientX = -((clientX / mWidth) * 100 - 85);
+    clientY = -((clientY / mHeight) * 100 - 85);
     photoZoom.style.transform = `translate(${clientX}%, ${clientY}%) scale(2)`;
   };
   const changeStyle = () => {
