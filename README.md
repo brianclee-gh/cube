@@ -59,11 +59,7 @@ Fork and clone this repo then run:
 
 - Unit Testing: Jest
 
-- Integration Testing: Enzyme
-
-- End to End Testing: Puppeteer
-
-- Deployment: Docker / AWS
+- Deployment: AWS
 
 ## Contributors
 - Edrick Ee (Team Goal Tracker)
