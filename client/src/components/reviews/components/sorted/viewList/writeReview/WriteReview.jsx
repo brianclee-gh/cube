@@ -109,9 +109,13 @@ const Modal = ({ handleClose, show, submit }) => {
             About the {currentProduct.name}
           </div>
           <form onSubmit={handleSubmit}>
+
+          <div className="writeReview_align_to_center">
             <Star change={writeStarRrating}/>
             <Recommend recommend={recommendation} />
             <Characteristics char={metaData.characteristics} change={characteristicsSet} />
+          </div>
+
             <ReviewSummary change={writeReviewSummary} />
             <ReviewBody change={writeReviewBody} />
             <Nickname change={writeNickname} />

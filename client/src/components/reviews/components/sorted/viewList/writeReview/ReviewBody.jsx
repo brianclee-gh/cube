@@ -22,7 +22,7 @@ const reviewBody = ({change}) => {
       </label>
       <textarea type="text" name="reviewBody" id="writeReviewBody_input" onChange={updateBody} minLength="50" maxLength="1000" placeholder="Why did you like the product or not?" required />
     </div>
-    {minimumCount <= 50 ? <div className="writeReviewBody_count">Minimum required characters left: {minimumCount}</div> : <div>Minimum reached</div>}
+    {minimumCount <= 50 ? <div className="writeReviewBody_count">Minimum required characters left: {minimumCount}</div> : <div className="writeReviewBody_count">Minimum reached</div>}
     </div>
   );
 };
