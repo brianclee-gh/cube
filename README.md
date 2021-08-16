@@ -42,7 +42,7 @@ Fork and clone this repo then run:
 
 `npm run prod:react` in root to run webpack in the client
 
-`npm start:prod` in root to start the server, default listening on port 3000
+`npm run start:prod` in root to start the server, default listening on port 3000
 
 ## Technology Used
 - Dependencies: npm
