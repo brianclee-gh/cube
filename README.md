@@ -38,6 +38,8 @@ This project is designed around serving a detailed single page website for each 
 ## Installation
 Fork and clone this repo then run:
 
+CREATE config file using the example and your API key in the /server folder
+
 `npm install` in both root and /client folders
 
 `npm run prod:react` in root to run webpack in the client
