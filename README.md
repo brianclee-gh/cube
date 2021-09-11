@@ -1,8 +1,7 @@
-# RFP54-FEC
-> Front End Capstone Project for Galvanize SEI RFP-54
+# CUBE
 
 ## Overview
-Project Catwalk comprises a complete redesign of a clothing retail portal front-end website, intended to modernize and streamline the experience to improve user engagement and activity.
+CUBE comprises a complete redesign of a clothing retail portal front-end website, intended to modernize and streamline the experience to improve user engagement and activity.
 
 ## Table of Contents
 - Description
